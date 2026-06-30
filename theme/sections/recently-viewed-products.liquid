@@ -1,0 +1,221 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+{{ 'section-recently-viewed-products.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.enable_product_variants %}
+  {{ 'product-card-variants.css' | asset_url | stylesheet_tag }}
+  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+  <link rel="stylesheet" href="{{ 'component-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'component-swatch-input.css' | asset_url }}" media="print" onload="this.media='all'">
+{% endif %}
+
+
+{%- style -%}
+	#shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+
+		--slides-per-view: {{ section.settings.slides_number_mb }};
+		--slides-per-view-pc: {{ section.settings.slides_number }};
+  }
+{%- endstyle -%}
+
+
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+
+<div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden section-responsive-padding recently-viewed-products-wrapper">
+	<recently-viewed-products class="recently-viewed-products isolate"
+		data-space-between-pc="{{ settings.spacing_grid_horizontal }}"
+		data-space-between="{{ settings.spacing_grid_horizontal_mb }}"
+		data-section-id="{{ section.id }}"
+		data-product-id="{{ product.id }}"
+		data-products-limit="{{ section.settings.products_to_show }}"
+		data-enable-product-variants="{{ section.settings.enable_product_variants }}"
+		data-slides-per-view-lg="{{ section.settings.slides_number }}"
+		data-slides-per-view-sm="2.5"
+		data-slides-per-view="{{ section.settings.slides_number_mb }}"
+	>
+		<div class="title-wrapper page-width">
+			{%- if section.settings.heading != blank -%}
+				<h2 class="title inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text{% endif %}">
+					{{ section.settings.heading }}
+				</h2>
+			{%- endif -%}
+			<div class="slider-navigation small-hide medium-hide">
+				<div class="swiper-button swiper-button-prev button--animate-{{ settings.animations_hover_elements }}" tabindex="0">
+					{% render 'icon-short-arrow' %}
+				</div>
+				<div class="swiper-button swiper-button-next button--animate-{{ settings.animations_hover_elements }}" tabindex="0">
+					{% render 'icon-short-arrow' %}
+				</div>
+			</div>
+		</div>
+		
+		<div class="recently-viewed-products__main-content">
+			<div class="recently-viewed-products__grid-wrapper page-width">
+				<div class="swiper">
+					<ul class="recently-viewed-grid swiper-wrapper product-grid">
+					</ul>
+					<div class="swiper-scrollbar large-up-hide"></div>
+					<div class="slider-navigation slider-navigation--bottom large-up-hide">
+						<div class="swiper-button swiper-button-prev button--animate-{{ settings.animations_hover_elements }}" tabindex="0">
+							{% render 'icon-short-arrow' %}
+						</div>
+						<div class="swiper-button swiper-button-next button--animate-{{ settings.animations_hover_elements }}" tabindex="0">
+							{% render 'icon-short-arrow' %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </recently-viewed-products>
+</div>
+
+<script src="{{ 'recently-viewed-products.js' | asset_url }}" type="module" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Recently viewed products",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+		{
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Recently viewed",
+      "label": "Heading"
+    },
+		{
+			"type": "select",
+			"id": "heading_font_family",
+			"label": "Heading font family",
+			"options": [
+				{
+				"value": "font-heading",
+				"label": "Heading"
+				},
+				{
+				"value": "font-body",
+				"label": "Body"
+				}
+			],
+			"default": "font-heading"
+		},
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+				{
+					"value": "h3",
+					"label": "t:sections.all.heading_size.options__1.label"
+				},
+				{
+					"value": "h2",
+					"label": "t:sections.all.heading_size.options__2.label"
+				},
+				{
+					"value": "h1",
+					"label": "t:sections.all.heading_size.options__3.label"
+				}
+      ],
+      "default": "h3",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "Maximum products to show"
+    },
+	
+		{
+      "type": "range",
+      "id": "slides_number",
+      "min": 1,
+      "max": 6,
+      "step": 0.2,
+      "label": "Number of slides",
+      "default": 4
+    },
+			{
+			"type": "checkbox",
+			"id": "enable_product_variants",
+			"default": true,
+			"label": "Show color variants"
+		}, 
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+		{
+      "type": "range",
+      "id": "slides_number_mb",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "label": "Number of slides",
+      "default": 1
+    },	
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    },
+  ]
+}
+{% endschema %}

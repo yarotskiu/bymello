@@ -1,0 +1,476 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+{{ 'section-email-signup-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  {%- if section.settings.image_position == 'image-cover' -%}
+    #Banner-{{ section.id }}::after {
+      opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+    }
+  {% else %}
+    #Banner-{{ section.id }}::after {
+      display: none;
+    }
+    #Banner-{{ section.id }} .banner__media::after {
+      opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+    }
+  {%- endif -%}
+
+	{%- if section.settings.show_background_image == true -%}
+    @media screen and (max-width: 949px) {
+			{% for scheme in settings.color_schemes -%}
+				{% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+				{% if section.settings.container_color_scheme.id == scheme.id %}
+					.content-container--password {
+						--color-background: {{ scheme.settings.background.red }},{{ scheme.settings.background.green }},{{ scheme.settings.background.blue }};
+						{% if scheme.settings.background_gradient != empty %}
+							--gradient-background: {{ scheme.settings.background_gradient }};
+						{% else %}
+							--gradient-background: {{ scheme.settings.background }};
+						{% endif %}
+
+						{% liquid
+							assign background_color = scheme.settings.background
+							assign background_color_brightness = background_color | color_brightness
+							if background_color_brightness <= 26
+								assign background_color_contrast = background_color | color_lighten: 50
+							elsif background_color_brightness <= 65
+								assign background_color_contrast = background_color | color_lighten: 5
+							else
+								assign background_color_contrast = background_color | color_darken: 25
+							endif
+						%}
+
+						--color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
+						--color-secondary-foreground: {{ scheme.settings.text_secondary.red }},{{ scheme.settings.text_secondary.green }},{{ scheme.settings.text_secondary.blue }};
+						--color-heading: {{ scheme.settings.text_heading.red }},{{ scheme.settings.text_heading.green }},{{ scheme.settings.text_heading.blue }};
+						--color-accent: {{ scheme.settings.accent.red }},{{ scheme.settings.accent.green }},{{ scheme.settings.accent.blue }};
+						--color-outline: {{ scheme.settings.outline.red }},{{ scheme.settings.outline.green }},{{ scheme.settings.outline.blue }};
+						--color-background-contrast: {{ background_color_contrast.red }},{{ background_color_contrast.green }},{{ background_color_contrast.blue }};
+						--color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
+
+						--color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
+						--color-button-text: {{ scheme.settings.button_label.red }},{{ scheme.settings.button_label.green }},{{ scheme.settings.button_label.blue }};
+						--color-button-outline: {{ scheme.settings.button_outline.red }},{{ scheme.settings.button_outline.green }},{{ scheme.settings.button_outline.blue }};
+						--color-button-hover: {{ scheme.settings.button_hover.red }},{{ scheme.settings.button_hover.green }},{{ scheme.settings.button_hover.blue }};
+						--color-button-text-hover: {{ scheme.settings.button_label_hover.red }},{{ scheme.settings.button_label_hover.green }},{{ scheme.settings.button_label_hover.blue }};
+						--color-button-outline-hover: {{ scheme.settings.button_outline_hover.red }},{{ scheme.settings.button_outline_hover.green }},{{ scheme.settings.button_outline_hover.blue }};
+
+						--color-secondary-button: {{ scheme.settings.secondary_button.red }},{{ scheme.settings.secondary_button.green }},{{ scheme.settings.secondary_button.blue }};
+						--color-secondary-button-text: {{ scheme.settings.secondary_button_label.red }},{{ scheme.settings.secondary_button_label.green }},{{ scheme.settings.secondary_button_label.blue }};
+						--color-secondary-button-outline: {{ scheme.settings.secondary_button_outline.red }},{{ scheme.settings.secondary_button_outline.green }},{{ scheme.settings.secondary_button_outline.blue }};
+						--color-secondary-button-hover: {{ scheme.settings.secondary_button_hover.red }},{{ scheme.settings.secondary_button_hover.green }},{{ scheme.settings.secondary_button_hover.blue }};
+						--color-secondary-button-text-hover: {{ scheme.settings.secondary_button_label_hover.red }},{{ scheme.settings.secondary_button_label_hover.green }},{{ scheme.settings.secondary_button_label_hover.blue }};
+						--color-secondary-button-outline-hover: {{ scheme.settings.secondary_button_outline_hover.red }},{{ scheme.settings.secondary_button_outline_hover.green }},{{ scheme.settings.secondary_button_outline_hover.blue }};
+
+						--socials-button: {{ scheme.settings.social_button.red }},{{ scheme.settings.social_button.green }},{{ scheme.settings.social_button.blue }};
+						--socials-button-text: {{ scheme.settings.social_button_label.red }},{{ scheme.settings.social_button_label.green }},{{ scheme.settings.social_button_label.blue }};
+						--socials-button-outline: {{ scheme.settings.social_button_outline.red }},{{ scheme.settings.social_button_outline.green }},{{ scheme.settings.social_button_outline.blue }};
+						--socials-button-hover: {{ scheme.settings.social_button_hover.red }},{{ scheme.settings.social_button_hover.green }},{{ scheme.settings.social_button_hover.blue }};
+						--socials-button-text-hover: {{ scheme.settings.social_button_label_hover.red }},{{ scheme.settings.social_button_label_hover.green }},{{ scheme.settings.social_button_label_hover.blue }};
+						--socials-button-outline-hover: {{ scheme.settings.social_button_outline_hover.red }},{{ scheme.settings.social_button_outline_hover.green }},{{ scheme.settings.social_button_outline_hover.blue }};
+
+						--slider-button: {{ scheme.settings.slider_button.red }}, {{ scheme.settings.slider_button.green }}, {{ scheme.settings.slider_button.blue }};
+						--slider-button-text: {{ scheme.settings.slider_button_label.red }},{{ scheme.settings.slider_button_label.green }},{{ scheme.settings.slider_button_label.blue }};
+						--slider-button-outline: {{ scheme.settings.slider_button_outline.red }},{{ scheme.settings.slider_button_outline.green }},{{ scheme.settings.slider_button_outline.blue }};
+						--slider-button-hover: {{ scheme.settings.slider_button_hover.red }},{{ scheme.settings.slider_button_hover.green }},{{ scheme.settings.slider_button_hover.blue }};
+						--slider-button-text-hover: {{ scheme.settings.slider_button_label_hover.red }},{{ scheme.settings.slider_button_label_hover.green }},{{ scheme.settings.slider_button_label_hover.blue }};
+						--slider-button-outline-hover: {{ scheme.settings.slider_button_outline_hover.red }},{{ scheme.settings.slider_button_outline_hover.green }},{{ scheme.settings.slider_button_outline_hover.blue }};
+
+						--color-badge-foreground: var(--color-secondary-button-text);
+						--color-badge-background: var(--color-secondary-button);
+						--color-badge-border: var(--color-secondary-button-outline);
+						--color-badge-foreground-hover: var(--color-secondary-button-text-hover);
+						--color-badge-background-hover: var(--color-secondary-button-hover);
+						--color-badge-border-hover: var(--color-secondary-button-outline-hover);
+						--payment-terms-background-color: rgb({{ scheme.settings.background.rgb }});
+						--input-border-color: {{ scheme.settings.input_border_color.red }}, {{ scheme.settings.input_border_color.green }}, {{ scheme.settings.input_border_color.blue }};
+					}
+				{% endif %}	
+			{% endfor %}
+    }
+	{%- endif -%}
+
+  {%- if section.settings.image_height == 'adapt-image' and section.settings.image != blank -%}
+    @media screen and (max-width: 749px) {
+      #Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+
+    #Banner-{{ section.id }}::before,
+    #Banner-{{ section.id }} .banner__media::before {
+      padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+      content: '';
+      display: block;
+    }
+  {%- endif -%}
+{%- endstyle -%}
+
+<div
+  id="Banner-{{ section.id }}"
+  class="email-signup-banner banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_position }}"
+>
+	{%- if section.settings.show_background_image -%}
+    <div class="email-signup-banner__media banner__media media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: sizes: '100vw', alt: section.settings.image.alt,
+          widths: '320, 360, 375, 420, 480, 768, 950, 1024, 1200, 1360, 1440 1600, 1920, 2560'
+        }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+  {%- endif -%} 
+  
+  <div class="banner__content page-width color-{{ section.settings.color_scheme }}">
+    <div class="email-signup-banner__box banner__box newsletter newsletter__wrapper isolate{% if section.settings.show_background_image == false %} email-signup-banner__box--no-image{% endif %} content-container content-container--password gradient content-container--full-width-mobile">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <h2 class="email-signup-banner__heading {{ block.settings.heading_size }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {{ block.shopify_attributes }}>
+              {{ block.settings.heading | escape }}
+            </h2>
+          {%- when 'paragraph' -%}
+            <div class="newsletter__subheading rte inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+			{%- for block in section.blocks -%}
+				{%- case block.type -%}
+					{%- when 'countdown_bar' -%}
+						<div class="email-signup-banner__countdown-wrapper countdown--align-{{ block.settings.countdown_alignment }}">
+							{% if block.settings.countdown_date != blank %}
+								{%- render 'countdown-bar', 
+									label: block.settings.countdown_label, 
+									date: block.settings.countdown_date, 
+									complited: block.settings.countdown_end,
+									days_label: block.settings.days_label,
+									hours_label: block.settings.hours_label,
+									mins_label: block.settings.mins_label,
+									secs_label: block.settings.secs_label,
+								-%}
+							{% endif %}
+					</div>
+				{%- endcase -%}
+			{%- endfor -%}
+				
+          {%- when 'email_form' -%}
+            <div {% if settings.animations_reveal_on_scroll %} class="scroll-trigger animate--slide-in"{% endif %} {{ block.shopify_attributes }}>
+              {% form 'customer', class: 'newsletter-form' %}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div class="newsletter-form__field-wrapper">
+                  <div class="field">
+                    <input
+                      id="NewsletterForm--{{ section.id }}"
+                      type="email"
+                      name="contact[email]"
+                      class="field__input"
+                      value="{{ form.email }}"
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      autocomplete="email"
+                      {% if form.errors %}
+                        autofocus
+                        aria-invalid="true"
+                        aria-describedby="Newsletter-error--{{ section.id }}"
+                      {% elsif form.posted_successfully? %}
+                        aria-describedby="Newsletter-success--{{ section.id }}"
+                      {% endif %}
+                      placeholder="{{ 'newsletter.label' | t }}"
+                      required
+                    >
+                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                      {{ 'newsletter.label' | t }}
+                    </label>
+                    <button
+                      type="submit"
+                      class="newsletter-form__button field__button"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="{{ 'newsletter.button_label' | t }}"
+                    >
+                      {% render 'icon-short-arrow' %}
+                    </button>
+                  </div>
+									<small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+										{%- if form.errors -%}
+											{%- render 'icon-error' -%}
+											{{- form.errors.translated_fields.email | capitalize }}
+											{{ form.errors.messages.email -}}
+										{%- endif -%}
+									</small>
+                </div>
+                {%- if form.posted_successfully? -%}
+                  <h3
+                    class="newsletter-form__message newsletter-form__message--success form__message--success form__message"
+                    id="Newsletter-success--{{ section.id }}"
+                    tabindex="-1"
+                    autofocus
+                  >
+                    {% render 'icon-success' -%}
+                    {{- 'newsletter.success' | t }}
+                  </h3>
+                {%- endif -%}
+              {% endform %}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.email-signup-banner.name",
+  "tag": "section",
+  "class": "section",
+	"limit": 1,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.email-signup-banner.settings.paragraph.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.email-signup-banner.settings.image.label"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.email-signup-banner.settings.image_overlay_opacity.label",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "show_background_image",
+      "label": "t:sections.email-signup-banner.settings.show_background_image.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Image position"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.email-signup-banner.settings.color_scheme.info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "container_color_scheme",
+      "label": "Container color scheme",
+      "info": "Visible on mobile when container displayed.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.email-signup-banner.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.email-signup-banner.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Opening soon",
+          "label": "t:sections.email-signup-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+						{
+							"value": "h3",
+							"label": "t:sections.all.heading_size.options__1.label"
+						},
+						{
+							"value": "h2",
+							"label": "t:sections.all.heading_size.options__2.label"
+						},
+						{
+							"value": "h1",
+							"label": "t:sections.all.heading_size.options__3.label"
+						}
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "name": "t:sections.email-signup-banner.blocks.paragraph.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Be the first to know when we launch.</p>",
+          "label": "t:sections.email-signup-banner.blocks.paragraph.settings.paragraph.label"
+        }
+      ]
+    },
+    {
+      "type": "countdown_bar",
+      "name": "Countdown bar",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "countdown_date",
+          "default": "July 01, 2024",
+          "label": "End date",
+          "info": "Example: Dec 31, 2023 or Dec 31, 2023 20:00"
+        },
+        {
+          "type": "select",
+          "id": "countdown_end",
+          "options": [
+            {
+              "value": "show_zeroes",
+              "label": "Show zeroes"
+            },
+            {
+              "value": "hide_countdown",
+              "label": "Hide countdown"
+            },
+						{
+							"value": "cycle",
+							"label": "Cycle"
+						}
+          ],
+          "default": "cycle",
+          "label": "When date has passed"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "countdown_label",
+          "label": "Heading"
+        },
+				{
+					"type": "text",
+					"id": "days_label",
+					"default": "Days",
+					"label": "Days"
+				},
+				{
+					"type": "text",
+					"id": "hours_label",
+					"default": "Hrs",
+					"label": "Hours"
+				},
+				{
+					"type": "text",
+					"id": "mins_label",
+					"default": "Mins",
+					"label": "Minutes"
+				},
+				{
+					"type": "text",
+					"id": "secs_label",
+					"default": "Secs",
+					"label": "Seconds"
+				}
+      ]
+    },
+    {
+      "type": "email_form",
+      "name": "t:sections.email-signup-banner.blocks.email_form.name",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.email-signup-banner.presets.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "paragraph"
+        },
+        {
+          "type": "email_form"
+        },
+		{
+          "type": "countdown_bar"
+        }
+      ]
+    }
+  ],
+  "templates": [
+    "password"
+  ]
+}
+{% endschema %}

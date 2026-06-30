@@ -1,0 +1,442 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumbs_color_scheme": "scheme-8",
+        "breadcrumbs_active_color_enable": true,
+        "breadcrumbs_active_color": "#0042eb",
+        "banner_height": "default",
+        "overlay": "",
+        "image_overlay_opacity": 40,
+        "banner_color_scheme": "scheme-1",
+        "title": "Pieces for Every Story",
+        "heading_size": "h3",
+        "title_weight": "fw-500",
+        "banner_padding_top": 40,
+        "banner_padding_bottom": 0,
+        "banner_padding_top_mb": 40,
+        "banner_padding_bottom_mb": 0,
+        "first_collection_color_scheme": "scheme-4",
+        "sort": "alphabetical",
+        "columns_desktop": 3,
+        "image_type": "cover",
+        "image_ratio": "landscape",
+        "custom_image_height": 109,
+        "show_description": false,
+        "pagination_button_style": "general",
+        "columns_mobile": "1",
+        "padding_top": 40,
+        "padding_bottom": 120,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 80
+      }
+    },
+    "countdown_banner_JeVQE9": {
+      "type": "countdown-banner",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Flash Sale!",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "text_color": "foreground",
+        "text": "Get 10% off on spending $199 or more!",
+        "full_width": true,
+        "color_scheme_background": "",
+        "padding_top_background": 40,
+        "padding_bottom_background": 40,
+        "padding_top_background_mb": 40,
+        "padding_bottom_background_mb": 40,
+        "countdown_date": "July 01, 2025",
+        "countdown_end": "cycle",
+        "days_label": "Days",
+        "hours_label": "Hours",
+        "mins_label": "Minutes",
+        "secs_label": "Seconds",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "testimonials_banner": {
+      "type": "testimonials-banner",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Finally a brand that keeps it simple.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
+            "full_name": "Riya, 26",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_HHDpqN": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Unisex but genuinely effective.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The body wash + moisturiser duo fixed my dryness in a week.",
+            "full_name": "Peter, 35",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_gmVAbm": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4.6,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "\"My skin hasn’t looked this even in years.\"",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The gel cleanser and moisturiser combo just works. Zero irritation, zero drama.",
+            "full_name": "Maya, 34",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_HHDpqN",
+        "testimonial_gmVAbm"
+      ],
+      "settings": {
+        "testimonials_layout": "column",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-2",
+        "background_image": "",
+        "heading": "Beauty, Affirmed",
+        "heading_font_family": "font-heading",
+        "heading_size": "h0-xs",
+        "heading_weight": "fw-500",
+        "heading_color_gradient": "linear-gradient(57deg, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%)",
+        "autoplay": true,
+        "change_slides_speed": 4,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_VbTPxV": {
+          "type": "heading",
+          "settings": {
+            "text": "Care that wears like couture",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_zge8ed": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_VbTPxV",
+        "icon_zge8ed"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 25,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "image_banner_LKzqph": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_CXQMUa": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Simplicity Sale — Up to 25% Off Essentials",
+            "heading_size": "h1",
+            "heading_weight": "fw-500",
+            "text_gradient": ""
+          }
+        },
+        "buttons_MFArjU": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_outline_1": "outline-none",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "primary",
+            "button_outline_2": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CXQMUa",
+        "buttons_MFArjU"
+      ],
+      "settings": {
+        "full_width": false,
+        "desktop_content_position": "bottom-left-to-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "image": "",
+        "image_height": "adapt",
+        "image_overlay_opacity": 0,
+        "image_behavior": "none",
+        "image_height_mb": "adapt",
+        "mobile_content_alignment": "bottom-left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "featured_blog": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Read Our Blogs",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "blog": "gifts",
+        "post_limit": 4,
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_image": true,
+        "show_description": "none",
+        "show_date": true,
+        "show_author": false,
+        "show_comments": false,
+        "show_view_all": true,
+        "read_more_title": "Read More",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "faq_pTJiFU": {
+      "type": "faq",
+      "blocks": {
+        "item_byztEQ": {
+          "type": "item",
+          "settings": {
+            "heading": "Can I modify or cancel my order after it's been placed?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "While we strive to accommodate changes, it may not always be possible once the order has been processed. Please contact our customer service team as soon as possible if you need to make any modifications."
+          }
+        },
+        "item_fyYFpe": {
+          "type": "item",
+          "settings": {
+            "heading": "How do I place an order?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "To place an order, simply browse our website and add the desired items to your cart. Once you're ready to checkout, provide your shipping information and payment details."
+          }
+        },
+        "item_XVwMCH": {
+          "type": "item",
+          "settings": {
+            "heading": "What is your return policy?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "Our return policy outlines the conditions under which you can return a product. Please refer to our website for specific details."
+          }
+        },
+        "item_gzybEj": {
+          "type": "item",
+          "settings": {
+            "heading": "Do you offer gift wrapping?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "Yes, we offer gift wrapping services. Please select this option during the checkout process."
+          }
+        },
+        "item_9Pf8kt": {
+          "type": "item",
+          "settings": {
+            "heading": "Still have questions? Feel free to <a href=\"/pages/contact\" title=\"Contact us\">Contact</a>",
+            "heading_size": "h6",
+            "heading_color": "foreground-secondary",
+            "heading_weight": "fw-400",
+            "heading_font_family": "font-body",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_byztEQ",
+        "item_fyYFpe",
+        "item_XVwMCH",
+        "item_gzybEj",
+        "item_9Pf8kt"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "description": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "icon_with_text": {
+      "type": "icon-with-text",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free delivery",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Customer support",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free shipping",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_6twLw6": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Secure payment",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_6twLw6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-10",
+        "auto_rotate": true,
+        "slides_per_view": 1,
+        "change_slides_speed": 5,
+        "scroll_speed": 1.7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "countdown_banner_JeVQE9",
+    "testimonials_banner",
+    "scrolling_banner",
+    "image_banner_LKzqph",
+    "featured_blog",
+    "faq_pTJiFU",
+    "icon_with_text"
+  ]
+}

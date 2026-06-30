@@ -1,0 +1,251 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "image": "",
+        "image_overlay_opacity": 20,
+        "banner_height": "medium",
+        "banner_text_alignment": "left",
+        "title": "Contact Us",
+        "title_size": "h1",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 90,
+        "banner_padding_bottom": 90,
+        "banner_padding_top_mb": 56,
+        "banner_padding_bottom_mb": 24,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "blocks": {
+        "select_kG78Mk": {
+          "type": "select",
+          "settings": {
+            "select_option": "Option1"
+          }
+        },
+        "select_aMXeRG": {
+          "type": "select",
+          "settings": {
+            "select_option": "Option2"
+          }
+        },
+        "select_6t8rTz": {
+          "type": "select",
+          "settings": {
+            "select_option": "Option3"
+          }
+        },
+        "select_TM7rYk": {
+          "type": "select",
+          "settings": {
+            "select_option": "Option4"
+          }
+        },
+        "select_CRYf4P": {
+          "type": "select",
+          "settings": {
+            "select_option": "Option5"
+          }
+        }
+      },
+      "block_order": [
+        "select_kG78Mk",
+        "select_aMXeRG",
+        "select_6t8rTz",
+        "select_TM7rYk",
+        "select_CRYf4P"
+      ],
+      "settings": {
+        "heading": "Get in Touch",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "description": "Reach out to us in case of any queries or concerns.",
+        "button_style": "primary",
+        "button_outline": "outline-none",
+        "show_select": true,
+        "select_label": "Subject",
+        "bottom_border": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 120,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 80
+      }
+    },
+    "multicolumn_38RDWr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_T7i7pa": {
+          "type": "column",
+          "settings": {
+            "title": "Paris",
+            "heading_color": "foreground",
+            "heading_gradient": "",
+            "title_size": "h5",
+            "title_weight": "fw-500",
+            "subheading": "<h6>12 Rue Saint-Antoine, Paris, France, +33 1 86 95 24 73</h6>",
+            "text": "<p>Monday – Friday: 9:00 – 21:00<br/>Saturday: 11:00 – 21:00</p>",
+            "text_color": "foreground-secondary",
+            "link_label": "",
+            "link": "",
+            "show_borders": "borders",
+            "overlay": "",
+            "image_overlay_opacity": 0
+          }
+        },
+        "column_NeqFDz": {
+          "type": "column",
+          "settings": {
+            "title": "New York",
+            "heading_color": "foreground",
+            "heading_gradient": "",
+            "title_size": "h5",
+            "title_weight": "fw-500",
+            "subheading": "<h6>123 Atlantic, Brooklyn, New York, USA +403 374 748 3839</h6>",
+            "text": "<p>Monday – Friday: 9:00 – 21:00<br/>Saturday: 11:00 – 21:00</p>",
+            "text_color": "foreground-secondary",
+            "link_label": "",
+            "link": "",
+            "show_borders": "borders",
+            "overlay": "",
+            "image_overlay_opacity": 0
+          }
+        },
+        "column_EKiKdj": {
+          "type": "column",
+          "settings": {
+            "title": "London",
+            "heading_color": "foreground",
+            "heading_gradient": "",
+            "title_size": "h5",
+            "title_weight": "fw-500",
+            "subheading": "<h6>48 Kingsway, London, United Kingdom, +44 20 3984 7621<br/></h6>",
+            "text": "<p>Monday – Friday: 9:00 – 21:00<br/>Saturday: 11:00 – 21:00</p>",
+            "text_color": "foreground-secondary",
+            "link_label": "",
+            "link": "",
+            "show_borders": "borders",
+            "overlay": "",
+            "image_overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "column_T7i7pa",
+        "column_NeqFDz",
+        "column_EKiKdj"
+      ],
+      "settings": {
+        "title": "Or Reach Us at Our Stores",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "heading_width": 780,
+        "color_scheme": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "columns_desktop": 3,
+        "image_width": "full",
+        "custom_image_width": 30,
+        "image_ratio": "adapt",
+        "enable_min_height": false,
+        "columns_min_height": 100,
+        "column_alignment": "left",
+        "vertical_content_alignment": "bottom",
+        "background_style": "primary",
+        "column_color_scheme": "",
+        "columns_mobile": "1",
+        "column_alignment_mobile": "left",
+        "swipe_on_mobile": false,
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 0
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_kQjwJP": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_kQjwJP"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form",
+    "multicolumn_38RDWr",
+    "scrolling_banner"
+  ]
+}

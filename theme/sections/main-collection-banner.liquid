@@ -1,0 +1,289 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.show_breadcrumbs -%}
+	{{ 'component-breadcrumb.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+
+		--opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};	
+		{% if section.settings.overlay != blank %}
+			--overlay: {{ section.settings.overlay }};
+		{% endif %}
+  }
+{%- endstyle -%}
+
+{% if collection.image != blank %}
+  {% assign collection_image = collection.image %}
+{% elsif collection.featured_image != blank %}
+  {% assign collection_image = collection.featured_image %}
+{% else %}
+  {% assign collection_image = section.settings.default_image %}
+{% endif %}
+
+{%- liquid
+	assign is_media = false
+	if collection_image != blank or section.settings.video != blank
+		assign is_media = true
+	endif
+-%}
+
+{%- if section.settings.show_breadcrumbs -%}
+	<div class="breadcrumbs-wrapper collection-hero-breadcrumbs color-{{section.settings.breadcrumbs_color_scheme }}">
+		<div class="page-width">
+			{% render 'breadcrumbs',
+				active_breadcrumb_color: section.settings.breadcrumbs_active_color,
+				active_breadcrumb_color_enable: section.settings.breadcrumbs_active_color_enable
+			%}
+		</div>
+  </div>
+{%- endif -%}		
+
+<div class="collection-hero  {% if section.settings.show_collection_image and is_media %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="collection-hero__inner collection-hero__inner--{{ section.settings.banner_height }} align-{{ section.settings.heading_alignment }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in animate--slide-in{% endif %}">
+    {%- if section.settings.show_collection_image and section.settings.video != blank -%}
+			{{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true }}
+    {%- elsif section.settings.show_collection_image and collection_image -%}
+      <div class="collection-hero__image-container media gradient">
+        <img
+          srcset="
+            {%- if collection_image.width >= 165 -%}{{ collection_image | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if collection_image.width >= 360 -%}{{ collection_image | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if collection_image.width >= 535 -%}{{ collection_image | image_url: width: 535 }} 535w,{%- endif -%}
+            {%- if collection_image.width >= 750 -%}{{ collection_image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if collection_image.width >= 1070 -%}{{ collection_image | image_url: width: 1070 }} 1070w,{%- endif -%}
+            {%- if collection_image.width >= 1500 -%}{{ collection_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ collection_image | image_url }} {{ collection_image.width }}w
+          "
+          src="{{ collection_image | image_url: width: 1920 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width }}px, (min-width: 750px) 100vw, 100vw"
+          alt="{{ collection_image.alt | escape }}"
+          width="{{ collection_image.width }}"
+          height="{{ collection_image.height }}"
+					loading="lazy"
+        >
+      </div>
+    {%- endif -%}
+
+    <div class="collection-hero__text-wrapper page-width section-responsive-padding">
+      <h1 class="collection-hero__title {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} animate--fade-in">
+        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+        {{- collection.title | escape -}}
+      </h1>
+
+      {%- if section.settings.show_collection_description -%}
+        <div class="collection-hero__description rte clr-text-foreground-secondary">{{ collection.description | strip_html }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+		{
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "default": true,
+      "label": "Show breadcrumbs"
+    },	
+		{
+      "type": "color_scheme",
+      "id": "breadcrumbs_color_scheme",
+      "label": "Breadcrumbs color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "checkbox",
+      "id": "breadcrumbs_active_color_enable",
+      "label": "Use custom active breadcrumb color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "breadcrumbs_active_color",
+      "label": "Custom color for active breadcrumb",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.breadcrumbs_active_color_enable == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "default": false,
+      "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    },
+		{
+      "type": "image_picker",
+      "id": "default_image",
+      "label": "Default image",
+      "info": "Visible when no collection image is available."
+    },
+		{
+			"type": "video",
+			"id": "video",
+			"label": "Video",
+			"info": "Use metafields to show different videos for collections"
+		},
+    {
+      "type": "select",
+      "id": "banner_height",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.slideshow.settings.slide_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.slideshow.settings.slide_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.slideshow.settings.slide_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "Banner height"
+    },
+		{
+			"type": "color_background",
+			"id": "overlay",
+			"label": "Overlay"
+		},
+		{
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.image-banner.settings.image_overlay_opacity.label",
+      "default": 40
+    },	
+		{
+			"type": "select",
+			"id": "heading_font_family",
+			"label": "Heading font family",
+			"options": [
+				{
+				"value": "font-heading",
+				"label": "Heading"
+				},
+				{
+				"value": "font-body",
+				"label": "Body"
+				}
+			],
+			"default": "font-heading"
+		},
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+				{
+					"value": "h3",
+					"label": "t:sections.all.heading_size.options__1.label"
+				},
+				{
+					"value": "h2",
+					"label": "t:sections.all.heading_size.options__2.label"
+				},
+				{
+					"value": "h1",
+					"label": "t:sections.all.heading_size.options__3.label"
+				}
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+		{
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },	
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 70
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 400,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 400,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    }
+  ]
+}
+{% endschema %}

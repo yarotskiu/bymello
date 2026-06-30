@@ -1,0 +1,69 @@
+.scroll-to-top {
+  --gap: -50px;
+  --_sticky-bar-height: var(--sticky-bar-height, 0px);
+  --_atc-bar-height: var(--atc-bar-height, 0px);
+  --_compare-drawer-height: var(--compare-drawer-height, 0px);
+
+  position: fixed;
+  right: 3.6rem;
+  bottom: var(--gap);
+  bottom: calc(var(--gap) + var(--_sticky-bar-height));
+  z-index: 2;
+  transition: bottom 0.4s ease;
+}
+
+.scroll-to-top.active {
+  --gap: 3.6rem;
+}
+
+.scroll-to-top__button {
+  --outline: var(--color-button-text);
+  --outline-hover: var(--color-button-text-hover);
+
+  width: 5rem;
+  height: 5rem;
+  padding: 0;
+  min-width: unset;
+  min-height: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform: translateY(10rem);
+  border: 0.1rem solid;
+}
+
+.scroll-to-top__button.border--hide {
+  border: none;
+}
+
+.active .scroll-to-top__button {
+  transform: translateY(0);
+}
+
+.scroll-to-top__button .icon-short-arrow {
+  transform: rotate(-90deg);
+}
+
+.scroll-to-top__button.button-style--round {
+  border-radius: 50%;
+}
+
+#MainContent:has(.atc-visible) ~ .scroll-to-top {
+  bottom: 24rem;
+  bottom: calc(var(--gap) + var(--_atc-bar-height) + var(--_sticky-bar-height));
+}
+
+#MainContent:has(~ .compare-banner.half-open) ~ .scroll-to-top {
+  bottom: calc(var(--gap) + var(--_compare-drawer-height));
+}
+
+#MainContent:has(~ .compare-banner.half-open):has(.atc-visible) ~ .scroll-to-top {
+  bottom: calc(var(--gap) + var(--_compare-drawer-height) + var(--_atc-bar-height));
+}
+
+@media screen and (max-width: 749px) {
+  .scroll-to-top {
+    right: 2rem;
+  }
+}

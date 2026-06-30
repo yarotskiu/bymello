@@ -1,0 +1,95 @@
+.card-variants-wrapp {
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.card-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.7rem;
+}
+
+.card-variants .card-variant {
+  --swatch-size: var(--product-variants-size);
+  height: var(--swatch-size);
+  width: var(--swatch-size);
+}
+
+.card-variants .card-variant:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: 0.3rem;
+  box-shadow:
+    0 0 0 0.3rem rgb(var(--color-background)),
+    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  border-radius: 50%;
+}
+
+.card-variants .card-variant__item {
+  --swatch-size: var(--product-variants-size);
+
+  display: inline-block;
+  position: relative;
+  width: var(--swatch-size);
+  height: var(--swatch-size);
+  margin: 0 auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  outline-offset: 0.4rem;
+  forced-color-adjust: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1560px) {
+  .extra-large-layout .card-variants .card-variant,
+  .extra-large-layout .card-variants .card-variant__item {
+    --swatch-size: 3.2rem;
+  }
+
+  .extra-large-layout .card-variant--disabled .swatch,
+  .extra-large-layout .card-variant--disabled .swatch {
+    --swatch-input--size: 3.2rem;
+  }
+}
+
+.card-variants .active .card-variant__item {
+  outline: 0.1rem solid rgb(var(--color-foreground));
+  transform: translateZ(0);
+  forced-color-adjust: none;
+}
+
+.card-variant--disabled .swatch,
+.card-variant--disabled .swatch {
+  --swatch-input--size: 2.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Display white semi-transparent overlay over swatch when input is disabled */
+.card-variant--disabled .swatch::before,
+.card-variant--disabled .swatch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 250, 250, 0.5);
+}
+
+/* Display crossed out line over swatch when input is disabled */
+.card-variant--disabled .swatch::after,
+.card-variant--disabled .swatch::after {
+  /* Diagonal of a square = length of the side * sqrt(2)  */
+  --diagonal--size: calc(var(--swatch-input--size) * 1.414);
+  --crossed-line--size: 0.1rem;
+  --crossed-line--color: rgb(0, 0, 0);
+
+  content: '';
+  position: absolute;
+  bottom: calc(var(--crossed-line--size) * -0.5);
+  left: 0;
+  width: var(--diagonal--size);
+  height: var(--crossed-line--size);
+  background-color: var(--crossed-line--color);
+  transform: rotate(-45deg);
+  transform-origin: left;
+}

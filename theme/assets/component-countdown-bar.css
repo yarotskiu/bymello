@@ -1,0 +1,82 @@
+countdown-bar {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: .4rem 1.5rem;
+}
+
+.countdown-bar__items {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.3rem;
+	padding: .9rem 1.7rem;
+	border: .1rem solid rgb(var(--color-outline));
+	border-radius: min(var(--inputs-radius), 10px);
+	font-weight: 600;
+}
+
+.contdown-bar__label {
+	font-weight: 500;
+	line-height: 2.25;
+}
+
+.countdown-bar__item{
+	position: relative;
+}
+
+.countdown-bar .countdown-bar__item:not(:first-child):before {
+	content: ':';
+	display: inline-block;
+	margin-right: .9rem;
+}
+
+countdown-digit {
+	display: inline-block;
+}
+
+countdown-digit.js-animated {
+	animation: digitAppearance .5s linear;
+}
+
+.countdown-bar__number {
+	--col-number: 1;
+	display: inline-grid;
+	grid-template-columns: repeat(var(--col-number), minmax(1.4rem, auto));
+	justify-content: center;
+}
+
+.countdown-bar__number:has(:nth-child(2)) {
+	--col-number: 2;
+}
+
+.countdown-bar__number:has(:nth-child(3)) {
+	--col-number: 3;
+}
+
+.countdown-bar__number:has(:nth-child(4)) {
+	--col-number: 4;
+}
+
+.countdown-bar__number:has(:nth-child(5)) {
+	--col-number: 5;
+}
+
+@keyframes digitAppearance {
+	0% {
+		opacity: 1;
+		transform: translateY(0)
+	}
+	50% 	{
+		opacity: 0;
+		transform: translateY(-8px)
+	}
+	51% 	{
+		opacity: 0;
+		transform: translateY(8px)
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0)
+	}
+}

@@ -1,0 +1,192 @@
+
+
+.contact img {
+  max-width: 100%;
+}
+
+.contact .form__message {
+  align-items: flex-start;
+}
+
+.contact .icon-success {
+  margin-top: .5rem;
+}
+
+.contact .field::after,
+.contact .field::before {
+	content: unset;
+}
+
+
+.contact .field {
+  margin-bottom: 2.4rem;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.contact .description {
+	margin-top: 0;
+	color: rgb(var(--color-secondary-foreground));
+}
+
+.contact .field__input::placeholder {
+	opacity: 1;
+	color: rgb(var(--color-secondary-foreground));
+}
+
+.contact .text-area, 
+.contact .field input, 
+.contact select {
+  border: var(--inputs-border-width) solid rgba(var(--input-border-color), var(--inputs-border-opacity));
+  box-shadow: var(--inputs-shadow-horizontal-offset) var(--inputs-shadow-vertical-offset)
+    var(--inputs-shadow-blur-radius) rgba(var(--color-shadow), var(--inputs-shadow-opacity));
+  padding: 2.1rem 2rem;
+  line-height: 1.2em;
+}
+
+.contact .text-area:focus, 
+.contact .field input:focus, 
+.contact select:focus {
+	border-color: rgb(var(--color-foreground));
+	box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground));
+}
+
+.contact select {
+	width: 100%;
+	appearance: none;
+  -moz-appearance: none; 
+  -webkit-appearance: none; 
+  background: none;
+	font-size: 1.6rem;
+	font-size: var(--f-size-text-md);
+	font-family: var(--font-body-family);
+	padding-right: 4rem;
+	border-radius: var(--inputs-radius);
+	color: rgb(var(--color-secondary-foreground));
+	background-color: rgb(var(--color-background));
+}
+
+.contact__form-status {
+	scroll-behavior: smooth;
+	scroll-margin-top: 20rem;
+	scroll-padding-top: 20rem;
+}
+
+.contact select:valid {
+	color: rgb(var(--color-foreground));
+}
+
+.contact select:focus {
+	outline: none;
+	border-color: rgba(var(--color-foreground));
+	box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground));
+}
+
+.contact select.select_field:focus-visible,
+.contact select.select_field:target,
+.contact select:active {
+	outline: 0;
+	outline: unset;
+	box-shadow: none;
+	box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground));
+}
+
+.contact__select-wrapper {
+	position: relative;
+}
+
+.contact__label {
+	font-weight: 500;
+}
+
+.contact .field__input:not(.text-area) {
+	height: 6rem;
+}
+
+.contact .text-area {
+	min-height: 14rem;
+}
+
+.contact .text-area::-webkit-scrollbar  {
+	width: .3rem;
+  border-radius: 100px;
+}
+
+.contact .text-area::-webkit-scrollbar-thumb  {
+  border-radius: 100px;
+	border: .1rem solid rgb(var(--color-foreground));
+	background: rgb(var(--color-foreground));
+}
+
+.contact .text-area::-webkit-scrollbar-track {
+  border-radius: 100px;
+}
+
+.contact__required {
+	color: #FF3737;
+}
+
+.contact--border-bottom {
+	position: relative;
+}
+
+.contact--border-bottom:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  border-bottom: .1rem solid rgb(var(--color-outline));
+	width: calc(100% - 3rem);
+  left: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact .field {
+    margin-bottom: 4rem;
+  }
+
+	.contact__fields > *:first-child:last-child {
+		grid-column: span 2;	
+	}
+
+	.contact--border-bottom:after {
+		width: min(calc(var(--page-width) - var(--container-padding)* 2), calc(100% - var(--container-padding)* 2));
+    left: max(var(--container-padding), calc((100% - var(--page-width)) / 2 + var(--container-padding)));
+	}
+}
+
+.contact__button {
+  margin-top: var(--button-space-top-mobile);
+}
+
+.contact__button .button {
+	min-width: 18rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact__button {
+		margin-top: var(--button-space-top);
+  }
+
+	.contact__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+	.contact {
+		display: grid;
+		column-gap: 3rem;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.contact > form {
+		padding-top: 2rem;
+		grid-column: span 2;
+	}
+
+	.contact:where(:has(.title.h3), :has(.title.h2)) > form {
+		padding-top: 1rem;
+	}
+}

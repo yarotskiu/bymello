@@ -1,0 +1,125 @@
+.page-title {
+  margin-top: 0;
+}
+
+.main-page-title:last-child {
+  margin-bottom: 0;
+}
+
+.main-page-title:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.main-page-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: var(--button-space-top-mobile);
+}
+
+@media screen and (min-width: 750px) {
+  .main-page-buttons {
+    margin-top: var(--button-space-top);
+  }
+}
+
+.main-page-banner {
+  position: relative;
+}
+
+.main-page-banner__wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.main-page-banner__image img {
+  object-fit: cover;
+}
+
+.main-page-banner:not(.banner--default) {
+  display: flex;
+  align-items: end;
+}
+
+.main-page-banner__image img,
+.main-page-banner__image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-page-banner__overlay {
+  display: block !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--image-overlay-opacity));
+  z-index: 1;
+}
+
+.main-page-banner .breadcrumbs + *,
+.main-page-banner * + .main-page-title {
+  margin-top: 2rem;
+}
+
+.main-page-banner .main-page-title:has(+ .main-page-description) {
+	margin-bottom: var(--title-space-bottom);
+}
+
+@media screen and (max-width: 749px) {
+	.main-page-banner .main-page-title:not(:first-child) {
+		margin-top: var(--title-space-bottom-mobile);
+	}
+
+	.main-page-banner .main-page-title:has(+ .main-page-description) {
+		margin-bottom: var(--title-space-bottom-mobile);
+	}
+}
+
+@media screen and (min-width: 750px) {
+  .main-page-title:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.main-page-content .rte > *  {
+	color: inherit;
+}
+
+.main-page-content .rte p,
+.main-page-content .rte ol,
+.main-page-content .rte ul,
+.main-page-content .rte blockquote {
+	color: rgb(var(--color-secondary-foreground));
+}
+
+
+.page-placeholder-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.page-placeholder {
+  width: 52.5rem;
+  height: 52.5rem;
+}
+
+
+@media screen and (max-width: 749px) {
+  .main-page-banner.banner-mobile--small {
+    min-height: 28rem;
+  }
+
+  .main-page-banner.banner-mobile--medium {
+    min-height: 34rem;
+  }
+
+  .main-page-banner.banner-mobile--large {
+    min-height: 60rem;
+  }
+}

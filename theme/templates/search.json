@@ -1,0 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-search",
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumbs_color_scheme": "scheme-8",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "heading_font_family": "font-heading",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "button_label": "View All Products",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-none",
+        "image_ratio": "square",
+        "custom_image_height": 120,
+        "image_shape": "default",
+        "product_heading_size": "text-body--large",
+        "product_heading_weight": "fw-500",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "show_type": false,
+        "enable_product_variants": false,
+        "enable_filtering": true,
+        "heading_font_family_filter": "ff-heading",
+        "facets_heading_weight": "fw-500",
+        "filter_type": "vertical",
+        "filter_color_scheme": "scheme-6",
+        "filter_drawer_color_scheme": "scheme-1",
+        "enable_sorting": true,
+        "price_input_custom_bg_enable": false,
+        "price_input_custom_bg_color": "#ffffff",
+        "sorting_color_scheme": "scheme-6",
+        "sorting_inside_color_scheme": "scheme-6",
+        "pagination_font_weight": "fw-500",
+        "pagination_button_style": "general",
+        "show_description": "none",
+        "article_show_date": true,
+        "article_show_author": false,
+        "article_show_comments": false,
+        "article_read_more_title": "Read More",
+        "columns_mobile": "1",
+        "padding_top": 80,
+        "padding_bottom": 120,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

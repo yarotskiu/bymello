@@ -1,0 +1,322 @@
+{{ 'section-announcement-bar.css' | asset_url | stylesheet_tag }}
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+	assign social_icons = false
+
+	if section.settings.enable_social_icons
+		if settings.social_facebook_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_tiktok_link != blank or settings.social_twitter_link != blank or settings.social_pinterest_link != blank or settings.social_snapchat_link != blank or settings.social_tumblr_link != blank or settings.social_vimeo_link != blank
+			assign social_icons = true
+		endif
+	endif
+
+	assign show_localization = false
+	if section.settings.enable_country_selector or section.settings.enable_language_selector
+		assign show_localization = true
+	endif
+-%}
+
+{% if social_icons %}
+  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+		--font-size: {{ section.settings.text_size | divided_by: 10.0 }}rem;
+	}
+{%- endstyle -%}
+
+<announcement-bar
+  class="section-responsive-padding utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% endif %}"
+>
+	<div class="page-width {% if social_icons or show_localization %} utility-bar__grid {% endif %}">
+		{%- if  social_icons -%}
+      <div class="announcement-nav">
+				{%- render 'social-icons', style: 'default', class: 'list-social--default' -%}
+      </div>
+    {%- endif -%}
+		<div class="announcement-bar">
+
+			<div class="swiper-button swiper-button-prev swiper-button--simple-arrow" tabindex="0">{% render 'icon-short-arrow' %}</div>
+			<div class="swiper {{ section.settings.text_weight }}" data-section-id="{{ section.id }}" data-speed="{{ section.settings.scroll_speed | times: 1000 }}" data-change-speed="{{ section.settings.change_slides_speed | times: 1000 }}" data-rotate="{{ section.settings.auto_rotate }}" data-slides-per-view="1">
+				<div class="swiper-wrapper">
+					{%- for block in section.blocks -%}
+						<div class="swiper-slide slide-{{ forloop.index }}">
+							{% case block.type %}
+								{%- when 'announcement' -%}
+									{%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="link link--text focus-inset">{%- endif -%}
+										<p class="announcement-bar__message">
+											{{ block.settings.text | escape }}
+										</p>
+									{%- if block.settings.link != blank -%}</a>{%- endif -%}
+							{%- endcase -%}
+						</div>
+					{%- endfor -%}
+				</div>
+			</div>
+			
+			<div class="swiper-button swiper-button-next swiper-button--simple-arrow" tabindex="0">{% render 'icon-short-arrow' %}</div>
+		</div>
+		
+
+		<div class="localization-wrapper">
+			{%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+				<noscript class="small-hide medium-hide">
+					{%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
+						<div class="localization-form__select">
+							<h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScript">{{ 'localization.language_label' | t }}</h2>
+							<select class="localization-selector link" name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
+								{%- for language in localization.available_languages -%}
+									<option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+										{{ language.endonym_name | capitalize }}
+									</option>
+								{%- endfor -%}
+							</select>
+							{% render 'icon-caret' %}
+						</div>
+						<button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+					{%- endform -%}
+				</noscript>
+
+				<localization-form class="localization-form--lang small-hide medium-hide no-js-hidden" data-prevent-hide>
+					{%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+						<div>
+							<h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+							{%- render 'language-localization', popup_scheme: section.settings.menu_color_scheme, text_weight: section.settings.text_weight -%}
+						</div>
+					{%- endform -%}
+				</localization-form>
+			{%- endif -%}
+
+			{%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+				<noscript class="small-hide medium-hide">
+					{%- form 'localization', id: 'HeaderCountryMobileFormNoScript', class: 'localization-form' -%}
+						<div class="localization-form__select">
+							<h2 class="visually-hidden" id="HeaderCountryMobileLabelNoScript">{{ 'localization.country_label' | t }}</h2>
+							<select class="localization-selector link" name="country_code" aria-labelledby="HeaderCountryMobileLabelNoScript">
+								{%- for country in localization.available_countries -%}
+									<option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
+										{{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+									</option>
+								{%- endfor -%}
+							</select>
+							{% render 'icon-caret' %}
+						</div>
+						<button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
+					{%- endform -%}
+				</noscript>
+
+				<localization-form class="localization-form--country small-hide medium-hide no-js-hidden" data-prevent-hide>
+					{%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+						<div>
+							<h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
+							{%- render 'country-localization', popup_scheme: section.settings.menu_color_scheme, text_weight: section.settings.text_weight -%}
+						</div>
+					{%- endform -%}
+				</localization-form>
+			{% endif %}
+		</div>
+	</div>
+</announcement-bar>
+
+<script src="{{ 'slider-announcement-bar.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-5"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+		{
+      "type": "select",
+      "id": "text_weight",
+			"options": [
+        {
+          "value": "fw-400",
+					"label": "t:settings_schema.global.settings.text_weight.options__1.label"
+        },
+        {
+          "value": "fw-500",
+					"label": "t:settings_schema.global.settings.text_weight.options__2.label"
+        },
+        {
+          "value": "fw-600",
+					"label": "t:settings_schema.global.settings.text_weight.options__3.label"
+        },
+        {
+          "value": "fw-700",
+					"label": "t:settings_schema.global.settings.text_weight.options__4.label"
+        }
+      ],
+      "default": "fw-400",
+			"label": "t:settings_schema.global.settings.text_weight.label"
+    },
+		{
+			"type": "header",
+			"content": "Social media icons"
+		},
+		{
+			"type": "checkbox",
+			"id": "enable_social_icons",
+			"label": "Show icons on desktop",
+			"default": true
+		},
+    {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.header__2.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 1,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 0.3,
+      "max": 4.5,
+      "step": 0.1,
+      "unit": "s",
+      "label": "t:sections.announcement-bar.settings.scroll_speed.label",
+      "default": 1.7
+    },
+		{
+      "type": "range",
+      "id": "text_size",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "t:text.text_size",
+      "default": 14
+    },
+		{
+      "type": "header",
+      "content": "t:sections.header.settings.header__3.content",
+      "info": "t:sections.header.settings.header__4.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "t:sections.header.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header__5.content",
+      "info": "t:sections.header.settings.header__6.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "t:sections.header.settings.enable_language_selector.label"
+    },
+		{
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 6
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 6
+    },
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Welcome to our store",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.presets.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,264 @@
+.collapsible-content {
+  position: relative;
+  z-index: 0;
+}
+
+.collapsible-section-layout {
+	padding-top: var(--padding-top-mb);
+	padding-bottom: var(--padding-bottom-mb);
+}
+
+.collapsible-content__wrapper {
+	padding-top: 5.6rem;
+	padding-bottom: 5.6rem;
+}
+
+.collapsible-content__border-bottom.collapsible-section-layout,
+.collapsible-content__border-bottom.collapsible-row-layout .collapsible-content__wrapper,
+.collapsible-content__border-bottom.collapsible-none-layout .collapsible-content__wrapper {
+	position: relative;
+}
+
+.collapsible-content__border-bottom.collapsible-section-layout::before,
+.collapsible-content__border-bottom.collapsible-row-layout .collapsible-content__wrapper::before,
+.collapsible-content__border-bottom.collapsible-none-layout .collapsible-content__wrapper::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	border-bottom: .1rem solid rgb(var(--color-outline));
+	width: calc(100% - 3rem);
+	left: 1.5rem;
+}
+
+.collapsible-content__description {
+	max-width: 45rem;
+}
+
+.alignment-center .collapsible-content__description {
+	margin: 0 auto;
+}
+
+.alignment-right .collapsible-content__description {
+	margin-left: auto;
+}
+
+@media screen and (min-width: 750px) {
+	.collapsible-content__border-bottom.collapsible-section-layout::before,
+	.collapsible-content__border-bottom.collapsible-row-layout .collapsible-content__wrapper::before,
+	.collapsible-content__border-bottom.collapsible-none-layout .collapsible-content__wrapper::before {
+		width: min(calc(var(--page-width) - var(--container-padding) * 2), calc(100% - var(--container-padding) * 2));
+		left: max(var(--container-padding), calc((100% - var(--page-width)) / 2 + var(--container-padding)));
+	}
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+	.collapsible-section-layout {
+		padding-top: calc((var(--padding-top) + var(--padding-top-mb)) / 2);
+		padding-bottom: calc((var(--padding-bottom) + var(--padding-bottom-mb)) / 2);
+	}
+
+	.collapsible-none-layout .collapsible-content__wrapper,
+	.collapsible-row-layout .collapsible-content__wrapper{
+	padding-top: calc((var(--padding-top) + var(--padding-top-mb)) / 2);
+	padding-bottom: calc((var(--padding-bottom) + var(--padding-bottom-mb)) / 2);
+  }
+}
+
+@media screen and (max-width: 749px) {
+	.collapsible-section-layout {
+		padding-top: var(--padding-top-mb);
+		padding-bottom: var(--padding-bottom-mb);
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.collapsible-none-layout .collapsible-content__wrapper,
+ .collapsible-row-layout .collapsible-content__wrapper {
+    padding-top: var(--padding-top-mb);
+    padding-bottom: var(--padding-bottom-mb);
+  }
+
+	.collapsible-content__wrapper {
+		border-radius: 0;
+	}
+
+	.collapsible-content.collapsible-row-layout .collapsible-content__grid {
+		gap: 2.4rem;
+	}
+}
+
+@media screen and (min-width: 990px) {
+	.collapsible-section-layout {
+		padding-top: var(--padding-top);
+		padding-bottom: var(--padding-bottom);
+	}
+}
+
+/* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
+.collapsible-content__media {
+  background: transparent;
+}
+
+.collapsible-content__media--small {
+  height: 19.4rem;
+}
+
+.collapsible-content__media--medium {
+  height: 31.4rem;
+}
+
+.collapsible-content__media--large {
+  height: 43.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-content__media--small {
+    height: 31.4rem;
+  }
+
+	.collapsible-content__media--medium {
+    height: 40.7rem;
+  }
+
+  .collapsible-content__media--large {
+    height: 50rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-content__grid--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.collapsible-content-wrapper-narrow {
+  margin: 0 auto;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  max-width: 73.4rem;
+}
+
+.collapsible-content__header {
+  word-break: break-word;
+}
+
+.collapsible-content__description {
+color: rgba(var(--color-secondary-foreground), 1);
+}
+
+
+
+.collapsible-content__header:last-child {
+	margin-bottom: 0;
+}
+
+.collapsible-content__heading {
+  margin-top: 0;
+}
+
+.collapsible-content .accordion {
+	margin-top: 0;
+}
+
+.collapsible-none-layout .accordion + .accordion {
+  border-top: 0;
+}
+
+.collapsible-row-layout .accordion:not(:first-child):not(.color-scheme-1) {
+  margin-top: 1rem;
+}
+
+.collapsible-row-layout .accordion {
+	padding-inline: 1.5rem;
+}
+
+.caption-with-letter-spacing + h2 {
+  margin-top: 1rem;
+}
+
+.collapsible-content__grid-item-accordion {
+	margin-bottom: 0;
+}
+
+
+@media screen and (min-width: 750px) {
+  .collapsible-content .accordion {
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 990px) {
+	.collapsible-content__wrapper {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+	
+	.collapsible-none-layout .collapsible-content__wrapper,
+	.collapsible-row-layout .collapsible-content__wrapper {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+  }
+
+	.grid--2-col-tablet .collapsible-content__grid-item-media {
+		width: calc(43% - var(--grid-desktop-horizontal-spacing) / 2);
+	}
+
+	.grid--2-col-tablet .collapsible-content__grid-item-accordion {
+		width: calc(57% - var(--grid-desktop-horizontal-spacing) / 2);
+	}
+}
+
+@media screen and (min-width: 1560px) {
+	.extra-large-layout .collapsible-none-layout .collapsible-content__wrapper,
+	.extra-large-layout .collapsible-row-layout .collapsible-content__wrapper {
+    padding-top: calc(var(--padding-top) * 1.333333);
+    padding-bottom: calc(var(--padding-bottom) * 1.333333);
+  }
+}
+
+.collapsible-row-layout .accordion {
+  border: var(--text-boxes-border-width) solid rgba(var(--color-foreground), var(--text-boxes-border-opacity));
+  margin-bottom: 1.5rem;
+  /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
+  transform: perspective(0);
+}
+
+.collapsible-row-layout .accordion summary,
+.collapsible-row-layout .accordion .accordion__content {
+  padding: 1.5rem;
+}
+
+.collapsible-row-layout .accordion .accordion__content {
+  padding-top: 0;
+}
+
+@media (hover: hover) {
+	.collapsible-content summary:hover .accordion__title {
+		text-decoration: underline;
+		text-underline-offset: 0.3rem;
+	}
+}
+
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  @media screen and (min-width: 750px) {
+    .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
+    .collapsible-content__grid--reverse .collapsible-content__grid-item {
+      padding-left: 5rem;
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
+    .collapsible-content__grid--reverse .collapsible-content__grid-item {
+      padding-left: 7rem;
+    }
+  }
+}
+
+@media screen and (max-width: 749px) {
+	.collapsible-content__border-bottom.collapsible-none-layout .collapsible-content__wrapper::before {
+	display: none;
+	}
+}

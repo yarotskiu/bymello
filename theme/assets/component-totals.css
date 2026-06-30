@@ -1,0 +1,43 @@
+.subtotals,
+.totals {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.totals,
+.subtotals {
+	margin-bottom: 1.2rem;
+}
+
+.subtotals > * {
+  font-size: var(--f-size-text-md);
+	margin: 0;
+}
+
+.totals > * {
+  margin: 0;
+}
+
+.totals * {
+  line-height: 1;
+}
+
+.totals > * + * {
+  margin-left: 2rem;
+}
+
+.totals__total {
+	flex: 0 0 max-content;
+}
+
+.cart__ctas + .totals {
+  margin-top: 2rem;
+}
+
+@media all and (min-width: 750px) {
+	.totals,
+	.subtotals {
+		margin-bottom: 3rem;
+	}
+}

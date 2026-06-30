@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "image": "",
+        "image_overlay_opacity": 20,
+        "banner_height": "medium",
+        "banner_text_alignment": "left",
+        "title": "Terms of Service",
+        "title_size": "h1",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 90,
+        "banner_padding_bottom": 90,
+        "banner_padding_top_mb": 56,
+        "banner_padding_bottom_mb": 24,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "policy_wVL9E6": {
+      "type": "policy",
+      "blocks": {
+        "item_VkLhrg": {
+          "type": "item",
+          "settings": {
+            "heading": "",
+            "text": "<p>We respect the privacy of all customers and their personal information. Information collected will be used solely by us to conduct our business. Your personally identifiable visitor information will not be disclosed to third parties, other than for the purpose of completing transaction, (i.e. processing payments or shipping packages). We will only ask for and use relevant personal information as necessary.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_4U3Ah3": {
+          "type": "item",
+          "settings": {
+            "heading": "Information We Collect",
+            "text": "<p>We collect information from you when you visit this website, register, place an order, or subscribe to the newsletter. When ordering or registering, as appropriate, you may be asked to enter your: name, email address, mailing address, phone number, date of birth, or credit card information.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_Trn7qX": {
+          "type": "item",
+          "settings": {
+            "heading": "Use of Information",
+            "text": "<p>Any of the information we collect may be used in one of the following ways:</p><h4>1. For Customer Service Interactions</h4><p>The email address you provide for order processing will only be used to send you information and updates pertaining to your order, unless you decide to opt in to our newsletter. If you opt-in, we may use this information to notify you of any company updates, new arrivals, or any promotions you might find of value. If you don’t wish to receive these newsletters or updates, you can unsubscribe at any time.</p><h4>2. To Process Transactions</h4><p>Your personally identifiable information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.</p><h4>3. For Internal Tracking Purposes</h4><p>We use Google Analytics to record visits to our website, including what website you came from, how long you stay for, what kind of computer you’re using, and other simple pieces of information about your visit.</p>",
+            "heading_color": "heading"
+          }
+        },
+        "item_YDGU4D": {
+          "type": "item",
+          "settings": {
+            "heading": "Your Information",
+            "text": "<p>We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information. All credit cards are processed securely through Shopify, a leading provider of payment gateway services online. We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our payment gateway provider’s database only to be accessible by those authorized with special access rights to such systems. All parties are required to keep the information confidential. After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_awc9jT": {
+          "type": "item",
+          "settings": {
+            "heading": "Cookies",
+            "text": "<p>Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject browser cookies. Please note that if you choose to remove or reject cookies, this could affect the availability and functionality of our Services.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_4Mebwi": {
+          "type": "item",
+          "settings": {
+            "heading": "Sharing of Information",
+            "text": "<p>We don't sell, trade, or otherwise transfer to outside parties your personally identifiable information. This includes trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce this site’s policies, or protect our or others rights, property, or safety.</p>",
+            "heading_color": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "item_VkLhrg",
+        "item_4U3Ah3",
+        "item_Trn7qX",
+        "item_YDGU4D",
+        "item_awc9jT",
+        "item_4Mebwi"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 0
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_bH4KdD": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_bH4KdD"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "policy_wVL9E6",
+    "scrolling_banner"
+  ]
+}

@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Shopify CLI
+.shopify/
+
+# Node (in case tooling lands at project root)
+node_modules/
+npm-debug.log*
+.env
+.env.*

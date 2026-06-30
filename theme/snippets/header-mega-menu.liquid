@@ -1,0 +1,117 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+{% liquid
+	if mm_type == blank
+		assign mm_type = 'default'
+	endif
+%}
+
+<header-menu>
+	<details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu mega-menu--{{ mm_type }}">
+		<summary
+			id="HeaderMenu-{{ link.handle }}"
+			class="header__menu-item list-menu__item link focus-inset"
+		>
+			<a
+				href="{{ link.url }}"
+				class="mega-menu__summary-link{% if link.child_active %} header__active-menu-item{% endif %}"
+			>
+				{{- link.title | escape -}}
+			</a>
+			{% render 'icon-caret' %}
+		</summary>
+		<div
+			id="MegaMenu-Content-{{ forloop.index }}"
+			class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup{% if section.settings.mega_menu_style == 'second-style' %} second-style{% endif %}"
+			tabindex="-1"
+		>
+			<div class="page-width">
+				<div class="mega-menu__wrapper">
+					{%- if mm_type == 'collection_list' and collection_list_block != blank -%}
+						{% render 'mm-collection-list', collection_list_block: collection_list_block, image_type: image_type %}
+					{%- endif -%}
+					{%- if link.links != blank -%}
+						<ul
+							class="mega-menu__list {% if mm_type == 'collection_list' and collection_list_block != blank %} large-up-hide{% endif %}{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+							role="list"
+						>
+							{%- for childlink in link.links -%}
+								{%- liquid
+									if childlink.object.image != blank
+										assign menu_image_1 = childlink.object.image
+									else
+										assign menu_image_1 = childlink.object.featured_image
+									endif
+								%}
+								<li>
+									<a
+										id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+										href="{{ childlink.url }}"
+										class="h5 mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+										{% if childlink.current %}
+											aria-current="page"
+										{% endif %}
+										{% if menu_image_1 != blank %}
+											data-image="{{ menu_image_1 | image_url: width: 600 }}"
+										{% endif %}
+										data-item-type="{{ childlink.object | escape }}"
+										{% if childlink.object.handle != blank %}
+											data-item-handle="{{ childlink.object.handle}}"
+										{% endif %}
+									>
+										{{ childlink.title | escape }}
+									</a>
+									{%- if childlink.links != blank -%}
+										<ul class="list-unstyled" role="list">
+											{%- for grandchildlink in childlink.links -%}
+												{%- liquid
+													if childlink.object.image != blank
+														assign menu_image_2 = grandchildlink.object.image
+													else
+														assign menu_image_2 = grandchildlink.object.featured_image
+													endif
+												%}
+												<li>
+													<a
+														id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+														href="{{ grandchildlink.url }}"
+														class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %} mega-menu__link--level-3"
+														{% if grandchildlink.current %}
+															aria-current="page"
+														{% endif %}
+														{% if menu_image_2 != blank %}
+															data-image="{{ menu_image_2 | image_url: width: 600 }}"
+														{% endif %}
+														data-item-type="{{ grandchildlink.object | escape }}"
+														{% if grandchildlink.object.handle != blank %}
+															data-item-handle="{{ grandchildlink.object.handle}}"
+														{% endif %}
+													>
+														{{ grandchildlink.title | escape }}
+													</a>
+												</li>
+											{%- endfor -%}
+										</ul>
+									{%- endif -%}
+								</li>
+							{%- endfor -%}
+						</ul>
+						
+					{%- endif -%}
+					
+					{%- case mm_type -%}
+						{%- when 'default' -%}
+							{%- if section.settings.mega_menu_image != blank -%}{% render 'mm-image' %}{%- endif -%}
+						{%- when 'collection' -%}
+							{% render 'mm-collection', block:  collection_block %}
+					{%- endcase -%}
+				</div>
+			</div>
+		</div>
+	</details>
+</header-menu>

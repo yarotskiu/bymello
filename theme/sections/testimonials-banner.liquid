@@ -1,0 +1,591 @@
+{{ 'section-testimonials-banner.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'swiper.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+  --padding-top: {{ section.settings.padding_top }}px;
+  --padding-bottom: {{ section.settings.padding_bottom }}px;
+  --padding-top-mb: {{ section.settings.padding_top_mb }}px;
+  --padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+  --text-gradient: {{ section.settings.heading_color_gradient }};
+  }
+{%- endstyle -%}
+
+<div class="section-responsive-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {% if section.settings.testimonials_layout == 'banner' %}
+      <div class="testimonials-banner-wrapper color-{{ section.settings.container_color_scheme }} gradient">
+        {%- if section.settings.background_image != blank -%}
+          <div class="testimonials-banner-media media">
+            {%- liquid
+              assign sizes = '100vw'
+              assign class = 'testimonials-banner-media__img'
+              assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+            -%}
+
+            {{
+              section.settings.background_image
+              | image_url: width: 3840
+              | image_tag: sizes: sizes, widths: widths, class: class, alt: section.settings.background_image.alt
+            }}
+          </div>
+        {%- endif -%}
+
+        <testimonials-banner
+          class="testimonials-banner"
+          data-autoplay="{{ section.settings.autoplay }}"
+          data-speed="2000"
+          data-change-speed="{{ section.settings.change_slides_speed | times: 1000 }}"
+          data-effect="fade"
+        >
+          <div class="title-wrapper title-wrapper--no-top-margin title-wrapper--mb-lg testimonials-banner__title-wrapper">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="title inline-richtext {{ section.settings.heading_font_family }} {{ section.settings.heading_size }} {{ section.settings.heading_weight }} {% if section.settings.heading_color_gradient != blank %} text-gradient {% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text {% endif %}">
+                {{ section.settings.heading }}
+              </h2>
+            {%- endif -%}
+          </div>
+          <div class="testimonials-banner__content">
+            <div class="testimonials-banner__slider">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                      {%- when 'testimonial' -%}
+                        <div class="swiper-slide testimonials-banner__slide">
+                          <div class="testimonials-banner__slide-wrapper">
+                            <div class="testimonials-banner__slide-rating">
+                              {% render 'icon-star' %}
+                              <span>
+                                {{ block.settings.rating_star }}
+                              </span>
+                            </div>
+
+                            {%- if block.settings.heading != blank -%}
+                              <h3 class="h5 font-body testimonials-banner__slide-title inline-richtext {{ block.settings.heading_font_family }}">
+                                {{ block.settings.heading }}
+                              </h3>
+                            {%- endif -%}
+                            {%- if block.settings.text != blank -%}
+                              <p class="testimonials-banner__slide-description inline-richtext">
+                                {{ block.settings.text }}
+                              </p>
+                            {%- endif -%}
+                            {%- if block.settings.full_name != blank -%}
+                              <p class="testimonials-banner__slide-name inline-richtext">
+                                {{ block.settings.full_name }}
+                              </p>
+                            {%- endif -%}
+                          </div>
+                        </div>
+                    {%- endcase -%}
+                  {%- endfor -%}
+                </div>
+
+                <div class="slider-navigation testimonials-banner__slider-navigation">
+                  <div
+                    class="swiper-button swiper-button-prev button--animate-{{ settings.animations_hover_elements }}"
+                    tabindex="0"
+                  >
+                    {% render 'icon-short-arrow' %}
+                  </div>
+                  <div
+                    class="swiper-button swiper-button-next button--animate-{{ settings.animations_hover_elements }}"
+                    tabindex="0"
+                  >
+                    {% render 'icon-short-arrow' %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </testimonials-banner>
+      </div>
+    {% endif %}
+
+    {% if section.settings.testimonials_layout == 'column' %}
+      {% comment %} layout column start {% endcomment %}
+      <div class="testimonials-column {% if section.settings.background_image == blank %} color-{{ section.settings.container_color_scheme }} gradient {% endif %}">
+        {%- if section.settings.background_image != blank -%}
+          <div class="testimonials-column-media-mobile">
+            {%- liquid
+              assign sizes = '100vw'
+              assign class = 'testimonials-column-media__img'
+              assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+            -%}
+
+            {{
+              section.settings.background_image
+              | image_url: width: 3840
+              | image_tag: sizes: sizes, widths: widths, class: class, alt: section.settings.background_image.alt
+            }}
+          </div>
+        {%- endif -%}
+        <div class="testimonials-column__left">
+          <div class="testimonials-column__title">
+            <h2 class="title inline-richtext {{ section.settings.heading_font_family }} {{ section.settings.heading_size }} {{ section.settings.heading_weight }} {% if section.settings.heading_color_gradient != blank %} text-gradient {% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text {% endif %}">
+              {{ section.settings.heading }}
+            </h2>
+          </div>
+          {%- if section.settings.background_image != blank -%}
+            <div class="testimonials-column-media media">
+              {%- liquid
+                assign sizes = '100vw'
+                assign class = 'testimonials-column-media__img'
+                assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+              -%}
+
+              {{
+                section.settings.background_image
+                | image_url: width: 3840
+                | image_tag: sizes: sizes, widths: widths, class: class, alt: section.settings.background_image.alt
+              }}
+            </div>
+          {%- endif -%}
+        </div>
+        <div class="testimonials-column__right color-{{ section.settings.container_color_scheme }} gradient">
+          <testimonials-banner
+            class="testimonials-banner testimonials-banner--column"
+            data-autoplay="{{ section.settings.autoplay }}"
+            data-speed="2000"
+            data-change-speed="{{ section.settings.change_slides_speed | times: 1000 }}"
+            data-effect="fade"
+          >
+            <div class="testimonials-banner__content">
+              <div class="testimonials-banner__slider">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    {%- for block in section.blocks -%}
+                      {%- case block.type -%}
+                        {%- when 'testimonial' -%}
+                          {% if block.settings.use_custom_rating_colors or block.settings.use_custom_text_color_mobile %}
+                            {% style %}
+
+                              {% if block.settings.use_custom_rating_colors %}
+                              #testimonial-{{ block.id }} .testimonials-banner__slide-rating {
+                                background-color: {{ block.settings.rating_custom_bg_color }};
+                                color: {{ block.settings.rating_custom_text_color }};
+                              }
+                              {% endif %}
+
+                              {% if block.settings.use_custom_text_color_mobile %}
+                              @media screen and (max-width: 749px) {
+                                #testimonial-{{ block.id }} .testimonials-banner__slide-title,
+                                #testimonial-{{ block.id }} .testimonials-banner__slide-description,
+                                #testimonial-{{ block.id }} .testimonials-banner__slide-name {
+                                  color: {{ block.settings.text_custom_color_mobile }};
+                                }
+                              }
+                              {% endif %}
+                              
+                            {% endstyle %}
+                          {% endif %}
+                          <div id="testimonial-{{ block.id }}" class="swiper-slide testimonials-banner__slide">
+                            <div class="testimonials-banner__slide-wrapper">
+                              <div class="testimonials-banner__slide-rating">
+                                {% render 'icon-star' %}
+                                <span>
+                                  {{ block.settings.rating_star }}
+                                </span>
+                              </div>
+
+                              {%- if block.settings.heading != blank -%}
+                                <h3 class="font-body testimonials-banner__slide-title inline-richtext {{ block.settings.heading_font_family }} {{ block.settings.heading_font_size }} {{ block.settings.heading_font_weight }}">
+                                  {{ block.settings.heading }}
+                                </h3>
+                              {%- endif -%}
+                              {%- if block.settings.text != blank -%}
+                                <p class="testimonials-banner__slide-description inline-richtext">
+                                  {{ block.settings.text }}
+                                </p>
+                              {%- endif -%}
+                              {%- if block.settings.full_name != blank -%}
+                                <p class="testimonials-banner__slide-name inline-richtext">
+                                  {{ block.settings.full_name }}
+                                </p>
+                              {%- endif -%}
+                            </div>
+                          </div>
+                      {%- endcase -%}
+                    {%- endfor -%}
+                  </div>
+
+                  <div class="slider-navigation testimonials-banner__slider-navigation">
+                    <div
+                      class="swiper-button swiper-button-prev button--animate-{{ settings.animations_hover_elements }}"
+                      tabindex="0"
+                    >
+                      {% render 'icon-short-arrow' %}
+                    </div>
+                    <div
+                      class="swiper-button swiper-button-next button--animate-{{ settings.animations_hover_elements }}"
+                      tabindex="0"
+                    >
+                      {% render 'icon-short-arrow' %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </testimonials-banner>
+        </div>
+      </div>
+      {% comment %} layout column end {% endcomment %}
+    {% endif %}
+  </div>
+</div>
+
+<script src="{{ 'testimonials-banner.js' | asset_url }}" type="module" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Testimonials banner",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["password"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "testimonials_layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "banner",
+          "label": "Banner"
+        },
+        {
+          "value": "column",
+          "label": "Column"
+        }
+      ],
+      "default": "banner"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "container_color_scheme",
+      "label": "Container color scheme",
+      "default": "scheme-6"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Testimonials",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_family",
+      "label": "Heading font family",
+      "options": [
+        {
+          "value": "font-heading",
+          "label": "Heading"
+        },
+        {
+          "value": "font-body",
+          "label": "Body"
+        }
+      ],
+      "default": "font-heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0-xs",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h0-xs",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "options": [
+        {
+          "value": "fw-400",
+          "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+        },
+        {
+          "value": "fw-500",
+          "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+        },
+        {
+          "value": "fw-600",
+          "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+        },
+        {
+          "value": "fw-700",
+          "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+        }
+      ],
+      "default": "fw-500",
+      "label": "t:settings_schema.global.settings.text_weight.label"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_color_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "header",
+      "content": "Slider options"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 4,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating_star",
+          "min": 0,
+          "max": 5,
+          "step": 0.2,
+          "default": 5,
+          "label": "Rating"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_custom_rating_colors",
+          "label": "Use custom rating colors",
+          "default": false,
+          "visible_if": "{{ section.settings.testimonials_layout == 'column' }}"
+        },
+        {
+          "type": "color",
+          "id": "rating_custom_bg_color",
+          "label": "Rating custom background color",
+          "visible_if": "{{ block.settings.use_custom_rating_colors == true and section.settings.testimonials_layout == 'column'}}",
+          "default": "#101010"
+        },
+        {
+          "type": "color",
+          "id": "rating_custom_text_color",
+          "label": "Rating custom text color",
+          "visible_if": "{{ block.settings.use_custom_rating_colors == true and section.settings.testimonials_layout == 'column'}}",
+          "default": "#ffffff"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Add campaign or promotional text here",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_font_weight",
+          "visible_if": "{{ section.settings.testimonials_layout == 'column' }}",
+          "options": [
+            {
+              "value": "fw-400",
+              "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+            },
+            {
+              "value": "fw-500",
+              "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+            },
+            {
+              "value": "fw-600",
+              "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+            },
+            {
+              "value": "fw-700",
+              "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+            }
+          ],
+          "default": "fw-500",
+          "label": "Heading font weight"
+        },
+        {
+          "type": "select",
+          "id": "heading_font_size",
+          "visible_if": "{{ section.settings.testimonials_layout == 'column' }}",
+          "options": [
+            {
+              "value": "h3",
+              "label": "Large"
+            },
+            {
+              "value": "h4",
+              "label": "Medium"
+            },
+            {
+              "value": "h5",
+              "label": "Small"
+            }
+          ],
+          "default": "h5",
+          "label": "Heading size"
+        },
+        {
+          "type": "select",
+          "id": "heading_font_family",
+          "options": [
+            {
+              "value": "",
+              "label": "Body"
+            },
+            {
+              "value": "font-heading",
+              "label": "Heading"
+            }
+          ],
+          "default": "",
+          "label": "Heading font family"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Add campaign or promotional text here",
+          "label": "Text"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "full_name",
+          "default": "Full name",
+          "label": "Full name"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_custom_text_color_mobile",
+          "label": "Use custom text color (heading, text, full name) mobile only",
+          "default": false,
+          "visible_if": "{{ section.settings.testimonials_layout == 'column' }}"
+        },
+        {
+          "type": "color",
+          "id": "text_custom_color_mobile",
+          "label": "Text custom color",
+          "visible_if": "{{ block.settings.use_custom_text_color_mobile == true and section.settings.testimonials_layout == 'column'}}",
+          "default": "#ffffff"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials banner",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4,
+            "full_name": "Full name",
+            "text": "Add campaign or promotional text here"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4,
+            "full_name": "Full name",
+            "text": "Add campaign or promotional text here"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4,
+            "full_name": "Full name",
+            "text": "Add campaign or promotional text here"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4,
+            "full_name": "Full name",
+            "text": "Add campaign or promotional text here"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

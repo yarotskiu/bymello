@@ -1,0 +1,171 @@
+featured-slideshow {
+	--slider-gap: var(--grid-mobile-horizontal-spacing);
+	--slider-gap-tb: var(--grid-mobile-horizontal-spacing);
+	--slider-gap-pc: var(--grid-desktop-horizontal-spacing);
+
+	display: block;
+}
+
+.featured-slideshow .content-container {
+	padding: 2rem;
+}	
+
+.featured-slideshow__slider {
+	display: flex;
+	padding: 0;
+	max-width: 100%;
+	margin-left: 1.5rem;
+}
+
+.featured-slideshow__item {
+	display: grid;
+	grid-template-columns: 3.8fr 6.2fr;
+	gap: 2rem;
+}
+
+.featured-slideshow__title-wrapper {
+	display: flex;
+	align-content: space-between;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	column-gap: 1.2rem;
+	align-items: center;
+	row-gap: var(--title-space-bottom);
+}
+
+.featured-slideshow__title-wrapper .title {
+	font-family: var(--font-body-family);
+}
+
+
+.featured-slideshow__media .media {
+	border: unset;
+}
+
+.featured-slideshow__media {
+	overflow: hidden;
+	border: unset;
+	align-self: center;
+}
+
+.featured-slideshow__media img {
+	transition: transform var(--duration-long) ease;
+}
+
+.featured-slideshow__media:hover img {
+	transform: scale(1.03);
+}
+
+@media screen and (min-width: 750px) {
+	.featured-slideshow__slider {
+		margin-left: 5rem;
+	}
+}
+
+@media screen and (min-width: 990px) {
+  .featured-slideshow__title-wrapper {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		column-gap: 1.2rem;
+		align-items: center;
+		row-gap: var(--title-space-bottom);
+	}
+
+	.featured-slideshow__title-wrapper .title {
+		max-width: 27.5rem;
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.featured-slideshow__slider {
+		padding: 0 0 0 5rem;
+		grid-column: 2 / 4;
+		margin-left: 0;
+		max-width: 100%;
+	}
+	.featured-slideshow__wrapper {
+		display: grid;
+		grid-template-columns: 1fr min(100%, var(--page-width)) 1fr;
+	}
+}	
+
+/* extra large layout */
+@media screen and (min-width: 1560px) {
+	.extra-large-layout .featured-slideshow .content-container {
+		column-gap: 2.4rem;
+		padding: 2.4rem;
+	}	
+}
+/* extra large layout end */
+
+/* slider setup */
+.featured-slideshow .swiper .swiper-slide {
+	--col-gap: calc(var(--slider-gap) * var(--slides-per-view) - var(--slider-gap));
+	flex-grow: 0;
+	width: calc(100% / var(--slides-per-view) - var(--col-gap) / var(--slides-per-view));
+}
+
+.no-js .featured-slideshow .swiper .swiper-slide {
+	flex: 0 0 calc(100% / var(--slides-per-view) - var(--col-gap) / var(--slides-per-view));
+}
+
+.featured-slideshow .swiper:not(.swiper-initialized) .swiper-wrapper {
+	column-gap: var(--slider-gap);		
+}
+
+@media screen and (min-width: 640px) {
+	.featured-slideshow .swiper:not(.swiper-initialized) .swiper-wrapper {
+		column-gap: var(--slider-gap-tb);		
+	}
+
+	.featured-slideshow .swiper .swiper-slide {
+		--col-gap: calc(var(--slider-gap-tb) * var(--slides-per-view-tb) - var(--slider-gap-tb));
+		width: calc(100% / var(--slides-per-view-tb) - var(--col-gap) / var(--slides-per-view-tb));
+	}
+
+	.no-js .featured-slideshow .swiper .swiper-slide {
+		--col-gap: calc(var(--slider-gap-tb) * var(--slides-per-view-tb) - var(--slider-gap-tb));
+		flex: 0 0 calc(100% / var(--slides-per-view-tb) - var(--col-gap) / var(--slides-per-view-tb));
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.featured-slideshow .swiper:not(.swiper-initialized) .swiper-wrapper {
+		column-gap: var(--slider-gap-pc);		
+	}
+
+	.featured-slideshow .swiper .swiper-slide {
+		--col-gap: calc((var(--slider-gap-pc) * var(--slides-per-view-pc) - var(--slider-gap-pc)) / var(--slides-per-view-pc));
+		width: calc(100% / var(--slides-per-view-pc) - var(--col-gap));
+	}
+
+	.no-js .featured-slideshow .swiper .swiper-slide {
+		flex: 0 0 calc(100% / var(--slides-per-view-pc) - var(--col-gap));
+	}
+}
+/* slider setup end */
+
+
+/* disabled js */
+.no-js  .featured-slideshow__slider,
+.no-js  .featured-slideshow .swiper {
+	width: 100%;
+}
+
+.no-js  .featured-slideshow__wrapper {
+	overflow: hidden;
+}
+
+.no-js  .featured-slideshow .swiper-wrapper {
+	display: flex;
+	overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1rem;
+	padding-bottom: 1rem;
+}
+
+/* disabled js end */

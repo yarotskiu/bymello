@@ -1,0 +1,54 @@
+<variant-megamenu-img class="js-megaMenuImgWrp fade-in">
+	<div class="mega-menu__media-wrapper media--{{ section.settings.mega_menu_image_ratio }} color-{{ section.settings.mega_menu_image_color_scheme }}" {% if section.settings.mega_menu_image_ratio == 'custom' %} style="--image-height: {{ section.settings.mm_custom_image_height }}%"{% endif %}>
+		{% if section.settings.mega_menu_image != blank %}
+			<img
+				srcset="
+					{%- if section.settings.mega_menu_image.width >= 535 -%}{{ section.settings.mega_menu_image | image_url: width: 535 }} 535w, {%- endif -%}
+					{%- if section.settings.mega_menu_image.width >= 750 -%}{{ section.settings.mega_menu_image | image_url: width: 750 }} 750w, {%- endif -%}
+					{{ section.settings.mega_menu_image | image_url }} {{ section.settings.mega_menu_image.width }}w
+				"
+				src="{{ section.settings.mega_menu_image | image_url: width: 700 }}"
+				sizes="
+					(min-width: {{ settings.page_width }}px),
+					calc(100vw - 3rem)
+				"
+				alt="{{ section.settings.mega_menu_image.alt | escape }}"
+				width="{{ section.settings.mega_menu_image.width }}"
+				height="{{ section.settings.mega_menu_image.height }}"
+				loading="lazy"
+				class="motion-reduce mm-featured-image"
+				{% if section.settings.mega_menu_image.presentation.focal_point %}style="object-position: {{ section.settings.mega_menu_image.presentation.focal_point }}"{% endif %}
+			>
+		{% else %}
+			{{ 'product-1' | placeholder_svg_tag }}
+		{% endif %}
+		<div class="mega-menu__inner">
+			<a class="mega-menu__collection-link"
+				{% if section.settings.mega_menu_link != blank %}
+					href="{{ section.settings.mega_menu_link }}"
+				{% else %}
+					role="link" aria-disabled="true"
+				{% endif %}
+			>
+				<span class="mega-menu__description {% if section.settings.mega_menu_style == 'second-style' %}h4{% else %}h6{% endif %}" data-component="variant-mega-menu-description">
+					{{ section.settings.mega_menu_description }}
+				</span>
+			</a>
+			{% if section.settings.mega_menu_style == 'second-style' %}
+				{% if section.settings.mega_menu_link != blank %}
+					<a class="slider-button button--animate-glide" href="{{ section.settings.mega_menu_link }}">
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false" class="icon icon-short-arrow" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6.99823 0.137207L5.78898 1.34677L10.5745 6.14211H0.137207V7.85779H10.5745L5.78898 12.6531L6.99823 13.8627L13.8593 6.99995L6.99823 0.137207Z" fill="currentColor"></path>
+						</svg>
+					</a>
+				{% else %}
+					<span class="slider-button button--animate-glide" role="link" aria-disabled="true">
+						<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false" class="icon icon-short-arrow" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6.99823 0.137207L5.78898 1.34677L10.5745 6.14211H0.137207V7.85779H10.5745L5.78898 12.6531L6.99823 13.8627L13.8593 6.99995L6.99823 0.137207Z" fill="currentColor"></path>
+						</svg>
+					</span>
+				{% endif %}
+			{% endif %}
+		</div>
+	</div>
+</variant-megamenu-img>

@@ -1,0 +1,107 @@
+.countdown-banner__wrapper {
+	display: grid;
+	align-items: center;
+	gap: var(--text-space-bottom) 3rem;
+}
+
+.title.countdown-banner__title:not(:last-child) {
+	margin-bottom: var(--title-space-bottom-sm);
+}
+
+.countdown-banner__description {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* countdown start */
+
+.countdown-banner__countdown-bar .countdown-bar__number {
+	grid-template-columns: repeat(var(--col-number), minmax(3rem, auto));
+}
+
+.countdown-banner__countdown-bar {
+	justify-content: end;
+}
+
+.countdown-banner__countdown-items {
+	--column-gap: 2.5rem;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--column-gap);
+}
+
+.countdown-banner__countdown-item {
+	position: relative;
+	display: grid;
+	min-width: 6.4rem;
+	gap: 1.6rem 2.5rem;
+	text-align: center;
+}
+
+.countdown-banner__countdown-item:not(:last-child):after {
+	--height: 58%;
+	content: '';
+	position: absolute;
+	display: block;
+	width: .1rem;
+	height: var(--height);
+	background: rgba(var(--color-outline), .3);
+	right: calc(var(--column-gap) / 2 * -1);
+	top: calc((100% - var(--height)) / 2);
+}
+
+.countdown-banner__countdown-title {
+	font-size: var(--f-size-text-x-sm);
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 749px) {
+	.countdown-banner__countdown-bar .countdown-bar__number {
+		grid-template-columns: repeat(var(--col-number), minmax(2rem, auto));
+	}
+}
+
+@media screen and (min-width: 750px) {
+	.countdown-banner__countdown-items {
+		--column-gap: 1.6rem;
+	}
+
+	.countdown-banner__countdown-item {
+		min-width: 10rem;
+	}
+}
+
+@media screen and (min-width: 990px) {
+	.countdown-banner__wrapper {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.countdown-banner__countdown-item {
+		gap: .8rem;
+	}
+}
+
+@media screen and (max-width: 989px) {
+	.countdown-banner__countdown-bar {
+		justify-content: center;
+	}
+
+	.countdown-banner__title-wrapper {
+		max-width: 60rem;
+		text-align: center;
+	}
+
+	.countdown-banner__wrapper {
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 410px) {
+.countdown-banner-notfull-width .countdown-banner__countdown-items {
+	--column-gap: 1.2rem;
+}
+}
+
+/* countdown end */

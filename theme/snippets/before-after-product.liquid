@@ -1,0 +1,112 @@
+{% comment %}
+	Renders a product card
+
+	Accepts:
+		- card_product: {Object} product object. Required
+		- position: {String} position. Required
+		- color_scheme: {String} color scheme. Required
+		- image_ratio: {String} image ratio. Required
+		- product_title: {String} product title replaces default product title. Optional
+		- show_type: {String} product type
+		- product_url: {String} product url replaces default product url. Optional
+
+   Usage:
+   {% render 'before-after-product', show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+
+
+{%- if card_product and card_product != empty -%}
+	{% liquid
+		assign product_link = card_product.url
+
+		if product_url != blank
+			assign product_link = product_url
+		endif
+
+		assign product_heading = card_product.title
+		if product_title != blank
+			assign product_heading = product_title
+		endif
+
+		# Get first and second media elements
+		assign first_media = card_product.media[0]
+		assign second_media = card_product.media[1]
+	%}
+
+	<div class="comparison-product comparison-product--{{ position }} color-{{ color_scheme }}">
+		<div class="comparison-product__media">
+			<a href="{{ product_link }}" class="comparison-product__media-link" aria-label="{{ product_title }}">
+				<div class="media media--trasnparent media--{{ image_ratio }} {% if second_media != null %}media--hover-effect{% endif %}">
+					{% if first_media %}
+						{% if first_media.media_type == 'image' %}
+							<img
+								src="{{ first_media | image_url: width: 100 }}"
+								alt="{{ first_media.alt | escape }}"
+								loading="lazy"
+								width="80"
+								height="100"
+							>
+						{% else %}
+							{%- comment -%} For video or 3D models, use preview image {%- endcomment -%}
+							<img
+								src="{{ first_media.preview_image | image_url: width: 100 }}"
+								alt="{{ first_media.alt | escape }}"
+								loading="lazy"
+								width="80"
+								height="100"
+							>
+						{% endif %}
+					{% else %}
+						{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+					{% endif %}
+					{%- if second_media != null -%}
+						{% if second_media.media_type == 'image' %}
+							<img
+								src="{{ second_media | image_url: width: 100 }}"
+								alt="{{ second_media.alt | escape }}"
+								loading="lazy"
+								width="80"
+								height="100"
+							>
+						{% else %}
+							{%- comment -%} For video or 3D models, use preview image {%- endcomment -%}
+							<img
+								src="{{ second_media.preview_image | image_url: width: 100 }}"
+								alt="{{ second_media.alt | escape }}"
+								loading="lazy"
+								width="80"
+								height="100"
+							>
+						{% endif %}
+					{%- endif -%}
+				</div>
+			</a>
+		</div>
+		<div class="comparison-product__content">
+			<div class="comparison-product__information">
+				{%- if show_type and card_product.type != blank  -%}
+					<div class="comparison-product__subheading">{{  card_product.type }}</div>
+				{%- endif -%}
+				<h3 class="comparison-product__heading text-body">
+					<a
+						href="{{ product_link }}"
+						id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
+						class="full-unstyled-link link-underline"
+						aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
+						tabindex="-1"
+					>
+						{{ product_heading | escape }}
+					</a>
+				</h3>
+			</div>
+			<div class="comparison-product__link">
+				<a
+					href="{{ product_link }}"
+					class="link link-with-underline"
+				>
+					{{ 'general.view_product' | t }}
+				</a>
+			</div>
+		</div>
+	</div>
+{%- endif -%}

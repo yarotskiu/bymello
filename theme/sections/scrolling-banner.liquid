@@ -1,0 +1,632 @@
+{{ 'section-scrolling-banner.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+
+		--_c-column-gap: {{ section.settings.column_gap }}px;
+		--_c-column-gap-mb: {{ section.settings.column_gap_mb }}px;
+		
+  }
+{%- endstyle -%}
+
+<div class="section-responsive-padding scroller-wrapper color-{{ section.settings.color_scheme }} gradient">
+	<marquee-text
+		class=" scroller rolling-text"
+		data-speed="{{ section.settings.scroll_speed }}"
+		data-direction="left"
+		{%- if section.settings.bg_hover_1 != blank and section.settings.bg_hover_1 != 'rgba(0,0,0,0)' %}
+			data-bg-1="{{ section.settings.bg_hover_1 }}"
+		{%- endif -%}
+		{%- if section.settings.text_hover_1 != blank and section.settings.text_hover_1 != 'rgba(0,0,0,0)' %}
+			data-text-1="{{section.settings.text_hover_1 }}"
+		{%- endif -%}
+		{%- if section.settings.bg_hover_2 != blank and section.settings.bg_hover_2 != 'rgba(0,0,0,0)' %}
+			data-bg-2="{{ section.settings.bg_hover_2 }}"
+		{%- endif -%}
+		{%- if section.settings.text_hover_2 != blank and section.settings.text_hover_2 != 'rgba(0,0,0,0)' %}
+			data-text-2="{{section.settings.text_hover_2 }}"
+		{%- endif -%}
+		{%- if section.settings.bg_hover_3 != blank and section.settings.bg_hover_3 != 'rgba(0,0,0,0)' %}
+			data-bg-3="{{ section.settings.bg_hover_3 }}"
+		{%- endif -%}
+		{%- if section.settings.text_hover_3 != blank and section.settings.text_hover_3 != 'rgba(0,0,0,0)' %}
+			data-text-3="{{section.settings.text_hover_3 }}"
+		{%- endif -%}
+		{%- if section.settings.bg_hover_4 != blank and section.settings.bg_hover_4 != 'rgba(0,0,0,0)' %}
+			data-bg-4="{{ section.settings.bg_hover_4 }}"
+		{%- endif -%}
+		{%- if section.settings.text_hover_4 != blank and section.settings.text_hover_4 != 'rgba(0,0,0,0)' %}
+			data-text-4="{{section.settings.text_hover_4 }}"
+		{%- endif -%}
+	>
+		<ul class="scroller__inner list-unstyled rolling-text-wrapper">
+			<li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte {{ block.settings.text_size }} {{ block.settings.text_weight }}">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li>
+			<li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte {{ block.settings.text_size }} {{ block.settings.text_weight }}">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li>
+			<li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte {{ block.settings.text_size }} {{ block.settings.text_weight }}">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li>
+			<li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte {{ block.settings.text_size }} {{ block.settings.text_weight }}">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li>
+			<li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte {{ block.settings.text_size }} {{ block.settings.text_weight }}">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li>
+			<li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte {{ block.settings.text_size }} {{ block.settings.text_weight }}">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li>
+			<li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li><li class="rolling-text-item">
+				{%- for block in section.blocks -%}
+					{% case block.type %}
+						{%- when 'icon' -%}
+							{%- style -%}
+								#Icon-{{ block.id }}-{{ section.id }} {
+									--icon-width: {{ block.settings.image_width }}px;
+								}
+							{%- endstyle -%}
+
+							<div id="Icon-{{ block.id }}-{{ section.id }}" class="scroller-item scroller-item--icon icon">
+								<div class="scroller-item--icon-wrap">
+									{% if block.settings.image != blank %}
+										{%- assign widths = '108' -%}
+										{{
+											block.settings.image
+											| image_url: width: 108
+											| image_tag: loading: 'lazy', sizes: '108', widths: widths, alt: block.settings.image.alt
+										}}
+									{%- else -%}
+										{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+									{%- endif -%}
+								</div>
+							</div>
+	
+						{%- when 'heading' -%}
+							<div style="--_s-clr-text: var({{ block.settings.color }})" class="scroller-item scroller-item--text rte">
+								<p class="{{ block.settings.text_size }} {{ block.settings.text_weight }} {% if block.settings.text_size == 'h0' %} {{ block.settings.heading_font_family }} {% endif %}">
+									{{ block.settings.text }}
+								</p>
+							</div>
+					{%- endcase -%}
+				{%- endfor -%}
+			</li>
+		</ul>
+	</marquee-text>
+</div>
+
+<script src="{{ 'gsap.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'scrolling-banner.js' | asset_url }}" type="module" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Scrolling banner",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["footer"],
+		"templates": ["password"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-5"
+    },
+    {
+      "type": "select",
+      "id": "scroll_speed",
+      "options": [
+        {
+          "value": "slow",
+          "label": "Slow"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "fast",
+          "label": "Fast"
+        },
+        {
+          "value": "very-fast",
+          "label": "Very fast"
+        },
+        {
+          "value": "ultra-fast",
+          "label": "Ultra fast"
+        }
+      ],
+      "default": "fast",
+      "label": "Scroll speed"
+    },
+		{
+      "type": "range",
+      "id": "column_gap",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Column gap",
+      "default": 55
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+		{
+      "type": "range",
+      "id": "column_gap_mb",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Column gap",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Hover effects"
+    },
+		{
+			"type": "color",
+			"id": "bg_hover_1",
+			"label": "Background color 1",
+			"info": "Color applied on hover effect"
+		},
+		{
+			"type": "color",
+			"id": "text_hover_1",
+			"label": "Background text 1"
+		},
+		{
+			"type": "color",
+			"id": "bg_hover_2",
+			"label": "Background color 2"
+		},
+		{
+			"type": "color",
+			"id": "text_hover_2",
+			"label": "Background text 2"
+		},
+		{
+			"type": "color",
+			"id": "bg_hover_3",
+			"label": "Background color 3"
+		},
+		{
+			"type": "color",
+			"id": "text_hover_3",
+			"label": "Background text 3"
+		},
+		{
+			"type": "color",
+			"id": "bg_hover_4",
+			"label": "Background color 4"
+		},
+		{
+			"type": "color",
+			"id": "text_hover_4",
+			"label": "Background text 4"
+		},
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 12
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 12
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Scrolling text",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Add campaign or promotional text here",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "color",
+          "options": [
+            {
+              "value": "--color-foreground",
+              "label": "Text"
+            },
+            {
+              "value": "--color-secondary-foreground",
+              "label": "Text secondary"
+            },
+            {
+              "value": "--color-heading",
+              "label": "Heading"
+            }
+          ],
+          "default": "--color-foreground",
+          "label": "Text color"
+        },
+				{
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {
+              "value": "text--small",
+              "label": "Body"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+						{
+              "value": "h0",
+              "label": "Hero"
+            }
+          ],
+          "default": "text--small",
+          "label": "Text size"
+        },
+				{
+					"type": "select",
+					"id": "heading_font_family",
+					"visible_if": "{{ block.settings.text_size == 'h0' }}",
+					"options": [
+						{
+							"value": "",
+							"label": "Body"
+						},
+						{
+							"value": "font-heading",
+							"label": "Heading"
+						}
+					],
+					"default": "",
+					"label": "Font family"
+				},
+				{
+					"type": "select",
+					"id": "text_weight",
+					"options": [
+						{
+							"value": "fw-400",
+							"label": "t:settings_schema.global.settings.text_weight.options__1.label"
+						},
+						{
+							"value": "fw-500",
+							"label": "t:settings_schema.global.settings.text_weight.options__2.label"
+						},
+						{
+							"value": "fw-600",
+							"label": "t:settings_schema.global.settings.text_weight.options__3.label"
+						},
+						{
+							"value": "fw-700",
+							"label": "t:settings_schema.global.settings.text_weight.options__4.label"
+						}
+					],
+					"default": "fw-600",
+					"label": "t:settings_schema.global.settings.text_weight.label"
+				}
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+				{
+					"type": "range",
+					"id": "image_width",
+					"min": 10,
+					"max": 120,
+					"step": 2,
+					"unit": "px",
+					"default": 110,
+					"label": "Image width"
+				}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling banner",
+      "blocks": [
+        {
+          "type": "heading"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

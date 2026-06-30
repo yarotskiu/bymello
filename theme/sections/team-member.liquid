@@ -1,0 +1,613 @@
+{{ 'team-member.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+  }
+{%- endstyle -%}
+
+<div class="team-member section-responsive-padding color-{{ section.settings.color_scheme }}">
+  <div class="team-member__wrapper page-width">
+    {%- if section.settings.title != blank or section.settings.description != blank -%}
+      <div class="section-heading title-wrapper title-wrapper--no-top-margin alignment-{{ section.settings.heading_alignment }}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="section-title title inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text {% endif %}">
+            {{ section.settings.title }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="section-description description rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="team-member__list {{ section.settings.mobile_layout }}">
+      {% for block in section.blocks %}
+				{%- case block.type -%}
+					{%- when 'Employee_main' -%}
+						{% if block.settings.bg_image_desktop != blank or block.settings.bg_image_mobile != blank %}
+							{% style %}
+								{% if block.settings.bg_image_desktop != blank %}
+								@media screen and (min-width: 990px) {
+									.block-{{ block.id }}.team-member__item--main {
+										background-image: url('{{ block.settings.bg_image_desktop | image_url }}');
+										background-size: cover;
+										background-position: center;
+										background-repeat: no-repeat;
+										position: relative;
+										z-index: 1;
+									}
+								}
+								{% endif %}
+								{% if block.settings.bg_image_mobile != blank %}
+								@media screen and (max-width: 989px) {
+									.block-{{ block.id }}.team-member__item--main {
+										background-image: url('{{ block.settings.bg_image_mobile | image_url: width: 750 }}') !important;
+										background-size: cover !important;
+										background-position: center !important;
+										background-repeat: no-repeat !important;
+										position: relative !important;
+										z-index: 1 !important;
+									}
+								}
+								{% endif %}
+							{% endstyle %}
+						{% endif %}
+            {% if block.settings.enable_heading_custom_color == true %}
+              {% style %}
+                .block-{{ block.id }} .team-member__item-banner-title {
+                  color: {{ block.settings.banner_heading_custom_color_value }};
+                }
+              {% endstyle %}
+            {% endif %}
+            {% if block.settings.enable_fullname_custom_color == true %}
+              {% style %}
+                .block-{{ block.id }} .team-member__item-fullname {
+                  color: {{ block.settings.fullname_custom_color_value }};
+                }
+              {% endstyle %}
+            {% endif %}
+						<div
+							class="team-member__item team-member__item--main item-banner color-{{ block.settings.color_scheme_item }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} block-{{ block.id }}"
+							{% if settings.animations_reveal_on_scroll %}
+								data-cascade style="--animation-order: {{ forloop.index }};"
+							{% endif %}
+							{{ block.shopify_attributes }}
+						>
+							<div class="team-member__item-img-wrapper">
+								{% if block.settings.image != blank %}
+									<img
+										src="{{ block.settings.image | image_url }}"
+										loading="lazy"
+										alt="{{ block.settings.image.alt }}"
+										width="613"
+										height="540"
+									>
+								{%- else -%}
+									{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+								{% endif %}
+							</div>
+
+							<div class="team-member__item-info">
+								{%- if block.settings.banner_title != blank -%}
+									<h3 class="team-member__item-banner-title h3 inline-richtext clr-text-{{ block.settings.banner_heading_color }}">
+										{{ block.settings.banner_title }}
+									</h3>
+								{%- endif -%}
+
+								{%- if block.settings.fullname != blank -%}
+									<h3 class="team-member__item-fullname inline-richtext h5 clr-text-{{ block.settings.main_fullname_color }}">
+										{{ block.settings.fullname }}
+									</h3>
+								{%- endif -%}
+
+								{%- if block.settings.description != blank -%}
+									<div class="team-member__item-description rte">
+										{{ block.settings.description }}
+									</div>
+								{%- endif -%}
+
+								{%- if block.settings.job_title != blank -%}
+									<div class="team-member__item-job-title inline-richtext">
+										{{ block.settings.job_title }}
+									</div>
+								{%- endif -%}
+
+								{%- if block.settings.link_label != blank -%}
+									<div class="team-member__item-link__wrapper">
+										<a
+											{% if block.settings.link == blank %}
+												role="link" aria-disabled="true"
+											{% else %}
+												href="{{ block.settings.link }}"
+											{% endif %}
+											class="team-member__item-link link link-with-underline"
+											target="_blank"
+											rel="noopener"
+										>
+										{% if block.settings.link_label != nil %}
+											{{ block.settings.link_label }}
+										{% endif %}
+										</a>
+									</div>
+								{%- endif -%}
+							</div>
+						</div>					
+				{%- endcase -%}
+      {% endfor %}
+      {% for block in section.blocks %}
+				{%- case block.type -%}
+					{%- when 'Employee' -%}
+						{%- if block.settings.image_ratio == 'custom' or block.settings.image_ratio == 'adapt-image' -%} 
+							{%- style -%}
+								#Employee-{{ section.id }}-{{ forloop.index }} {
+									{% if block.settings.image_ratio == 'custom' %}
+										--image-height: {{ block.settings.custom_image_height}}%;
+									{% endif %}
+									{% if block.settings.image_ratio == 'adapt-image' %}
+
+									--image-height: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;
+									{% endif %}
+								}
+							{%- endstyle -%}
+						{%- endif -%}
+						<div
+							id="Employee-{{ section.id }}-{{ forloop.index }}"
+							class="team-member__item color-{{ block.settings.color_scheme_item }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {{ block.settings.content_type }}-style"
+							{% if settings.animations_reveal_on_scroll %}
+
+								data-cascade style="--animation-order: {{ forloop.index }};"
+							{% endif %}
+							{{ block.shopify_attributes }}
+						>
+							<div class="team-member__item-img-wrapper">
+								{% if block.settings.image != blank %}
+									<div class="media media--transparent media--{{ block.settings.image_ratio }}">
+										{{
+											block.settings.image
+											| image_url: width: 3200
+											| image_tag:
+												widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+												alt: block.settings.image.alt,
+												class: 'multi-scroll-gallery__image'
+										}}
+									</div>
+								{%- else -%}
+									{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+								{% endif %}
+							</div>
+
+							<div class="team-member__item-info">
+								{%- if block.settings.fullname != blank -%}
+									<h3 class="team-member__item-fullname inline-richtext h5">
+										{{ block.settings.fullname }}
+									</h3>
+								{%- endif -%}
+
+								{%- if block.settings.description != blank -%}
+									<div class="team-member__item-description rte">
+										{{ block.settings.description }}
+									</div>
+								{%- endif -%}
+
+								{%- if block.settings.job_title != blank -%}
+									<div class="team-member__item-job-title inline-richtext">
+										{{ block.settings.job_title }}
+									</div>
+								{%- endif -%}
+
+								{%- if block.settings.link_label != blank -%}
+									<div class="team-member__item-link__wrapper">
+										<a
+											{% if block.settings.link == blank %}
+												role="link" aria-disabled="true"
+											{% else %}
+												href="{{ block.settings.link }}"
+											{% endif %}
+											class="team-member__item-link link link-with-underline"
+											target="_blank"
+											rel="noopener"
+										>
+											{{ block.settings.link_label }}
+										</a>
+									</div>
+								{%- endif -%}
+							</div>
+						</div>	
+				{%- endcase -%}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Team members",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Team members",
+      "label": "t:sections.multicolumn.settings.title.label"
+    },
+    {
+      "type": "text_alignment",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "default": "center"
+    },
+		{
+			"type": "select",
+			"id": "heading_font_family",
+			"label": "Heading font family",
+			"options": [
+				{
+				"value": "font-heading",
+				"label": "Heading"
+				},
+				{
+				"value": "font-body",
+				"label": "Body"
+				}
+			],
+			"default": "font-heading"
+		},
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    }, 
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Number of columns on mobile",
+      "options": [
+        {
+          "value": "column-1",
+          "label": "1 column"
+        },
+        {
+          "value": "columns-2",
+          "label": "2 columns"
+        }
+      ],
+      "default": "column-1",
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    },
+  ],
+  "blocks": [
+    {
+      "type": "Employee_main",
+      "name": "Employee main",
+			"limit": 1,
+      "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme_item",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image_desktop",
+          "label": "Background image (desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image_mobile",
+          "label": "Background image (mobile)"
+        },
+				{
+					"type": "inline_richtext",
+					"id": "banner_title",
+					"default": "Write information about founder",
+					"label": "Banner heading"
+				},
+        {
+          "type": "select",
+          "id": "banner_heading_color",
+          "visible_if": "{{ block.settings.enable_heading_custom_color == false }}",
+          "options": [
+            {
+              "value": "foreground",
+              "label": "Text"
+            },
+            {
+              "value": "foreground-secondary",
+              "label": "Text secondary"
+            },
+            {
+              "value": "heading",
+              "label": "Heading"
+            }
+          ],
+          "default": "foreground",
+          "label": "Banner heading color"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_heading_custom_color",
+          "default": false,
+          "label": "Enable heading custom color"
+        },
+        {
+          "type": "color",
+          "id": "banner_heading_custom_color_value",
+          "default": "#101010",
+          "label": "Banner heading custom color",
+          "visible_if": "{{ block.settings.enable_heading_custom_color == true }}"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "fullname",
+          "default": "Full name",
+          "label": "Full name"
+        },
+        {
+          "type": "select",
+          "id": "main_fullname_color",
+          "visible_if": "{{ block.settings.enable_fullname_custom_color == false }}",
+          "options": [
+            {
+              "value": "foreground",
+              "label": "Text"
+            },
+            {
+              "value": "foreground-secondary",
+              "label": "Text secondary"
+            },
+            {
+              "value": "heading",
+              "label": "Heading"
+            }
+          ],
+          "default": "foreground",
+          "label": "Full name color"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_fullname_custom_color",
+          "default": false,
+          "label": "Enable fullname custom color"
+        },
+        {
+          "type": "color",
+          "id": "fullname_custom_color_value",
+          "default": "#101010",
+          "label": "Fullname custom color",
+          "visible_if": "{{ block.settings.enable_fullname_custom_color == true }}"
+        },	
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "job_title",
+          "default": "Job title",
+          "label": "Job title"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Button label",
+          "default": "Connect on Linkedin"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "Employee",
+      "name": "Employee",
+      "settings": [
+				{
+          "type": "color_scheme",
+          "id": "color_scheme_item",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-1"
+        },
+				{
+					"type": "select",
+					"id": "content_type",
+					"options": [
+						{
+							"value": "standard",
+							"label": "Standard"
+						},
+						{
+							"value": "card",
+							"label": "Card"
+						},
+						
+					],
+					"default": "standard",
+					"label": "Type of content box"
+				},
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+				{
+					"type": "select",
+					"id": "image_ratio",
+					"options": [
+						{
+							"value": "adapt-image",
+							"label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+						},
+						{
+							"value": "portrait",
+							"label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+						},
+						{
+							"value": "square",
+							"label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+						},
+						{
+							"value": "custom",
+							"label": "Custom"
+						}
+					],
+					"default": "adapt-image",
+					"label": "t:sections.featured-collection.settings.image_ratio.label"
+				},
+				{
+					"type": "range",
+					"id": "custom_image_height",
+					"min": 60,
+					"max": 120,
+					"step": 1,
+					"unit": "%",
+					"label": "Custom image height",
+					"default": 120
+				},
+        {
+          "type": "inline_richtext",
+          "id": "fullname",
+          "default": "Full name",
+          "label": "Full name"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "job_title",
+          "default": "Job title",
+          "label": "Job title"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Button label",
+          "default": "Connect on Linkedin"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team members",
+      "blocks": [
+        {
+          "type": "Employee_main"
+        },
+        {
+          "type": "Employee"
+        },
+        {
+          "type": "Employee"
+        },
+        {
+          "type": "Employee"
+        },
+        {
+          "type": "Employee"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

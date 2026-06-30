@@ -1,0 +1,126 @@
+.rolling-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.scroller-wrapper .scroller-item p,
+.scroller-wrapper {
+  transition:
+    background var(--duration-medium) ease,
+    color var(--duration-medium) ease;
+}
+
+.scroller-wrapper:hover {
+  background: var(--color-background-h, rgb(var(--color-background)));
+  color: var(--color-foreground-h, rgb(var(--color-foreground)));
+}
+
+.scroller-wrapper:hover .scroller-item p {
+  color: var(--color-foreground-h, rgb(var(--_s-clr-text)));
+}
+
+.scroller__inner {
+  --_column-gap: 4rem;
+  display: flex;
+  grid-template-columns: repeat(3, auto);
+  overflow: hidden;
+  /* flex-wrap: wrap; */
+}
+
+.scroller__inner.rolling-text-wrapper {
+  /* display: grid;
+	grid-template-columns: repeat(8, auto); */
+  display: flex;
+}
+
+.rolling-text-item {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.scroller-wrapper,
+.scroller[data-animated='true'] {
+  overflow: hidden;
+}
+
+.scroller[data-animated='true'] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction='right'] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-direction='left'] {
+  --_animation-direction: forwards;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+.scroller-item {
+  padding-right: var(--_c-column-gap, var(--_column-gap));
+}
+
+.scroller-item--text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.scroller-item--text p {
+  margin: 0;
+  color: rgb(var(--_s-clr-text));
+  transition: color 0.3s ease;
+  line-height: 1.2;
+}
+
+.scroller-item--icon {
+  line-height: 0;
+}
+
+.scroller-item--icon-wrap {
+  width: var(--icon-width, 11rem);
+}
+
+.scroller-item img,
+.scroller-item svg {
+  width: 100%;
+  max-width: var(--icon-width, 11rem);
+  height: auto;
+}
+
+.scroller__inner > li {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .scroller-item {
+    padding-right: calc((var(--_c-column-gap-mb) + var(--_c-column-gap)) / 2);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .scroller-item--icon-wrap {
+    width: var(--icon-width, 7rem);
+  }
+
+  .scroller-item img,
+  .scroller-item svg {
+    width: fit-content;
+    height: auto;
+  }
+
+  .scroller-item {
+    padding-right: var(--_c-column-gap-mb, var(--_column-gap));
+  }
+}
+
+.no-js .scroller__inner {
+  display: flex;
+}

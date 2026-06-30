@@ -1,0 +1,217 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "blocks": {
+        "countdown_bar_PcPUxE": {
+          "type": "countdown_bar",
+          "settings": {
+            "countdown_date": "Nov 01, 2025",
+            "countdown_end": "cycle",
+            "countdown_label": "Hurry Up! Sale Ends In",
+            "heading_fw": "fw-500",
+            "days_label": "Days",
+            "hours_label": "Hrs",
+            "mins_label": "Mins",
+            "secs_label": "Secs"
+          }
+        }
+      },
+      "block_order": [
+        "countdown_bar_PcPUxE"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "description": "<p>Free shipping on all orders above $50!</p>",
+        "show_breadcrumbs": true,
+        "breadcrumbs_color_scheme": "scheme-8",
+        "breadcrumbs_active_color_enable": true,
+        "breadcrumbs_active_color": "#0042eb",
+        "button_style": "primary",
+        "button_outline": "outline-none",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 0
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "continue_button_style": "primary",
+            "continue_button_outline": "outline-none",
+            "checkout_button_style": "secondary",
+            "checkout_button_outline": "outline-none"
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "gift_wrapping_color_scheme": "scheme-3",
+        "promoted_collection": "",
+        "promoted_collection_heading": "Buy This With",
+        "promoted_product_color_scheme": "",
+        "button_style": "primary",
+        "button_outline": "outline-none",
+        "padding_top": 40,
+        "padding_bottom": 120,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 80
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_bWacLg": {
+          "type": "heading",
+          "settings": {
+            "text": "Care that wears like Radiance",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_zrGKF4": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_bWacLg",
+        "icon_zrGKF4"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "very-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "icon_wtih_text": {
+      "type": "icon-with-text",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free delivery",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Customer support",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free shipping",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_6twLw6": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Secure payment",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_6twLw6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-10",
+        "auto_rotate": true,
+        "slides_per_view": 1,
+        "change_slides_speed": 5,
+        "scroll_speed": 1.7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer",
+    "scrolling_banner",
+    "icon_wtih_text"
+  ]
+}

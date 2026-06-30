@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "scrolling_banner_EedWVe": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_iPDAwg": {
+          "type": "heading",
+          "settings": {
+            "text": "FREE SHIPPING ON ORDERS OVER $150",
+            "color": "--color-foreground",
+            "text_size": "text--small",
+            "heading_font_family": "",
+            "text_weight": "fw-600"
+          }
+        },
+        "heading_CnFqBX": {
+          "type": "heading",
+          "settings": {
+            "text": "HASSLE-FREE RETURNS",
+            "color": "--color-foreground",
+            "text_size": "text--small",
+            "heading_font_family": "",
+            "text_weight": "fw-600"
+          }
+        },
+        "heading_6mPFnQ": {
+          "type": "heading",
+          "settings": {
+            "text": "DERMATOLOGIST TESTED",
+            "color": "--color-foreground",
+            "text_size": "text--small",
+            "heading_font_family": "",
+            "text_weight": "fw-600"
+          }
+        }
+      },
+      "block_order": [
+        "heading_iPDAwg",
+        "heading_CnFqBX",
+        "heading_6mPFnQ"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "scroll_speed": "very-fast",
+        "column_gap": 30,
+        "column_gap_mb": 25,
+        "bg_hover_1": "#0042eb",
+        "text_hover_1": "#ffffff",
+        "bg_hover_2": "#5e668b",
+        "text_hover_2": "#ffffff",
+        "bg_hover_3": "#ede9d9",
+        "text_hover_3": "#101010",
+        "bg_hover_4": "#101010",
+        "text_hover_4": "#ffffff",
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "padding_top_mb": 10,
+        "padding_bottom_mb": 12
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "space_between_menu_items": 17,
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": false,
+        "icons_style": "modern",
+        "use_general_header_scheme": true,
+        "cart_icon_bg_transparent": true,
+        "cart_color_scheme": "scheme-3",
+        "counter_color": "#ffffff",
+        "counter_bg": "#0042eb",
+        "text_weight": "fw-500",
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "",
+        "login_label": "",
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "mega_menu_image_color_scheme": "",
+        "mega_menu_style": "second-style",
+        "mega_menu_image_ratio": "landscape",
+        "mm_custom_image_height": 96,
+        "mega_menu_description": "",
+        "mega_menu_link": "",
+        "search_type": "popup",
+        "inline_search_color_scheme": "scheme-8",
+        "padding_top": 20,
+        "padding_bottom": 24,
+        "padding_top_mb": 12,
+        "padding_bottom_mb": 12
+      }
+    }
+  },
+  "order": [
+    "scrolling_banner_EedWVe",
+    "header"
+  ]
+}

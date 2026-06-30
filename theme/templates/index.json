@@ -1,0 +1,1040 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_ERLpGU": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_TtLGFw": {
+          "type": "slide",
+          "settings": {
+            "image": "",
+            "heading": "Skincare That Doesn’t Overpromise. Just Works.",
+            "heading_font_family": "font-heading",
+            "heading_size": "h1",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "subheading": "Clinically tested formulas for everyday skin and body essentials.",
+            "text_color": "foreground-secondary",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-5",
+            "enable_mobile_color_scheme": true,
+            "color_scheme_mobile": "scheme-1",
+            "remove_space_for_content_on_mobile": true,
+            "image_border_radius_mobile": true,
+            "button_label": "Shop Now",
+            "link": "",
+            "button_style": "primary",
+            "button_outline": "outline-none",
+            "button_2_label": "View Collection",
+            "link_2": "",
+            "button_2_style": "secondary",
+            "button_2_outline": "outline",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "slide_ny48D9": {
+          "type": "slide",
+          "settings": {
+            "image": "",
+            "heading": "Science First. Fuss-Free Always.",
+            "heading_font_family": "font-heading",
+            "heading_size": "h1",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "subheading": "High-performance skincare made for every face, every body.",
+            "text_color": "foreground-secondary",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-5",
+            "enable_mobile_color_scheme": true,
+            "color_scheme_mobile": "",
+            "remove_space_for_content_on_mobile": true,
+            "image_border_radius_mobile": true,
+            "button_label": "Shop Now",
+            "link": "",
+            "button_style": "primary",
+            "button_outline": "outline-none",
+            "button_2_label": "View Collection",
+            "link_2": "",
+            "button_2_style": "secondary",
+            "button_2_outline": "outline",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "slide_AHfwhB": {
+          "type": "slide",
+          "settings": {
+            "image": "",
+            "heading": "Good Skin Isn’t Complicated.",
+            "heading_font_family": "font-heading",
+            "heading_size": "h1",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "subheading": "Meet the unisex essentials built for real routines.",
+            "text_color": "foreground-secondary",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-5",
+            "enable_mobile_color_scheme": true,
+            "color_scheme_mobile": "",
+            "remove_space_for_content_on_mobile": true,
+            "image_border_radius_mobile": true,
+            "button_label": "Shop Now",
+            "link": "",
+            "button_style": "primary",
+            "button_outline": "outline-none",
+            "button_2_label": "View Collection",
+            "link_2": "",
+            "button_2_style": "secondary",
+            "button_2_outline": "outline",
+            "text_alignment_mobile": "left"
+          }
+        }
+      },
+      "block_order": [
+        "slide_TtLGFw",
+        "slide_ny48D9",
+        "slide_AHfwhB"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "container_width": "container_wide",
+        "color_scheme": "",
+        "slide_height": "medium",
+        "loop": true,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "box_align": "middle-left",
+        "pagination_position": "outside-slider",
+        "pagination_transparent_background": true,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "collection_list_RXGMLR": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_WW9N7d": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "custom_image_hover_text": "View Collection"
+          }
+        },
+        "featured_collection_UgGCJf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "custom_image_hover_text": "View Collection"
+          }
+        },
+        "featured_collection_8paiBV": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "custom_image_hover_text": "View Collection"
+          }
+        },
+        "featured_collection_FyQWkw": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "custom_image_hover_text": "View Collection"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_WW9N7d",
+        "featured_collection_UgGCJf",
+        "featured_collection_8paiBV",
+        "featured_collection_FyQWkw"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Everyday Essentials",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "button_style": "primary",
+        "button_outline": "outline-none",
+        "individual_card_style": "overlay-card",
+        "custom_image_hover_text_color": "#ffffff",
+        "overlay": "#101010",
+        "image_overlay_opacity": 40,
+        "individual_card_color_scheme": "scheme-4",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "slider_controls": "show-scrollbar",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "scrolling_banner_Fey7Qm": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Dermatologist-tested. Ingredient-led",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_7kWBhN": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        },
+        "heading_yBrtGY": {
+          "type": "heading",
+          "settings": {
+            "text": "Built for clarity in formulas, routines, and results",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_DUgJhk": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_7kWBhN",
+        "heading_yBrtGY",
+        "icon_DUgJhk"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 45,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "sticky_products_Yd3N9D": {
+      "type": "sticky-products",
+      "blocks": {
+        "product_bHDiDw": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-2",
+            "product": "",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        },
+        "product_PtnTHN": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "",
+            "product": "",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        },
+        "product_NjaDHX": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "",
+            "product": "",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        },
+        "product_kyGABe": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "",
+            "product": "",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        },
+        "product_QeBnra": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-2",
+            "product": "",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        },
+        "product_3EyHtK": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "",
+            "product": "",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        },
+        "product_p3BT4U": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-2",
+            "product": "",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        }
+      },
+      "block_order": [
+        "product_bHDiDw",
+        "product_PtnTHN",
+        "product_NjaDHX",
+        "product_kyGABe",
+        "product_QeBnra",
+        "product_3EyHtK",
+        "product_p3BT4U"
+      ],
+      "name": "Sticky products",
+      "settings": {
+        "color_scheme": "",
+        "title": "Curated Care for This Week",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "button_label": "Shop All Products",
+        "button_link": "",
+        "banner_position": "left",
+        "image_ratio": "adapt",
+        "custom_image_height": 120,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "show_type": false,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "scrolling_banner_fR8jNn": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_e6gdrx": {
+          "type": "heading",
+          "settings": {
+            "text": "FROM DULL TO LUMINOUS, EFFORTLESSLY",
+            "color": "--color-heading",
+            "text_size": "text--small",
+            "heading_font_family": "",
+            "text_weight": "fw-600"
+          }
+        },
+        "heading_pEfHAr": {
+          "type": "heading",
+          "settings": {
+            "text": "FROM DULL TO LUMINOUS, EFFORTLESSLY",
+            "color": "--color-heading",
+            "text_size": "text--small",
+            "heading_font_family": "",
+            "text_weight": "fw-600"
+          }
+        }
+      },
+      "block_order": [
+        "heading_e6gdrx",
+        "heading_pEfHAr"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "scroll_speed": "very-fast",
+        "column_gap": 30,
+        "column_gap_mb": 30,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 20
+      }
+    },
+    "before_after_AJQhaa": {
+      "type": "before-after",
+      "settings": {
+        "color_scheme": "",
+        "full_width": false,
+        "image_height": 42,
+        "image_height_mb": 160,
+        "heading": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h2",
+        "heading_color": "foreground",
+        "text": "",
+        "heading_align": "center",
+        "before_image_label": "Before",
+        "before_label_color": "#0b225c",
+        "before_label_size": "h2",
+        "before_label_weight": "fw-500",
+        "before_image": "",
+        "before_product": "",
+        "before_product_title": "",
+        "before_show_type": true,
+        "before_product_url": "",
+        "after_image_label": "After",
+        "after_label_color": "#0b225c",
+        "after_label_size": "h2",
+        "after_label_weight": "fw-500",
+        "after_image": "",
+        "after_product": "",
+        "after_product_title": "",
+        "after_show_type": true,
+        "after_product_url": "",
+        "product_color_scheme": "scheme-2",
+        "use_custom_bg": true,
+        "product_bg_color": "#fefcf9",
+        "product_image_ratio": "square",
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "padding_top_mb": 16,
+        "padding_bottom_mb": 16
+      }
+    },
+    "countdown_banner_DzcfRf": {
+      "type": "countdown-banner",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "heading": "Flash Sale!",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "text_color": "foreground",
+        "text": "Get 10% off on spending $199 or more!",
+        "full_width": true,
+        "color_scheme_background": "",
+        "padding_top_background": 40,
+        "padding_bottom_background": 40,
+        "padding_top_background_mb": 40,
+        "padding_bottom_background_mb": 40,
+        "countdown_date": "July 01, 2025",
+        "countdown_end": "cycle",
+        "days_label": "Days",
+        "hours_label": "Hours",
+        "mins_label": "Minutes",
+        "secs_label": "Seconds",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "product_bundle_pK9nWX": {
+      "type": "product-bundle",
+      "settings": {
+        "title": "Build Your Routine",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "description": "<p>Buy 3 products and save upto 30%<\/p>",
+        "collection": "",
+        "product_list": [],
+        "products_to_show": 12,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "bundle_title": "Your Bundle",
+        "bundle_heading_font_family": "font-body",
+        "bundle_description": "Add  3 products and save 30%",
+        "discount_minimum_items": 3,
+        "discount_maximum_items": 3,
+        "bundle_cross_icon_radius": 50,
+        "bundle_color_scheme": "scheme-3",
+        "bundle_product_heading_font_family": "font-body",
+        "button_style": "secondary",
+        "button_outline": "outline-none",
+        "image_ratio": "adapt",
+        "custom_image_height": 120,
+        "image_shape": "default",
+        "product_heading_size": "text-body--large",
+        "product_heading_weight": "fw-500",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_type": false,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "multi_scroll_gallery_H9fT3k": {
+      "type": "multi-scroll-gallery",
+      "blocks": {
+        "item_H3Vm6U": {
+          "type": "item",
+          "settings": {
+            "image": "",
+            "title": "01 Clinically Proven Ingredients",
+            "title_size": "h5",
+            "heading_weight": "fw-500",
+            "text": "Every formula uses active concentrations validated by studies—no hype, no filler."
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "image": "",
+            "title": "02  Made for All Genders & All Skin Types",
+            "title_size": "h5",
+            "heading_weight": "fw-500",
+            "text": "Balanced, fragrance-neutral formulations that suit sensitive, oily, dry, and combination skin."
+          }
+        },
+        "item_HnqmFi": {
+          "type": "item",
+          "settings": {
+            "image": "",
+            "title": "03  Sustainable & Minimal",
+            "title_size": "h5",
+            "heading_weight": "fw-500",
+            "text": "Recyclable packaging, responsible sourcing, and no unnecessary secondary boxes."
+          }
+        }
+      },
+      "block_order": [
+        "item_H3Vm6U",
+        "item_2",
+        "item_HnqmFi"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "title": "Redefining Self-Care Without Boundaries",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "image_ratio": "custom",
+        "custom_image_height": 110,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "featured_product_9UePgg": {
+      "type": "featured-product",
+      "blocks": {
+        "title_KMBJXe": {
+          "type": "title",
+          "settings": {
+            "show_type": false,
+            "enable_type_custom_color": false,
+            "type_custom_color_value": "#101010",
+            "heading_font_family": "font-heading",
+            "heading_size": "h3",
+            "heading_weight": "fw-500",
+            "space": "mb-0_8"
+          }
+        },
+        "price_h3z8Rg": {
+          "type": "price",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "price_font_family": "font-body",
+            "text_weight": "fw-400",
+            "text_size": "small"
+          }
+        },
+        "variant_picker_ygcdn4": {
+          "type": "variant_picker",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "text_weight": "fw-400",
+            "picker_type": "dropdown",
+            "variant_item_weight": "fw-500",
+            "enable_borders": true,
+            "variant_picker_background_color_enable": true,
+            "variant_picker_background_color": "#fffcee",
+            "variant_picker_border_color": "#0b225c",
+            "swatch_picker_type": "dropdown",
+            "swatch_shape": "circle"
+          }
+        },
+        "description_enh9qR": {
+          "type": "description",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4"
+          }
+        },
+        "quantity_selector_3KmP79": {
+          "type": "quantity_selector",
+          "settings": {
+            "space": "mb-lg-2_4",
+            "space_mobile": "mb-2_4",
+            "heading_font_family": "font-body",
+            "text_weight": "fw-400",
+            "quantity_custom_style_enable": true,
+            "quantity_background_color": "",
+            "quantity_border_color": "#0b225c"
+          }
+        },
+        "inventory_FtLxkt": {
+          "type": "inventory",
+          "settings": {
+            "space": "mb-lg-2_4",
+            "space_mobile": "mb-4",
+            "half_width": true,
+            "show_icon": false,
+            "show_inventory_quantity": true,
+            "inventory_threshold": 10,
+            "show_inventory_low": false,
+            "show_inventory_progress": true,
+            "inventory_threshold_start": 100
+          }
+        },
+        "buy_buttons_FUmmmm": {
+          "type": "buy_buttons",
+          "settings": {
+            "space": "mb-0",
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "card_button_style": "secondary",
+            "card_button_outline": "outline-hover",
+            "buy_it_now_button_capitalize": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_KMBJXe",
+        "price_h3z8Rg",
+        "variant_picker_ygcdn4",
+        "description_enh9qR",
+        "quantity_selector_3KmP79",
+        "inventory_FtLxkt",
+        "buy_buttons_FUmmmm"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "",
+        "enable_sticky_info": true,
+        "content_alignment": "flex-start",
+        "color_scheme": "scheme-9",
+        "secondary_background": false,
+        "show_badges": true,
+        "media_size": "large",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "left",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 0
+      }
+    },
+    "image_banner_bqheBQ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_CXQMUa": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Simplicity Sale — Up to 25% Off Essentials",
+            "heading_size": "h1",
+            "heading_weight": "fw-500",
+            "text_gradient": ""
+          }
+        },
+        "buttons_MFArjU": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_outline_1": "outline-none",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "primary",
+            "button_outline_2": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CXQMUa",
+        "buttons_MFArjU"
+      ],
+      "settings": {
+        "full_width": false,
+        "desktop_content_position": "bottom-left-to-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "image": "",
+        "image_height": "adapt",
+        "image_overlay_opacity": 0,
+        "image_behavior": "none",
+        "image_height_mb": "adapt",
+        "mobile_content_alignment": "bottom-left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 72,
+        "padding_bottom_mb": 80
+      }
+    },
+    "featured_collection_PcN7DA": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Most Popular Products",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "",
+        "product_list": [],
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "enable_slider": true,
+        "slides_number": 4.2,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "custom_image_height": 103,
+        "image_shape": "default",
+        "product_heading_size": "text-body--large",
+        "product_heading_weight": "fw-500",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "show_type": false,
+        "enable_product_variants": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "testimonials_banner_79DMhQ": {
+      "type": "testimonials-banner",
+      "blocks": {
+        "testimonial_HHDpqN": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Finally a brand that keeps it simple.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
+            "full_name": "Riya, 26",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_M8KcxQ": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Unisex but genuinely effective.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The body wash + moisturiser duo fixed my dryness in a week.",
+            "full_name": "Peter, 35",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4.6,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "\"My skin hasn’t looked this even in years.\"",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The gel cleanser and moisturiser combo just works. Zero irritation, zero drama.",
+            "full_name": "Maya, 34",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_HHDpqN",
+        "testimonial_M8KcxQ",
+        "testimonial_1"
+      ],
+      "settings": {
+        "testimonials_layout": "column",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-2",
+        "background_image": "",
+        "heading": "Beauty, Affirmed",
+        "heading_font_family": "font-heading",
+        "heading_size": "h0-xs",
+        "heading_weight": "fw-500",
+        "heading_color_gradient": "linear-gradient(57deg, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%)",
+        "autoplay": true,
+        "change_slides_speed": 4,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "scrolling_banner_pyLhKX": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_bWacLg": {
+          "type": "heading",
+          "settings": {
+            "text": "Dermatologist-tested. Ingredient-led.",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_PgpaXE": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        },
+        "heading_rnUJzX": {
+          "type": "heading",
+          "settings": {
+            "text": "Built for clarity in formulas, routines, and results.",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_Pa4r6j": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_bWacLg",
+        "icon_PgpaXE",
+        "heading_rnUJzX",
+        "icon_Pa4r6j"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "featured_blog_BTwgdC": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Read Our Blogs",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "blog": "gifts",
+        "post_limit": 4,
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_image": true,
+        "show_description": "none",
+        "show_date": true,
+        "show_author": false,
+        "show_comments": false,
+        "show_view_all": true,
+        "read_more_title": "Read More",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "icon_wtih_text_A9C6Jd": {
+      "type": "icon-with-text",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free delivery",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Customer support",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free shipping",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_6twLw6": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Secure payment",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_6twLw6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-10",
+        "auto_rotate": true,
+        "slides_per_view": 1,
+        "change_slides_speed": 5,
+        "scroll_speed": 1.7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    }
+  },
+  "order": [
+    "slideshow_ERLpGU",
+    "collection_list_RXGMLR",
+    "scrolling_banner_Fey7Qm",
+    "sticky_products_Yd3N9D",
+    "scrolling_banner_fR8jNn",
+    "before_after_AJQhaa",
+    "countdown_banner_DzcfRf",
+    "product_bundle_pK9nWX",
+    "multi_scroll_gallery_H9fT3k",
+    "featured_product_9UePgg",
+    "image_banner_bqheBQ",
+    "featured_collection_PcN7DA",
+    "testimonials_banner_79DMhQ",
+    "scrolling_banner_pyLhKX",
+    "featured_blog_BTwgdC",
+    "icon_wtih_text_A9C6Jd"
+  ]
+}

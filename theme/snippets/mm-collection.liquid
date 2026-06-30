@@ -1,0 +1,69 @@
+{% comment %}
+	Renders a collection products for mega menu
+
+	Accepts:
+		block: {Object} The block object
+
+	Usage:
+		{% render 'mm-collection', %}
+{% endcomment %}
+
+{% liquid
+	assign mm_collection = block.settings.collection
+%}
+
+<div class="mega-menu__collection">
+	<swiper-slider class="swiper"
+		data-slides-per-view-sm="{{ block.settings.slides_number }}"
+		data-slides-per-view-lg="{{ block.settings.slides_number }}"
+	>
+		<div class="swiper-wrapper">
+			{%- if mm_collection != blank -%}
+				{%- for product in mm_collection.products limit: block.settings.products_to_show -%}
+					{% liquid
+						assign mm_collection = block.settings.collection
+						assign section_id = section.id | append: '-' | append: block.id | append: '-' | append: forloop.index
+					%}
+					<div
+						class="swiper-slide"
+						{% if settings.animations_reveal_on_scroll %}
+							data-cascade
+							style="--animation-order: {{ forloop.index }};"
+						{% endif %}
+					>
+						{% render 'card-product',
+							card_product: product,
+							heading_size: 'text-body--large',
+							heading_weight: 'fw-400',
+							section_id: section_id
+						%}
+					</div>
+				{%- endfor -%}
+			{%- else -%}
+
+				{%- for i in (1..block.settings.products_to_show) -%}
+					<div
+						class="swiper-slide"
+						{% if settings.animations_reveal_on_scroll %}
+							data-cascade
+							style="--animation-order: {{ forloop.index }};"
+						{% endif %}
+					>
+						{% liquid
+							assign ridx = forloop.rindex
+							if ridx == 5
+								assign ridx = 1
+							endif
+						%}
+						{%- assign placeholder_image = 'product-apparel-' | append: ridx -%}
+						{% render 'card-product',
+							heading_size: 'h5',
+							heading_weight: '500',
+							placeholder_image: placeholder_image
+						%}
+					</div>
+				{%- endfor -%}
+			{%- endif -%}
+		</div>
+	</swiper-slider>
+</div>

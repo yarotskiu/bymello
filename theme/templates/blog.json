@@ -1,0 +1,183 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumbs_color_scheme": "scheme-8",
+        "breadcrumbs_active_color_enable": true,
+        "breadcrumbs_active_color": "#0042eb",
+        "color_scheme": "",
+        "banner_height": "default",
+        "title": "Our Journal",
+        "title_size": "h3",
+        "title_weight": "fw-500",
+        "description": "Read the last updates and news about our brand and line of products.",
+        "banner_padding_top": 40,
+        "banner_padding_bottom": 0,
+        "banner_padding_top_mb": 40,
+        "banner_padding_bottom_mb": 0,
+        "tags_style": "rounded",
+        "tag_color_scheme": "",
+        "active_tag_color_scheme": "",
+        "tags_font_weight": "fw-600",
+        "posts_to_show": 5,
+        "layout": "grid",
+        "first_article_custom_enable": false,
+        "first_article_color_scheme": "",
+        "show_image": true,
+        "image_height": "medium",
+        "show_description": "show_first",
+        "show_date": true,
+        "show_author": false,
+        "show_comments": false,
+        "read_more_title": "Read More",
+        "pagination_font_weight": "fw-400",
+        "pagination_button_style": "general",
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 0
+      }
+    },
+    "scrolling_banner_Fey7Qm": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Care that wears like couture",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_hC44jX": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_hC44jX"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "icon_wtih_text_A9C6Jd": {
+      "type": "icon-with-text",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free delivery",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Customer support",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free shipping",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_6twLw6": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Secure payment",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_6twLw6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-10",
+        "auto_rotate": true,
+        "slides_per_view": 1,
+        "change_slides_speed": 5,
+        "scroll_speed": 1.7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "scrolling_banner_Fey7Qm",
+    "icon_wtih_text_A9C6Jd"
+  ]
+}

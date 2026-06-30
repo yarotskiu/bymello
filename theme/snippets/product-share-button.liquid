@@ -1,0 +1,156 @@
+{% comment %}
+	Renders product share button.
+	Accepts:
+	- block: {Object} passes in the block information.
+	- share_link: {String} url to be added to the input the user will get/copy.
+- class: {String} Add a class
+
+	Usage:
+	{% render 'share-button',
+		block: block,
+		share_link: share_url
+	%}
+{% endcomment %}
+
+<script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+
+<share-button
+  id="Share-{{ section.id }}"
+  class="share-button quick-add-hidden {%- if class %} {{ class }} {% endif -%}"
+  {{ block.shopify_attributes }}
+>
+  <button class="share-button__button hidden {{ heading_weight }} {{ heading_font_family }}">
+    {% comment %} {% render 'icon-share' %} {% endcomment %}
+    {{ block.settings.share_label | escape }}
+  </button>
+
+  <details id="Details-{{ block.id }}-{{ section.id }}">
+    <summary class="share-button__button">
+      {% comment %} {% render 'icon-share' %} {% endcomment %}
+      {{ block.settings.share_label | escape }}
+    </summary>
+    <div class="share-button__fallback motion-reduce">
+      <div class="field">
+        <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status"> </span>
+        <input
+          type="text"
+          class="field__input"
+          id="ShareUrl-{{ section.id }}"
+          value="{{ share_link }}"
+          placeholder="{{ 'general.share.share_url' | t }}"
+          onclick="this.select();"
+          readonly
+        >
+        <label class="field__label" for="ShareUrl-{{ section.id }}">{{ 'general.share.share_url' | t }}</label>
+      </div>
+      <button class="share-button__close hidden no-js-hidden">
+        {% render 'icon-close' %}
+        <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
+      </button>
+      <button class="share-button__copy no-js-hidden">
+        {% render 'icon-clipboard' %}
+        <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
+      </button>
+    </div>
+  </details>
+
+  <ul class="list-unstyled list-social" role="list">
+    {% if block.settings.show_linkedin_share %}
+      <li class="list-social__item list-social__item--rounded {{item_class }} button--animate-{{ settings.animations_hover_elements }}">
+        <a
+          class="share-button__button link list-social__link"
+          href="https://www.linkedin.com/sharing/share-offsite/?url={{ canonical_url }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="{{ canonical_url }}"
+        >
+					{% render 'icon-linkedin' %}
+        </a>
+      </li>
+    {% endif %}
+    {% if block.settings.show_fb_share %}
+      <li class="list-social__item list-social__item--rounded {{item_class }} button--animate-{{ settings.animations_hover_elements }}">
+        <a
+          class="share-button__button link list-social__link"
+          href="https://www.facebook.com/sharer.php?u={{ canonical_url }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="{{ canonical_url }}"
+        >
+					{% render 'icon-facebook' %}
+        </a>
+      </li>
+    {% endif %}
+
+    {% if block.settings.show_twitter_share %}
+      <li class="list-social__item list-social__item--rounded {{item_class }} button--animate-{{ settings.animations_hover_elements }}">
+        <a
+          class="share-button__button link list-social__link"
+          href="https://twitter.com/intent/tweet?text={{ product.title | escape }}&url={{ canonical_url }}"
+		  
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="{{ canonical_url }}"
+        >
+					{% render 'icon-twitter' %}
+        </a>
+      </li>
+    {% endif %}
+
+    {% if block.settings.show_pinterest_share %}
+      <li class="list-social__item list-social__item--rounded {{item_class }} button--animate-{{ settings.animations_hover_elements }}">
+        <a
+          class="share-button__button link list-social__link"
+          href="https://www.pinterest.com/pin/create/button/?guid=w7dEew2ynTe1-1&url={{ canonical_url }}&media={{ product.featured_image | image_url: width: 1500 }}&description={{ product.title | escape }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="{{ canonical_url }}"
+        >
+					{% render 'icon-pinterest' %}
+        </a>
+      </li>
+    {% endif %}
+
+    {% if block.settings.show_telegram_share %}
+      <li class="list-social__item list-social__item--rounded {{item_class }} button--animate-{{ settings.animations_hover_elements }}">
+        <a
+          class="share-button__button link list-social__link"
+          href="https://t.me/share/url?url={{ canonical_url }}&text={{ product.title | escape }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="{{ canonical_url }}"
+        >
+					{% render 'icon-telegram' %}
+        </a>
+      </li>
+    {% endif %}
+
+    {% if block.settings.show_snapchat_share %}
+      <li class="list-social__item list-social__item--rounded {{item_class }} button--animate-{{ settings.animations_hover_elements }}">
+        <a
+          class="share-button__button link list-social__link"
+          href="https://www.snapchat.com/scan?attachmentUrl={{ canonical_url }}&utm_source=sharethis"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="{{ canonical_url }}"
+        >
+					{% render 'icon-snapchat' %}
+        </a>
+      </li>
+    {% endif %}
+
+    {% if block.settings.show_tumblr_share %}
+      <li class="list-social__item list-social__item--rounded {{item_class }} button--animate-{{ settings.animations_hover_elements }}">
+        <a
+          class="share-button__button link list-social__link"
+          href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ canonical_url }}&title={{ product.title | escape }}&caption={{ product.excerpt | escape }}"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="{{ canonical_url }}"
+        >
+					{% render 'icon-tumblr' %}
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</share-button>

@@ -1,0 +1,113 @@
+.pagination-wrapper {
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 990px) {
+  .pagination-wrapper {
+    margin-top: 4rem;
+  }
+}
+
+.pagination__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 1.6rem;
+}
+
+@media screen and (max-width: 989px) {
+  .pagination__list {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .pagination__list.space-between {
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+
+a.pagination__item.link {
+  color: rgb(var(--color-foreground));
+  font-weight: inherit;
+  line-height: 1.42857;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+a.pagination__item--link.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  height: 2.4rem;
+}
+
+a.pagination__item.link {
+  text-decoration: none;
+}
+
+a.pagination__item.pagination__item--current.light span {
+  background-size: 100% var(--bg-h);
+  background-position-x: left;
+}
+
+a.pagination__item.pagination__item--current {
+  font-weight: 600;
+}
+
+.pagination__item--next .icon {
+  rotate: 180deg;
+}
+
+a.pagination__item-arrow.link {
+  display: flex;
+  height: 4rem;
+  width: 4rem;
+  border-radius: var(--buttons-radius);
+  transition:
+    color 0.3s,
+    background-color 0.3s,
+    border-color 0.3s,
+    border-radius 0.3s;
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: 0.1rem solid rgb(var(--color-button-outline));
+}
+
+.pagination-wrapper.secondary-button-style a.pagination__item-arrow.link {
+  background-color: rgb(var(--color-secondary-button));
+  color: rgb(var(--color-secondary-button-text));
+  border: 0.1rem solid rgb(var(--color-secondary-button-outline));
+}
+
+@media (hover: hover) {
+  .pagination__item-arrow .icon {
+    transition: transform var(--duration-medium);
+  }
+
+  .animate--hover-glide .pagination__item-arrow:hover {
+    border-radius: var(--buttons-radius-hover);
+    color: rgb(var(--color-button-text-hover));
+    background-color: rgb(var(--color-button-hover));
+    border-color: rgb(var(--color-button-text-hover));
+  }
+
+  .pagination__item-arrow:hover .icon {
+    transform: transform var(--duration-medium);
+    animation: var(--duration-medium) ease-in-out forwards animateIconInline;
+  }
+}
+
+.pagination__item-arrow .icon {
+  width: 1rem;
+}
+
+.pagination__item-arrow.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
+}

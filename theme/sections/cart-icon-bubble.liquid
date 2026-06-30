@@ -1,0 +1,23 @@
+{%- liquid
+  if cart == empty
+    assign cart_is_empty = true
+  else
+    assign cart_is_empty = false
+  endif
+-%}
+{% if cart_is_empty %}
+  <span class="icon-variant icon--modern">{% render 'icon-cart-empty' %}</span>
+  <span class="icon-variant icon--classic">{% render 'icon-cart-empty-classic' %}</span>
+{% else %}
+  <span class="icon-variant icon--modern">{% render 'icon-cart' %}</span>
+  <span class="icon-variant icon--classic">{% render 'icon-cart-classic' %}</span>
+{% endif %}
+<span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+{%- if cart != empty -%}
+  <div class="cart-count-bubble">
+    {%- if cart.item_count <= 100 -%}
+      <span aria-hidden="true">{{ cart.item_count }}</span>
+    {%- endif -%}
+    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+  </div>
+{%- endif -%}

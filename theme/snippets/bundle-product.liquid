@@ -1,0 +1,34 @@
+{% comment %}
+	Renders a bundle product
+
+	Accepts:
+
+	Usage:
+	{% render 'bundle-product', image_ratio, heading_font_family %}
+{% endcomment %}
+
+<div class="bundle-product" data-component="product-bundle-item" available>
+	<div class="bundle-product__media-wrapper">
+		<div class="bundle-product__media media media--square" data-component="product-bundle-item-media">
+		</div>
+	</div>
+
+	<div class="bundle-product__content" data-component="product-bundle-item-content">
+		<div class="bundle-product__skeleton"></div>
+		<div class="bundle-product__skeleton"></div>
+		<div class="bundle-product__title {{ heading_font_family }}" data-component="product-bundle-item-title"></div>
+		<div class="bundle-product__variants" data-component="product-bundle-item-variants"></div>
+		<div class="bundle-product__price" data-component="product-bundle-item-price"></div>
+	</div>
+
+	<div class="bundle-product__close">
+		<div class="bundle-product__close-btn 
+			animate-hover-rotate
+			button--animate-{{ settings.animations_hover_elements }} 
+			" data-component="product-bundle-remove-btn"
+			tabindex="0"
+		>
+				{% render 'icon-close-small' %}
+		</div>
+	</div>
+</div>

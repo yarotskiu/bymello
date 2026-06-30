@@ -1,0 +1,71 @@
+.slideshow-banner__product-slider {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slideshow-banner__product-slider .slider-with-navigation {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.slideshow-banner__product-slider .swiper {
+  width: 100%;
+  overflow: hidden;
+  max-width: 34rem;
+}
+
+.slideshow-banner__product-slider .swiper-button {
+  position: static;
+  margin: 0;
+}
+
+.slideshow-banner__product-slider .swiper-slide {
+  height: auto;
+  opacity: 1;
+}
+
+.slideshow-banner__product-slider .swiper-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.slideshow-banner__product-slider .card-wrapper {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.slideshow-banner__product-slider .card {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  /* min-width: auto; */
+}
+
+/* Hide navigation when there are no slides to navigate */
+.slideshow-banner__product-slider .swiper-button.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: not-allowed;
+  transition: opacity 0.3s ease;
+}
+
+.slideshow-banner__product-slider .swiper-button:not(.disabled) {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  /* .slideshow-banner__product-slider {
+    margin-top: 1.5rem;
+  } */
+  
+  .slideshow-banner__product-slider .slider-with-navigation {
+    gap: 1rem;
+  }
+}

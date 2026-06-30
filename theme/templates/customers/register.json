@@ -1,0 +1,28 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-register",
+      "settings": {
+        "image": "",
+        "section_color_scheme": "scheme-1",
+        "show_breadcrumbs": true,
+        "padding_top": 80,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

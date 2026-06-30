@@ -1,0 +1,97 @@
+.related-products {
+  display: block;
+
+	--slider-gap: 2rem;
+	--slider-gap-tb: 3rem;
+	--slides-per-view-tb: 2.5;
+}
+
+.related-products__grid {
+	margin-top: 0;
+}
+
+.related-products__wrapper:not(:has(.grid__item)) {
+  display: none;
+}
+
+.related-products__heading {
+  margin: 0;
+}
+
+.title-wrapper-with-navigation {
+	display: flex;
+	gap: 1rem 3rem;
+	justify-content: space-between;
+}
+
+@media screen and (max-width: 989px) {
+	.related-products .product-grid {
+		margin-bottom: 2.4rem;
+	}
+}
+
+@media screen and (min-width: 990px) {
+	.related-products__grid-wrapper:has(.swiper) {
+		display: flex;
+		padding: 0;
+		max-width: 100%;
+		margin-left: 5rem;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.related-products__main-content:has(.swiper) {
+    display: grid;
+    grid-template-columns: 1fr min(100%, var(--page-width)) 1fr;
+	}
+
+	.related-products__grid-wrapper:has(.swiper) {
+		padding: 0 0 0 5rem;
+		grid-column: 2 / 4;
+		margin-left: 0;
+		max-width: 100%;
+	}
+}
+
+/* slider setup */
+.related-products .swiper-button {
+	position: relative;
+}
+
+.related-products .swiper.product-grid .swiper-slide {
+	--col-gap: calc(var(--slider-gap) * var(--slides-per-view) - var(--slider-gap));
+	flex-grow: 0;
+	width: calc(100% / var(--slides-per-view) - var(--col-gap) / var(--slides-per-view));
+}
+
+@media screen and (max-width: 989px) {
+	.related-products .swiper-wrapper {
+		margin-bottom: 5rem;	
+	}
+
+	.related-products .slider-navigation--bottom {
+		margin-top: .4rem;
+		justify-content: center;
+	}
+}
+
+@media screen and (min-width: 750px) {
+	.related-products .swiper.product-grid .swiper-slide {
+		--col-gap: calc(var(--slider-gap-tb) * var(--slides-per-view-tb) - var(--slider-gap-tb));
+		width: calc(100% / var(--slides-per-view-tb) - var(--col-gap) / var(--slides-per-view-tb));
+	}
+}
+
+@media screen and (min-width: 990px) {
+	.related-products .product-grid {
+		margin-bottom: 0;
+	}
+}
+
+
+@media screen and (min-width: 1200px) {
+	.related-products .swiper.product-grid .swiper-slide {
+		--col-gap: calc((var(--slider-gap-tb) * var(--slides-per-view-pc) - var(--slider-gap-tb)) / var(--slides-per-view-pc));
+		width: calc(100% / var(--slides-per-view-pc) - var(--col-gap));
+	}
+}

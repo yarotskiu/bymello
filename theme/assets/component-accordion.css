@@ -1,0 +1,116 @@
+.accordion summary {
+  display: flex;
+  position: relative;
+  line-height: 1;
+  padding: 2.4rem 0;
+}
+
+.accordion .summary__title {
+  display: flex;
+  flex: 1;
+}
+
+.accordion .summary__title + .icon-caret {
+  height: 0.6rem;
+}
+
+.accordion + .accordion {
+  margin-top: 0;
+  border-top: none;
+}
+
+.accordion {
+  margin-top: 2.5rem;
+  border-top: 0.1rem solid rgba(var(--color-outline), 1);
+  border-bottom: 0.1rem solid rgba(var(--color-outline), 1);
+}
+
+.accordion:first-of-type {
+	border-top: unset;
+}
+
+.accordion__title {
+  display: inline-block;
+  max-width: calc(100% - 6rem);
+  min-height: 1.6rem;
+  margin: 0;
+  word-break: break-word;
+}
+
+.accordion__btn:empty {
+	display: inline-block;
+}
+
+.accordion__btn {
+	--size: 2.4rem;
+	
+	position: relative;
+	width: var(--size);
+	height: var(--size);
+	border-radius: 50%;
+	border: .1px solid rgb(var(--color-button-outline));
+	background: rgb(var(--color-button));
+}
+
+.accordion__btn::after,
+.accordion__btn::before {
+	content: '';
+  position: absolute;
+	background: rgb(var(--color-button-text));
+}
+
+.accordion__btn::before {
+	width: 1rem;
+  height: .2rem;
+	left: auto;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.accordion__btn::after {
+	width: .2rem;
+  height: 1rem;
+	left: auto;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+	transition: height var(--duration-medium) ease;
+}
+
+.accordion details[open] .accordion__btn::after {
+	height: .2rem;
+}
+
+.accordion .icon-accordion {
+  align-self: center;
+  fill: rgb(var(--color-foreground));
+  height: 2rem;
+  margin-right: 1rem;
+  width: 2rem;
+}
+
+.accordion details[open] > summary .icon-caret {
+  transform: rotate(180deg);
+}
+
+.accordion__content {
+  margin-bottom: 2.4rem;
+  word-break: break-word;
+  overflow-x: auto;
+  padding: 0 3rem 0 0;
+}
+
+.accordion__content p {
+	line-height: 1.5;
+}
+
+.accordion__content img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 990px) {
+	.accordion__content {
+		padding-right: 3rem;
+	}
+}

@@ -1,0 +1,401 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width section-responsive-padding {% if section.settings.bottom_border %} contact--border-bottom {% endif %}">
+    <div class="title-wrapper">
+      {%- if section.settings.heading != blank or section.settings.description != blank -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_weight }} {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text {% endif %}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <p class="description contact__description inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ section.settings.description }}
+          </p>
+        {%- endif -%}
+      {%- else -%}
+        <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+      {%- endif -%}
+    </div>
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      <div class="contact__fields">
+        <div class="field">
+          <label class="contact__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }} <span class="contact__required" aria-hidden="true">*</span></label>
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[{{ 'templates.contact.form.name' | t }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.name_placeholder' | t }}"
+						aria-required="true"
+						required
+          >
+        </div>
+        <div class="field field--with-error">
+          <label class="contact__label" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+            <span class="contact__required" aria-hidden="true">*</span></label
+          >
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+						required
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ 'templates.contact.form.email_placeholder' | t }}"
+          >
+
+					<small class="form__message contact__field-error" id="ContactForm-email-error">
+						{%- if form.errors contains 'email' -%}
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form__message">
+                {%- render 'icon-error' -%}
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+						{%- endif -%}
+					</small>
+        </div>
+      </div>
+
+			<div class="contact__fields">
+				
+				<div class="field">
+					<label class="contact__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+					<input
+						type="tel"
+						id="ContactForm-phone"
+						class="field__input"
+						autocomplete="tel"
+						name="contact[{{ 'templates.contact.form.phone' | t }}]"
+						pattern="[0-9\-]*"
+						value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+						placeholder="{{ 'templates.contact.form.phone_placeholder' | t }}"
+					>
+				</div>
+
+				{% if section.settings.show_select and section.blocks.size > 0  %}
+					<div class="field select">
+						{% if section.settings.select_label %}
+							<label class="contact__label" for="contact-select">
+								{{ section.settings.select_label }}
+								<span class="contact__required" aria-hidden="true">*</span>
+								</label>		
+						{%- endif -%}		
+							
+						<div class="contact__select-wrapper">
+							<select 
+								class="select_field" 
+								name="contact[Select]"
+								aria-required="true"
+								required
+								id="contact-select">
+								<option value="" class="disabled" disabled selected hidden>{{ 'templates.contact.form.select_placeholder' | t }}</option>
+								{%- for block in section.blocks -%}
+									<option value="{{ block.settings.select_option }}">{{ block.settings.select_option }}</option>
+								{%- endfor -%}
+							</select>
+							{% render 'icon-caret' %}
+						</div>
+					</div>
+				{%- endif -%}		
+			</div>
+
+      <div class="field">
+        <label class="form__label contact__label" for="ContactForm-body">
+          {{- 'templates.contact.form.comment' | t -}}&nbsp;<span class="contact__required" aria-hidden="true">*</span>
+        </label>
+        <textarea
+          rows="20"
+          id="ContactForm-body"
+          class="text-area field__input"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+          placeholder="{{ 'templates.contact.form.comment_placeholder' | t }}"
+					aria-required="true"
+					required
+        >
+          {{- form.body -}}
+        </textarea>
+      </div>
+      {%- if form.posted_successfully? -%}
+        <h2 class="contact__form-status form-status form-status-list form__message" tabindex="-1" autofocus>
+          {% render 'icon-success' %}
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            {% render 'icon-error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+      <div class="contact__button">
+        <button type="submit" class="button button--{{ section.settings.button_style }} button--{{ section.settings.button_outline }} button--animate-{{ settings.animations_hover_elements }}">
+					{{ 'templates.contact.form.send' | t }}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+	"limit": 1,
+  "disabled_on": {
+    "groups": ["header", "footer"],
+		"templates": ["password"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "Heading"
+    },
+		{
+			"type": "select",
+			"id": "heading_font_family",
+			"label": "Heading font family",
+			"options": [
+				{
+				"value": "font-heading",
+				"label": "Heading"
+				},
+				{
+				"value": "font-body",
+				"label": "Body"
+				}
+			],
+			"default": "font-heading"
+		},
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "options": [
+        {
+          "value": "fw-400",
+          "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+        },
+        {
+          "value": "fw-500",
+          "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+        },
+        {
+          "value": "fw-600",
+          "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+        },
+        {
+          "value": "fw-700",
+          "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+        }
+      ],
+      "default": "fw-500",
+      "label": "t:settings_schema.global.settings.text_weight.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "Add promotional text here"
+    },
+		{
+			"type": "select",
+			"id": "button_style",
+			"options": [
+				{
+					"value": "primary",
+					"label": "Primary"
+				},
+				{
+					"value": "secondary",
+					"label": "Secondary"
+				}
+			],
+			"default": "primary",
+			"label": "Button style"
+		},
+		{
+			"type": "select",
+			"id": "button_outline",
+			"label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label",
+			"options": [
+				{
+				"value": "outline-none",
+				"label": "None"
+				},
+				{
+				"value": "outline",
+				"label": "Outline"
+				},
+				{
+				"value": "outline-hover",
+				"label": "Outline on hover"
+				},
+			],
+			"default": "outline-hover",
+		},
+		{
+      "type": "checkbox",
+      "id": "show_select",
+      "default": true,
+      "label": "Show select field"
+    },
+		{
+			"type": "text",
+			"id": "select_label",
+			"label": "Select label",
+			"default": "Subject",
+		},
+		{
+			"type": "checkbox",
+			"id": "bottom_border",
+			"label": "Bottom border",
+			"default": false
+		},	
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    },
+  ],
+	"blocks": [
+    {
+      "type": "select",
+      "name": "Select field option",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "select_option",
+          "default": "Option name",
+          "label": "Select option"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name",
+			"blocks": [
+				{
+					"type": "select"
+				},
+				{
+					"type": "select"
+				},
+				{
+					"type": "select"
+				},
+				{
+					"type": "select"
+				}
+			]
+    }
+  ]
+}
+{% endschema %}

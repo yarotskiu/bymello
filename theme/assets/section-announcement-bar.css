@@ -1,0 +1,134 @@
+.utility-bar {
+	display: block;
+}
+
+.announcement-nav {
+	grid-area: social-icons;
+}
+
+announcement-bar .localization-form__select:before {
+	box-shadow: unset;
+}
+
+announcement-bar .localization-wrapper .localization-form__select .icon-caret {
+	right: calc(var(--inputs-border-width) + 2rem);
+}
+
+announcement-bar .localization-wrapper .disclosure .disclosure__button.localization-form__select {
+font-size: var(--f-size-text-sm);
+}
+
+.announcement-bar {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	grid-area: announcements;
+}
+
+.announcement-bar .swiper-button {
+	position: static;
+	flex: 0 0 4.4rem;
+}
+
+/* Hide navigation arrows when only one slide */
+.announcement-bar:has(.swiper-slide:only-child) .swiper-button {
+	display: none;
+}
+
+.announcement-bar .swiper-wrapper {
+	align-items: center;
+}
+
+.announcement-bar .swiper-slide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.announcement-bar .link {
+	text-decoration: none;
+}
+
+.announcement-bar .link:hover {
+	text-decoration: underline;
+}
+
+/* .announcement-bar .announcement-bar__message {
+	font-size: var(--f-size-text-sm);
+} */
+
+.announcement-bar__message,
+.announcement-bar .link {
+	font-size: var(--font-size, 1.4rem);
+	line-height: 1.714286;
+}
+
+@media screen and (max-width: 749px) {
+	.announcement-bar .swiper-button:hover {
+		background-color: transparent;
+    border-color: transparent;
+    color: rgb(var(--color-foreground));
+	}
+}
+
+@media screen and (min-width: 990px) {
+	.utility-bar__grid {
+		grid-template-columns: 2fr 2fr 2fr;
+		grid-template-areas: "social-icons announcements language-currency";
+		align-items: center;
+		column-gap: 2rem;
+	}	
+}
+
+@media screen and (min-width: 1025px) {
+	.utility-bar__grid {
+		grid-template-columns: 3fr 4fr 3fr;
+	}	
+}
+
+/* localization style */
+.utility-bar .localization-wrapper {
+	gap: 1rem 1.5rem;	
+}
+
+.utility-bar .localization-form {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-right: 0;
+}
+
+.utility-bar .localization-form .localization-form__select {
+	margin: 0;
+	padding-left: 0;
+	padding-right: 4.2rem;
+}
+
+.utility-bar .localization-form__select:focus.localization-form__select::after,
+.utility-bar .localization-form__select:hover.localization-form__select::after,
+.utility-bar .localization-form__select::after {
+	box-shadow: unset;		
+}
+
+.utility-bar .localization-wrapper .disclosure__list-wrapper {
+  bottom: initial;
+  top: 100%;
+  right: 0;
+  transform: translateY(0);
+	z-index: 2;
+}
+
+
+.utility-bar .disclosure__link:hover .localization-form__currency {
+	color: rgb(var(--color-foreground));
+}
+/* localization style end */
+
+/* disabled js */
+.no-js  .announcement-bar .swiper-button {
+	display: none;
+}
+
+.no-js  .announcement-bar .swiper-slide:not(:first-child) {
+	display: none;
+}
+/* disabled js end */
+

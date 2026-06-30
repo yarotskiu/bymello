@@ -1,0 +1,81 @@
+{% if section.settings.hide_button == false %}
+
+  <noscript>
+    {{ 'scroll-to-top.css' | asset_url | stylesheet_tag }}
+  </noscript>
+
+  {{ 'scroll-to-top.css' | asset_url | stylesheet_tag }}
+
+	{% if request.design_mode %}
+		<style>
+      #shopify-section-{{ section.id }} .scroll-to-top__button {
+        transform: translateY(0);
+      }
+		</style>
+	{% endif %}
+
+  <script src="{{ 'scroll-to-top.js' | asset_url }}" defer="defer"></script>
+
+  {% assign hide_border = '' %}
+{% if section.settings.hide_border %}
+  {% assign hide_border = 'border--hide' %}
+{% endif %}
+
+  <button class="scrollToTop color-{{ section.settings.color_scheme }} button button--{{ section.settings.button_style }} scroll-to-top__button button--animate-{{ settings.animations_hover_elements }} {{ hide_border }}" aria-label="scroll To Top button">
+		{% render 'icon-short-arrow' %}
+  </button>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.scroll-to-top.name",
+  "class": "scroll-to-top",
+  "limit": 1,
+  "enabled_on": {
+    "groups": [
+      "custom.additions"
+    ]
+  },
+  "settings": [
+		{
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-2"
+    },	
+		{
+			"type": "select",
+			"id": "button_style",
+			"options": [
+				{
+					"value": "primary",
+					"label": "t:sections.all.button.button_style.option_1"
+				},
+				{
+					"value": "secondary",
+					"label": "t:sections.all.button.button_style.option_2"
+				}
+			],
+			"default": "primary",
+			"label": "t:sections.all.button.button_style.label"
+		},	
+    {
+      "type": "checkbox",
+      "id": "hide_button",
+      "label": "t:sections.scroll-to-top.settings.hide_button.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_border",
+      "label": "Hide border",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.scroll-to-top.name"
+    }
+  ]
+}
+{% endschema %}

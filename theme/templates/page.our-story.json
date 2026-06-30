@@ -1,0 +1,658 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_breadcrumbs": true,
+        "breadcrumbs_color_scheme": "scheme-8",
+        "breadcrumbs_active_color_enable": true,
+        "breadcrumbs_active_color": "#0042eb",
+        "image_overlay_opacity": 0,
+        "banner_height": "default",
+        "banner_text_alignment": "left",
+        "title": "More About Us",
+        "title_size": "h3",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 40,
+        "banner_padding_bottom": 40,
+        "banner_padding_top_mb": 40,
+        "banner_padding_bottom_mb": 40,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
+      }
+    },
+    "image_with_text_wiAtEB": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_FhX7JK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Beginning",
+            "heading_size": "h3"
+          }
+        },
+        "text_kGgQFb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ophelia began with a simple question: <em>Why is skincare so complicated?</em><br/></p><p>What started as a frustration with overhyped products and confusing routines turned into a mission to create formulas that are honest, effective, and universally usable.</p><p>Our team of chemists and dermatologists spent three years refining a range that cuts through noise—no exaggerated claims, no unnecessary fragrances, no cluttered routines. Just clean formulations that work for all skin types and all genders, backed by science and clarity.</p><p>Ophelia isn’t a trend. It’s a return to being straightforward.</p>",
+            "text_style": "body",
+            "text_color": "foreground"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FhX7JK",
+        "text_kGgQFb"
+      ],
+      "settings": {
+        "image": "",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "scrolling_banner_MYHTjj": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_QgNi6Y": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_QgNi6Y"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "multi_scroll_gallery_H9fT3k": {
+      "type": "multi-scroll-gallery",
+      "blocks": {
+        "item_H3Vm6U": {
+          "type": "item",
+          "settings": {
+            "image": "",
+            "title": "01 Clinically Proven Ingredients",
+            "title_size": "h5",
+            "heading_weight": "fw-500",
+            "text": "Every formula uses active concentrations validated by studies—no hype, no filler."
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "image": "",
+            "title": "02 Made for All Genders & All Skin Types",
+            "title_size": "h5",
+            "heading_weight": "fw-500",
+            "text": "Balanced, fragrance-neutral formulations that suit sensitive, oily, dry, and combination skin."
+          }
+        },
+        "item_HnqmFi": {
+          "type": "item",
+          "settings": {
+            "image": "",
+            "title": "03 Sustainable & Minimal",
+            "title_size": "h5",
+            "heading_weight": "fw-500",
+            "text": "Recyclable packaging, responsible sourcing, and no unnecessary secondary boxes."
+          }
+        }
+      },
+      "block_order": [
+        "item_H3Vm6U",
+        "item_2",
+        "item_HnqmFi"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "title": "Redefining Self-Care Without Boundaries",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "image_ratio": "custom",
+        "custom_image_height": 110,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "multicolumn_xcjwhU": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_tBwFFb": {
+          "type": "column",
+          "settings": {
+            "title": "Vision",
+            "heading_color": "heading",
+            "heading_gradient": "",
+            "title_size": "h3",
+            "title_weight": "fw-500",
+            "subheading": "",
+            "text": "<p>To make skincare and personal care simple, accessible, and science-driven, so people can trust what they use every single day.</p>",
+            "text_color": "foreground",
+            "link_label": "",
+            "link": "",
+            "show_borders": "none",
+            "column_image_background": "",
+            "overlay": "linear-gradient(180deg, rgba(0, 0, 0, 0) 18.3%, rgba(0, 0, 0, 0.8) 66.19%)",
+            "image_overlay_opacity": 90
+          }
+        },
+        "column_THKetQ": {
+          "type": "column",
+          "settings": {
+            "title": "Mission",
+            "heading_color": "heading",
+            "heading_gradient": "",
+            "title_size": "h3",
+            "title_weight": "fw-500",
+            "subheading": "",
+            "text": "<p>To create unisex formulations that deliver visible, clinically backed results and remove unnecessary complexity from routines.</p>",
+            "text_color": "foreground",
+            "link_label": "",
+            "link": "",
+            "show_borders": "none",
+            "column_image_background": "",
+            "overlay": "linear-gradient(180deg, rgba(0, 0, 0, 0) 18.3%, rgba(0, 0, 0, 0.8) 66.19%)",
+            "image_overlay_opacity": 90
+          }
+        }
+      },
+      "block_order": [
+        "column_tBwFFb",
+        "column_THKetQ"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "heading_width": 530,
+        "color_scheme": "scheme-1",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "columns_desktop": 2,
+        "image_width": "custom",
+        "custom_image_width": 140,
+        "image_ratio": "square",
+        "enable_min_height": true,
+        "columns_min_height": 97,
+        "column_alignment": "left",
+        "vertical_content_alignment": "bottom",
+        "background_style": "primary",
+        "column_color_scheme": "scheme-4",
+        "columns_mobile": "1",
+        "column_alignment_mobile": "left",
+        "swipe_on_mobile": false,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "scrolling_banner_34rTPi": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_bWacLg": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_PgpaXE": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_bWacLg",
+        "icon_PgpaXE"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 40,
+        "column_gap_mb": 40,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "team_member_j8XWXA": {
+      "type": "team-member",
+      "blocks": {
+        "employee_main_tr7KaF": {
+          "type": "Employee_main",
+          "settings": {
+            "color_scheme_item": "scheme-3",
+            "image": "",
+            "banner_title": "A Seasoned Skincare Entrepreneur",
+            "banner_heading_color": "foreground",
+            "enable_heading_custom_color": false,
+            "banner_heading_custom_color_value": "#a36f26",
+            "fullname": "Alexandera Turner",
+            "main_fullname_color": "foreground",
+            "enable_fullname_custom_color": false,
+            "fullname_custom_color_value": "#a36f26",
+            "description": "<p>A product developer with a decade of experience in formulation science. Alexandra started Ophelia to bridge the gap between high-performance skincare and realistic routines.</p>",
+            "job_title": "Founder & CEO",
+            "link_label": "LinkedIn",
+            "link": "https://linkedin.com/company/shopify"
+          }
+        },
+        "employee_hHnDLW": {
+          "type": "Employee",
+          "settings": {
+            "color_scheme_item": "scheme-1",
+            "content_type": "standard",
+            "image": "",
+            "image_ratio": "adapt-image",
+            "custom_image_height": 120,
+            "fullname": "Tweena Smith",
+            "description": "",
+            "job_title": "Designer",
+            "link_label": "LinkedIn",
+            "link": "https://linkedin.com/company/shopify"
+          }
+        },
+        "employee_6QT63d": {
+          "type": "Employee",
+          "settings": {
+            "color_scheme_item": "scheme-1",
+            "content_type": "standard",
+            "image": "",
+            "image_ratio": "adapt-image",
+            "custom_image_height": 120,
+            "fullname": "Audra Rajowski",
+            "description": "",
+            "job_title": "Team Lead",
+            "link_label": "LinkedIn",
+            "link": "https://linkedin.com/company/shopify"
+          }
+        },
+        "employee_Mi8Cfx": {
+          "type": "Employee",
+          "settings": {
+            "color_scheme_item": "scheme-1",
+            "content_type": "standard",
+            "image": "",
+            "image_ratio": "adapt-image",
+            "custom_image_height": 120,
+            "fullname": "Tina Smith",
+            "description": "",
+            "job_title": "Project Manager",
+            "link_label": "LinkedIn",
+            "link": "https://linkedin.com/company/shopify"
+          }
+        },
+        "employee_iRxtmx": {
+          "type": "Employee",
+          "settings": {
+            "color_scheme_item": "scheme-1",
+            "content_type": "standard",
+            "image": "",
+            "image_ratio": "adapt-image",
+            "custom_image_height": 120,
+            "fullname": "Sergey Ray",
+            "description": "",
+            "job_title": "Engineer",
+            "link_label": "LinkedIn",
+            "link": "https://linkedin.com/company/shopify"
+          }
+        }
+      },
+      "block_order": [
+        "employee_main_tr7KaF",
+        "employee_hHnDLW",
+        "employee_6QT63d",
+        "employee_Mi8Cfx",
+        "employee_iRxtmx"
+      ],
+      "settings": {
+        "title": "The Team Behind it",
+        "heading_alignment": "center",
+        "heading_font_family": "font-heading",
+        "heading_size": "h2",
+        "description": "",
+        "color_scheme": "scheme-1",
+        "mobile_layout": "column-1",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "testimonials_banner": {
+      "type": "testimonials-banner",
+      "blocks": {
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Finally a brand that keeps it simple.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
+            "full_name": "Riya, 26",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_VrxRzH": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Unisex but genuinely effective.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The body wash + moisturiser duo fixed my dryness in a week.",
+            "full_name": "Peter, 35",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4.6,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“My skin hasn’t looked this even in years.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The gel cleanser and moisturiser combo just works. Zero irritation, zero drama.",
+            "full_name": "Maya, 34",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_2",
+        "testimonial_VrxRzH",
+        "testimonial_1"
+      ],
+      "settings": {
+        "testimonials_layout": "column",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-2",
+        "background_image": "",
+        "heading": "Beauty, Affirmed",
+        "heading_font_family": "font-heading",
+        "heading_size": "h0-xs",
+        "heading_weight": "fw-500",
+        "heading_color_gradient": "linear-gradient(57deg, rgba(255, 255, 255, 1) 100%, rgba(168, 255, 251, 1) 100%)",
+        "autoplay": true,
+        "change_slides_speed": 4,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "featured_blog": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Read Our Blogs",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "blog": "gifts",
+        "post_limit": 4,
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_image": true,
+        "show_description": "none",
+        "show_date": true,
+        "show_author": false,
+        "show_comments": false,
+        "show_view_all": true,
+        "read_more_title": "Read More",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "image_banner_bGk4Hw": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_CXQMUa": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Journey to Healthy Skin Starts Here. Get 40% Off on Your First Order!",
+            "heading_size": "h1",
+            "heading_weight": "fw-500",
+            "text_gradient": ""
+          }
+        },
+        "buttons_MFArjU": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_outline_1": "outline-none",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "primary",
+            "button_outline_2": "outline-none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CXQMUa",
+        "buttons_MFArjU"
+      ],
+      "settings": {
+        "full_width": false,
+        "desktop_content_position": "bottom-left-to-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "image": "",
+        "image_height": "adapt",
+        "image_overlay_opacity": 0,
+        "image_behavior": "none",
+        "image_height_mb": "adapt",
+        "mobile_content_alignment": "bottom-left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "icon_with_text": {
+      "type": "icon-with-text",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free delivery",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Customer support",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free shipping",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_6twLw6": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Secure payment",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_6twLw6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-10",
+        "auto_rotate": true,
+        "slides_per_view": 1,
+        "change_slides_speed": 5,
+        "scroll_speed": 1.7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_wiAtEB",
+    "scrolling_banner_MYHTjj",
+    "multi_scroll_gallery_H9fT3k",
+    "multicolumn_xcjwhU",
+    "scrolling_banner_34rTPi",
+    "team_member_j8XWXA",
+    "testimonials_banner",
+    "featured_blog",
+    "image_banner_bGk4Hw",
+    "icon_with_text"
+  ]
+}

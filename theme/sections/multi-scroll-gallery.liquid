@@ -1,0 +1,386 @@
+{{ 'section-multi-scroll-gallery.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		{% if section.settings.image_ratio == 'custom' %} 
+			--image-height: {{ section.settings.custom_image_height}}%;
+		{% endif %}
+
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+	}
+
+	{% if section.settings.desktop_background_image != blank %}
+	#shopify-section-{{ section.id }} .multi-scroll-gallery {
+		background-image: url('{{ section.settings.desktop_background_image | image_url }}');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	{% endif %}
+
+	{% if section.settings.mobile_background_image != blank %}
+	@media screen and (max-width: 749px) {
+		#shopify-section-{{ section.id }} .multi-scroll-gallery {
+			background-image: url('{{ section.settings.mobile_background_image | image_url: width: 750 }}');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+	{% endif %}
+{%- endstyle -%}
+
+<multi-scroll-gallery class="multi-scroll-gallery section-responsive-padding color-{{ section.settings.color_scheme }} gradient">
+  <div
+    class="page-width isolate multi-scroll-gallery__wrapper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    {% if settings.animations_reveal_on_scroll %}
+      data-cascade
+    {% endif %}
+  >
+    <div class="multi-scroll-gallery__horizontal-section">
+      <div class="multi-scroll-gallery__sticky-wrapper">
+        <div class="grid-main offset-col-sm-3">
+          <div class="multi-scroll-gallery__left">
+            {%- unless section.settings.title == blank -%}
+              <div class="title-wrapper title-wrapper-with-link title-wrapper--no-top-margin {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text{% endif %}">
+                <h2 class="title multi-scroll-gallery__title {{ section.settings.heading_weight }} inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_font_family }}">
+                  {{ section.settings.title }}
+                </h2>
+              </div>
+            {%- endunless -%}
+            <div class="multi-scroll-gallery__items">
+              {%- for block in section.blocks -%}
+                <div class="multi-scroll-gallery__item {% if forloop.first %} active{% endif %}">
+                  <div
+                    class="multi-scroll-gallery__image-wrapper"
+                  >
+                    {%- if block.settings.image != blank -%}
+                      <div
+                        class="media media--transparent media--{{ section.settings.image_ratio }}"
+                      >
+                        {{
+                          block.settings.image
+                          | image_url: width: 3200
+                          | image_tag:
+                            widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+														alt: block.settings.image.alt,
+                            class: 'multi-scroll-gallery__image'
+                        }}
+                      </div>
+                    {%- else -%}
+											{{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.title != blank or block.settings.text != blank -%}
+                    <div class="multi-scroll-gallery__item-content item-{{ forloop.index }}">
+                      {%- if block.settings.title != blank -%}
+                        <h3 class="title multi-scroll-gallery__item-title inline-richtext {{ block.settings.title_size }} {{ block.settings.heading_weight }}">{{ block.settings.title }}</h3>
+                      {%- endif -%}
+                      {%- if block.settings.text != blank -%}
+                        <div class="description rte clr-text-foreground-secondary">{{ block.settings.text }}</div>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+					<div class="multi-scroll-gallery__right-wrapper">
+						<div class="multi-scroll-gallery__right">
+							{%- for block in section.blocks -%}
+								<div
+									class="multi-scroll-gallery__image-wrapper"
+								>
+									<div
+										class="media media--transparent media--{{ section.settings.image_ratio }}"
+									>
+										{%- if block.settings.image != blank -%}
+										{{
+											block.settings.image
+											| image_url: width: 3200
+											| image_tag:
+												widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+												alt: block.settings.image.alt,
+												class: 'multi-scroll-gallery__image'
+										}}
+										{%- else -%}
+											{{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+										{%- endif -%}
+									</div>
+								</div>
+							{%- endfor -%}
+						</div>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</multi-scroll-gallery>
+
+<script src="{{ 'multi-scroll-gallery.js' | asset_url }}" type="module" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Multiscroll gallery",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+		"templates": ["password"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Multiscroll gallery",
+      "label": "t:sections.multicolumn.settings.title.label"
+    },
+		{
+			"type": "select",
+			"id": "heading_font_family",
+			"label": "Heading font family",
+			"options": [
+				{
+				"value": "font-heading",
+				"label": "Heading"
+				},
+				{
+				"value": "font-body",
+				"label": "Body"
+				}
+			],
+			"default": "font-heading"
+		},
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+				{
+					"value": "h3",
+					"label": "t:sections.all.heading_size.options__1.label"
+				},
+				{
+					"value": "h2",
+					"label": "t:sections.all.heading_size.options__2.label"
+				},
+				{
+					"value": "h1",
+					"label": "t:sections.all.heading_size.options__3.label"
+				}
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+		{
+      "type": "select",
+      "id": "heading_weight",
+      "options": [
+        {
+          "value": "fw-400",
+          "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+        },
+        {
+          "value": "fw-500",
+          "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+        },
+        {
+          "value": "fw-600",
+          "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+        },
+        {
+          "value": "fw-700",
+          "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+        }
+      ],
+      "default": "fw-400",
+      "label": "Heading weight"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "portrait",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.multicolumn.settings.image_ratio.options__3.label"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "portrait",
+      "label": "t:sections.multicolumn.settings.image_ratio.label"
+    },
+		{
+      "type": "range",
+      "id": "custom_image_height",
+      "min": 100,
+      "max": 125,
+      "step": 1,
+      "unit": "%",
+      "label": "Custom image height",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Add promotional text here",
+          "label": "t:sections.multicolumn.blocks.column.settings.title.label"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h5",
+              "label": "Extra small"
+            },
+            {
+              "value": "h4",
+              "label": "Small"
+            },
+            {
+              "value": "h3",
+              "label": "Medium"
+            },
+            {
+              "value": "h2",
+              "label": "Large"
+            },
+            {
+              "value": "h1",
+              "label": "Extra large"
+            }
+          ],
+          "default": "h5",
+          "label": "Heading size"
+        },
+				{
+      "type": "select",
+      "id": "heading_weight",
+      "options": [
+        {
+          "value": "fw-400",
+          "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+        },
+        {
+          "value": "fw-500",
+          "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+        },
+        {
+          "value": "fw-600",
+          "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+        },
+        {
+          "value": "fw-700",
+          "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+        }
+      ],
+      "default": "fw-400",
+      "label": "Heading weight"
+    	},
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multiscroll gallery",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

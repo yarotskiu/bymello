@@ -1,0 +1,22 @@
+<div class="compare-banner__product-item" data-product-id="{{ product.id }}">
+  {% if product.featured_image != blank %}
+    <div class="compare-media">
+      <img src="{{ product.featured_image | image_url: width: 110 }}" alt="compare product" width="105" height="115" loading="lazy">
+    </div>
+  {% endif %}
+
+  <div class="compare-information">
+    <h3 class="compare-title">
+      {{- product.title -}}
+    </h3>
+    <p class="compare-price">
+      {{- product.price | money -}}
+    </p>
+  </div>
+
+  <span class="remove-compare-product button--animate-{{ settings.animations_hover_elements }}" data-product-id="{{ product.id }}">
+		<span class="remove-compare-product__icon">
+			{% render 'icon-close' %}
+		</span>
+  </span>
+</div>

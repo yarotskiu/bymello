@@ -1,0 +1,332 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "image": "",
+        "image_overlay_opacity": 0,
+        "banner_height": "medium",
+        "banner_text_alignment": "left",
+        "title": "Frequently Asked Questions",
+        "title_size": "h1",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 70,
+        "banner_padding_bottom": 70,
+        "banner_padding_top_mb": 192,
+        "banner_padding_bottom_mb": 24,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "collapsible_content_9UcbXU": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_Ad6WWA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I place an order?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Browse the store, add the pieces you love to your cart, and go to checkout. Enter your shipping details and pay securely &mdash; you'll receive an email confirmation right away.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KyCigw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I change or cancel my order?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>If your order hasn't shipped yet, we'll do our best to help. Email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> as soon as possible with your order number.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Ad6WWA",
+        "collapsible_row_KyCigw"
+      ],
+      "settings": {
+        "heading": "Ordering",
+        "heading_size": "h3",
+        "heading_alignment": "left",
+        "description": "<p>Everything about placing and managing your order.</p>",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "bottom_border": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 40
+      }
+    },
+    "collapsible_content_kAMdBc": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_h3nPtH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I choose the right size?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Each product page has a size guide with measurements. If you're between sizes or unsure, write to us &mdash; we're happy to advise.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_GxRN3p": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How should I care for my loungewear?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Care instructions are on the label and the product page. As a rule, gentle, cooler washes keep natural fabrics soft and lasting longer.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_h3nPtH",
+        "collapsible_row_GxRN3p"
+      ],
+      "settings": {
+        "heading": "Products & Sizing",
+        "heading_size": "h3",
+        "heading_alignment": "left",
+        "description": "<p>Fit, fabric and caring for your pieces.</p>",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "bottom_border": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "collapsible_content_8Btnq6": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_6Fiwri": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods do you accept?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>We accept major cards (Visa, Mastercard) as well as Apple Pay and Google Pay. All prices are shown in euro (EUR).</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3DYXkF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is my payment secure?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Yes. Checkout is processed through Shopify's secure, encrypted payment system. We never see or store your full card details.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_6Fiwri",
+        "collapsible_row_3DYXkF"
+      ],
+      "settings": {
+        "heading": "Payment",
+        "heading_size": "h3",
+        "heading_alignment": "left",
+        "description": "<p>How you can pay and how we keep it secure.</p>",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "bottom_border": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "collapsible_content_aMprWY": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_43qEKY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I return an item?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>You can return unworn items in their original condition within 14 days of delivery. Email <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> to start a return &mdash; full details are on our <a href=\"/pages/returns\">Returns</a> page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rtCCtd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Who pays for return shipping?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Return shipping costs are covered as described on our <a href=\"/pages/returns\">Returns</a> page. Please check it for the current conditions.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_43qEKY",
+        "collapsible_row_rtCCtd"
+      ],
+      "settings": {
+        "heading": "Returns",
+        "heading_size": "h3",
+        "heading_alignment": "left",
+        "description": "<p>Changed your mind? Here's how returns work.</p>",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "bottom_border": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "collapsible_content_7cBaJJ": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_wHi7H7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does delivery take?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Delivery times depend on your destination. Estimated times and costs are shown at checkout and on our <a href=\"/pages/shipping\">Shipping</a> page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yQhwCA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I track my order?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Yes &mdash; once your order ships, we'll email you a tracking number so you can follow it to your door.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_wHi7H7",
+        "collapsible_row_yQhwCA"
+      ],
+      "settings": {
+        "heading": "Shipping",
+        "heading_size": "h3",
+        "heading_alignment": "left",
+        "description": "<p>Delivery times, costs and tracking.</p>",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "bottom_border": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 0
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_RjJEWT": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_RjJEWT"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collapsible_content_9UcbXU",
+    "collapsible_content_kAMdBc",
+    "collapsible_content_8Btnq6",
+    "collapsible_content_aMprWY",
+    "collapsible_content_7cBaJJ",
+    "scrolling_banner"
+  ]
+}

@@ -1,0 +1,39 @@
+.discounts {
+  font-size: 1.2rem;
+}
+
+.discounts__discount {
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.cart-drawer .discounts__discount {
+	margin-bottom: 0;
+	font-size: 1.4rem;
+}
+
+.cart-drawer__footer .discounts__discount {
+	margin-bottom: 1rem;
+}
+
+.discounts__discount svg {
+  color: rgba(var(--color-button), var(--alpha-button-background));
+}
+
+.discounts__discount--position {
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 750px) {
+  .discounts__discount--position {
+    justify-content: space-between;
+  }
+}
+
+.discounts__discount > .icon {
+  color: rgb(var(--color-foreground));
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.7rem;
+}

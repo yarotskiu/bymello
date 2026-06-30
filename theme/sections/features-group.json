@@ -1,0 +1,81 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Features group",
+  "type": "custom.additions",
+  "sections": {
+    "scroll_to_top_GnK9UV": {
+      "type": "scroll-to-top",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "button_style": "primary",
+        "hide_button": false,
+        "hide_border": true
+      }
+    },
+    "mobile_sticky_bar_pYnka8": {
+      "type": "mobile-sticky-bar",
+      "blocks": {
+        "home_XqqdUf": {
+          "type": "home",
+          "settings": {}
+        },
+        "collection_Qq3JzT": {
+          "type": "collection",
+          "settings": {}
+        },
+        "cart_LUaz8x": {
+          "type": "cart",
+          "settings": {}
+        },
+        "search_rLQjNw": {
+          "type": "search",
+          "settings": {}
+        },
+        "account_MPAECU": {
+          "type": "account",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "home_XqqdUf",
+        "collection_Qq3JzT",
+        "cart_LUaz8x",
+        "search_rLQjNw",
+        "account_MPAECU"
+      ],
+      "settings": {
+        "enable_in_customizer": true,
+        "color_scheme": "scheme-2",
+        "counter_color": "#ffffff",
+        "counter_bg": "#0042eb"
+      }
+    },
+    "notification_VzgkFW": {
+      "type": "notification",
+      "name": "Notification",
+      "settings": {
+        "enable_in_customizer": false,
+        "color_scheme": "scheme-1",
+        "image": "",
+        "text": "Subscribe to our newsletter & get 10% off",
+        "text_weight": "fw-500",
+        "description": "Your data will be used to enhance your website experience and as outlined in our <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Privacy Policy</a>.",
+        "timeout": 15,
+        "times": 3
+      }
+    }
+  },
+  "order": [
+    "scroll_to_top_GnK9UV",
+    "mobile_sticky_bar_pYnka8",
+    "notification_VzgkFW"
+  ]
+}

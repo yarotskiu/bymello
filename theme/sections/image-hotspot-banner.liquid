@@ -1,0 +1,976 @@
+{{ 'section-image-hotspot.css' | asset_url | stylesheet_tag }}
+{{ 'component-hotspot-item.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+	}
+{%- endstyle -%}
+
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<div
+  class="section-responsive-padding color-{{ section.settings.color_scheme }} gradient"
+>
+  <div class="image-hotspot{% if section.settings.full_width %} full-width{% else %} page-width{% endif %}">
+    {%- if section.settings.stack_content == false
+      and section.settings.heading != blank
+      or section.settings.text != blank
+    -%}
+			{%- if section.settings.full_width and section.settings.stack_content == false -%}
+				<div class="page-width">
+			{%- endif -%}
+
+      <div class="title-wrapper {{ section.settings.heading_align }}">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="title inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} clr-text-{{ section.settings.heading_color }} {{ section.settings.heading_weight }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-rotate-in{% endif %}">
+            {% if section.settings.heading_mobile != blank %}
+              <span class="large-up-hide">
+                {{ section.settings.heading_mobile }}
+              </span>
+              <span class="medium-hide small-hide">
+                {{ section.settings.heading }}
+              </span>
+            {% else %}
+              {{ section.settings.heading }}
+            {% endif %}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="description rte clr-text-{{ section.settings.text_color }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            {{ section.settings.text }}
+          </div>
+        {%- endif -%}
+      </div>
+
+			{%- if section.settings.full_width and section.settings.stack_content == false -%}
+				</div>
+			{%- endif -%}
+    {%- endif -%}
+
+    <div class="image-hotspot--inner" style="--img-height: {{ section.settings.image_height }}%;--img-height-mb: {{ section.settings.image_height_mobile }}%;--opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};--bullet-clr: {{ section.settings.bullet_color }};--bullet-bg: {{ section.settings.bullet_bg }};">
+      {% if section.settings.video != blank %}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true }}
+      {% else %}
+        {%- if section.settings.image != blank -%}
+          {%- capture sizes -%}
+						(min-width: {{ settings.page_width }}px) 1920px, (min-width: 750px) calc((100vw - 130px)), calc((100vw - 50px))
+					{%- endcapture -%}
+          {% liquid
+            assign image_desktop_hubspot = ''
+            if section.settings.image_mobile != blank
+              assign image_desktop_hubspot = 'small-hide'
+            endif
+
+            if section.index > 1
+              assign loading = 'lazy'
+            else
+              assign loading = 'eager'
+            endif
+          %}
+          {%- if section.settings.full_width -%}
+            {{
+              section.settings.image
+              | image_url: width: 1980
+              | image_tag:
+                loading: loading,
+                width: section.settings.image.width,
+                height: section.settings.image.height,
+                sizes: sizes,
+                alt: section.settings.image.alt,
+                class: image_desktop_hubspot,
+                widths: '450, 550, 650, 750, 850, 950, 1100, 1300, 1440, 1650, 1800, 1980, 2100'
+            }}
+          {%- else -%}
+            {{
+              section.settings.image
+              | image_url: width: 1980
+              | image_tag:
+                loading: loading,
+                width: section.settings.image.width,
+                height: section.settings.image.height,
+                sizes: sizes,
+                alt: section.settings.image.alt,
+                class: image_desktop_hubspot,
+                widths: '375, 450, 550, 650, 750, 850, 950, 1100, 1300, 1440, 1650'
+            }}
+          {%- endif -%}
+
+          {%- if section.settings.image_mobile != blank -%}
+            {{
+              section.settings.image_mobile
+              | image_url: width: 750
+              | image_tag:
+                loading: loading,
+                width: section.settings.image_mobile.width,
+                height: section.settings.image_mobile.height,
+                sizes: sizes,
+                alt: section.settings.image_mobile.alt,
+                class: 'large-up-hide medium-hide',
+                widths: '320, 350, 375, 420, 450, 550, 650'
+            }}
+          {%- endif -%}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+        {%- endif -%}
+      {% endif %}
+
+      {%- if section.settings.stack_content == true
+        and section.settings.heading != blank
+        or section.settings.text != blank
+      -%}
+        <div class="image-hutspot-content {{ section.settings.heading_align }} {% if section.settings.image_height >= 41 %} hight{% endif %}{% if section.index != 1 %} medium-margin{% endif %}">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="title inline-richtext {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} clr-text-{{ section.settings.heading_color }} {{ section.settings.heading_weight }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {% if section.settings.heading_mobile != blank %}
+                <span class="large-up-hide">
+                  {{ section.settings.heading_mobile }}
+                </span>
+                <span class="medium-hide small-hide">
+                  {{ section.settings.heading }}
+                </span>
+              {% else %}
+                {{ section.settings.heading }}
+              {% endif %}
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.text != blank -%}
+            <div class="description rte clr-text-{{ section.settings.text_color }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ section.settings.text }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {% case block.type %}
+          {% when 'item' %}
+						{%- style -%}
+							#shopify-section-{{ section.id }} .image-hotspot--item.item-{{ forloop.index }} {--vertical-position: {{ block.settings.vertical_position }}%;--horizontal-position: {{ block.settings.horizontal_position }}%;--vertical-position-mb: {{ block.settings.vertical_position_mobile }}%;--horizontal-position-mb: {{ block.settings.horizontal_position_mobile }}%;--bullet-size: {{ block.settings.bullet_size | divided_by: 100.0 }};--animation-order: {{ forloop.index }};}
+						{%- endstyle -%}
+            <image-hotspot
+              class="image-hotspot--item item-{{ forloop.index }} color-{{ block.settings.color_scheme }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in-long{% endif %}{% if block.settings.hide_mobile %} small-hide{% endif %}"
+							{{ block.shopify_attributes -}}
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+              {% endif %}
+              tabindex="0"
+            >
+              {% if block.settings.bullet_icon != blank %}
+                <div class="image-hotspot--item-icon with-icon">
+                  <span>
+                    {{
+                      block.settings.bullet_icon
+                      | image_url: width: 50
+                      | image_tag:
+                        loading: 'lazy',
+                        width: block.settings.bullet_icon.width,
+                        height: block.settings.bullet_icon.height,
+                        alt: block.settings.bullet_icon.alt
+                    }}
+                  </span>
+                </div>
+              {% else %}
+                <div class="image-hotspot--item-icon">
+                  <span> </span>
+                </div>
+              {% endif %}
+
+              <div class="hotspot-bubble {{ block.settings.bubble_position }}{% if block.settings.bubble_open %} visible{% endif %}">
+                <div class="hotspot-bubble--info">
+                  <span class="bubble-close"><span></span></span>
+
+                  <div class="bubble-content">
+										<div class="bubble-content__top">
+											<h3 class="h6 bubble-content__title title">
+												<a class="link title-link link-no-underline" href="{{ block.settings.product.url }}" tabindex="0">
+													{% if block.settings.product.title != blank %}
+														{{ block.settings.product.title | escape }}
+													{% else %}
+														{{ 'onboarding.product_title' | t }}
+													{% endif %}
+
+												</a>
+											</h3>
+											{% if block.settings.show_rating %}
+												<div class="bubble__rating inline-richtext">
+													{{ block.settings.rating }}
+													{% render 'icon-star' %}
+												</div>
+											{% endif %}
+										</div>
+										
+
+                    {%- render 'price', product: block.settings.product, color: 'foreground-secondary' -%}
+										
+										{% if block.settings.product.description != blank %}
+                      <div class="text clr-text-foreground-secondary rte">
+                        {{ block.settings.product.description }}
+                      </div>
+                    {% endif %}
+
+                    {%- if block.settings.product != null -%}
+											{%- assign product_form_id = 'product-form-' | append: section.id | append: forloop.index -%}
+                      {%- render 'buy-buttons',
+												product: block.settings.product,
+												product_form_id: product_form_id,
+												section_id: section.id,
+												show_pickup_availability: false
+											-%}
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            </image-hotspot>
+
+          {% when 'featured_item' %}
+						{%- style -%}
+							#shopify-section-{{ section.id }} .image-hotspot--item.item-{{ forloop.index }} {--vertical-position: {{ block.settings.vertical_position }}%;--horizontal-position: {{ block.settings.horizontal_position }}%;--vertical-position-mb: {{ block.settings.vertical_position_mobile }}%;--horizontal-position-mb: {{ block.settings.horizontal_position_mobile }}%;--bullet-size: {{ block.settings.bullet_size | divided_by: 100.0 }};--animation-order: {{ forloop.index }};}
+						{%- endstyle -%}
+            <image-hotspot
+              class="image-hotspot--item image-hotspot--featured-item product-item color-{{ block.settings.color_scheme }} item-{{ forloop.index }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in-long{% endif %}{% if block.settings.hide_mobile %} small-hide{% endif %}"
+							{{ block.shopify_attributes -}}
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade 
+              {% endif %}
+              tabindex="0"
+            >
+              {% if block.settings.bullet_icon != blank %}
+                <div class="image-hotspot--item-icon with-icon">
+                  <span>
+                    {{
+                      block.settings.bullet_icon
+                      | image_url: width: 50
+                      | image_tag:
+                        loading: 'lazy',
+                        width: block.settings.bullet_icon.width,
+                        height: block.settings.bullet_icon.height,
+                        alt: block.settings.bullet_icon.alt
+                    }}
+                  </span>
+                </div>
+              {% else %}
+                <div class="image-hotspot--item-icon">
+                  <span> </span>
+                </div>
+              {% endif %}
+
+              <div class="hotspot-bubble {{ block.settings.bubble_position }}{% if block.settings.bubble_open %} visible{% endif %}">
+                <div class="hotspot-bubble--info">
+                  <span class="bubble-close"><span></span></span>
+
+                  <div class="bubble-content">
+										<div class="bubble-content__top">
+											{% if block.settings.item_heading != blank %}
+												<h3 class="h6 bubble-content__title title inline-richtext">
+													{{ block.settings.item_heading }}
+												</h3>
+											{% endif %}
+										</div>
+
+                    {% if block.settings.item_text != blank %}
+                      <div class="text clr-text-foreground-secondary rte">
+                        {{ block.settings.item_text }}
+                      </div>
+                    {% endif %}
+
+										{%- if block.settings.button_label != blank -%}
+											<a
+												{% if block.settings.button_link != blank %}
+													href="{{ block.settings.button_link }}"
+													{% else %}
+													role="link" aria-disabled="true"
+												{% endif %}
+												class="buble-content__link link link-with-underline"
+											>
+												{{- block.settings.button_label | escape -}}
+											</a>
+										{%- endif -%}
+                  </div>
+                </div>
+              </div>
+            </image-hotspot>
+        {% endcase %}
+      {% endfor %}
+      <span class="image-hotspot-overlay medium-hide large-up-hide"></span>
+    </div>
+	
+		{% assign first_text_block = section.blocks | where: "type", "text" | first %}
+		{%- if first_text_block -%}
+			{% assign text_blocks = section.blocks | where: "type", "text" %}
+			{%- if section.settings.full_width -%}
+				<div class="page-width">
+			{%- endif -%}
+
+			<div class="image-hotspot__bottom grid-main col-lg-{{ text_blocks | size }}">
+				{%- for block in text_blocks -%}
+
+					{%- if block.settings.text_gradient != blank -%}
+						{%- style -%}
+							#Info-{{ section.id }}-{{ forloop.index }} {
+								--text-gradient: {{ block.settings.text_gradient }};
+							}
+						{%- endstyle -%}
+					{%- endif -%}
+
+					<div id="Info-{{ section.id }}-{{ forloop.index }}" class="image-hotspot__info">
+						{%- if block.settings.heading != blank -%}
+							<div class="image-hotspot__info-heading {{ block.settings.heading_size }} inline-richtext {% if block.settings.text_gradient != blank %} text-gradient {% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text{% endif %}">
+								{{ block.settings.heading }}
+							</div>
+						{%- endif -%}
+
+						{%- if block.settings.description != blank -%}
+							<div class="image-hotspot__info-description text--small inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text{% endif %}">
+								{{ block.settings.description }}
+							</div>
+						{%- endif -%}
+					</div>
+				{%- endfor -%}
+			</div>
+
+			{%- if section.settings.full_width -%}
+				</div>
+			{%- endif -%}
+		{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hotspot banner",
+  "tag": "section",
+  "class": "spaced-section section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.additions"],
+		"templates": ["password"]
+  },
+  "settings": [
+		{
+			"type": "color_scheme",
+			"id": "color_scheme",
+			"label": "t:sections.all.colors.label",
+			"default": "scheme-6"
+		},
+		{
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "Full width"
+    },
+    {
+      "type": "header",
+      "content": "Media settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-with-text.settings.image.label"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Select a video to use as the background. Video replaces image."
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "%",
+      "label": "Media height",
+      "default": 40
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "min": 20,
+      "max": 160,
+      "step": 2,
+      "unit": "%",
+      "label": "Media height mobile",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Media overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Hotspot banner",
+      "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_mobile",
+      "label": "Heading mobile",
+      "info": "Leave the field blank to use the desktop heading for mobile."
+    },
+		{
+			"type": "select",
+			"id": "heading_font_family",
+			"label": "Heading font family",
+			"options": [
+				{
+				"value": "font-heading",
+				"label": "Heading"
+				},
+				{
+				"value": "font-body",
+				"label": "Body"
+				}
+			],
+			"default": "font-heading"
+		},
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_color",
+      "options": [
+        {
+          "value": "foreground",
+          "label": "Text"
+        },
+        {
+          "value": "foreground-secondary",
+          "label": "Text secondary"
+        },
+        {
+          "value": "heading",
+          "label": "Heading"
+        }
+      ],
+      "default": "foreground",
+      "label": "Heading color",
+      "info": "To change the card color scheme, update your theme settings."
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "options": [
+        {
+          "value": "fw-400",
+          "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+        },
+        {
+          "value": "fw-500",
+          "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+        },
+        {
+          "value": "fw-600",
+          "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+        },
+        {
+          "value": "fw-700",
+          "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+        }
+      ],
+      "default": "fw-500",
+      "label": "Heading weight"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+			"default": "<p>Add campaign or promotional text here</p>"
+    },
+		{
+      "type": "select",
+      "id": "text_color",
+      "options": [
+        {
+          "value": "foreground",
+          "label": "Text"
+        },
+        {
+          "value": "foreground-secondary",
+          "label": "Text secondary"
+        },
+        {
+          "value": "heading",
+          "label": "Heading"
+        }
+      ],
+      "default": "foreground",
+      "label": "Text color",
+      "info": "To change the card color scheme, update your theme settings."
+    },
+    {
+      "type": "select",
+      "id": "heading_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Content align"
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_content",
+      "default": true,
+      "label": "Stack content"
+    },
+    {
+      "type": "header",
+      "content": "Bullet settings"
+    },
+    {
+      "type": "color",
+      "id": "bullet_color",
+      "label": "Color",
+      "default": "#171717"
+    },
+    {
+      "type": "color",
+      "id": "bullet_bg",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    },
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Hotspot product item",
+      "limit": 5,
+      "settings": [
+				{
+					"type": "color_scheme",
+					"id": "color_scheme",
+					"label": "t:sections.all.colors.label",
+					"default": "scheme-1"
+				},
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:sections.featured-product.settings.product.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "bullet_icon",
+          "label": "Custom bullet icon"
+        },
+        {
+          "type": "range",
+          "id": "bullet_size",
+          "min": 50,
+          "max": 150,
+          "step": 1,
+          "unit": "%",
+          "label": "Bullet size",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "horizontal_position",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "vertical_position",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "horizontal_position_mobile",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position mobile",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "vertical_position_mobile",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position mobile",
+          "default": 30
+        },
+        {
+          "type": "select",
+          "id": "bubble_position",
+          "label": "Bubble position",
+          "options": [
+            {
+              "value": "bubble-left",
+              "label": "Left"
+            },
+            {
+              "value": "bubble-right",
+              "label": "Right"
+            },
+            {
+              "value": "bubble-top",
+              "label": "Top"
+            },
+            {
+              "value": "bubble-bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "bubble-bottom"
+        },
+				{
+					"type": "checkbox",
+					"id": "show_rating",
+					"label": "Show rating",
+					"default": false,
+				},
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 0.2,
+          "label": "Rating",
+          "default": 4.2
+        },
+        {
+          "type": "checkbox",
+          "id": "bubble_open",
+          "default": false,
+          "label": "Open bubble on desktop"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "default": false,
+          "label": "Hide item on mobile"
+        }
+      ]
+    },
+    {
+      "type": "featured_item",
+      "name": "Hotspot featured item",
+      "limit": 5,
+      "settings": [
+				{
+					"type": "color_scheme",
+					"id": "color_scheme",
+					"label": "t:sections.all.colors.label",
+					"default": "scheme-1"
+				},			
+        {
+          "type": "inline_richtext",
+          "id": "item_heading",
+          "default": "Card title",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "item_text",
+          "default": "<p>Pair text with an image to focus on your chosen product.</p>",
+          "label": "Text"
+        },
+				{
+          "type": "inline_richtext",
+          "id": "button_label",
+          "label": "Button label",
+					"default": "Button label"
+        },
+				{
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "image_picker",
+          "id": "bullet_icon",
+          "label": "Custom bullet icon"
+        },
+        {
+          "type": "range",
+          "id": "bullet_size",
+          "min": 50,
+          "max": 150,
+          "step": 1,
+          "unit": "%",
+          "label": "Bullet size",
+          "default": 100
+        },
+        {
+          "type": "range",
+          "id": "horizontal_position",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "vertical_position",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "horizontal_position_mobile",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Horizontal position mobile",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "vertical_position_mobile",
+          "min": 2,
+          "max": 98,
+          "step": 1,
+          "unit": "%",
+          "label": "Vertical position mobile",
+          "default": 30
+        },
+        {
+          "type": "select",
+          "id": "bubble_position",
+          "label": "Bubble position",
+          "options": [
+            {
+              "value": "bubble-left",
+              "label": "Left"
+            },
+            {
+              "value": "bubble-right",
+              "label": "Right"
+            },
+            {
+              "value": "bubble-top",
+              "label": "Top"
+            },
+            {
+              "value": "bubble-bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "bubble-bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "bubble_open",
+          "default": false,
+          "label": "Open bubble on desktop"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_mobile",
+          "default": false,
+          "label": "Hide item on mobile"
+        }
+      ]
+    },
+		{
+			"type": "text",
+			"name": "Text",
+			"limit": 2,
+			"settings": [
+				{
+					"type": "inline_richtext",
+					"id": "heading",
+					"label": "Heading",
+					"default": "Heading"
+				},
+				{
+					"type": "select",
+					"id": "heading_size",
+					"options": [
+						{
+							"value": "h2",
+							"label": "t:sections.all.heading_size.options__1.label"
+						},
+						{
+							"value": "h1",
+							"label": "t:sections.all.heading_size.options__2.label"
+						},
+						{
+							"value": "h0-xs",
+							"label": "t:sections.all.heading_size.options__3.label"
+						}
+					],
+					"default": "h0-xs",
+					"label": "t:sections.all.heading_size.label"
+				},
+				{
+					"type": "inline_richtext",
+					"id": "description",
+					"label": "Description",
+					"default": "Add campaign or promotional text here"
+				},
+				{
+					"type": "color_background",
+					"id": "text_gradient",
+					"label": "Heading gradient"
+				}
+			]
+		}
+  ],
+  "presets": [
+    {
+      "name": "Hotspot banner",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "product": "",
+            "horizontal_position": 13,
+            "vertical_position": 59,
+						"horizontal_position_mobile": 30,
+						"vertical_position_mobile": 30,
+            "bubble_position": "bubble-right"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "product": "",
+            "horizontal_position": 74,
+            "vertical_position": 85,
+						"horizontal_position_mobile": 70,
+						"vertical_position_mobile": 30,
+            "bubble_position": "bubble-top"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "product": "",
+            "horizontal_position": 86,
+            "vertical_position": 66,
+						"horizontal_position_mobile": 50,
+						"vertical_position_mobile": 70,
+            "bubble_position": "bubble-left"
+          }
+        },
+				{
+					"type": "text"
+				},
+				{
+					"type": "text"
+				}
+      ]
+    }
+  ]
+}
+{% endschema %}

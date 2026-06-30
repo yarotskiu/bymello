@@ -1,0 +1,146 @@
+{{ 'section-policy.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+  }
+{%- endstyle -%}
+
+<div class="policy section-responsive-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="policy__content-wrapper page-width">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'item' -%}
+          <div
+            class="policy-item {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <h2 class="policy-item__heading h3 ">
+              {{ block.settings.heading }}
+            </h2>
+            <div class="policy-item__text rte clr-{{ block.settings.heading_color }}">
+              {{ block.settings.text }}
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Policy",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 20,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-2"
+    },
+   
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Policy item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        },
+       
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair details on availability, style, or even provide a review.</p>",
+          "label": "Description"
+        },
+				{
+					"type": "select",
+					"id": "heading_color",
+					"label": "Heading color in description",
+					"options": [
+						{ "value": "heading", "label": "General" },
+						{ "value": "secondary", "label": "Secondary" }
+					],
+					"info": "If description have heading this setting change heading color. Read more in the [documentation]( https://docs.muup.co/article/1701-heading)",
+					"default": "secondary",
+          
+				}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Policy",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

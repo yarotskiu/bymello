@@ -1,0 +1,66 @@
+{% comment %}
+	Renders a predictive search recommendations
+
+	Usage:
+	{% render 'predictive-search-recommendations' %}
+{% endcomment %}
+
+<div class="predictive-search__wrapper page-width">
+	{% liquid
+		assign show_products_bundle = false
+		if settings.predictive_search_products_list != blank or settings.predictive_search_products_list_label != blank
+			assign show_products_bundle = true
+		endif
+		
+		assign show_aside = false
+		if settings.predictive_search_products_list != blank or settings.predictive_search_products_list_label != blank
+			assign show_aside = true
+		endif
+
+		assign col_number = 0
+		if show_products_bundle
+			assign col_number = col_number | plus: 1
+		endif
+		if show_aside
+			assign col_number = col_number | plus: 1
+		endif
+	%}
+
+  <div class="predictive-search__recommendations search-recommendations predictive-search__recommendations--grid-{{ col_number }}">
+    {%- if show_products_bundle -%}
+      <div class="search-recommendations__products">
+				{%- if settings.predictive_search_products_list_label != blank -%}
+					<h2 class="title h5">{{ settings.predictive_search_products_list_label }}</h2>
+				{%- endif -%}
+				{%- if  settings.predictive_search_products_list != blank  -%}
+					<div class="search-recommendations__products-list">
+						{%- for product in settings.predictive_search_products_list -%}
+							{%- render 'card-product', section_id: section.id, card_product: product, heading_size: 'h6'  -%}
+						{%- endfor -%}
+					</div>
+				{%- endif -%}
+				
+      </div>
+    {%- endif -%}
+    {%- if show_aside -%}
+      <div class="search-recommendations__aside">
+				{%- if settings.predictive_search_menu_label != blank -%}
+					<h2 class="title h5">{{ settings.predictive_search_menu_label }}</h2>
+				{%- endif -%}
+				{%- if  settings.predictive_search_menu != blank  -%}
+					<div class="search-recommendations__aside-links">
+						<ul class="list-unstyled">
+							{%- for link in settings.predictive_search_menu.links -%}
+								<li><a class="link search-recommendations__aside-link" href="{{ link.url }}">
+									<span class="link-underline">
+										{{ link.title }}
+									</span>
+								</a></li>
+							{%- endfor -%}
+						</ul>
+					</div>
+				{%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

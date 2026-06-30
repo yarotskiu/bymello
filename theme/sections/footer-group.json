@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "col_0": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Customer Care",
+            "menu": "footer-care"
+          }
+        },
+        "col_1": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Legal",
+            "menu": "footer-legal"
+          }
+        },
+        "col_2": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "footer-company"
+          }
+        },
+        "col_3": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer-shop"
+          }
+        }
+      },
+      "block_order": [
+        "brand",
+        "col_0",
+        "col_1",
+        "col_2",
+        "col_3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "menu_layout": "accordion",
+        "heading_weight": "fw-500",
+        "localization_text_weight": "fw-400",
+        "newsletter_enable": true,
+        "newsletter_heading": "Newsletter",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "margin_top": 0,
+        "top_text_color": "foreground",
+        "button_text_color": "foreground",
+        "image_full_width": false,
+        "image": "",
+        "image_height": "adapt-image",
+        "image_margin_top": 40,
+        "image_margin_bottom": 30,
+        "image_margin_top_mb": 30,
+        "image_margin_bottom_mb": 20,
+        "image_position_mb": "top",
+        "show_policy": true,
+        "copyright_color_scheme": "scheme-6",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "padding_top_mb": 10,
+        "padding_bottom_mb": 40
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

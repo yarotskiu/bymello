@@ -1,0 +1,121 @@
+featured-collection {
+	--slider-gap: var(--grid-mobile-horizontal-spacing);
+	--slider-gap-tb: var(--grid-desktop-horizontal-spacing);
+	--slider-gap-pc: var(--grid-desktop-horizontal-spacing);
+	
+	display: block;
+}
+
+.featured-collection .swiper {
+	margin-top: 0;
+}
+
+@media screen and (max-width: 749px) {
+	/* .featured-collection .grid {
+		row-gap: 2.4rem;
+	} */
+}
+
+@media screen and (max-width: 989px) {
+	featured-collection .title-wrapper > .slider-navigation {
+		display: none;
+	}
+
+	featured-collection:has(.swiper-scrollbar[style*="display: none"]) .slider-navigation--bottom {
+    margin-top: 0 !important;
+  }
+
+	featured-collection .swiper-wrapper {
+		margin-bottom: calc(var(--button-space-top) + 1rem);
+	}
+	
+	.featured-collection .slider-navigation--bottom {
+		margin-top: var(--button-space-top-mobile);
+		justify-content: center;
+	}
+}
+
+@media screen and (min-width: 990px) {
+	featured-collection.collection .collection__title {
+		margin-bottom: 3rem;
+	}
+	
+	.featured-collection .title:last-child {
+		margin-bottom: 0;
+	}
+	
+	featured-collection .swiper-scrollbar {
+		display: none;
+	}
+	
+	featured-collection .collection__title:where(:has(.slider-navigation, .collection__view-all)) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	featured-collection .collection__title .collection__view-all :is(.button, .link) {
+		margin: 0;
+		white-space: nowrap;
+	}
+}
+
+@media screen and (min-width: 990px) {
+	featured-collection .slider-mobile-gutter:has(.swiper) {
+		display: flex;
+		padding: 0;
+		max-width: 100%;
+		margin-left: 5rem;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	featured-collection .slider-mobile-gutter:has(.swiper) {
+		padding: 0 0 0 5rem;
+		grid-column: 2 / 4;
+		margin-left: 0;
+		max-width: 100%;
+	}
+	featured-collection .collection__main-content:has(.swiper) {
+		display: grid;
+		grid-template-columns: 1fr min(100%, var(--page-width)) 1fr;
+	}
+}	
+
+/* disabled js */
+.no-js .featured-collection .swiper-button {
+	display: none;
+}
+
+.no-js .featured-collection :is(.swiper, .swiper-wrapper, .slider-mobile-gutter) {
+	width: 100%;
+}
+
+.no-js .featured-collection .swiper-wrapper {
+	display: flex;
+	overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1rem;
+	padding-bottom: 1rem;
+}
+
+.no-js .featured-collection .swiper-wrapper {
+	column-gap: var(--slider-gap);		
+}
+
+@media screen and (min-width: 640px) {
+	.no-js .featured-collection .swiper-wrapper {
+		column-gap: var(--slider-gap-tb);		
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.no-js .featured-collection .swiper-wrapper {
+		column-gap: var(--slider-gap-pc);		
+	}
+}
+
+/* disabled js end */

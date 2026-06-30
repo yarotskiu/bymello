@@ -1,0 +1,62 @@
+{% comment %}
+  Renders countdown-bar
+
+
+  Accepts:
+  - date: {String}
+  - complited: {String}
+  - label: {String}
+	- days_label: {String}
+	- hours_label: {String}
+	- mins_label: {String}
+	- secs_label: {String}
+
+
+  Usage:
+  {% render 'countdown-bar' %}
+{% endcomment %}
+
+{{ 'component-countdown-bar.css' | asset_url | stylesheet_tag }}
+
+
+<countdown-bar id="countdownBar-{{ section.id }}" class="countdown-bar countdown-bar-js{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" data-date="{{ date }}" data-complited="{{ complited }}">
+  {%- if label != blank -%}
+    <div class="contdown-bar__label">
+      <span class="inline-richtext {{ heading_fw }}">
+        {{ label }}
+      </span>
+    </div>
+  {%- endif -%}
+	<div class="countdown-bar__items">
+		<div class="countdown-bar__item countdown-bar__days">
+			<span class="countdown-bar__number"><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit></span>
+			<span class="countdown-bar__title">
+				{{- days_label -}}
+			</span>
+		</div>
+	
+		<div class="countdown-bar__item countdown-bar__hours">
+			<span class="countdown-bar__number"><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit></span>
+			<span class="countdown-bar__title">
+				{{- hours_label -}}
+			</span>
+		</div>
+	
+		<div class="countdown-bar__item countdown-bar__min">
+			<span class="countdown-bar__number"><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit></span>
+			<span class="countdown-bar__title">
+				{{- mins_label -}}
+			</span>
+		</div>
+	
+		<div class="countdown-bar__item countdown-bar__sec">
+			<span class="countdown-bar__number"><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit><countdown-digit class="countdown-bar__digit" number="0">0</countdown-digit></span>
+			<span class="countdown-bar__title">
+				{{- secs_label -}}
+			</span>
+		</div>
+	</div>
+
+</countdown-bar>
+
+<script src="{{ 'countdown.js' | asset_url }}" defer="defer"></script>

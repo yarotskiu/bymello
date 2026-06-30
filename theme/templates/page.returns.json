@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "image": "",
+        "image_overlay_opacity": 10,
+        "banner_height": "medium",
+        "banner_text_alignment": "left",
+        "title": "Returns & Exchanges",
+        "title_size": "h1",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 90,
+        "banner_padding_bottom": 90,
+        "banner_padding_top_mb": 56,
+        "banner_padding_bottom_mb": 24,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "policy_wVL9E6": {
+      "type": "policy",
+      "blocks": {
+        "item_VkLhrg": {
+          "type": "item",
+          "settings": {
+            "heading": "",
+            "text": "<p>We are committed to ensuring that you are completely satisfied with your purchase. We understand that sometimes returns or exchanges may be necessary, and we want to make this process as smooth as possible. Please take a moment to review our return and exchange policy below. This information will help guide you through the necessary steps to return or exchange your item, ensuring a hassle-free experience with us. Your satisfaction is our priority; we are here to assist you at every step.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_4U3Ah3": {
+          "type": "item",
+          "settings": {
+            "heading": "Return Policy:",
+            "text": "<ul><li><strong>Return window:</strong> You have <strong>30 days</strong> from the date of purchase to return most items.</li><li><strong>Condition:</strong> Returned parts must be in <strong>new, unused, and unaltered condition</strong> with the <strong>original packaging</strong>. We cannot accept parts that have been installed, modified, or damaged.</li><li><strong>Ineligible items:</strong> Certain items may not be eligible for return, including special-order parts, electrical components,and hazardous materials. Please refer to your receipt or contact us for clarification.</li></ul>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_Trn7qX": {
+          "type": "item",
+          "settings": {
+            "heading": "Initiating a Return:",
+            "text": "<p>To initiate a return, you can either:</p><ul><li><strong>Contact our customer service:</strong> Our friendly representatives are happy to assist you. Call us at [phone number] or reach out via live chat during business hours.</li></ul>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_YDGU4D": {
+          "type": "item",
+          "settings": {
+            "heading": "Exchanges:",
+            "text": "<p>Exchanges are a great way to get the right part quickly. We offer exchanges for most items within our return window (30 days). When initiating your return online or contacting customer service, simply let them know you'd like to exchange the item for a different part.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_awc9jT": {
+          "type": "item",
+          "settings": {
+            "heading": "Refunds:",
+            "text": "<ul><li>Once we receive and inspect your returned item, we will process your refund within <strong>5 business days</strong>.</li><li>Refunds will be issued to the original form of payment used for the purchase.</li><li>Shipping costs are non-refundable unless the return is due to our error (e.g., incorrect part shipped).</li></ul>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_4Mebwi": {
+          "type": "item",
+          "settings": {
+            "heading": "Additional Information:",
+            "text": "<ul><li>You can find a copy of your receipt in your email or by logging into your account (if you have one).</li><li>Be sure to pack your return securely to prevent damage during shipping.</li><li>We recommend using a trackable shipping service for your return.</li></ul>",
+            "heading_color": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "item_VkLhrg",
+        "item_4U3Ah3",
+        "item_Trn7qX",
+        "item_YDGU4D",
+        "item_awc9jT",
+        "item_4Mebwi"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 120,
+        "padding_bottom": 0,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 0
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_xXnb6e": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_xXnb6e"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "policy_wVL9E6",
+    "scrolling_banner"
+  ]
+}

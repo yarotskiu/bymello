@@ -1,0 +1,982 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_type": false,
+            "enable_type_custom_color": true,
+            "type_custom_color_value": "#666666",
+            "heading_font_family": "font-heading",
+            "heading_size": "h3",
+            "heading_weight": "fw-500",
+            "space": "mb-0_8"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "price_font_family": "font-heading",
+            "text_weight": "fw-400",
+            "text_size": "small"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "text_weight": "fw-400",
+            "picker_type": "dropdown",
+            "variant_item_weight": "fw-400",
+            "enable_borders": false,
+            "variant_picker_background_color_enable": true,
+            "variant_picker_background_color": "rgba(0,0,0,0)",
+            "variant_picker_border_color": "#0b225c",
+            "swatch_picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "description_criCry": {
+          "type": "description",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+            "space": "mb-lg-2_4",
+            "space_mobile": "mb-2_4",
+            "heading_font_family": "font-body",
+            "text_weight": "fw-400",
+            "quantity_custom_style_enable": true,
+            "quantity_background_color": "",
+            "quantity_border_color": "#0b225c"
+          }
+        },
+        "inventory_37kwAJ": {
+          "type": "inventory",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "space_mobile": "mb-2_4",
+            "half_width": true,
+            "show_icon": false,
+            "show_inventory_quantity": true,
+            "inventory_threshold": 10,
+            "show_inventory_low": false,
+            "show_inventory_progress": true,
+            "inventory_threshold_start": 100
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "space": "mb-0_8",
+            "pickup_availability": "short",
+            "gift_icon_color": "#101010",
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "card_button_style": "primary",
+            "card_button_outline": "outline",
+            "buy_it_now_button_capitalize": ""
+          }
+        },
+        "icon_with_text_A3mVxF": {
+          "type": "icon-with-text",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "enable_borders": false,
+            "layout": "vertical",
+            "enable_custom_icons_color": true,
+            "custom_icons_color_value": "#101010",
+            "icon_1": "return",
+            "heading_1": "Easy 7-day return policy",
+            "icon_2": "medal",
+            "heading_2": "Dermatologist-approved formulations",
+            "icon_3": "package",
+            "heading_3": "Ships within 2–4 business days"
+          }
+        },
+        "complementary_n7i6qM": {
+          "type": "complementary",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "heading_font_family": "font-body",
+            "block_heading": "Buy this with",
+            "block_heading_weight": "fw-500",
+            "product_list_limit": 10,
+            "button_style": "primary",
+            "button_outline": "outline-none",
+            "product_color_scheme": "",
+            "image_ratio": "square"
+          }
+        },
+        "collapsible_tab_MyqbpV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "space": "mb-0",
+            "heading": "Ingredients",
+            "heading_font_family": "font-body",
+            "heading_weight": "fw-500",
+            "icon": "none",
+            "content": "",
+            "page": "",
+            "open_row": true
+          }
+        },
+        "collapsible_tab_k3D93y": {
+          "type": "collapsible_tab",
+          "settings": {
+            "space": "mb-0",
+            "heading": "Usage Instructions",
+            "heading_font_family": "font-body",
+            "heading_weight": "fw-500",
+            "icon": "none",
+            "content": "",
+            "page": "",
+            "open_row": false
+          }
+        },
+        "collapsible_tab_qPNwdp": {
+          "type": "collapsible_tab",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "heading": "Additional Information",
+            "heading_font_family": "font-body",
+            "heading_weight": "fw-500",
+            "icon": "none",
+            "content": "",
+            "page": "",
+            "open_row": false
+          }
+        },
+        "share_RdKeKa": {
+          "type": "share",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "share_label": "Share",
+            "heading_font_family": "font-body",
+            "heading_weight": "fw-400",
+            "show_linkedin_share": true,
+            "show_fb_share": true,
+            "show_twitter_share": true,
+            "show_pinterest_share": false,
+            "show_telegram_share": false,
+            "show_snapchat_share": false,
+            "show_tumblr_share": false
+          }
+        },
+        "text_97qjKA": {
+          "type": "text",
+          "settings": {
+            "space": "mb-0",
+            "text": "Note: This is a demo store. The images have been sourced from Freepik and Adobestock.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "description_criCry",
+        "quantity_selector",
+        "inventory_37kwAJ",
+        "buy_buttons",
+        "icon_with_text_A3mVxF",
+        "complementary_n7i6qM",
+        "collapsible_tab_MyqbpV",
+        "collapsible_tab_k3D93y",
+        "collapsible_tab_qPNwdp",
+        "share_RdKeKa",
+        "text_97qjKA"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-9",
+        "show_badges": true,
+        "show_breadcrumbs": "products_all",
+        "breadcrumbs_collection": "",
+        "breadcrumbs_color_scheme": "scheme-8",
+        "breadcrumbs_active_color_enable": true,
+        "breadcrumbs_active_color": "#0042eb",
+        "media_size": "medium",
+        "constrain_to_viewport": false,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail",
+        "thumbnail_position": "bottom",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "mobile_thumbnails": "hide",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mb": 30,
+        "padding_bottom_mb": 0
+      }
+    },
+    "scrolling_banner_7JyAiC": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_4jFaJ4": {
+          "type": "icon",
+          "settings": {
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_4jFaJ4"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "video_etGDQk": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h2",
+        "enable_video_looping": true,
+        "video_url": "",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "showcase_G7qAg4": {
+      "type": "showcase",
+      "blocks": {
+        "item_mp6dTK": {
+          "type": "item",
+          "settings": {
+            "color_scheme": "",
+            "image_ratio": "adapt",
+            "custom_image_height": 100,
+            "link": "",
+            "heading": "Complete Care – Skin, hair, body & fragrance in one ritual.",
+            "heading_color": "foreground"
+          }
+        },
+        "item_kTcFxE": {
+          "type": "item",
+          "settings": {
+            "color_scheme": "",
+            "image_ratio": "adapt",
+            "custom_image_height": 100,
+            "link": "",
+            "heading": "Potent formulas that balance purity with performance.",
+            "heading_color": "foreground"
+          }
+        },
+        "item_Q7e766": {
+          "type": "item",
+          "settings": {
+            "color_scheme": "",
+            "image_ratio": "adapt",
+            "custom_image_height": 100,
+            "link": "",
+            "heading": "Inclusive, gender-neutral care for all skin & hair types.",
+            "heading_color": "foreground"
+          }
+        },
+        "item_UQT9hp": {
+          "type": "item",
+          "settings": {
+            "color_scheme": "",
+            "image_ratio": "adapt",
+            "custom_image_height": 100,
+            "link": "",
+            "heading": "Silken textures, refined scents, effective formulas.",
+            "heading_color": "foreground"
+          }
+        },
+        "item_ae49mz": {
+          "type": "item",
+          "settings": {
+            "color_scheme": "",
+            "image_ratio": "adapt",
+            "custom_image_height": 100,
+            "link": "",
+            "heading": "Cruelty-free, ethically sourced, planet-minded.",
+            "heading_color": "foreground"
+          }
+        },
+        "item_yUiPbK": {
+          "type": "item",
+          "settings": {
+            "color_scheme": "scheme-6",
+            "image_ratio": "adapt",
+            "custom_image_height": 100,
+            "link": "",
+            "heading": "Visible glow today, healthier skin & hair tomorrow.",
+            "heading_color": "foreground"
+          }
+        }
+      },
+      "block_order": [
+        "item_mp6dTK",
+        "item_kTcFxE",
+        "item_Q7e766",
+        "item_UQT9hp",
+        "item_ae49mz",
+        "item_yUiPbK"
+      ],
+      "name": "Showcase",
+      "settings": {
+        "color_scheme": "",
+        "title": "Revolutionizing Skincare, One Step at a Time",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "description": "",
+        "scroll_speed": 200,
+        "scroll_direction": "default",
+        "columns_number": 3.2,
+        "columns_number_mb": 1.2,
+        "vertical_alignments": "bottom",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "sticky_multicolumn_iDEKjr": {
+      "type": "sticky-multicolumn",
+      "blocks": {
+        "column_RJL47J": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "enable_custom_background": false,
+            "custom_background_color": "#ffffff",
+            "content_alignment": "left",
+            "content_alignment_mb": "left",
+            "show_image": false,
+            "heading": "Unbox and Discover Your Essentials",
+            "heading_size": "h3",
+            "heading_weight": "fw-500",
+            "description": "<p>Discover everything you need for an rejuvenating experience right out of the box. Each item comes carefully packed with essential accessories and guides to ensure seamless setup and enhanced use.</p>"
+          }
+        },
+        "column_rMnnXi": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "enable_custom_background": true,
+            "custom_background_color": "#23386c",
+            "content_alignment": "left",
+            "content_alignment_mb": "left",
+            "show_image": true,
+            "heading": "Your product",
+            "heading_size": "h5",
+            "heading_weight": "fw-500",
+            "description": "<p>Carefully crafted with premium ingredients, designed for visible results.</p>"
+          }
+        },
+        "column_6bpe78": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "enable_custom_background": true,
+            "custom_background_color": "#23386c",
+            "content_alignment": "left",
+            "content_alignment_mb": "left",
+            "show_image": true,
+            "heading": "How to use",
+            "heading_size": "h5",
+            "heading_weight": "fw-500",
+            "description": "<p>A step-by-step manual to get you set up and use your skincare.</p>"
+          }
+        },
+        "column_hGCR7m": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "enable_custom_background": true,
+            "custom_background_color": "#23386c",
+            "content_alignment": "left",
+            "content_alignment_mb": "left",
+            "show_image": true,
+            "heading": "Warranty card",
+            "heading_size": "h5",
+            "heading_weight": "fw-500",
+            "description": "<p>Coverage and support details to protect your product investment.</p>"
+          }
+        },
+        "column_z8dKex": {
+          "type": "column",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "enable_custom_background": true,
+            "custom_background_color": "#23386c",
+            "content_alignment": "left",
+            "content_alignment_mb": "left",
+            "show_image": true,
+            "heading": "Travel pouch",
+            "heading_size": "h5",
+            "heading_weight": "fw-500",
+            "description": "<p>Durable and stylish, perfect for storing and transporting your skincare essentials.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_RJL47J",
+        "column_rMnnXi",
+        "column_6bpe78",
+        "column_hGCR7m",
+        "column_z8dKex"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h2",
+        "image_width": "custom",
+        "custom_image_width": 55,
+        "image_ratio": "square",
+        "custom_image_height": 120,
+        "banner_position": "left",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Related Products",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "enable_slideshow": true,
+        "slides_number": 4.2,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "custom_image_height": 103,
+        "image_shape": "default",
+        "product_heading_size": "text-body--large",
+        "product_heading_weight": "fw-500",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "show_type": false,
+        "enable_product_variants": false,
+        "columns_mobile": "2",
+        "slides_number_mb": 1,
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "testimonials_banner_DkzGw8": {
+      "type": "testimonials-banner",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Finally a brand that keeps it simple.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
+            "full_name": "Riya, 26",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_HHDpqN": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 5,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "“Unisex but genuinely effective.”",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The body wash + moisturiser duo fixed my dryness in a week.",
+            "full_name": "Peter, 35",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        },
+        "testimonial_gejmBF": {
+          "type": "testimonial",
+          "settings": {
+            "rating_star": 4.6,
+            "use_custom_rating_colors": true,
+            "rating_custom_bg_color": "#101010",
+            "rating_custom_text_color": "#ffffff",
+            "heading": "\"My skin hasn’t looked this even in years.\"",
+            "heading_font_weight": "fw-400",
+            "heading_font_size": "h4",
+            "heading_font_family": "font-heading",
+            "text": "The gel cleanser and moisturiser combo just works. Zero irritation, zero drama.",
+            "full_name": "Maya, 34",
+            "use_custom_text_color_mobile": true,
+            "text_custom_color_mobile": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_HHDpqN",
+        "testimonial_gejmBF"
+      ],
+      "settings": {
+        "testimonials_layout": "column",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-2",
+        "heading": "Beauty, Affirmed",
+        "heading_font_family": "font-heading",
+        "heading_size": "h0-xs",
+        "heading_weight": "fw-500",
+        "heading_color_gradient": "linear-gradient(57deg, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 1) 100%)",
+        "autoplay": true,
+        "change_slides_speed": 4,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "faq_VRcrdz": {
+      "type": "faq",
+      "blocks": {
+        "item_byztEQ": {
+          "type": "item",
+          "settings": {
+            "heading": "Can I modify or cancel my order after it's been placed?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "While we strive to accommodate changes, it may not always be possible once the order has been processed. Please contact our customer service team as soon as possible if you need to make any modifications."
+          }
+        },
+        "item_fyYFpe": {
+          "type": "item",
+          "settings": {
+            "heading": "How do I place an order?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "To place an order, simply browse our website and add the desired items to your cart. Once you're ready to checkout, provide your shipping information and payment details."
+          }
+        },
+        "item_XVwMCH": {
+          "type": "item",
+          "settings": {
+            "heading": "What is your return policy?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "Our return policy outlines the conditions under which you can return a product. Please refer to our website for specific details."
+          }
+        },
+        "item_gzybEj": {
+          "type": "item",
+          "settings": {
+            "heading": "Do you offer gift wrapping?",
+            "heading_size": "h6",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "heading_font_family": "font-body",
+            "description": "Yes, we offer gift wrapping services. Please select this option during the checkout process."
+          }
+        },
+        "item_9Pf8kt": {
+          "type": "item",
+          "settings": {
+            "heading": "Still have questions? Feel free to <a href=\"/pages/contact\" title=\"Contact us\">Contact</a>",
+            "heading_size": "h6",
+            "heading_color": "foreground-secondary",
+            "heading_weight": "fw-400",
+            "heading_font_family": "font-body",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_byztEQ",
+        "item_fyYFpe",
+        "item_XVwMCH",
+        "item_gzybEj",
+        "item_9Pf8kt"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "description": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "scrolling_banner_Y3giLF": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "heading_bWacLg": {
+          "type": "heading",
+          "settings": {
+            "text": "Care that radiates and nourishes",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_PgpaXE": {
+          "type": "icon",
+          "settings": {
+            "image_width": 50
+          }
+        },
+        "heading_WDBLdx": {
+          "type": "heading",
+          "settings": {
+            "text": "Beauty that radiates",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_TzWAkq": {
+          "type": "icon",
+          "settings": {
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_bWacLg",
+        "icon_PgpaXE",
+        "heading_WDBLdx",
+        "icon_TzWAkq"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 40,
+        "column_gap_mb": 40,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "recently_viewed_products": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Recently Viewed",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "products_to_show": 8,
+        "slides_number": 4.2,
+        "enable_product_variants": true,
+        "slides_number_mb": 1,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "sticky_add_to_cart_giPRnf": {
+      "type": "sticky-add-to-cart",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "style": "default-swatches",
+        "heading_font_family": "font-body",
+        "product_variants_name": "Color",
+        "image_ratio": "square",
+        "button_style": "primary",
+        "button_outline": "outline-none"
+      }
+    },
+    "compare_product": {
+      "type": "compare-product",
+      "blocks": {
+        "product_DNnGaN": {
+          "type": "product",
+          "settings": {
+            "image_ratio": "square",
+            "custom_image_height": 104
+          }
+        },
+        "metafield_Qfn73j": {
+          "type": "metafield",
+          "settings": {
+            "label": "Model",
+            "metafield": ""
+          }
+        },
+        "variant_option_7wWr9k": {
+          "type": "variant_option",
+          "settings": {
+            "label": "Color",
+            "variant_name": "Color"
+          }
+        },
+        "metafield_rCW4pE": {
+          "type": "metafield",
+          "settings": {
+            "label": "Weight",
+            "metafield": ""
+          }
+        },
+        "metafield_VRjtth": {
+          "type": "metafield",
+          "settings": {
+            "label": "Year",
+            "metafield": ""
+          }
+        },
+        "metafield_Qq6A6z": {
+          "type": "metafield",
+          "settings": {
+            "label": "Dimensions",
+            "metafield": ""
+          }
+        },
+        "metafield_XtWaBJ": {
+          "type": "metafield",
+          "settings": {
+            "label": "Materials",
+            "metafield": ""
+          }
+        },
+        "metafield_nzmPRx": {
+          "type": "metafield",
+          "settings": {
+            "label": "Features",
+            "metafield": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_DNnGaN",
+        "metafield_Qfn73j",
+        "variant_option_7wWr9k",
+        "metafield_rCW4pE",
+        "metafield_VRjtth",
+        "metafield_Qq6A6z",
+        "metafield_XtWaBJ",
+        "metafield_nzmPRx"
+      ],
+      "settings": {}
+    },
+    "image_banner_f7tzkF": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_CXQMUa": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Simplicity Sale — Up to 25% Off Essentials",
+            "heading_size": "h1",
+            "heading_weight": "fw-500",
+            "text_gradient": ""
+          }
+        },
+        "buttons_MFArjU": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_outline_1": "outline-none",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "primary",
+            "button_outline_2": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CXQMUa",
+        "buttons_MFArjU"
+      ],
+      "settings": {
+        "full_width": false,
+        "desktop_content_position": "bottom-left-to-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "image_height": "adapt",
+        "image_overlay_opacity": 0,
+        "image_behavior": "none",
+        "image_height_mb": "adapt",
+        "mobile_content_alignment": "bottom-left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "icon_wtih_text_A9C6Jd": {
+      "type": "icon-with-text",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "title": "Free delivery",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "title": "Customer support",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "title": "Free shipping",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_6twLw6": {
+          "type": "column",
+          "settings": {
+            "title": "Secure payment",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_6twLw6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-10",
+        "auto_rotate": true,
+        "slides_per_view": 1,
+        "change_slides_speed": 5,
+        "scroll_speed": 1.7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "scrolling_banner_7JyAiC",
+    "video_etGDQk",
+    "showcase_G7qAg4",
+    "sticky_multicolumn_iDEKjr",
+    "related-products",
+    "testimonials_banner_DkzGw8",
+    "faq_VRcrdz",
+    "scrolling_banner_Y3giLF",
+    "recently_viewed_products",
+    "sticky_add_to_cart_giPRnf",
+    "compare_product",
+    "image_banner_f7tzkF",
+    "icon_wtih_text_A9C6Jd"
+  ]
+}

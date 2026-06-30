@@ -1,0 +1,112 @@
+.list-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 749px) {
+  .list-social {
+    justify-content: center;
+  }
+}
+
+.list-social__item .icon {
+  height: var(--icon-size);
+  width: var(--icon-size);
+}
+
+.list-social__item {
+  --_clr-bg: var(--socials-button);
+  --_clr-text: var(--socials-button-text);
+  --_clr-bg-hover: var(--socials-button-hover);
+  --_clr-text-hover: var(--socials-button-text-hover);
+  --_clr-outline: var(--socials-button-outline);
+  --_clr-outline-hover: var(--socials-button-outline-hover);
+  --_opacity: 1;
+  --icon-size: 2.2rem;
+
+  border: 0.1rem solid rgb(var(--_clr-outline));
+  border-radius: var(--buttons-radius);
+  background: rgba(var(--_clr-bg), var(--_opacity));
+  transition:
+    background-color var(--duration-medium) ease,
+    border-color var(--duration-medium) ease,
+    border-radius var(--duration-medium) ease,
+    color var(--duration-medium) ease;
+}
+
+@media (hover: hover) {
+  .animate--hover-glide .list-social__item:hover {
+    background: rgb(var(--_clr-bg-hover));
+    border-color: rgb(var(--_clr-outline-hover));
+    color: rgb(var(--_clr-text-hover));
+    border-radius: var(--buttons-radius-hover);
+  }
+}
+
+.list-social__link {
+  align-items: center;
+  display: flex;
+  padding: 1.1rem;
+  color: rgb(var(--_clr-text));
+  transition: color var(--duration-medium) ease;
+}
+
+.utility-bar .list-social__link {
+  padding: 0 0.8rem;
+  height: 3.8rem;
+}
+
+@media (hover) {
+  .list-social__link:hover {
+    color: rgb(var(--_clr-text-hover));
+  }
+
+  .list-social__link:hover .icon {
+    transform: scale(1.07);
+  }
+}
+
+/* default style */
+.list-social--default {
+  gap: 0;
+}
+
+.list-social--default .list-social__item {
+  --_opacity: 0;
+  border-color: transparent;
+}
+
+.list-social--default .list-social__link {
+  --_clr-text: var(--socials-button-text);
+  color: rgb(var(--_clr-text));
+}
+
+@media (hover) {
+  .list-social--default .list-social__link:hover {
+    color: rgb(var(--color-accent));
+  }
+}
+/* default style end */
+
+@media (hover) {
+  .list-social__item--default:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+}
+
+@media only screen and (min-width: 1560px) {
+  .extra-large-layout .list-social {
+    column-gap: 1.2rem;
+  }
+
+  .extra-large-layout .list-social__item {
+    --icon-size: 3rem;
+  }
+
+  .utility-bar .list-social__link {
+    height: 4.8rem;
+  }
+}

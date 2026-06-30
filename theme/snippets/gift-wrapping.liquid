@@ -1,0 +1,182 @@
+{% if product != blank %}
+  <div
+    class="gift-wrapping__wrapp{% unless product.available %} gift-wrapping__wrapp--sold-out{% endunless %}"
+  >
+    <a href="{{ product.url | default: '#' }}" class="link-no-underline">
+      <img
+				class="gift-wrapping__image"
+        srcset="{% if product.preview_image.width >= 100 %}{{ product.preview_image | image_url: width: 288 }} 100w,{% endif %}"
+        src="{{ product | image_url: width: 100 }}"
+        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: 0.64 | round }}px, (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+        loading="lazy"
+        width="100"
+        height="100"
+        alt="{% if product.preview_image.alt != blank %}{{ product.preview_image.alt | escape }}{% else %}{{ product.title }}{% endif %}"
+      >
+    </a>
+    <div class="gift-wrapping__info">
+			<h3 class="gift-wrapping__title h4">
+				<a class="clr-text-foreground link-no-underline" href="{{ product.url | default: '#' }}">
+          {{ product.title }}
+				</a>
+			</h3>
+      <p class="gift-wrapping__price">
+        {%- assign price = product.price | money -%}
+        {{ 'general.cart.gift_wrap' | t: price: price }}
+      </p>
+      <p class="gift-wrapping__checkbox">
+        <input
+          id="gift-wrapping"
+          type="checkbox"
+          name="attributes[gift-wrapping]"
+          value="yes"
+          {% if cart.attributes['gift-wrapping'] %}
+            checked="checked"
+          {% endif %}
+          {% unless product.available %}
+            disabled
+          {% endunless %}
+          style="float: none"
+        >
+        <label
+					class="gift-wrapping__label"
+          for="gift-wrapping"
+					{% if product.available %}tabindex="0"{% endif %}
+        >
+          <span class="gift-wrapping__add link link-with-underline">
+						{{ 'products.product.add_to_cart' | t }}
+					</span>
+          {% comment %} <span class="gift-wrapping__remove">{{ 'products.product.remove_wrap' | t }}</span> {% endcomment %}
+					<span class="gift-wrapping__remove link link-with-underline">
+						{{ 'products.product.remove_wrap' | t }}
+					</span>
+					<span class="gift-wrapping__sold-out link link-with-underline">
+						{{ 'products.product.sold_out' | t }}
+					</span>
+        </label>
+      </p>
+    </div>
+  </div>
+
+  {% assign id = product.variants.first.id %}
+  {% assign gift_wraps_in_cart = 0 %}
+  {% for item in cart.items %}
+    {% if item.id == id %}
+      {% assign gift_wraps_in_cart = item.quantity %}
+    {% endif %}
+  {% endfor %}
+  {% assign items_in_cart = cart.item_count | minus: gift_wraps_in_cart %}
+
+  <style>
+    #updates_{{ id }} { display: none; }
+    
+    /* Default: hide all states */
+    .gift-wrapping__add,
+    .gift-wrapping__remove,
+    .gift-wrapping__sold-out {
+      display: none;
+    }
+    
+    /* Show "Add" when checkbox is not checked and product is available */
+    .gift-wrapping__checkbox input:not(:checked):not(:disabled) ~ label .gift-wrapping__add {
+      display: inline;
+    }
+    
+    /* Show "Remove" when checkbox is checked and product is available */
+    .gift-wrapping__checkbox input:checked:not(:disabled) ~ label .gift-wrapping__remove {
+      display: inline;
+    }
+    
+    /* Show "Sold out" when product is not available (checkbox is disabled) */
+    .gift-wrapping__checkbox input:disabled ~ label .gift-wrapping__sold-out {
+      display: inline;
+    }
+    
+    /* Disable pointer events on label when product is sold out */
+    .gift-wrapping__wrapp--sold-out .gift-wrapping__label {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  </style>
+
+  <script>
+    Shopify.Cart = Shopify.Cart || {};
+
+    Shopify.Cart.GiftWrap = {};
+
+    Shopify.Cart.GiftWrap.set = function() {
+    	var headers = new Headers({ 'Content-Type': 'application/json' });
+
+    	var request = {
+    		method: 'POST',
+    		headers: headers,
+    		body: JSON.stringify({ updates: { {{ id }}: {{ items_in_cart }} }, attributes: { 'gift-wrapping': true } })
+    	};
+    	fetch('/cart/update.js', request)
+    	.then(function() {
+    		location.href = '/cart';
+    	});
+    }
+
+    Shopify.Cart.GiftWrap.remove = function() {
+    	var headers = new Headers({ 'Content-Type': 'application/json' });
+
+    	var request = {
+    		method: 'POST',
+    		headers: headers,
+    		body: JSON.stringify({ updates: { {{ id }}: 0 }, attributes: { 'gift-wrapping': '' } })
+    	};
+    	fetch('/cart/update.js', request)
+    	.then(function() {
+    		location.href = '/cart';
+    	});
+    }
+
+    // If we have nothing but gift-wrap items in the cart.
+    {% if cart.items.size == 1 and gift_wraps_in_cart > 0 %}
+    document.addEventListener("DOMContentLoaded", function(){
+    	Shopify.Cart.GiftWrap.remove();
+    });
+    // If we don't have the right amount of gift-wrap items in the cart.
+    {% elsif gift_wraps_in_cart > 0 and gift_wraps_in_cart > items_in_cart %}
+    document.addEventListener("DOMContentLoaded", function(){
+    	Shopify.Cart.GiftWrap.set();
+    });
+    // If we have a gift-wrap item in the cart but our gift-wrapping cart attribute has not been set.
+    {% elsif gift_wraps_in_cart > 0 and cart.attributes.gift-wrapping == blank  %}
+    document.addEventListener("DOMContentLoaded", function(){
+    	Shopify.Cart.GiftWrap.set();
+    });
+    // If we have no gift-wrap item in the cart but our gift-wrapping cart attribute has been set.
+    {% elsif gift_wraps_in_cart == 0 and cart.attributes.gift-wrapping != blank  %}
+    document.addEventListener("DOMContentLoaded", function(){
+    	Shopify.Cart.GiftWrap.set();
+    });
+    {% endif %}
+
+    // When the gift-wrapping checkbox is checked or unchecked.
+    document.addEventListener("DOMContentLoaded", function(){
+			var isProductAvailable = {{ product.available | json }};
+			var giftWrappingLabel = document.querySelector('.gift-wrapping__label');
+			var giftWrappingCheckbox = document.querySelector('[name="attributes[gift-wrapping]"]');
+
+			// Only add event listeners if product is available
+			if (isProductAvailable && giftWrappingLabel && giftWrappingCheckbox) {
+				giftWrappingLabel.addEventListener('keydown', function(event) {
+					if (event.key === 'Enter') {
+						event.preventDefault(); // Prevent default behavior (e.g., form submission)
+						this.click(); // Simulate a click event
+					}
+				});
+
+				giftWrappingCheckbox.addEventListener("change", function(event) {
+					if (event.target.checked) {
+						Shopify.Cart.GiftWrap.set();
+					} else {
+						Shopify.Cart.GiftWrap.remove();
+					}
+				});
+			}
+    });
+  </script>
+{% endif %}

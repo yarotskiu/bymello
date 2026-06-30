@@ -1,0 +1,71 @@
+{{ 'compare-banner.css' | asset_url | stylesheet_tag }}
+
+<compare-drawer class="compare-banner color-scheme-1">
+  <div class="compare-banner__wrapper page-width">
+    <div class="compare-banner__top-text">
+      <div class="compare-banner__top-title h5">
+				{{ 'compare_product.banner_title' | t }}
+      </div>
+      <div class="compare-banner__top-description">
+				{{ 'compare_product.description' | t }}
+      </div>
+    </div>
+    <div class="compare-banner__top-btns">
+      <button class="compare-banner__top-btn-compare button button--{{ settings.compare_banner_button_style }} button--{{ settings.compare_banner_button_outline }} button--animate-{{ settings.animations_hover_elements }} disabled">
+				<span>{{ 'compare_product.compare' | t }} <span class="compare-banner__top-counter">(0)</span></span>
+      </button>
+      <button class="compare-banner__top-btn-compare-clear link link-with-underline">
+				{{ 'compare_product.clear_products' | t }}
+      </button>
+    </div>
+    <div class="compare-banner__top-show-btn">
+      {% render 'icon-caret' %}
+    </div>
+    <div class="compare-banner__product-items">
+      <div class="compare-banner__product-item">
+        <div class="compare-banner__product-item__empty-msg">
+          {{ 'compare_product.select_product' | t }}
+        </div>
+      </div>
+      <div class="compare-banner__product-item">
+        <div class="compare-banner__product-item__empty-msg">
+          {{ 'compare_product.select_product' | t }}
+        </div>
+      </div>
+      <div class="compare-banner__product-item">
+        <div class="compare-banner__product-item__empty-msg">
+          {{ 'compare_product.select_product' | t }}
+        </div>
+      </div>
+      <div class="compare-banner__product-item">
+        <div class="compare-banner__product-item__empty-msg">
+          {{ 'compare_product.select_product' | t }}
+        </div>
+      </div>
+    </div>
+  </div>
+</compare-drawer>
+
+<compare-modal class="compare-modal color-scheme-2">
+
+  <div class="compare-modal-close button button--animate-{{ settings.animations_hover_elements }}">
+		{% render 'icon-close' %}
+  </div>
+
+  <div class="compare-modal-wrapper page-width">
+    <div class="compare-modal-header">
+      <h2 class="h1 compare-modal-title">
+				{{ 'compare_product.product_comparison' | t }}
+      </h2>
+      <button class="clear-compare-modal-products link link-with-underline">
+				{{ 'compare_product.clear_products' | t }}
+      </button>
+    </div>
+
+    {%- render 'loading-spinner' -%}
+
+    <div class="compare-modal-content"> </div>
+  </div>
+</compare-modal>
+
+<script src="{{ 'compare-drawer.js' | asset_url }}" defer="defer"></script>

@@ -1,0 +1,171 @@
+{% comment %}
+   Renders a mega-menu collection list
+
+   Accepts:
+	 block: {Object} The block object
+   Usage:
+
+   {% render 'mm-collection-list' %}
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+{%  liquid
+	assign show_tab_1 = false
+	assign show_tab_2 = false
+	assign show_tab_3 = false
+	assign show_tab_4 = false
+	assign show_tab_5 = false
+
+	if collection_list_block.settings.submenu_1_heading != blank and collection_list_block.settings.collection_list_1 != blank
+		assign show_tab_1 = true
+	endif
+	if collection_list_block.settings.submenu_2_heading != blank and collection_list_block.settings.collection_list_2 != blank
+		assign show_tab_2 = true
+	endif
+	if collection_list_block.settings.submenu_3_heading != blank and collection_list_block.settings.collection_list_3 != blank
+		assign show_tab_3 = true
+	endif
+	if collection_list_block.settings.submenu_4_heading != blank and collection_list_block.settings.collection_list_4 != blank
+		assign show_tab_4 = true
+	endif
+	if collection_list_block.settings.submenu_5_heading != blank and collection_list_block.settings.collection_list_5 != blank
+		assign show_tab_5 = true
+	endif
+%}
+<mm-collections class="mega-menu__collections-list mm-collection-list small-hide medium-hide">
+	<div class="mm-collection-list__aside">
+		{%- if show_tab_1  -%}
+			<div id="Mega-Menu-Collection-List-1" class="mm-collection-list__heading" tabindex="0">
+				{{ collection_list_block.settings.submenu_1_heading }}
+			</div>
+		{%- endif -%}
+		{%- if show_tab_2  -%}
+			<div id="Mega-Menu-Collection-List-2" class="mm-collection-list__heading" tabindex="0">
+				{{ collection_list_block.settings.submenu_2_heading }}
+			</div>
+		{%- endif -%}
+		{%- if show_tab_3  -%}
+			<div id="Mega-Menu-Collection-List-3" class="mm-collection-list__heading" tabindex="0">
+				{{ collection_list_block.settings.submenu_3_heading }}
+			</div>
+		{%- endif -%}
+		{%- if show_tab_4  -%}
+			<div id="Mega-Menu-Collection-List-4" class="mm-collection-list__heading" tabindex="0">
+				{{ collection_list_block.settings.submenu_4_heading }}
+			</div>
+		{%- endif -%}
+		{%- if show_tab_5  -%}
+			<div id="Mega-Menu-Collection-List-5" class="mm-collection-list__heading" tabindex="0">
+				{{ collection_list_block.settings.submenu_5_heading }}
+			</div>
+		{%- endif -%}
+	</div>
+	<div class="mm-collection-list__content {{ image_type }}">
+		{%- if show_tab_1 -%}
+			<div class="mm-collection-list__collection-wrapper">
+				{%- for collection in collection_list_block.settings.collection_list_1  -%}
+					<div class="mm-collection-list__collection">
+						{%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+						{%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
+						{% render 'card-collection',
+							card_collection: collection,
+							media_aspect_ratio: collection_list_block.settings.media_aspect_ratio,
+							show_description: false,
+							columns: columns,
+							heading_size: 'h5',
+							color_sheme: collection_list_block.settings.collection_color_scheme,
+							placeholder_image: placeholder_image,
+							image_type: image_type
+						%}
+					</div>
+				{%- endfor -%}
+			</div>
+		{%- endif -%}
+		{%- if show_tab_2 -%}
+			<div class="mm-collection-list__collection-wrapper">
+				{%- for collection in collection_list_block.settings.collection_list_2  -%}
+						<div class="mm-collection-list__collection">
+							{%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+							{%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
+							{% render 'card-collection',
+								card_collection: collection,
+								media_aspect_ratio: collection_list_block.settings.media_aspect_ratio,
+								show_description: false,
+								columns: columns,
+								heading_size: 'h5',
+								color_sheme: collection_list_block.settings.collection_color_scheme,
+								placeholder_image: placeholder_image,
+								image_type: image_type
+							%}
+						</div>
+				{%- endfor -%}
+			</div>
+		{%- endif -%}
+		{%- if show_tab_3 -%}
+			<div class="mm-collection-list__collection-wrapper">
+				{%- for collection in collection_list_block.settings.collection_list_3  -%}
+					<div class="mm-collection-list__collection">
+						{%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+						{%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
+						{% render 'card-collection',
+							card_collection: collection,
+							media_aspect_ratio: collection_list_block.settings.media_aspect_ratio,
+							show_description: false,
+							columns: columns,
+							heading_size: 'h5',
+							color_sheme: collection_list_block.settings.collection_color_scheme,
+							placeholder_image: placeholder_image,
+							image_type: image_type
+						%}
+					</div>
+				{%- endfor -%}
+			</div>
+		{%- endif -%}
+		{%- if show_tab_4 -%}
+				<div class="mm-collection-list__collection-wrapper">
+					{%- for collection in collection_list_block.settings.collection_list_4  -%}
+						<div class="mm-collection-list__collection">
+							{%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+							{%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
+							{% render 'card-collection',
+								card_collection: collection,
+								media_aspect_ratio: collection_list_block.settings.media_aspect_ratio,
+								show_description: false,
+								heading_size: 'h5',
+								columns: columns,
+								color_sheme: collection_list_block.settings.collection_color_scheme,
+								placeholder_image: placeholder_image,
+								image_type: image_type
+							%}
+						</div>
+					{%- endfor -%}
+				</div>
+		{%- endif -%}
+		{%- if show_tab_5 -%}
+			<div class="mm-collection-list__collection-wrapper">
+				{%- for collection in collection_list_block.settings.collection_list_5  -%}
+					<div class="mm-collection-list__collection">
+						{%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+						{%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
+						{% render 'card-collection',
+							card_collection: collection,
+							media_aspect_ratio: collection_list_block.settings.media_aspect_ratio,
+							show_description: false,
+							columns: columns,
+							heading_size: 'h5',
+							color_sheme: collection_list_block.settings.collection_color_scheme,
+							placeholder_image: placeholder_image,
+							image_type: image_type
+						%}
+					</div>
+				{%- endfor -%}
+			</div>
+		{%- endif -%}
+	</div>
+</mm-collections>

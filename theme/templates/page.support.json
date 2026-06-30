@@ -1,0 +1,122 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "image": "",
+        "image_overlay_opacity": 0,
+        "banner_height": "medium",
+        "banner_text_alignment": "left",
+        "title": "",
+        "title_size": "h1",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 70,
+        "banner_padding_bottom": 70,
+        "banner_padding_top_mb": 56,
+        "banner_padding_bottom_mb": 24,
+        "content_color_scheme": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "policy_UEBURy": {
+      "type": "policy",
+      "blocks": {
+        "item_Kt3jdw": {
+          "type": "item",
+          "settings": {
+            "heading": "Welcome to Our Support page",
+            "text": "<p>We're here to help! Below, you'll find answers to common questions and links to key resources.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_mACn6D": {
+          "type": "item",
+          "settings": {
+            "heading": "Frequently Asked Questions (FAQs)",
+            "text": "<p>Looking for quick answers? Visit our <a href=\"https://sona-demo.myshopify.com/pages/faq\">FAQ</a> page for information on ordering, payments, shipping, returns, and more.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_w8bMbK": {
+          "type": "item",
+          "settings": {
+            "heading": "Contact Us",
+            "text": "<p>If you can't find the answer you're looking for, feel free to reach out to us:</p><ul><li><a href=\"https://sona-demo.myshopify.com/policies/contact-information\"><strong>Contact Information</strong></a><strong> page to email us</strong></li><li><a href=\"https://sona-demo.myshopify.com/pages/contact\"><strong>Contact Us</strong></a><strong> page to leave a message through site </strong></li></ul>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_je8dEa": {
+          "type": "item",
+          "settings": {
+            "heading": "Terms of Service",
+            "text": "<p>To understand our policies and guidelines, visit our <a href=\"https://sona-demo.myshopify.com/pages/terms-of-service\">Terms of Service</a> page.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_Jx9Ftj": {
+          "type": "item",
+          "settings": {
+            "heading": "Refund Policy",
+            "text": "<p>If you need to return or exchange an item, visit our <a href=\"https://sona-demo.myshopify.com/pages/returns-exchanges\">Return&Exchanges</a> page for instructions.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_PKehJw": {
+          "type": "item",
+          "settings": {
+            "heading": "Shipping Information",
+            "text": "<p>For details on shipping options, and costs, please visit our <a href=\"https://sona-demo.myshopify.com/pages/shipping-return-policy\">Shipping Information</a> page.</p>",
+            "heading_color": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "item_Kt3jdw",
+        "item_mACn6D",
+        "item_w8bMbK",
+        "item_je8dEa",
+        "item_Jx9Ftj",
+        "item_PKehJw"
+      ],
+      "name": "Policy",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "policy_UEBURy"
+  ]
+}

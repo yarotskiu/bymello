@@ -1,0 +1,179 @@
+{{ 'section-notification.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.image != blank -%}
+	{%- style -%}
+		#shopify-section-{{ section.id }} {
+			--focal-point: {{  section.settings.image.presentation.focal_point }};
+		}
+	{%- endstyle -%}
+{%- endif -%}
+
+{%- liquid
+  assign times = section.settings.times
+  if section.settings.times == 0
+    assign times = 999999
+  endif
+%}
+
+<div
+  class="notification color-{{ section.settings.color_scheme }} gradient {% if section.settings.image != blank %} notification--image {% endif %} {% if request.design_mode and section.settings.enable_in_customizer == true %} test-mode open {% endif %}"
+  data-timeout="{{ section.settings.timeout }}"
+  data-times="{{ times }}"
+>
+	<div class="notification__content">
+		<div class="notification__wrapper">
+			<h2 class="notification__heading inline-richtext h5 {{ section.settings.text_weight }}"m>
+				{%- if section.settings.text != blank -%}
+					{{ section.settings.text }}
+				{%- endif -%}
+			</h2>
+			{% form 'customer', id: 'notification-form', class: 'notification-form' %}
+				<div class="notification-form__wrapper">
+					<div class="notification-form__field field">
+						<input id="NewsletterForm--{{ section.id }}" type="email" name="contact[email]" class="notification-form__field-input field__input" value="{{ form.email }}" aria-required="true" autocorrect="off" autocapitalize="off" autocomplete="email"
+							{% if form.errors %}
+								autofocus aria-invalid="true" aria-describedby="Newsletter-error--{{ section.id }}"
+							{% elsif form.posted_successfully? %}
+								aria-describedby="Newsletter-success--{{ section.id }}"
+							{% endif %}
+							placeholder="	{{ 'sections.footer.newsletter_label' | t }}" required >
+
+						<label class="field__label" for="NewsletterForm--{{ section.id }}">
+							{{ 'sections.footer.newsletter_label' | t }}
+						</label>
+						<button type="submit" class="notification-form__form-submit button" name="commit" id="Subscribe-{{ section.id }}" aria-label="{{ 'newsletter.button_label' | t }}">
+							{% render 'icon-short-arrow' %}
+						</button>
+					</div>
+				</div>
+				<small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+					{%- if form.errors -%}
+						{%- render 'icon-error' -%}
+						{{- form.errors.translated_fields.email | capitalize }}
+						{{ form.errors.messages.email -}}
+					{%- endif -%}
+				</small>
+			{% endform %}
+			{%- if section.settings.description != blank -%}
+				<p class="notification__description description text--small inline-richtext">
+					{{ section.settings.description }}
+				</p>
+			{%- endif -%}
+		</div>
+		{%- if section.settings.image != blank -%}
+			<div class="notification__image">
+				{{
+					section.settings.image
+					| image_url: width: 750
+					| image_tag:
+						widths: '200, 300, 400, 500, 650, 750',
+						sizes: '(min-width: 750px) 280px, calc(100vw - 6rem)',
+						alt: section.settings.image.alt,
+						loading: 'lazy'
+				}}
+			</div>
+		{%- endif -%}
+	</div>
+
+  <button class="notification__btn button button--secondary button--animate-{{ settings.animations_hover_elements }}" aria-label="Close notification popup">
+		<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M20.0003 1.05253L1.05334 19.9999L0.000732422 18.9473L18.9477 -0.000103459L20.0003 1.05253Z" fill="currentColor"/>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M-3.72506e-06 1.0527L18.9471 19.9999L19.9998 18.9473L1.05262 7.70168e-05L-3.72506e-06 1.0527Z" fill="currentColor"/>
+		</svg>
+  </button>
+</div>
+<popup-overlay class="notification-overlay popup-overlay"></popup-overlay>
+
+<script src="{{ 'notification.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Notification",
+  "tag": "section",
+  "class": "section section-notification-popup",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["custom.additions"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_in_customizer",
+      "default": false,
+      "label": "Enable test mode",
+      "info": "Shows a popup example in the theme editor only."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Image"
+		},
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "default": "Welcome discount of 10%",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "text_weight",
+      "options": [
+        {
+          "value": "fw-400",
+          "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+        },
+        {
+          "value": "fw-500",
+          "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+        },
+        {
+          "value": "fw-600",
+          "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+        },
+        {
+          "value": "fw-700",
+          "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+        }
+      ],
+      "default": "fw-400",
+      "label": "Font weight"
+    },
+		{
+			"type": "inline_richtext",
+			"id": "description",
+			"label": "Description"
+		},
+    {
+      "type": "range",
+      "id": "timeout",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "s",
+      "label": "Timeout",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "times",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "label": "Show dismissed popup times",
+      "info": "If 0 is selected, the message will be displayed continuously",
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "name": "Notification"
+    }
+  ]
+}
+{% endschema %}

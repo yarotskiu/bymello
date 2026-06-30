@@ -1,0 +1,182 @@
+{% comment %}
+   Renders breadcrumbs.
+
+  Accepts:
+  	- product_type: {String} Determine the second product breadcrumb type. Values are "none", "products_all", "custom_collection", "first_collection".
+  	- product_custom_collection: {Collection} Custom collection for "custom_collection" product type.
+
+   Usage:
+   {% render 'breadcrumbs' %}
+{% endcomment %}
+
+{{ 'component-breadcrumb.css' | asset_url | stylesheet_tag }}
+
+{%- assign type = template | split: '.' | first -%}
+{%- assign active_bc_color = active_breadcrumb_color | default: settings.breadcrumbs_active_color -%}
+{%- assign active_bc_enabled = active_breadcrumb_color_enable | default: settings.breadcrumbs_active_color_enable -%}
+<nav
+  class="breadcrumbs {{ color }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  aria-label="breadcrumbs"
+  {% if active_bc_enabled %}style="--breadcrumbs-active-color: {{ active_bc_color }}"{% endif %}
+>
+  <ol class="breadcrumbs__list">
+    <li class="breadcrumbs__item">
+      <a class="breadcrumbs__link" href="{{ routes.root_url }}">
+        {{ 'general.pagination.home' | t }}
+      </a>
+    </li>
+    {%- case type -%}
+      {% when 'customers/account', 'customers/addresses', 'customers/login', 'customers/register' %}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">
+            {{ page_title }}
+          </span>
+        </li>
+      {% when '404' %}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">
+						{{ 'general.pagination.404' | t }}
+          </span>
+        </li>
+      {%- when 'cart' -%}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">{{ 'sections.cart.title' | t }}</span>
+        </li>
+      {%- when 'product' -%}
+        {%- if product.collections[0] and product_type == 'first_collection' -%}
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{ product.collections[0].url }}">
+              {{ product.collections[0].title }}
+            </a>
+          </li>
+        {%- elsif product_type == 'products_all' and collection.url -%}
+          <li class="breadcrumbs__item">
+            {{ collection.title | link_to: collection.url }}
+          </li>
+        {%- elsif product_type == 'custom_collection' and custom_collection.url != blank -%}
+          <li class="breadcrumbs__item">
+						<a class="breadcrumbs__link" href="{{ custom_collection.url }}">
+              {{ custom_collection.title }}
+            </a>
+          </li>
+        {%- else -%}
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{ routes.root_url }}collections/all">
+              {{- 'templates.search.products' | t -}}
+            </a>
+          </li>
+        {%- endif -%}
+
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">
+            {{ product.title }}
+          </span>
+        </li>
+
+      {% when 'blog' %}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">
+            {{ blog.title | escape }}
+          </span>
+        </li>
+      {%- when 'article' -%}
+        {%- if blog.url -%}
+          <li class="breadcrumbs__item article-breadcrumbs">
+            <a class="breadcrumbs__link" href="{{ blog.url }}">
+              {{ blog.title }}
+            </a>
+          </li>
+          <li class="breadcrumbs__item">
+            <span class="breadcrumbs__link" aria-current="page">
+              {{ article.title }}
+            </span>
+          </li>
+        {%- else -%}
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">
+              {{ page_title }}
+            </a>
+          </li>
+        {%- endif -%}
+      {%- when 'page' -%}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">
+            {{ title | strip_html }}
+          </span>
+        </li>
+
+      {%- when 'list-collections' -%}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">
+            {% if title != blank %}
+              {{ title }}
+            {% else %}
+              {{ page_title }}
+            {% endif %}
+          </span>
+        </li>
+
+      {%- when 'collection' -%}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">
+            {{ collection.title }}
+          </span>
+        </li>
+
+      {%- when 'search' -%}
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__link" aria-current="page">{{- 'general.search.search' | t -}}</span>
+        </li>
+    {%- endcase -%}
+  </ol>
+
+  {%- case type -%}
+    {%- when 'product' -%}
+      {%- liquid
+        assign previous_product = collection.previous_product
+        assign next_product = collection.next_product
+
+        unless previous_product or next_product
+          assign collection_list = product.collections[0].handle
+          assign previous_product = null
+          assign next_product = null
+          assign last = collections[collection_list].products_count
+          for prod in collections[collection_list].products
+            if prod.handle == product.handle
+              assign prev = forloop.index | minus: 2
+              if prev >= 0
+                assign previous_product = collections[collection_list].products[prev].handle
+              endif
+
+              assign next = forloop.index
+              if last >= next
+                assign next_product = collections[collection_list].products[next].handle
+              endif
+              break
+            endif
+          endfor
+        endunless
+      -%}
+
+      <div class="breadcrumbs-nav">
+        {%- if previous_product -%}
+          <a class="breadcrumbs__link" href="{{ previous_product }}">
+            {{ 'general.pagination.previous_product' | t }}
+          </a>
+        {%- endif -%}
+        {%- if next_product -%}
+          <a class="breadcrumbs__link" href="{{ next_product }}">
+            {{ 'general.pagination.next_product' | t }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {% if product.collections[0].previous_product %}
+        {{ 'Previous' | link_to: product.collections[0].previous_product.url, 'Previous product' }}
+      {% endif %}
+
+      {% if product.collections[0].next_product %}
+        {{ 'Next' | link_to: product.collections[0].next_product.url, 'Next product' }}
+      {% endif %}
+  {%- endcase -%}
+</nav>

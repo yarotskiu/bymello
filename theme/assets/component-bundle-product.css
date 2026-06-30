@@ -1,0 +1,137 @@
+.bundle-product {
+	display: grid;
+	grid-template-columns: 8rem 1fr 4rem;
+	gap: .8rem 1.6rem;
+}
+
+.bundle-product__media {
+	border-radius: var(--media-radius);
+	overflow: hidden;
+	background: rgba(var(--color-outline), .4);
+}
+
+.bundle-product__media img[src=""],
+.bundle-product__media img:not([src]) {
+	display: none;
+}
+
+.bundle-product__content {
+	word-break: break-word;
+}
+
+.bundle-product__media {
+	display: block!important;
+}
+
+.bundle-product__skeleton {
+	display: none;
+	background: rgba(var(--color-outline), .4);
+	border-radius: 4rem;
+	height: 1.2rem;
+	margin-top: .8rem;
+}
+
+.bundle-product__title {
+	margin-bottom: .4rem;
+}
+
+.bundle-product__variants {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	margin-bottom: .8rem;
+}
+
+.bundle-product[available] {
+	order: 1;
+}
+
+.bundle-product[available] .bundle-product__skeleton {
+	display: block;
+	background: rgba(var(--color-outline), .4);
+	border-radius: 4rem;
+	height: 1.2rem;
+	margin-top: .8rem;
+}
+
+.bundle-product[available] .bundle-product__skeleton:nth-child(2) {
+	width: 60%;
+	margin-top: 1.2rem;
+}
+
+.bundle-product__select {
+	display: inline-flex;
+	width: auto;
+	margin-left: -.5rem;
+}
+
+.bundle-product__select .select__select {
+	border-radius: unset;
+	padding: 0 3rem 0 .5rem;
+	font-size: var(--f-size-text-x-sm);
+	font-weight: 400;
+	min-height: 2.4rem;
+	height: 2.4rem;
+	color: rgb(var(--color-foreground));
+}
+
+.bundle-product__select:after {
+	content: unset;
+}
+
+.bundle-product__close-btn {
+	--size: 4rem;
+
+	width: var(--size);
+	height: var(--size);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--bundle-cross-icon-radius);
+	overflow: clip;
+	overflow-clip-margin: 2rem;
+	background: rgb(var(--color-foreground));
+	color: rgb(var(--color-background));
+	border: .1rem solid rgb(var(--color-background));
+	transition: color var(--duration-medium) ease, background var(--duration-medium) ease;
+	cursor: pointer;
+}
+
+.bundle-product__close-btn .icon {
+	width: 2.2rem;
+	height: auto;
+}
+
+
+@media (hover: hover) {
+	.bundle-product__close-btn:hover {
+		color: rgb(var(--color-foreground));
+		background: rgb(var(--color-background));
+		border-color: rgb(var(--color-foreground));
+		border-radius: var(--buttons-radius-hover);
+	}
+}
+
+.bundle-product[available] .bundle-product__close-btn {
+	opacity: 0;
+	pointer-events: none;
+}
+
+@media screen and (min-width: 1560px) {
+	.extra-large-layout .product-bundle__sidebar-info {
+		margin-bottom: 2.8rem;
+	}
+
+	.extra-large-layout .bundle-product {
+		grid-template-columns: 9.6rem 1fr 4.8rem;
+	}
+
+	.extra-large-layout .bundle-product__close-btn {
+		--size: 4.8rem;
+	}
+
+	.extra-large-layout .product-bundle__sidebar-body {
+		row-gap: 2.8rem;
+		padding-bottom: 2.8rem;
+		margin-bottom: 2.8rem;
+	}
+}

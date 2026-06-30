@@ -1,0 +1,295 @@
+.notification {
+  z-index: 108;
+  position: fixed;
+  width: 100%;
+  max-width: min(calc(100% - 3rem), 79rem);
+  left: 50%;
+  top: 50%;
+  transition:
+    transform var(--duration-medium) ease-in-out,
+    opacity var(--duration-medium) ease-in-out,
+    visibility var(--duration-medium) ease-in-out;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: var(--media-radius);
+  max-height: calc(100% - 6rem);
+  overflow-y: auto;
+}
+
+.notification__content {
+  max-width: 72rem;
+  display: flex;
+  row-gap: 2rem;
+  opacity: 0;
+  scale: 0;
+  transition:
+    opacity var(--duration-medium),
+    transform var(--duration-medium);
+}
+
+.open .notification__content {
+  opacity: 1;
+  scale: 1;
+}
+
+.notification__wrapper {
+  padding: 8rem 2rem;
+  margin: 0 auto;
+}
+
+.notification__image {
+  position: relative;
+}
+
+.notification__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focal-point);
+}
+
+.notification__description {
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+  color: rgb(var(--color-secondary-foreground));
+}
+
+.notification__description a {
+  color: rgb(var(--color-foreground));
+}
+
+.notification .notification__btn.button:after {
+  --border-offset: 0;
+  border-radius: 50%;
+}
+
+.notification .notification__btn.button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 2rem;
+  top: 2rem;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
+  transition:
+    color var(--duration-medium) ease-in-out,
+    background-color var(--duration-medium) ease-in-out,
+    border-color var(--duration-medium) ease-in-out,
+    border-radius var(--duration-medium) ease-in-out;
+}
+
+.notification .notification__btn svg {
+  width: 1rem;
+  height: auto;
+}
+
+@media (hover: hover) {
+  .notification__btn svg {
+    transition: rotate var(--duration-medium);
+  }
+
+  .animate--hover-glide .notification .notification__btn:hover {
+    border-radius: var(--buttons-radius-hover);
+  }
+
+  .notification__btn:hover svg {
+    rotate: 90deg;
+  }
+}
+
+.notification.open {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.notification.close {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.notification.test-mode {
+  z-index: 9999;
+}
+
+.notification__heading {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.notification-overlay:empty {
+  display: block;
+}
+
+.close .notification-overlay:empty {
+  display: none;
+}
+
+.notification-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 107;
+  background: rgba(var(--color-foreground), 0.5);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-medium) ease;
+}
+.open:not(.close) ~ .notification-overlay {
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+}
+
+.notification-form__form-submit {
+  --size: 4rem;
+
+  width: var(--size);
+  height: var(--size);
+  min-height: var(--size);
+  min-width: var(--size);
+  left: unset;
+  top: 50%;
+  transform: translateY(-50%);
+  right: calc(0.4rem + var(--inputs-border-width));
+  position: absolute;
+  padding: 0;
+}
+
+.button.notification-form__form-submit:hover {
+  border-radius: var(--buttons-radius-outset);
+}
+
+.notification-form__form-submit .icon {
+  width: 1.2rem;
+}
+
+.notification-form__field-input {
+  height: 4.8rem;
+  border-radius: var(--buttons-radius);
+}
+
+.notification-form__field-input:focus ~ .field__label,
+.notification-form__field-input:not(:placeholder-shown) ~ .field__label {
+  left: calc(var(--inputs-border-width) + 2rem);
+}
+
+.notification-form__field-input:is(
+  .field__input:focus,
+  .field__input:not(:placeholder-shown),
+  .field__input:-webkit-autofill
+) {
+  padding-right: 6rem;
+}
+
+.notification-form__field:focus-within.notification-form__field:after,
+.notification-form__field:focus.notification-form__field:after,
+.notification-form__field:hover.notification-form__field:after,
+.notification-form__field-input:hover,
+.notification-form__field-input:focus-within,
+.notification-form__field-input:focus,
+.notification-form__field::after,
+.notification-form__field::before {
+  border-radius: var(--buttons-radius);
+}
+
+@media screen and (max-width: 749px) {
+  .notification__image {
+    width: 100%;
+    height: 30rem;
+    order: -1;
+  }
+
+  .notification--image .notification__wrapper {
+    padding-top: 0;
+    padding-bottom: 3rem;
+  }
+
+  .notification--image .notification__content {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .notification {
+    max-width: min(calc(100% - 6rem), 64.5rem);
+    right: auto;
+    bottom: auto;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .notification {
+    --image-width: 28rem;
+    max-width: min(calc(100% - 10rem), 48rem);
+    transition:
+      transform 0.8s ease-in-out,
+      opacity 0.8s ease-in-out,
+      visibility 0.8s ease-in-out,
+      max-width 0.8s ease-in-out;
+  }
+
+  .open.notification--image {
+    max-width: min(calc(100% - 10rem), 72rem);
+    transition: max-width var(--duration-medium) 1s;
+  }
+
+  .notification__image {
+    min-height: 35rem;
+    flex: 0 0 auto;
+    width: 0;
+    transition: width var(--duration-medium) 1s;
+  }
+
+  .open .notification__image {
+    width: var(--image-width);
+  }
+
+  .notification__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 48rem;
+    padding: 6rem 4rem;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 750px) and (orientation: landscape) {
+  .notification__image {
+    min-height: 15rem;
+  }
+  .notification__wrapper {
+    padding: 5rem 4rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .notification {
+    --image-width: 36rem;
+  }
+
+  .notification__wrapper {
+    max-width: 48rem;
+    padding: 7rem 4rem;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .notification__image {
+    min-height: 40rem;
+  }
+}
+
+@media screen and (min-width: 1560px) {
+  .extra-large-layout .open.notification--image,
+  .extra-large-layout .notification__content {
+    max-width: 76rem;
+  }
+}

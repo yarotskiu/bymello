@@ -1,0 +1,230 @@
+.email-signup-banner {
+	height: 100dvh;
+}
+
+.email-signup-banner .newsletter-form,
+.email-signup-banner .newsletter-form__field-wrapper {
+	display: inline-block;
+}
+
+.banner--left {
+	flex-direction: row;
+}
+
+.banner--right {
+	flex-direction: row-reverse;
+}
+
+
+.email-signup-banner__countdown-wrapper .countdown-bar {
+	text-align: inherit;
+}
+
+.email-signup-banner-background {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.email-signup-banner__media.banner__media.media > img {
+	position: relative;
+}
+
+.email-signup-banner__box .email-signup-banner__heading {
+	margin-bottom: 0;
+}
+
+.email-signup-banner__box .newsletter__subheading p {
+	margin: 0;
+	color: var(--color-secondary-foreground);
+}
+
+.newsletter__wrapper > .newsletter__heading + .newsletter__subheading {
+	margin-top: var(--title-space-bottom);
+}
+
+@media screen and (max-width: 749px) {
+	.email-signup-banner__box .newsletter__subheading p {
+		font-size: 16px;
+	}
+
+	.newsletter__wrapper > .newsletter__heading + .newsletter__subheading {
+		margin-top: var(--title-space-bottom-mobile);
+	}
+}
+
+.newsletter__wrapper>*+* {
+	margin-top: 3rem;
+}
+
+.newsletter__wrapper>*+.newsletter__subheading {
+	margin-top: var(--title-space-bottom-mobile);
+}
+
+@media screen and (min-width: 750px) {
+	.newsletter__wrapper>*+.newsletter__subheading {
+		margin-top: var(--title-space-bottom);
+	}
+}
+
+.email-signup-banner-background {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.email-signup-banner.banner--cover .banner__content {
+	background-color: unset;
+}
+
+@media screen and (max-width: 949px) {
+	.email-signup-banner:not(.banner--mobile-bottom) .banner__box:not(.email-signup-banner__box--no-image) {
+		background-color: rgba(var(--color-background), .7);
+	}
+
+	.banner__content {
+		padding: 7rem 5rem 8rem;
+		background-color: unset;
+	}
+
+	.banner--content-align-mobile-center .countdown-bar {
+		align-items: center;
+	}
+
+	.banner--content-align-mobile-left .countdown-bar {
+		align-items: flex-start;
+	}
+
+	.banner--content-align-mobile-right .countdown-bar {
+		align-items: flex-end;
+	}
+
+	.banner--content-align-mobile-right .banner__box {
+		text-align: right;
+	}
+
+	.banner--content-align-mobile-left .banner__box {
+		text-align: left;
+	}
+
+	.banner--content-align-mobile-center .banner__box {
+		text-align: center;
+	}
+
+	.banner:not(.banner--mobile-bottom) .banner__box {
+		padding: 4rem 1.5rem;
+	}
+
+	.banner:not(.banner--mobile-bottom) .field__input {
+		background-color: transparent;
+	}
+}
+
+.email-signup-banner__countdown-wrapper .countdown-bar {
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+}
+
+.email-signup-banner__countdown-wrapper .countdown-bar .countdown-bar__items {
+	color: rgba(var(--color-foreground), 1)
+}
+
+@media screen and (max-width: 1200px) {
+	.newsletter__wrapper>*+* {
+		margin-top: 2rem;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.email-signup-banner:not(.banner--desktop-transparent) .email-signup-banner__box {
+		padding: 4rem;
+	}
+}
+
+@media only screen and (min-width: 750px) {
+	.email-signup-banner-background-mobile {
+		display: none;
+	}
+
+	.banner--content-align-center .newsletter-form__message {
+		justify-content: center;
+	}
+
+	.banner--content-align-right .newsletter-form__message {
+		justify-content: right;
+	}
+
+	.email-signup-banner:not(.banner--desktop-transparent) .email-signup-banner__box {
+		width: auto;
+		padding: 3rem;
+		min-width: fit-content;
+	}
+}
+
+.email-signup-banner .banner__media {
+	overflow: hidden;
+}
+
+@media screen and (min-width: 950px) {
+
+	.email-signup-banner.banner--left .banner__media,
+	.email-signup-banner.banner--right .banner__media {
+		position: relative;
+	}
+
+	.email-signup-banner.banner--left .banner__content {
+		justify-content: flex-start;
+	}
+
+	.email-signup-banner.banner--right .banner__content {
+		justify-content: flex-end;
+	}
+
+	.banner--content-align-center .countdown-bar {
+		align-items: center;
+	}
+
+	.banner--content-align-left .countdown-bar {
+		align-items: flex-start;
+	}
+
+	.banner--content-align-right .countdown-bar {
+		align-items: flex-end;
+	}
+
+	.email-signup-banner.banner--cover.banner--content-align-right .banner__content {
+		justify-content: flex-end;
+	}
+
+	.email-signup-banner.banner--cover.banner--content-align-left .banner__content {
+		justify-content: flex-start;
+	}
+}
+
+@media screen and (max-width: 749px) {
+	.banner__content {
+		padding: 0;
+	}
+
+	.email-signup-banner-background:not(.email-signup-banner-background-mobile) {
+		display: none;
+	}
+
+	.banner--mobile-content-align-left .newsletter-form__message {
+		justify-content: flex-start;
+	}
+
+	.banner--mobile-content-align-right .newsletter-form__message {
+		justify-content: right;
+	}
+}
+
+.field__input:focus~.field__label,
+.field__input:not(:placeholder-shown)~.field__label {
+	left: calc(var(--inputs-border-width) + 2rem);
+}

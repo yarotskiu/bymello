@@ -1,0 +1,398 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-complementary-products.css' | asset_url }}" media="print" onload="this.media='all'">
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+		--padding-top: {{ section.settings.padding_top }}px;
+		--padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+  }
+{%- endstyle -%}
+
+<div
+  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}"
+>
+  <div class="page-width">
+    <div class="cart__footer isolate section-responsive-padding">
+      <div class="cart__footer-left">
+        {%- if section.settings.promoted_collection != blank
+          and section.settings.promoted_collection.products.size != 0
+        -%}
+          <div class="recommendation-products">
+            <div class="title-wrapper title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+              {%- if section.settings.promoted_collection_heading != blank -%}
+								<h2 class="recommendation-products__title title inline-richtext h4 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                  {{ section.settings.promoted_collection_heading }}
+                </h2>
+              {% endif %}
+              <div class="slider-navigation {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+                <div class="swiper-button swiper-button-prev button--animate-{{ settings.animations_hover_elements }}" tabindex="0">
+									{% render 'icon-short-arrow' %}
+                </div>
+                <div class="swiper-button swiper-button-next button--animate-{{ settings.animations_hover_elements }}" tabindex="0">
+									{% render 'icon-short-arrow' %}
+                </div>
+              </div>
+            </div>
+            <div class="swiper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}" >
+              <div class="swiper-wrapper">
+                {%- for product in section.settings.promoted_collection.products -%}
+                  <div
+                    class="swiper-slide"
+                  >
+                    {% render 'complementary-product', section: section, product: product, color_scheme: section.settings.promoted_product_color_scheme, button_style: section.settings.button_style, button_outline: section.settings.button_outline %}
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+        {% liquid
+          if settings.gift_wrapp != blank
+            assign product = settings.gift_wrapp
+          endif
+        %}
+        {% if settings.gift_wrapp != blank %}
+					<div id="is-a-gift" class="gift-wrapping gradient color-{{ section.settings.gift_wrapping_color_scheme }}">{% render 'gift-wrapping', product: product %}</div>
+        {%- endif -%}
+      </div>
+
+      <div class="cart__blocks {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                <div class="subtotals clr-text-foreground-secondary">
+                  <h2 class="subtotals__total clr-text-foreground-secondary">
+                    {{ 'sections.cart.subtotal' | t }}
+                  </h2>
+                  <p class="subtotals__total-value">
+										{% if settings.currency_code_enabled %}
+											{{ cart.items_subtotal_price | money_with_currency }}
+										{% else %}
+											{{ cart.items_subtotal_price | money }}
+										{% endif %}
+									</p>
+                </div>
+								<div>
+									{%- if cart.cart_level_discount_applications.size > 0 -%}
+									<ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+										{%- for discount in cart.cart_level_discount_applications -%}
+										<li class="discounts__discount discounts__discount--position">
+											<span class="discounts__discount ">{%- render 'icon-discount' -%}{{ discount.title }}</span>
+
+											<span>(-{{ discount.total_allocated_amount | money }})</span>
+
+										</li>
+										{%- endfor -%}
+									</ul>
+									{%- endif -%}
+								</div>
+                <div class="totals">
+                  <h2 class="totals__total h4">{{ 'sections.cart.estimated_total' | t }}</h2>
+                  <p class="totals__total-value h4">
+										{% if settings.currency_code_enabled %}
+											{{ cart.total_price | money_with_currency }}
+										{% else %}
+											{{ cart.total_price | money }}
+										{% endif %}
+									</p>
+                </div>
+
+                <small class="tax-note caption-large rte clr-text-foreground-secondary">
+                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- elsif cart.taxes_included -%}
+                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                  {%- elsif shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                  {%- else -%}
+                    {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                  {%- endif -%}
+                </small>
+              </div>
+            {%- else -%}
+              {%- if settings.show_cart_note -%}
+                <cart-note class="cart__note field">
+                  <label class="{{ settings.cart_note_heading_fw }}" for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+                  <textarea
+                    class="cart__text-area text-area field__input"
+                    name="note"
+                    form="cart"
+                    id="Cart-note"
+                    placeholder="{{ 'sections.cart.note' | t }}"
+                  >{{ cart.note }}</textarea>
+                </cart-note>
+              {%- endif -%}
+
+              <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <noscript>
+                  <button type="submit" class="cart__update-button button button--outline" form="cart">
+                    {{ 'sections.cart.update' | t }}
+                  </button>
+                </noscript>
+
+                <a href="{{ routes.all_products_collection_url }}" class="button button--small button--{{ block.settings.continue_button_style }} button--{{ block.settings.continue_button_outline }} button--animate-{{ settings.animations_hover_elements }}">
+									{{ 'general.continue_shopping' | t }}
+                </a>
+
+                <button
+                  type="submit"
+                  id="checkout"
+                  class="cart__checkout-button button--small button button--{{ block.settings.checkout_button_style }} button--{{ block.settings.checkout_button_outline }} button--animate-{{ settings.animations_hover_elements }}"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+									{{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'main-cart-footer.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "gift_wrapping_color_scheme",
+      "label": "Gift wrapping color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Promoted collection"
+    },
+		{
+			"type": "collection",
+			"id": "promoted_collection",
+			"label": "Collection"
+		},
+		{
+			"type": "inline_richtext",
+			"id": "promoted_collection_heading",
+			"label": "Heading",
+			"info": "For promoted collection"
+		},
+    {
+      "type": "color_scheme",
+      "id": "promoted_product_color_scheme",
+      "label": "Product color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary",
+      "label": "Button style"
+    },
+    {
+      "type": "select",
+      "id": "button_outline",
+      "label": "Button outline",
+      "options": [
+        {
+        "value": "outline-none",
+        "label": "None"
+        },
+        {
+        "value": "outline",
+        "label": "Outline"
+        },
+        {
+        "value": "outline-hover",
+        "label": "Outline on hover"
+        }
+      ],
+      "default": "outline-hover"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+		{
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    },
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1,
+      "settings": [
+      {
+        "type": "header",
+        "content": "Continue shopping button",
+      },
+      {
+        "type": "select",
+        "id": "continue_button_style",
+        "options": [
+          {
+            "value": "primary",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          }
+        ],
+        "default": "primary",
+        "label": "Button style"
+      },
+      {
+        "type": "select",
+        "id": "continue_button_outline",
+        "label": "Button outline",
+        "options": [
+          {
+          "value": "outline-none",
+          "label": "None"
+          },
+          {
+          "value": "outline",
+          "label": "Outline"
+          },
+          {
+          "value": "outline-hover",
+          "label": "Outline on hover"
+          }
+        ],
+        "default": "outline-hover"
+      },
+      {
+        "type": "header",
+        "content": "Checkout button",
+      },
+      {
+        "type": "select",
+        "id": "checkout_button_style",
+        "options": [
+          {
+            "value": "primary",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          }
+        ],
+        "default": "secondary",
+        "label": "Button style"
+      },
+      {
+        "type": "select",
+        "id": "checkout_button_outline",
+        "label": "Button outline",
+        "options": [
+          {
+          "value": "outline-none",
+          "label": "None"
+          },
+          {
+          "value": "outline",
+          "label": "Outline"
+          },
+          {
+          "value": "outline-hover",
+          "label": "Outline on hover"
+          }
+        ],
+        "default": "outline-hover"
+      }
+      ]
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

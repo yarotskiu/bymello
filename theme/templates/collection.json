@@ -1,0 +1,246 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumbs_color_scheme": "scheme-8",
+        "breadcrumbs_active_color_enable": true,
+        "breadcrumbs_active_color": "#0042eb",
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "banner_height": "default",
+        "overlay": "linear-gradient(0deg, rgba(29, 29, 31, 1), rgba(29, 29, 31, 0) 58.91%, rgba(29, 29, 31, 0.96) 113.11%)",
+        "image_overlay_opacity": 90,
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_alignment": "left",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "subcollections_PTifyk": {
+          "type": "subcollections",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "collection_color_scheme": "scheme-2",
+            "current_collection_color_scheme": "scheme-10",
+            "menu": "",
+            "show_product_count": false,
+            "all_collection_image": "",
+            "heading_color": "foreground",
+            "heading_weight": "fw-500",
+            "collections_desktop": 5,
+            "subcollections_style": "",
+            "first_rounded": false,
+            "padding_top": 0,
+            "padding_bottom": 40,
+            "padding_top_mb": 0,
+            "padding_bottom_mb": 40
+          }
+        }
+      },
+      "block_order": [
+        "subcollections_PTifyk"
+      ],
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "custom_image_height": 103,
+        "image_shape": "default",
+        "product_heading_size": "text-body--large",
+        "product_heading_weight": "fw-500",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "show_type": false,
+        "enable_product_variants": false,
+        "enable_filtering": true,
+        "heading_font_family": "ff-heading",
+        "facets_heading_weight": "fw-500",
+        "filter_type": "vertical",
+        "filter_color_scheme": "scheme-6",
+        "filter_drawer_color_scheme": "scheme-1",
+        "enable_sorting": true,
+        "price_input_custom_bg_enable": false,
+        "price_input_custom_bg_color": "#ffffff",
+        "sorting_color_scheme": "scheme-6",
+        "sorting_inside_color_scheme": "scheme-6",
+        "pagination_font_weight": "fw-500",
+        "pagination_button_style": "general",
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "image_banner_cKQMHB": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_CXQMUa": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Simplicity Sale — Up to 25% Off Essentials",
+            "heading_size": "h1",
+            "heading_weight": "fw-500",
+            "text_gradient": ""
+          }
+        },
+        "buttons_MFArjU": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "button_style_1": "primary",
+            "button_outline_1": "outline-none",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "primary",
+            "button_outline_2": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CXQMUa",
+        "buttons_MFArjU"
+      ],
+      "settings": {
+        "full_width": false,
+        "desktop_content_position": "bottom-left-to-right",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "image": "",
+        "image_height": "adapt",
+        "image_overlay_opacity": 0,
+        "image_behavior": "none",
+        "image_height_mb": "adapt",
+        "mobile_content_alignment": "bottom-left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 80
+      }
+    },
+    "icon_with_text": {
+      "type": "icon-with-text",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Free delivery over €70",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Customer support",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "14-day returns",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "column_6twLw6": {
+          "type": "column",
+          "settings": {
+            "image": "",
+            "title": "Secure payment",
+            "heading_font_family": "font-heading",
+            "heading_color": "foreground",
+            "title_size": "h6",
+            "title_weight": "fw-500",
+            "text": "",
+            "text_color": "foreground-secondary"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_3",
+        "column_2",
+        "column_6twLw6"
+      ],
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "container_color_scheme": "scheme-10",
+        "auto_rotate": true,
+        "slides_per_view": 1,
+        "change_slides_speed": 5,
+        "scroll_speed": 1.7,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    },
+    "recently_viewed": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "heading": "Recently viewed",
+        "heading_size": "h3",
+        "products_to_show": 8,
+        "slides_number": 5.6,
+        "enable_product_variants": true
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "recently_viewed",
+    "image_banner_cKQMHB",
+    "icon_with_text"
+  ]
+}

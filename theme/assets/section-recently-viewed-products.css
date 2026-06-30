@@ -1,0 +1,145 @@
+.recently-viewed-products-wrapper:not(:has(.grid__item)) {
+	display: none;
+}
+
+.recently-viewed-products {
+	display: block;
+}
+
+.recently-viewed-grid {
+	padding: 0;
+	margin: 0;
+}
+
+.recently-viewed-products .title {
+	margin-bottom: 0;
+}
+
+.recently-viewed-products .title-wrapper {
+	display: flex;
+	justify-content: space-between;
+	column-gap: 3rem;
+}
+
+.recently-viewed-products .card-wrapper .card__heading {
+font-weight: 400;
+}
+
+.recently-viewed-products .card-wrapper .card__heading:hover {
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 990px) {
+	.recently-viewed-products__grid-wrapper:has(.swiper) {
+		display: flex;
+		padding: 0;
+		max-width: 100%;
+		margin-left: 5rem;
+	}
+
+	.recently-viewed-products__grid-wrapper .swiper {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.recently-viewed-products__main-content {
+    display: grid;
+    grid-template-columns: 1fr min(100%, var(--page-width)) 1fr;
+	}
+
+	.recently-viewed-products__grid-wrapper:has(.swiper) {
+		padding: 0 0 0 5rem;
+		grid-column: 2 / 4;
+		margin-left: 0;
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+/* slider setup */
+.recently-viewed-products {
+	--slider-gap: var(--grid-mobile-horizontal-spacing);
+	--slider-gap-tb: var(--grid-desktop-horizontal-spacing);
+	--slides-per-view-tb: 2.5;
+}
+
+.recently-viewed-products .slider-navigation--bottom {
+	margin-top: 2.4rem;
+	justify-content: center;
+}
+
+.recently-viewed-products .swiper-scrollbar {
+	position: static;
+}
+
+.recently-viewed-products .swiper-button {
+	position: relative;
+}
+
+.recently-viewed-products .swiper .swiper-wrapper .swiper-slide {
+	--col-gap: calc(var(--slider-gap) * var(--slides-per-view) - var(--slider-gap));
+	flex-grow: 0;
+	width: calc(100% / var(--slides-per-view) - var(--col-gap) / var(--slides-per-view));
+}
+
+@media screen and (max-width: 989px) {
+	.recently-viewed-products .swiper-wrapper {
+		margin-bottom: 4rem;	
+	}
+
+	.recently-viewed-products:has(.swiper-scrollbar[style*="display: none"]) .swiper-wrapper,
+	.recently-viewed-products:has(.swiper-scrollbar[style*="display: none"]) .slider-navigation {
+		/* when scrollbar exists or is present but hidden inline */
+		margin-bottom: 0rem;	
+		margin-top: 0;
+	}
+}
+
+@media screen and (min-width: 750px) {
+	.recently-viewed-products .swiper .swiper-wrapper .swiper-slide {
+		--col-gap: calc(var(--slider-gap-tb) * var(--slides-per-view-tb) - var(--slider-gap-tb));
+		width: calc(100% / var(--slides-per-view-tb) - var(--col-gap) / var(--slides-per-view-tb));
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.recently-viewed-products .swiper .swiper-wrapper .swiper-slide {
+		--col-gap: calc((var(--slider-gap-tb) * var(--slides-per-view-pc) - var(--slider-gap-tb)) / var(--slides-per-view-pc));
+		width: calc(100% / var(--slides-per-view-pc) - var(--col-gap));
+	}
+}
+
+
+.recently-viewed-products .swatch {
+  --swatch--size: var(--swatch-input--size, 4.4rem);
+  --swatch--border-radius: var(--swatch-input--border-radius, 50%);
+
+  display: block;
+  width: var(--swatch--size);
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--swatch--background);
+  background-position: var(--swatch-focal-point, initial);
+  background-size: cover;
+  background-origin: border-box;
+  border: 0.1rem solid currentColor;
+  border-radius: var(--swatch--border-radius);
+}
+
+.recently-viewed-products .swatch--square {
+  --swatch--border-radius: var(--swatch-input--border-radius, 0.2rem);
+}
+
+.recently-viewed-products .swatch--unavailable {
+  border-style: dashed;
+  border-color: rgba(var(--color-foreground), 0.5);
+}
+/* Bymello: match the collection grid image format (square 1:1). The carousel cards render
+   from the search section with --ratio-percent:125% (4:5), which made them taller than grid cards. */
+.recently-viewed-products .card,
+.recently-viewed-products .card.card--standard,
+.recently-viewed-products .card .card__inner,
+.recently-viewed-products .card .card__inner.ratio {
+  --ratio-percent: 100% !important;
+}
