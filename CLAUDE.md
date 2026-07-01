@@ -30,6 +30,10 @@ Every task follows this lifecycle, no exceptions:
 
 `main` is the source of truth. Publishing to the **live Shopify store** is a separate step that happens only on the user's explicit approval.
 
+### Before publishing to live: check for editor drift
+
+The Theme Editor can change files directly on the live theme (content, settings, even code via "Edit code") without ever touching git. Before pushing to live, run `scripts/check-live-drift.sh` (see [SETUP.md](SETUP.md)) to compare live against git and catch anything that would otherwise be silently overwritten. `config/settings_data.json`, `templates/*.json`, and `sections/*-group.json` are treated as editor-owned content and are excluded from routine live pushes (see `theme/shopify.theme.toml`).
+
 ## Code style
 
 **Comments are forbidden by default.** Code must explain itself through clear naming and structure. Write a comment in exactly one case: the logic is genuinely tricky or atypical and cannot be made obvious by the code alone (e.g. a non-obvious browser quirk, a workaround, a deliberate deviation from the expected approach). In that case the comment explains *why*, not *what*. Do not add comments that restate what the code does, label sections, or describe obvious behaviour.

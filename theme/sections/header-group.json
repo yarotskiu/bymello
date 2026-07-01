@@ -82,7 +82,7 @@
         "icons_style": "modern",
         "use_general_header_scheme": true,
         "cart_icon_bg_transparent": true,
-        "cart_color_scheme": "scheme-3",
+        "cart_color_scheme": "scheme-1",
         "counter_color": "#ffffff",
         "counter_bg": "#0042eb",
         "text_weight": "fw-500",
