@@ -1112,11 +1112,20 @@
 .card-wrapper:hover .bm-card-slider__btn{opacity:1;}
 .bm-card-slider__btn.bm-hide{display:none !important;}
 @media (hover:none){.bm-card-slider__btn{display:none;}}
-.bm-wishlist-btn{position:absolute;top:1.5rem !important;right:1.5rem !important;left:auto !important;bottom:auto !important;z-index:4;width:3.4rem !important;height:3.4rem !important;border-radius:50%;border:none;background:transparent;color:rgb(var(--color-foreground));cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:none;transition:transform .15s ease;}
+/* Bymello: card actions (wishlist + quick-add), grouped bottom-right, hover-reveal */
+.bm-card-actions{position:absolute !important;bottom:1rem !important;right:1rem !important;left:auto !important;top:auto !important;width:auto !important;height:auto !important;max-width:none !important;max-height:none !important;z-index:4;display:flex !important;align-items:center;justify-content:flex-end;gap:1rem;opacity:0;transition:opacity .2s ease;}
+.card-wrapper:hover .bm-card-actions{opacity:1;}
+@media (hover:none){.bm-card-actions{opacity:1;}}
+
+.bm-wishlist-btn{position:static;width:3.4rem;height:3.4rem;border-radius:50%;border:none;background:transparent;color:rgb(var(--color-foreground));cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:none;transition:transform .15s ease;}
 .bm-wishlist-btn:hover{transform:scale(1.08);}
 .bm-wishlist-btn .icon-heart{width:2.4rem;height:2.4rem;}
 .bm-wishlist-btn .icon-heart path{stroke:currentColor;fill:none;transition:fill .15s ease;}
 .bm-wishlist-btn.is-active .icon-heart path{fill:#000;stroke:#000;}
+
+.bm-quickview-btn{position:static;width:3.4rem;height:3.4rem;border-radius:50%;border:none;background:transparent;color:rgb(var(--color-foreground));cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:none;transition:transform .15s ease;}
+.bm-quickview-btn:hover{transform:scale(1.08);}
+.bm-quickview-btn .icon-bag-plus{width:2.4rem;height:2.4rem;}
 
 /* Bymello: wishlist */
 .header__icon--wishlist{position:relative;display:flex;align-items:center;}
@@ -1136,10 +1145,13 @@
 .header__icon--wishlist{position:relative !important;}
 .header__icon--wishlist .cart-count-bubble{top:-0.3rem !important;right:-0.3rem !important;}
 
-/* Bymello: card heart scales with extra-large layout (>=1560px) */
+/* Bymello: card actions/arrows scale with extra-large layout (>=1560px) */
 @media screen and (min-width: 1560px){
-  .bm-wishlist-btn{top:2.6rem !important;right:2.6rem !important;}
+  .bm-card-actions{bottom:1.8rem !important;right:1.8rem !important;}
   .bm-wishlist-btn .icon-heart{width:3rem !important;height:3rem !important;}
+  .bm-quickview-btn .icon-bag-plus{width:3rem !important;height:3rem !important;}
+  .bm-card-slider__btn--prev{left:1.8rem;}
+  .bm-card-slider__btn--next{right:1.8rem;}
 }
 
 /* Bymello: slider arrows use filter chevron shape (color+shadow kept) */
@@ -1168,3 +1180,6 @@
 .bm-fit__track{position:absolute;inset:0;border-radius:.2rem;}
 .bm-fit__marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:1.4rem;height:1.4rem;background:rgb(var(--color-foreground));border-radius:50%;}
 .bm-fit__scale{display:flex;justify-content:space-between;font-size:1.2rem;color:rgba(var(--color-foreground),.65);}
+
+/* Bymello: smaller BESTSELLER/NEW badges on product cards */
+.card__badge .badge{padding:.3rem .8rem;font-size:1.1rem;}

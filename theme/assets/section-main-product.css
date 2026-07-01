@@ -2350,3 +2350,10 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
 .bm-fit__tile{display:block !important;flex:1;height:.4rem;background:rgba(var(--color-foreground),.15);border-radius:.2rem;}
 .bm-fit__tile--active{background:rgb(var(--color-foreground));}
 .bm-fit__scale{display:flex;justify-content:space-between;font-size:1.2rem;color:rgba(var(--color-foreground),.65);}
+
+/* Bymello: PDP gallery arrows match collection-card slider style (neutral bg, no brand blue) */
+.media-gallery-slider__slider-btn{background-color:rgba(var(--color-background),0.85) !important;color:rgb(var(--color-foreground)) !important;border-color:transparent !important;box-shadow:0 1px 6px rgba(0,0,0,0.12);}
+.media-gallery-slider__slider-btn:hover{background-color:rgba(var(--color-background),0.85) !important;color:rgb(var(--color-foreground)) !important;border-color:transparent !important;}
+.bm-gallery-caret{width:1.4rem;height:auto;display:block;fill:currentColor;}
+.bm-gallery-caret--prev{transform:rotate(90deg);}
+.bm-gallery-caret--next{transform:rotate(-90deg);}

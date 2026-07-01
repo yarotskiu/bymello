@@ -1,0 +1,12 @@
+[environments.default]
+store = "bymello-store"
+
+[environments.live]
+theme = "201621700933"
+live = true
+ignore = [
+  "config/settings_data.json",
+  "templates/*.json",
+  "templates/customers/*.json",
+  "sections/*-group.json",
+]

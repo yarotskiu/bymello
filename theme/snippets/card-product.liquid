@@ -114,12 +114,29 @@
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ color_scheme }} gradient{% endif %}">
             <div class="media media--transparent bm-card-media">
-              <button type="button" class="bm-wishlist-btn" aria-label="Save to wishlist"
-                data-wl-handle="{{ card_product.handle }}"
-                data-wl-url="{{ card_product.url }}"
-                data-wl-title="{{ card_product.title | escape }}"
-                data-wl-price="{{ card_product.price | money }}"
-                data-wl-image="{{ card_product.featured_media | image_url: width: 400 }}">{% render 'icon-heart' %}</button>
+              <div class="bm-card-actions">
+                {%- if show_quick_add and allow_add_to_cart == false and is_bundle != true -%}
+                  <modal-opener class="bm-quickview-opener" data-modal="#QuickAdd-{{ card_product.id }}">
+                    <button
+                      type="button"
+                      class="bm-quickview-btn"
+                      aria-haspopup="dialog"
+                      aria-label="{{ 'products.product.choose_options' | t }}"
+                      data-product-url="{{ card_product.url }}"
+                      data-initial-product-id="{{ card_product.id }}"
+                    >
+                      {% render 'icon-bag-plus' %}
+                      {%- render 'loading-spinner' -%}
+                    </button>
+                  </modal-opener>
+                {%- endif -%}
+                <button type="button" class="bm-wishlist-btn" aria-label="Save to wishlist"
+                  data-wl-handle="{{ card_product.handle }}"
+                  data-wl-url="{{ card_product.url }}"
+                  data-wl-title="{{ card_product.title | escape }}"
+                  data-wl-price="{{ card_product.price | money }}"
+                  data-wl-image="{{ card_product.featured_media | image_url: width: 400 }}">{% render 'icon-heart' %}</button>
+              </div>
               <bm-card-slider class="bm-card-slider">
                 <div class="bm-card-slider__track">
                   {%- for media in card_product.media -%}
@@ -133,7 +150,10 @@
                           class="motion-reduce"
                           loading="lazy"
                           width="{{ media.width }}"
-                          height="{{ media.height }}">
+                          height="{{ media.height }}"
+                          {%- if media.presentation.focal_point %}
+                          style="object-position: {{ media.presentation.focal_point.x }}% {{ media.presentation.focal_point.y }}%;"
+                          {%- endif %}>
                       </a>
                     {%- endif -%}
                   {%- endfor -%}
@@ -383,24 +403,6 @@
                   {%- endform -%}
                 </product-form>
               {%- elsif show_quick_add -%}
-                <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
-                  <button
-                    id="{{ product_form_id }}-submit"
-                    type="submit"
-                    name="add"
-                    class="quick-add__submit button button--full-width button--{{ settings.quick_add_button_style }} button--{{ settings.quick_add_button_outline }}{% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %} button--animate-{{ settings.animations_hover_elements }}"
-                    aria-haspopup="dialog"
-                    aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-                    data-product-url="{{ card_product.url }}"
-                    data-initial-product-id="{{ card_product.id }}"
-                  >
-                    {{ 'products.product.choose_options' | t }}
-                    {%- if horizontal_quick_add -%}
-                      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
-                    {%- endif -%}
-                    {%- render 'loading-spinner' -%}
-                  </button>
-                </modal-opener>
                 <quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
                   <popup-overlay class="popup-overlay"></popup-overlay>
                   <div
