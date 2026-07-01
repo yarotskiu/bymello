@@ -30,5 +30,9 @@ Every task follows this lifecycle, no exceptions:
 
 `main` is the source of truth. Publishing to the **live Shopify store** is a separate step that happens only on the user's explicit approval.
 
+## Code style
+
+**Comments are forbidden by default.** Code must explain itself through clear naming and structure. Write a comment in exactly one case: the logic is genuinely tricky or atypical and cannot be made obvious by the code alone (e.g. a non-obvious browser quirk, a workaround, a deliberate deviation from the expected approach). In that case the comment explains *why*, not *what*. Do not add comments that restate what the code does, label sections, or describe obvious behaviour.
+
 ## Setup
 See [SETUP.md](SETUP.md) for installing the Shopify CLI, logging in, and pulling the theme.

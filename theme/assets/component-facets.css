@@ -1888,23 +1888,52 @@ facet-filters-form:focus-within .select {
 /* Sort-by dropdown — rebuilt on the filter disclosure pattern (light, click, opens below) */
 .sort-by-disclosure {
   margin-right: 0;
+  position: relative;
 }
 .sort-by-disclosure .facets__summary {
   margin-bottom: 0;
   cursor: pointer;
   padding-right: 0;
   display: flex;
-  justify-content: flex-end; /* right-anchor the header: growing its width slides the WORD left, caret stays at the edge */
+  justify-content: flex-end; /* right-anchor the head: when it widens on open, the word shifts left while the caret stays at the edge */
 }
+/* The visible row and a hidden sizer (holding every option name) stack in one grid cell,
+   so the head width = max(current label, longest option, sizer min-width): compact when
+   closed, wider when open. Works without JS (snaps); global.js glides between the states. */
 .sort-by-disclosure .facets__summary > div {
+  display: inline-grid;
+  align-items: center;
+  justify-items: stretch;
+}
+.sort-by-disclosure .facets__summary > div > * {
+  grid-area: 1 / 1;
+}
+.sort-by-disclosure .sort-by__row {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* word left, caret pinned to the right edge (closed AND open) */
+  justify-content: space-between;
   gap: 16px;
-  width: fit-content; /* JS animates width: compact (closed) <-> longest option (open) -> caret slides */
-  padding-left: 2rem; /* aligns the word with the list items */
-  padding-right: 2rem; /* caret inset from the right edge */
-  transition: width 0.32s cubic-bezier(0.33, 0, 0.2, 1); /* smooth slide */
+  min-width: max-content;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+/* Everything except `display` stays applied even when hidden, so the JS can measure the
+   open width while the dropdown is closing (when [open] is already gone). */
+.sort-by-disclosure .sort-by__sizer {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  min-width: 26rem;
+}
+.sort-by-disclosure[open] .sort-by__sizer {
+  display: grid;
+}
+.sort-by-disclosure .sort-by__sizer > span {
+  white-space: nowrap;
 }
 .sort-by-disclosure .facets__summary .icon-caret {
   position: relative;
@@ -1923,19 +1952,27 @@ facet-filters-form:focus-within .select {
   letter-spacing: var(--letter-spacing-h6);
   transition: transform 0.25s ease;
 }
+/* the hidden sizer must match the visible label's metrics or the measured width is wrong */
+.sort-by-disclosure .sort-by__sizer {
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-h6);
+}
 /* match the responsive h6 sizing of the Filter label across breakpoints (sort shows only >=750px) */
 .sort-by-disclosure .facets__summary-label,
+.sort-by-disclosure .sort-by__sizer,
 .sort-by__display .facets__header .sort-by__header-label {
   font-size: var(--font-heading-6-size) !important;
 }
 @media only screen and (min-width: 750px) and (max-width: 989px) {
   .sort-by-disclosure .facets__summary-label,
+  .sort-by-disclosure .sort-by__sizer,
   .sort-by__display .facets__header .sort-by__header-label {
     font-size: calc((var(--font-heading-6-size-mb) + var(--font-heading-6-size)) / 2) !important;
   }
 }
 @media only screen and (min-width: 1560px) {
   .extra-large-layout .sort-by-disclosure .facets__summary-label,
+  .extra-large-layout .sort-by-disclosure .sort-by__sizer,
   .extra-large-layout .sort-by__display .facets__header .sort-by__header-label {
     font-size: calc(var(--font-heading-6-size) * 1.2) !important;
   }
@@ -1944,7 +1981,7 @@ facet-filters-form:focus-within .select {
 .sort-by-disclosure .facets__summary:hover .facets__summary-label {
   text-decoration: none !important;
 }
-/* trigger word stays visible on open (single element that slides via width) */
+/* trigger word stays visible on open */
 .sort-by-disclosure[open] .facets__summary-label {
   opacity: 1;
 }
@@ -1959,11 +1996,11 @@ facet-filters-form:focus-within .select {
 }
 .sort-by__display {
   position: absolute !important; /* float over content, never push it down (vertical layout forces relative) */
-  width: var(--sort-w, 30rem); /* JS sets --sort-w = longest option width (dynamic); matches the closed button */
-  min-width: 0;
+  width: max-content;
+  min-width: 100%;
   max-width: none;
   left: auto;
-  right: -0.3rem; /* right-anchored, same right edge as the trigger */
+  right: -0.3rem;
   top: calc(100% + 0.8rem); /* list drops BELOW the trigger (the trigger is the header) */
   border: 0; /* no stroke around the panel */
 }
