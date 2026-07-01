@@ -17,15 +17,16 @@ Every task follows this lifecycle, no exceptions:
    git checkout main && git pull
    git checkout -b <short-task-name>
    ```
-2. **Work on the task branch.** Never edit the live theme directly. Preview with `shopify theme dev` against an unpublished copy. The live store is never the workspace.
-3. **End by merging into main.** When the work is done, commit it and merge the branch back into `main` locally — completed work must always land on `main`. Never leave finished work stranded on a feature branch.
+2. **Work on the task branch.** Never edit the live theme directly. Preview with `shopify theme dev` against an unpublished copy. The live store is never the workspace. Do NOT commit anything yet.
+3. **Wait for approval before committing.** When the work is functionally done, tell the user it's ready and let them review the code themselves (e.g. in their IDE) before anything is committed. Claude MUST NOT run `git commit` until the user explicitly approves. That approval covers commit, merge, and push together — no separate confirmation is needed for push. This applies to every file with no exceptions, including this CLAUDE.md file and any other config/docs Claude edits.
+4. **On approval, sync main, then commit → merge → push in one go:**
    ```bash
-   git checkout main && git merge --no-ff <short-task-name>
-   ```
-4. **Notify on completion → push.** When the user says a task is complete, Claude MUST explicitly tell the user that the changes are merged into `main` locally and **need to be pushed to GitHub**, and confirm before pushing:
-   ```bash
+   git commit -m "..."
+   git checkout main && git pull                      # pick up any changes landed on main meanwhile
+   git merge --no-ff <short-task-name>                 # resolve conflicts if `pull` brought in anything overlapping
    git push origin main
    ```
+   Completed work must always land on `main` — never leave it stranded on a feature branch.
 
 `main` is the source of truth. Publishing to the **live Shopify store** is a separate step that happens only on the user's explicit approval.
 
