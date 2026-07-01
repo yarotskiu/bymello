@@ -3,33 +3,32 @@ class FacetFiltersForm extends HTMLElement {
     super();
     this.onActiveFilterClick = this.onActiveFilterClick.bind(this);
 
-		const customSortByOptions = this.querySelectorAll('.sort-by--item label');
-		
-		if (customSortByOptions.length > 0) {
-
-			customSortByOptions.forEach(option => {
-				option.addEventListener('keydown', (event) => {
-					
-					if (event.key === 'Enter' || event.keyCode === 13) {
-						event.preventDefault();
-						option.click(); 
-					}
-				});
-			})
-		}
+		FacetFiltersForm.bindSortByKeydown(this);
 
     this.debouncedOnSubmit = debounce((event) => {
       this.onSubmitHandler(event);
     }, 800);
 
     const facetForm = this.querySelector('form');
-    facetForm.addEventListener('input', this.debouncedOnSubmit.bind(this));
+    if (facetForm) facetForm.addEventListener('input', this.debouncedOnSubmit.bind(this));
 
     const facetWrapper = this.querySelector('#FacetsWrapperDesktop');
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
   }
 
-	static verticalFIlterBtn = document.querySelector('vertical-filter-button');
+  static bindSortByKeydown(scope) {
+    scope.querySelectorAll('.sort-by--item label').forEach((option) => {
+      if (option.dataset.keydownBound) return;
+      option.dataset.keydownBound = 'true';
+      option.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+          event.preventDefault();
+          option.click();
+        }
+      });
+    });
+  }
+
   static setListeners() {
     const onHistoryChange = (event) => {
       const searchParams = event.state ? event.state.searchParams : FacetFiltersForm.searchParamsInitial;
@@ -87,21 +86,6 @@ class FacetFiltersForm extends HTMLElement {
 		focusableItems.forEach((el) => {
 			el.tabIndex = focusable ? 0 : -1;
 		});
-
-		const customSortByOptions = document.querySelectorAll('.sort-by--item label');
-		
-		if (customSortByOptions.length > 0) {
-
-			customSortByOptions.forEach(option => {
-				option.addEventListener('keydown', (event) => {
-					
-					if (event.key === 'Enter' || event.keyCode === 13) {
-						event.preventDefault();
-						option.click(); 
-					}
-				});
-			})
-		}
 	}
 
   static renderSectionFromFetch(url, event) {
@@ -242,7 +226,10 @@ class FacetFiltersForm extends HTMLElement {
       document.querySelector(selector).innerHTML = html.querySelector(selector).innerHTML;
     });
 
-    document.getElementById('FacetFiltersFormMobile').closest('menu-drawer').bindEvents();
+    FacetFiltersForm.bindSortByKeydown(document);
+
+    const mobileDrawer = document.getElementById('FacetFiltersFormMobile')?.closest('menu-drawer');
+    if (mobileDrawer) mobileDrawer.bindEvents();
   }
 
   static renderCounts(source, target) {
@@ -317,7 +304,7 @@ class FacetFiltersForm extends HTMLElement {
 			
       sortFilterForms.forEach((form) => {
         if (!isMobile) {
-          if (form.id === 'FacetSortForm' || form.id === 'FacetFiltersForm' || form.id === 'FacetSortDrawerForm') {
+          if (form.id === 'FacetFiltersForm' || form.id === 'FacetSortDrawerForm') {
             const noJsElements = document.querySelectorAll('.no-js-list');
             noJsElements.forEach((el) => el.remove());
             forms.push(this.createSearchParams(form));
@@ -381,7 +368,7 @@ class PriceRange extends HTMLElement {
     const maxInput = inputs[1];
     if (maxInput.value) minInput.setAttribute('max', maxInput.value);
     if (minInput.value) maxInput.setAttribute('min', minInput.value);
-    if (minInput.value === '' || minInput == NaN) maxInput.setAttribute('min', 0);
+    if (minInput.value === '' || Number.isNaN(Number(minInput.value))) maxInput.setAttribute('min', 0);
     if (maxInput.value === '') minInput.setAttribute('max', maxInput.getAttribute('max'));
   }
 
