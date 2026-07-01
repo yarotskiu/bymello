@@ -35,11 +35,13 @@ shopify theme pull --store=bymello-store.myshopify.com --theme=201621700933
 
 ```bash
 cd theme
-shopify theme dev --store=bymello-store.myshopify.com
+shopify theme dev
 ```
 
-Opens a local server (http://127.0.0.1:9292) with hot reload against an
-unpublished copy. The live store is never affected.
+That's enough — the CLI remembers the store from the initial pull/login (config
+in `theme/.shopify/`). Opens a local server (http://127.0.0.1:9292) with hot
+reload against an unpublished copy. The live store is never affected. Stop with
+`Ctrl+C`. (If it ever forgets the store, add `--store=bymello-store.myshopify.com`.)
 
 ## Git note
 
