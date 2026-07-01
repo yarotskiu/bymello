@@ -247,8 +247,11 @@
 														<details class="disclosure-has-popup facets__disclosure sort-by-disclosure" id="SortBy" aria-describedby="a11y-refresh-page-message">
 															<summary class="facets__summary focus-offset">
 																<div>
-																	<span class="facets__summary-label {{ section.settings.facets_heading_weight }}">{%- for option in results.sort_options -%}{%- if option.value == sort_by -%}{{- option.name | escape -}}{%- endif -%}{%- endfor -%}</span>
-																	{% render 'icon-caret' %}
+																	<span class="sort-by__row">
+																		<span class="facets__summary-label {{ section.settings.facets_heading_weight }}">{%- for option in results.sort_options -%}{%- if option.value == sort_by -%}{{- option.name | escape -}}{%- endif -%}{%- endfor -%}</span>
+																		{% render 'icon-caret' %}
+																	</span>
+																	<span class="sort-by__sizer" aria-hidden="true">{%- for option in results.sort_options -%}{%- unless option.value == 'title-ascending' or option.value == 'title-descending' -%}<span>{{ option.name | escape }}</span>{%- endunless -%}{%- endfor -%}</span>
 																</div>
 															</summary>
 															<div class="parent-display facets__display sort-by__display">

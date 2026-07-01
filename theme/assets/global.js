@@ -2631,52 +2631,47 @@ console.log('Elixira-4.1.0');
   var mo=new MutationObserver(function(){ wireButtons(); markButtons(); }); mo.observe(document.body||document.documentElement,{subtree:true,childList:true});
 })();
 
-/* BYMELLO_SORT_WIDTH: Aruelle-style sort dropdown.
-   Closed = compact, flush-right. Open = width grows to the longest option width, so the WORD
-   slides left while the caret stays at the right edge. Smooth, dynamic per language, no jump. */
-(function(){
-  function px(v){ return parseFloat(v) || 0; }
-  function longestWidth(root){
-    var label = root.querySelector('.facets__summary-label');
-    var items = root.querySelectorAll('.sort-by__display .sort-by--item label');
-    if(!label || !items.length) return 0;
-    var cs = getComputedStyle(label);
-    var probe = document.createElement('span');
-    probe.style.cssText = 'position:absolute;left:-9999px;top:-9999px;visibility:hidden;white-space:nowrap;';
-    probe.style.fontFamily = cs.fontFamily; probe.style.fontSize = cs.fontSize;
-    probe.style.fontWeight = cs.fontWeight; probe.style.fontStyle = cs.fontStyle;
-    probe.style.letterSpacing = cs.letterSpacing; probe.style.textTransform = cs.textTransform;
-    document.body.appendChild(probe);
-    var maxText = 0;
-    items.forEach(function(l){ probe.textContent = (l.textContent||'').trim(); maxText = Math.max(maxText, probe.offsetWidth); });
-    probe.remove();
-    var rem = px(getComputedStyle(document.documentElement).fontSize) || 10;
-    return Math.ceil(maxText + 2*rem + 16 + 1.1*rem + 2*rem + 2); // pad-l + word + gap + caret + pad-r
+/* Glides the sort dropdown's width between its compact (closed) and longest (open) states,
+   which component-facets.css otherwise snaps. Driven from the summary's 'click' rather than
+   the 'toggle' event: click runs BEFORE <details> applies the open state, whereas Chrome
+   fires 'toggle' only after painting the snapped state — which caused a one-frame jump.
+   Delegated on document so it also covers dropdowns facets.js recreates on AJAX re-render.
+   Animated with the Web Animations API so the glide overrides the base width regardless of
+   when the browser recomputes it. */
+(function () {
+  function measureCompactAndLongest(head, sizer) {
+    sizer.style.display = 'none';
+    var compactW = head.getBoundingClientRect().width;
+    sizer.style.display = 'grid';
+    var longestW = head.getBoundingClientRect().width;
+    sizer.style.display = '';
+    return [compactW, longestW];
   }
-  function setup(root){
-    if(root.__bymelloSort) return; root.__bymelloSort = true;
+
+  function animate(root, willOpen) {
     var head = root.querySelector('.facets__summary > div');
-    if(!head) return;
-    function widths(){ var W = longestWidth(root); root.style.setProperty('--sort-w', W + 'px'); return W; }
-    var W = widths();
-    window.addEventListener('resize', function(){ clearTimeout(root.__t); root.__t=setTimeout(function(){ W=widths(); if(root.open) head.style.width=W+'px'; }, 150); });
-    root.addEventListener('toggle', function(){
-      W = widths();
-      if(root.open){
-        var from = head.offsetWidth; head.style.width = from+'px'; head.getBoundingClientRect(); head.style.width = W+'px';
-      } else {
-        var cur = head.offsetWidth; head.style.width=''; var compact = head.offsetWidth;
-        head.style.width = cur+'px'; head.getBoundingClientRect(); head.style.width = compact+'px';
-        var done = function(){ if(!root.open) head.style.width=''; head.removeEventListener('transitionend', done); };
-        head.addEventListener('transitionend', done);
-      }
-    });
+    var sizer = root.querySelector('.sort-by__sizer');
+    if (!head || !sizer || !head.animate) return;
+
+    var widths = measureCompactAndLongest(head, sizer);
+    var from = willOpen ? widths[0] : widths[1];
+    var to = willOpen ? widths[1] : widths[0];
+
+    if (Math.abs(from - to) < 1) return;
+
+    if (head.__sortWAnim) head.__sortWAnim.cancel();
+    head.__sortWAnim = head.animate(
+      [{ width: from + 'px' }, { width: to + 'px' }],
+      { duration: 320, easing: 'cubic-bezier(0.33, 0, 0.2, 1)' }
+    );
   }
-  function run(){ document.querySelectorAll('.sort-by-disclosure').forEach(setup); }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', run); else run();
-  window.addEventListener('load', run);
-  if(document.fonts && document.fonts.ready) document.fonts.ready.then(run);
-  document.addEventListener('shopify:section:load', run);
+
+  document.addEventListener('click', function (e) {
+    var summary = e.target.closest && e.target.closest('.facets__summary');
+    if (!summary) return;
+    var root = summary.closest('.sort-by-disclosure');
+    if (root) animate(root, !root.hasAttribute('open'));
+  }, true);
 })();
 
 /* Bymello: size guide modal */
