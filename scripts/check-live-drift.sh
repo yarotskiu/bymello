@@ -2,12 +2,28 @@
 # Compares the live Shopify theme against the git-tracked theme/ directory.
 #
 # The Shopify CLI has no built-in "diff" command, so this pulls the live
-# theme into a scratch directory and diffs it locally. Nothing is written
-# back to Shopify and the working tree is never touched.
+# theme into a scratch directory and diffs it locally. By default nothing is
+# written back to the working tree.
 #
-# Usage: scripts/check-live-drift.sh
+#   --apply  copy real content changes (and live-only files) into theme/ so
+#            they can be reviewed and committed.
+#   --gate   exit non-zero only if drift exists outside the files the live
+#            push itself ignores (config/settings_data.json, templates/*.json,
+#            sections/*-group.json — see theme/shopify.theme.toml). Drift in
+#            those files is normal (merchants edit them constantly) and can't
+#            be clobbered by a routine push, so it isn't blocking. Used by the
+#            finish-task skill to gate merging/pushing.
+#
+# Usage: scripts/check-live-drift.sh [--apply|--gate]
 
 set -eo pipefail
+
+apply=false
+gate=false
+case "${1:-}" in
+  --apply) apply=true ;;
+  --gate) gate=true ;;
+esac
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 theme_dir="$repo_root/theme"
@@ -77,6 +93,48 @@ print_section "Content differs (needs review)" "${content_diffs[@]}"
 print_section "Line-endings only (safe to ignore)" "${line_ending_only[@]}"
 print_section "Only in git (theme/), missing on live" "${only_in_repo[@]}"
 print_section "Only on live, missing in git (theme/)" "${only_on_live[@]}"
+
+if [ "$apply" = true ]; then
+  applied=("${content_diffs[@]}" "${only_on_live[@]}")
+  if [ "${#applied[@]}" -eq 0 ]; then
+    echo "Nothing to apply: no real content drift."
+    exit 0
+  fi
+  for relative_path in "${applied[@]}"; do
+    mkdir -p "$(dirname "$relative_path")"
+    cp "$tmp_dir/$relative_path" "$relative_path"
+  done
+  print_section "Applied to theme/ (uncommitted)" "${applied[@]}"
+  echo "Files only in git (theme/), missing on live were left untouched (not deleted)."
+  exit 0
+fi
+
+if [ "$gate" = true ]; then
+  live_ignore_patterns=(
+    "config/settings_data.json"
+    "templates/*.json"
+    "sections/*-group.json"
+  )
+  is_live_ignored() {
+    local path="$1" pattern
+    for pattern in "${live_ignore_patterns[@]}"; do
+      # shellcheck disable=SC2053
+      [[ "$path" == $pattern ]] && return 0
+    done
+    return 1
+  }
+  blocking=()
+  for relative_path in "${content_diffs[@]}" "${only_on_live[@]}"; do
+    is_live_ignored "$relative_path" || blocking+=("$relative_path")
+  done
+  if [ "${#blocking[@]}" -gt 0 ]; then
+    print_section "BLOCKING drift (would be overwritten by a live push)" "${blocking[@]}"
+    echo "Live theme has changes outside the editor-owned ignore list. Do not commit/merge/push yet." >&2
+    exit 1
+  fi
+  echo "No blocking drift: any content differences are limited to editor-owned files the live push already ignores."
+  exit 0
+fi
 
 if [ "${#content_diffs[@]}" -gt 0 ] || [ "${#only_on_live[@]}" -gt 0 ]; then
   cat >&2 <<'EOF'

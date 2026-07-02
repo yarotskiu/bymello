@@ -18,21 +18,16 @@ Every task follows this lifecycle, no exceptions:
    git checkout -b <short-task-name>
    ```
 2. **Work on the task branch.** Never edit the live theme directly. Preview with `shopify theme dev` against an unpublished copy. The live store is never the workspace. Do NOT commit anything yet.
-3. **Wait for approval before committing.** When the work is functionally done, tell the user it's ready and let them review the code themselves (e.g. in their IDE) before anything is committed. Claude MUST NOT run `git commit` until the user explicitly approves. That approval covers commit, merge, and push together — no separate confirmation is needed for push. This applies to every file with no exceptions, including this CLAUDE.md file and any other config/docs Claude edits.
-4. **On approval, sync main, then commit → merge → push in one go:**
-   ```bash
-   git commit -m "..."
-   git checkout main && git pull                      # pick up any changes landed on main meanwhile
-   git merge --no-ff <short-task-name>                 # resolve conflicts if `pull` brought in anything overlapping
-   git push origin main
-   ```
-   Completed work must always land on `main` — never leave it stranded on a feature branch.
+3. **Wait for approval before committing.** When the work is functionally done, tell the user it's ready and let them review the code themselves (e.g. in their IDE) before anything is committed. Claude MUST NOT run `git commit` until the user explicitly approves. This applies to every file with no exceptions, including this CLAUDE.md file and any other config/docs Claude edits.
+4. **On approval, run the [`finish-task`](.claude/skills/finish-task/SKILL.md) skill.** Approval covers the whole pipeline, not just the commit: it commits the reviewed changes, syncs `main`, gates on live-theme drift (stopping to ask if the live theme has diverged in a way a routine push would overwrite), merges, pushes to git, publishes to the **live Shopify theme**, and deletes the task branch — all in one flow, no separate confirmation needed for merge, push, or publish. See that skill file for the exact steps.
 
-`main` is the source of truth. Publishing to the **live Shopify store** is a separate step that happens only on the user's explicit approval.
+`main` is the source of truth, and the live Shopify store is kept in sync with it as part of the same approval — publishing is no longer a separate manual step.
 
-### Before publishing to live: check for editor drift
+### Editor drift
 
-The Theme Editor can change files directly on the live theme (content, settings, even code via "Edit code") without ever touching git. Before pushing to live, run `scripts/check-live-drift.sh` (see [SETUP.md](SETUP.md)) to compare live against git and catch anything that would otherwise be silently overwritten. `config/settings_data.json`, `templates/*.json`, and `sections/*-group.json` are treated as editor-owned content and are excluded from routine live pushes (see `theme/shopify.theme.toml`).
+The Theme Editor can change files directly on the live theme (content, settings, even code via "Edit code") without ever touching git. `config/settings_data.json`, `templates/*.json`, and `sections/*-group.json` are treated as editor-owned content and are excluded from routine live pushes (see `theme/shopify.theme.toml`) — drift in those files is expected and not blocking.
+
+The `finish-task` skill already gates every publish on this (`scripts/check-live-drift.sh --gate`), so it doesn't need to be run by hand as part of the normal workflow. To check drift ad hoc, or to pull editor-made changes into git outside of finishing a task, use `scripts/check-live-drift.sh` (see [SETUP.md](SETUP.md)) or the [`pull-live-theme-changes`](.claude/skills/pull-live-theme-changes/SKILL.md) skill.
 
 ## Code style
 
