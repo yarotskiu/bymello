@@ -225,7 +225,7 @@
   {%- if bm_f.type == 'price_range' -%}{%- if bm_f.min_value.value or bm_f.max_value.value -%}{%- assign bm_applied = bm_applied | plus: 1 -%}{%- endif -%}
   {%- else -%}{%- assign bm_applied = bm_applied | plus: bm_f.active_values.size -%}{%- endif -%}
 {%- endfor -%}
-<vertical-filter-button class="vertical-filter-button h6 {{ section.settings.facets_heading_weight }}" role="button" tabindex="0" open>
+<vertical-filter-button class="vertical-filter-button h6 {{ section.settings.facets_heading_weight }}" role="button" tabindex="0">
 									<span class="{{ section.settings.heading_font_family }}">
 									{{ 'products.facets.filter_button' | t }}{% if bm_applied > 0 %} ({{ bm_applied }}){% endif %}
 									</span>
@@ -360,7 +360,7 @@
 				</div>
 			</div>
 		{%- endif -%}
-    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width js-active{% elsif section.settings.filter_type == 'horizontal' -%} facets-horizontal{% else %}facets-drawer{% endif %}">
+    <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% elsif section.settings.filter_type == 'horizontal' -%} facets-horizontal{% else %}facets-drawer{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
