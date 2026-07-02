@@ -152,12 +152,6 @@
                     {%- endif -%}
                   {%- endfor -%}
                 </div>
-                {%- assign bm_img_count = 0 -%}
-                {%- for media in card_product.media -%}{%- if media.media_type == 'image' -%}{%- assign bm_img_count = bm_img_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
-                {%- if bm_img_count > 1 -%}
-                  <button type="button" class="bm-card-slider__btn bm-card-slider__btn--prev" aria-label="Previous image">{% render 'icon-caret' %}</button>
-                  <button type="button" class="bm-card-slider__btn bm-card-slider__btn--next" aria-label="Next image">{% render 'icon-caret' %}</button>
-                {%- endif -%}
               </bm-card-slider>
             </div>
           </div>
