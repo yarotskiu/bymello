@@ -377,9 +377,9 @@
                     class="{% if filter_type == 'horizontal' %}disclosure-has-popup facets__disclosure{% else %} facets__disclosure-vertical {% endif %} js-filter"
                     data-index="{{ forloop.index }}"
                   >
-                    <summary class="facets__summary caption-large">
+                    <summary class="facets__summary focus-offset">
                       <div>
-                        <span class="h6 {{ heading_font_family }} {{ facets_heading_weight }}">{{ filter.label | escape }}</span>
+                        <span class="facets__summary-label h6 {{ heading_font_family }} {{ facets_heading_weight }}">{{ filter.label | escape }}</span>
 												{%- if filter_type == 'vertical' -%}
 													<div class="facets__summary-icon">
 												{%- endif -%}
