@@ -1743,12 +1743,6 @@ aside .mobile-facets__details[open] summary .facet-button:after {
 }
 /* facets range end */
 
-/* custom sort */
-.custom-sort-by {
-  position: relative;
-  z-index: 2;
-}
-
 facet-filters-form:focus-within .select {
   outline: 0.2rem solid rgba(var(--color-outline), 0.5);
   outline-offset: 0.3rem;
@@ -1757,92 +1751,18 @@ facet-filters-form:focus-within .select {
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
 
-.sort-by--header,
-.sort-by--list {
-  padding: 1.2rem 3.2rem;
-  border-radius: var(--inputs-radius);
-  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--input-border-color), var(--inputs-border-opacity));
-}
-
-.custom-sort-by:hover .sort-by--header,
-.custom-sort-by:hover .sort-by--list {
-  border-radius: min(var(--inputs-radius), 2rem);
-}
-
-.sort-by--header {
-  position: relative;
-  z-index: 1;
-  opacity: 1;
-  transition:
-    opacity var(--duration-default) ease,
-    border-radius var(--duration-default) ease;
-}
-
-.sort-by--list {
-  position: absolute;
-  padding: 0;
-  top: 0;
-  right: 0;
-  transition:
-    width 0.4s ease,
-    height 0.35s ease,
-    opacity 0.3s ease,
-    z-index 0.45s ease,
-    border-radius var(--duration-default) ease;
-  height: 0;
-  overflow-y: hidden;
-  opacity: 0;
-  z-index: 0;
-}
-
-.sort-by--list-wrapper {
-  padding: 1.2rem 3.2rem;
-  max-height: 100%;
-  overflow-y: auto;
-}
-
-.custom-sort-by:hover .sort-by--header {
-  opacity: 0;
-}
-.custom-sort-by:focus-within .sort-by--list,
-.custom-sort-by:hover .sort-by--list {
-  width: 31rem;
-  height: 32.2rem;
-  opacity: 1;
-  z-index: 2;
-}
-
-@media screen and (min-width: 750px) {
-  .sort-by--header {
-    width: 23rem;
-  }
-}
-
 @media screen and (min-width: 1560px) {
-  .extra-large-layout .sort-by--header {
-    width: 26rem;
-  }
-
   .extra-large-layout .facets__heading {
     margin: -1.3rem 2rem 0 0;
   }
 }
 
-.sort-by--header,
 .sort-by--item label {
   font-size: var(--f-size-text-md);
   color: rgba(var(--color-foreground), 1);
   cursor: pointer;
   transition: color 0.3s ease;
   display: inline-block;
-  /* font-weight: 600; */
-}
-
-.sort-by--item-header {
-  font-size: 2rem;
-  padding-bottom: 0.4rem;
-  margin-bottom: 0.6rem;
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.6);
 }
 
 .sort-by--item input {
@@ -1887,7 +1807,6 @@ facet-filters-form:focus-within .select {
   border-radius: 50%;
   transform: translateY(-50%);
 }
-/* custom sort end */
 
 /* Sort-by dropdown — rebuilt on the filter disclosure pattern (light, click, opens below) */
 .sort-by-disclosure {
@@ -1908,6 +1827,7 @@ facet-filters-form:focus-within .select {
   display: inline-grid;
   align-items: center;
   justify-items: stretch;
+  overflow: hidden; /* the sizer's grid track snaps to full content width the instant [open] lands, before the JS width glide (global.js) catches up — without this the caret visibly overshoots right before settling */
 }
 .sort-by-disclosure .facets__summary > div > * {
   grid-area: 1 / 1;
@@ -1931,7 +1851,6 @@ facet-filters-form:focus-within .select {
   pointer-events: none;
   padding-left: 2rem;
   padding-right: 2rem;
-  min-width: 26rem;
 }
 .sort-by-disclosure[open] .sort-by__sizer {
   display: grid;

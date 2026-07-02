@@ -222,8 +222,11 @@ class FacetFiltersForm extends HTMLElement {
     const mobileElementSelectors = ['.mobile-facets__open', '.mobile-facets__count', '.sorting'];
 
     mobileElementSelectors.forEach((selector) => {
-      if (!html.querySelector(selector)) return;
-      document.querySelector(selector).innerHTML = html.querySelector(selector).innerHTML;
+      const sourceElement = html.querySelector(selector);
+      if (!sourceElement) return;
+      document.querySelectorAll(selector).forEach((element) => {
+        element.innerHTML = sourceElement.innerHTML;
+      });
     });
 
     FacetFiltersForm.bindSortByKeydown(document);

@@ -1124,7 +1124,7 @@ summary::-webkit-details-marker {
   }
 
   .facets .disclosure-has-popup[open] > summary + * {
-    z-index: 2;
+    z-index: 20; /* above product card stacking contexts (badges/quick-add go up to z-index: 10) */
   }
 }
 
