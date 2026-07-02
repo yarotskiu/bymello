@@ -523,6 +523,7 @@ summary .icon-caret {
 
 .facets__price .field__input {
   color: rgb(var(--color-secondary-foreground));
+  font-size: 1.4rem;
 }
 
 button.facets__button {
@@ -1241,6 +1242,9 @@ input.mobile-facets__checkbox {
   .facets__price .field:last-of-type {
     margin-left: 1rem;
   }
+  .facets__header-vertical {
+    font-size: var(--f-size-text-sm);
+  }
 }
 
 .facets-wrapper.ff-heading span.h6,
@@ -1393,7 +1397,7 @@ input.mobile-facets__checkbox {
 
   .facets__header-vertical {
     padding: 0 2rem 1.5rem 0;
-    font-size: var(--f-size-text-sm);
+    font-size: 1.4rem;
   }
 
   .facets-vertical .facets-wrapper--no-filters {
