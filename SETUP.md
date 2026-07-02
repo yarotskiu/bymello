@@ -73,7 +73,7 @@ merchants/editors change them constantly — that's normal, not a bug. Routine
 pushes to live never touch them anyway (see `theme/shopify.theme.toml`'s
 `ignore` list for the `live` environment), so editor content is safe by default.
 
-## 6. Push to the live theme (deliberate step only, after explicit approval)
+## 6. Push to the live theme
 
 ```bash
 cd theme
@@ -82,6 +82,10 @@ shopify theme push --environment live --allow-live
 
 `--allow-live` is Shopify CLI's own safety guard for pushing to a live theme —
 never script or alias this away. Only run this after a clean drift check.
+
+In normal use this happens automatically as the last step of the
+`finish-task` skill once a task is approved — you shouldn't need to run this
+by hand. This is here for manual/ad hoc pushes only.
 
 ## Git note
 
