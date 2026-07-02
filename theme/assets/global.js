@@ -2573,19 +2573,7 @@ console.log('Elixira-4.1.0');
     if(slider.__bm) return; slider.__bm = true;
     var track = slider.querySelector('.bm-card-slider__track');
     if(!track) return;
-    var prev = slider.querySelector('.bm-card-slider__btn--prev');
-    var next = slider.querySelector('.bm-card-slider__btn--next');
     function w(){ var s = track.querySelector('.bm-card-slider__slide'); return s ? s.getBoundingClientRect().width : track.clientWidth; }
-    function go(dir,e){ if(e){e.preventDefault();e.stopPropagation();} track.scrollBy({left:dir*w(),behavior:'smooth'}); }
-    if(prev) prev.addEventListener('click', function(e){ go(-1,e); });
-    if(next) next.addEventListener('click', function(e){ go(1,e); });
-    function update(){
-      var max = track.scrollWidth - track.clientWidth - 2;
-      if(prev) prev.classList.toggle('bm-hide', track.scrollLeft <= 2);
-      if(next) next.classList.toggle('bm-hide', track.scrollLeft >= max);
-    }
-    track.addEventListener('scroll', update, {passive:true});
-    update();
     var card = slider.closest('.card-wrapper') || slider;
     var firstSlideImg = track.querySelector('.bm-card-slider__slide img');
 

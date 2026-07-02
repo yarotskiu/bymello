@@ -1137,12 +1137,6 @@
 .bm-card-slider__track::-webkit-scrollbar{display:none;height:0;width:0;}
 .bm-card-slider__slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;display:block;}
 .bm-card-slider__slide img{width:100%;height:100%;object-fit:cover;display:block;}
-.bm-card-slider__btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:3.2rem;height:3.2rem;border-radius:50%;border:none;background:rgba(var(--color-background),0.85);color:rgb(var(--color-foreground));font-size:2rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s ease;padding:0;box-shadow:0 1px 6px rgba(0,0,0,0.12);}
-.bm-card-slider__btn--prev{left:1.5rem;}
-.bm-card-slider__btn--next{right:1.5rem;}
-.card-wrapper:hover .bm-card-slider__btn{opacity:1;}
-.bm-card-slider__btn.bm-hide{display:none !important;}
-@media (hover:none){.bm-card-slider__btn{display:none;}}
 /* Bymello: card actions (wishlist + quick-add), grouped bottom-right, hover-reveal */
 .bm-card-actions{position:absolute !important;bottom:2rem !important;right:2rem !important;left:auto !important;top:auto !important;width:auto !important;height:auto !important;max-width:none !important;max-height:none !important;z-index:4;display:flex !important;align-items:center;justify-content:flex-end;gap:1rem;opacity:0;transition:opacity .2s ease;}
 .card-wrapper:hover .bm-card-actions{opacity:1;}
@@ -1183,17 +1177,10 @@
   .bm-card-actions{bottom:2.8rem !important;right:2.8rem !important;}
   .bm-wishlist-btn .icon-heart{width:3rem !important;height:3rem !important;}
   .bm-quickview-btn .icon-bag-plus{width:3rem !important;height:3rem !important;}
-  .bm-card-slider__btn--prev{left:1.8rem;}
-  .bm-card-slider__btn--next{right:1.8rem;}
   .card-title-row__wishlist{margin-right:0;width:3.2rem;height:3.2rem;}
   .card-price-variants-row{margin-right:0;}
   .extra-large-layout .card-title-row .card__heading{margin-bottom:0;}
 }
-
-/* Bymello: slider arrows use filter chevron shape (color+shadow kept) */
-.bm-card-slider__btn .icon-caret{width:1.4rem;height:auto;display:block;fill:currentColor;}
-.bm-card-slider__btn--prev .icon-caret{transform:rotate(90deg);}
-.bm-card-slider__btn--next .icon-caret{transform:rotate(-90deg);}
 
 /* Bymello: size guide modal + fit scale */
 .bm-size-guide-wrap{margin:.8rem 0 .4rem;}
