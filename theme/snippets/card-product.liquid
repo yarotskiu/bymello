@@ -130,12 +130,6 @@
                     </button>
                   </modal-opener>
                 {%- endif -%}
-                <button type="button" class="bm-wishlist-btn" aria-label="Save to wishlist"
-                  data-wl-handle="{{ card_product.handle }}"
-                  data-wl-url="{{ card_product.url }}"
-                  data-wl-title="{{ card_product.title | escape }}"
-                  data-wl-price="{{ card_product.price | money }}"
-                  data-wl-image="{{ card_product.featured_media | image_url: width: 400 }}">{% render 'icon-heart' %}</button>
               </div>
               <bm-card-slider class="bm-card-slider">
                 <div class="bm-card-slider__track">
@@ -659,21 +653,29 @@
             <div class="card__product-subheading">{{ card_product.type }}</div>
           {%- endif -%}
 
-          <h3
-            class="card__heading {{ settings.card_heading_font_family }} {{ heading_size }} {{ heading_weight }}"
-            {% if card_product.featured_media or settings.card_style == 'card' %}
-              id="title-{{ section_id }}-{{ card_product.id }}"
-            {% endif %}
-          >
-            <a
-              href="{{ card_product.url }}"
-              id="CardLink-{{ section_id }}-{{ card_product.id }}"
-              class="full-unstyled-link"
-              aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+          <div class="card-title-row">
+            <h3
+              class="card__heading {{ settings.card_heading_font_family }} {{ heading_size }} {{ heading_weight }}"
+              {% if card_product.featured_media or settings.card_style == 'card' %}
+                id="title-{{ section_id }}-{{ card_product.id }}"
+              {% endif %}
             >
-              {{ card_product.title | escape }}
-            </a>
-          </h3>
+              <a
+                href="{{ card_product.url }}"
+                id="CardLink-{{ section_id }}-{{ card_product.id }}"
+                class="full-unstyled-link"
+                aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+              >
+                {{ card_product.title | escape }}
+              </a>
+            </h3>
+            <button type="button" class="bm-wishlist-btn card-title-row__wishlist" aria-label="Save to wishlist"
+              data-wl-handle="{{ card_product.handle }}"
+              data-wl-url="{{ card_product.url }}"
+              data-wl-title="{{ card_product.title | escape }}"
+              data-wl-price="{{ card_product.price | money }}"
+              data-wl-image="{{ card_product.featured_media | image_url: width: 400 }}">{% render 'icon-heart' %}</button>
+          </div>
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -726,71 +728,73 @@
                 </span>
               </p>
             {%- endif -%}
-            {% render 'price', product: card_product, price_class: price_class, show_compare_at_price: true %}
+            <div class="card-price-variants-row">
+              {% render 'price', product: card_product, price_class: price_class, show_compare_at_price: true %}
+
+              {% if show_color_variants %}
+                {%- assign color_label_list = settings.product_variants_name
+                  | replace: ', ', ','
+                  | downcase
+                  | split: ','
+                -%}
+                {%- for color_label in color_label_list -%}
+                  {%- if card_product.options_by_name[color_label] != blank -%}
+                    {%- assign product_option = card_product.options_by_name[color_label] -%}
+                    <div class="card-variants-wrapp no-js-hidden" data-test="{{ color_label }}">
+                      <card-variants class="card-variants">
+                        {%- assign variant_option = 'option' | append: product_option.position -%}
+
+                        {%- capture color_name -%}{{ section.id }}-{{ block.id }}-{{ card_product.id }}{%- endcapture -%}
+
+                        {%- for value in product_option.values -%}
+                          {%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
+                          {%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
+
+                          <div
+                            class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
+                            data-variant-id="{{ variant_for_value.id }}"
+                            {% if variant_for_value.featured_media != blank %}
+                              data-variant-img="{{ variant_for_value.featured_media | image_url: width: 533 }}"
+                            {% endif %}
+                            data-variant-price="{% if settings.currency_code_enabled %}{{ variant_for_value.price | money_with_currency }}{% else %}{{ variant_for_value.price | money }}{% endif %}"
+                            data-variant-price-value="{{ variant_for_value.price }}"
+                            {% if variant_for_value.compare_at_price %}
+                              data-variant-compare-at-price="{% if settings.currency_code_enabled %}{{ variant_for_value.compare_at_price | money_with_currency }}{% else %}{{ variant_for_value.compare_at_price | money }}{% endif %}"
+                              data-variant-compare-at-price-value="{{ variant_for_value.compare_at_price }}"
+                            {% endif %}
+                            role="button"
+                            aria-label="Card variant"
+                            tabindex="0"
+                          >
+                            <input
+                              class="card-variant__radio visually-hidden"
+                              type="radio"
+                              name="{{ color_name }}"
+                              id="{{ color_id }}"
+                              value="{{ value | escape }}"
+                              {% if product_option.selected_value == value %}
+                                checked="checked"
+                              {% endif %}
+                            >
+
+                            <label class="card-variant__item dropdown-swatch" for="{{ color_id }}">
+                              <span class="visually-hidden">{{ value }}</span>
+
+                              {% render 'swatch', swatch: value.swatch %}
+                            </label>
+                          </div>
+                        {%- endfor -%}
+                      </card-variants>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              {% endif %}
+            </div>
             {%- if card_product.quantity_price_breaks_configured? -%}
               <div class="card__information-volume-pricing-note">
                 <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
               </div>
             {%- endif -%}
-
-            {% if show_color_variants %}
-              {%- assign color_label_list = settings.product_variants_name
-                | replace: ', ', ','
-                | downcase
-                | split: ','
-              -%}
-              {%- for color_label in color_label_list -%}
-                {%- if card_product.options_by_name[color_label] != blank -%}
-                  {%- assign product_option = card_product.options_by_name[color_label] -%}
-                  <div class="card-variants-wrapp no-js-hidden" data-test="{{ color_label }}">
-                    <card-variants class="card-variants">
-                      {%- assign variant_option = 'option' | append: product_option.position -%}
-
-                      {%- capture color_name -%}{{ section.id }}-{{ block.id }}-{{ card_product.id }}{%- endcapture -%}
-
-                      {%- for value in product_option.values -%}
-                        {%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-                        {%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
-
-                        <div
-                          class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
-                          data-variant-id="{{ variant_for_value.id }}"
-                          {% if variant_for_value.featured_media != blank %}
-                            data-variant-img="{{ variant_for_value.featured_media | image_url: width: 533 }}"
-                          {% endif %}
-                          data-variant-price="{% if settings.currency_code_enabled %}{{ variant_for_value.price | money_with_currency }}{% else %}{{ variant_for_value.price | money }}{% endif %}"
-                          data-variant-price-value="{{ variant_for_value.price }}"
-                          {% if variant_for_value.compare_at_price %}
-                            data-variant-compare-at-price="{% if settings.currency_code_enabled %}{{ variant_for_value.compare_at_price | money_with_currency }}{% else %}{{ variant_for_value.compare_at_price | money }}{% endif %}"
-                            data-variant-compare-at-price-value="{{ variant_for_value.compare_at_price }}"
-                          {% endif %}
-                          role="button"
-                          aria-label="Card variant"
-                          tabindex="0"
-                        >
-                          <input
-                            class="card-variant__radio visually-hidden"
-                            type="radio"
-                            name="{{ color_name }}"
-                            id="{{ color_id }}"
-                            value="{{ value | escape }}"
-                            {% if product_option.selected_value == value %}
-                              checked="checked"
-                            {% endif %}
-                          >
-
-                          <label class="card-variant__item dropdown-swatch" for="{{ color_id }}">
-                            <span class="visually-hidden">{{ value }}</span>
-
-                            {% render 'swatch', swatch: value.swatch %}
-                          </label>
-                        </div>
-                      {%- endfor -%}
-                    </card-variants>
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            {% endif %}
           </div>
         </div>
         <div class="card__badge {{ settings.badge_position }} {{ settings.badge_text_weight }}">
@@ -1055,70 +1059,72 @@
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
             {%- endif -%}
-            {% render 'price', price_class: price_class, color: 'foreground-secondary', show_compare_at_price: true %}
+            <div class="card-price-variants-row">
+              {% render 'price', price_class: price_class, color: 'foreground-secondary', show_compare_at_price: true %}
 
-            {% if show_color_variants %}
-              {%- assign color_label_list = settings.product_variants_name
-                | replace: ', ', ','
-                | downcase
-                | split: ','
-              -%}
-              {%- for color_label in color_label_list -%}
-                {%- if card_product.options_by_name[color_label] != blank -%}
-                  {%- assign product_option = card_product.options_by_name[color_label] -%}
-                  <div class="card-variants-wrapp no-js-hidden" data-test="{{ color_label }}">
-                    <card-variants class="card-variants">
-                      {%- assign variant_option = 'option' | append: product_option.position -%}
+              {% if show_color_variants %}
+                {%- assign color_label_list = settings.product_variants_name
+                  | replace: ', ', ','
+                  | downcase
+                  | split: ','
+                -%}
+                {%- for color_label in color_label_list -%}
+                  {%- if card_product.options_by_name[color_label] != blank -%}
+                    {%- assign product_option = card_product.options_by_name[color_label] -%}
+                    <div class="card-variants-wrapp no-js-hidden" data-test="{{ color_label }}">
+                      <card-variants class="card-variants">
+                        {%- assign variant_option = 'option' | append: product_option.position -%}
 
-                      {%- capture color_name -%}{{ section.id }}-{{ block.id }}-{{ card_product.id }}{%- endcapture -%}
+                        {%- capture color_name -%}{{ section.id }}-{{ block.id }}-{{ card_product.id }}{%- endcapture -%}
 
-                      {%- for value in product_option.values -%}
-                        {%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-                        {%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
+                        {%- for value in product_option.values -%}
+                          {%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
+                          {%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
 
-                        <div
-                          class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
-                          data-variant-id="{{ variant_for_value.id }}"
-                          {% if variant_for_value.featured_media != blank %}
-                            data-variant-img="{{ variant_for_value.featured_media | image_url: width: 533 }}"
-                          {% endif %}
-                          data-variant-price="{% if settings.currency_code_enabled %}{{ variant_for_value.price | money_with_currency }}{% else %}{{ variant_for_value.price | money }}{% endif %}"
-                          data-variant-price-value="{{ variant_for_value.price }}"
-                          {% if variant_for_value.compare_at_price %}
-                            data-variant-compare-at-price="{% if settings.currency_code_enabled %}{{ variant_for_value.compare_at_price | money_with_currency }}{% else %}{{ variant_for_value.compare_at_price | money }}{% endif %}"
-                            data-variant-compare-at-price-value="{{ variant_for_value.compare_at_price }}"
-                          {% endif %}
-                          role="button"
-                          aria-label="Card variant"
-                          tabindex="0"
-                        >
-                          <input
-                            class="card-variant__radio visually-hidden"
-                            type="radio"
-                            name="{{ color_name }}"
-                            id="{{ color_id }}"
-                            value="{{ value | escape }}"
-                            {% if product_option.selected_value == value %}
-                              checked="checked"
+                          <div
+                            class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
+                            data-variant-id="{{ variant_for_value.id }}"
+                            {% if variant_for_value.featured_media != blank %}
+                              data-variant-img="{{ variant_for_value.featured_media | image_url: width: 533 }}"
                             {% endif %}
+                            data-variant-price="{% if settings.currency_code_enabled %}{{ variant_for_value.price | money_with_currency }}{% else %}{{ variant_for_value.price | money }}{% endif %}"
+                            data-variant-price-value="{{ variant_for_value.price }}"
+                            {% if variant_for_value.compare_at_price %}
+                              data-variant-compare-at-price="{% if settings.currency_code_enabled %}{{ variant_for_value.compare_at_price | money_with_currency }}{% else %}{{ variant_for_value.compare_at_price | money }}{% endif %}"
+                              data-variant-compare-at-price-value="{{ variant_for_value.compare_at_price }}"
+                            {% endif %}
+                            role="button"
+                            aria-label="Card variant"
+                            tabindex="0"
                           >
+                            <input
+                              class="card-variant__radio visually-hidden"
+                              type="radio"
+                              name="{{ color_name }}"
+                              id="{{ color_id }}"
+                              value="{{ value | escape }}"
+                              {% if product_option.selected_value == value %}
+                                checked="checked"
+                              {% endif %}
+                            >
 
-                          <label class="card-variant__item dropdown-swatch" for="{{ color_id }}">
-                            <span class="visually-hidden">{{ value }}</span>
+                            <label class="card-variant__item dropdown-swatch" for="{{ color_id }}">
+                              <span class="visually-hidden">{{ value }}</span>
 
-                            {% render 'swatch', swatch: value.swatch %}
-                          </label>
-                        </div>
-                      {%- endfor -%}
-                    </card-variants>
-                  </div>
-                {%- endif -%}
-              {%- endfor -%}
-            {% endif %}
+                              {% render 'swatch', swatch: value.swatch %}
+                            </label>
+                          </div>
+                        {%- endfor -%}
+                      </card-variants>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
-      
+
       {%- if show_quick_add and card_product and card_product != empty -%}
         <div class="card__wrapper 3">
           <div class="quick-add no-js-hidden">

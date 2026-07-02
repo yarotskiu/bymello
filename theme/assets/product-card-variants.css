@@ -7,7 +7,7 @@
 .card-variants {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 0.6rem;
   padding: 0.7rem;
 }
 
@@ -15,6 +15,10 @@
   --swatch-size: var(--product-variants-size);
   height: var(--swatch-size);
   width: var(--swatch-size);
+}
+
+.card-variants .swatch {
+  border: none;
 }
 
 .card-variants .card-variant:focus-visible {
@@ -36,7 +40,7 @@
   margin: 0 auto;
   border-radius: 50%;
   box-sizing: border-box;
-  outline-offset: 0.4rem;
+  outline-offset: 0.2rem;
   forced-color-adjust: none;
   cursor: pointer;
 }
@@ -44,7 +48,7 @@
 @media screen and (min-width: 1560px) {
   .extra-large-layout .card-variants .card-variant,
   .extra-large-layout .card-variants .card-variant__item {
-    --swatch-size: 3.2rem;
+    --swatch-size: 2.8rem;
   }
 
   .extra-large-layout .card-variant--disabled .swatch,
