@@ -750,11 +750,34 @@
                           {%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
                           {%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
 
+                          {%- assign variant_secondary_media = null -%}
+                          {%- if variant_for_value.featured_media -%}
+                            {%- assign next_media_position = variant_for_value.featured_media.position | plus: 1 -%}
+                            {%- for media in card_product.media -%}
+                              {%- if media.position == next_media_position -%}
+                                {%- assign is_another_variant_front = false -%}
+                                {%- for other_variant in card_product.variants -%}
+                                  {%- if other_variant.featured_media.id == media.id -%}
+                                    {%- assign is_another_variant_front = true -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endfor -%}
+                                {%- unless is_another_variant_front -%}
+                                  {%- assign variant_secondary_media = media -%}
+                                {%- endunless -%}
+                                {%- break -%}
+                              {%- endif -%}
+                            {%- endfor -%}
+                          {%- endif -%}
+
                           <div
                             class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
                             data-variant-id="{{ variant_for_value.id }}"
                             {% if variant_for_value.featured_media != blank %}
                               data-variant-img="{{ variant_for_value.featured_media | image_url: width: 533 }}"
+                            {% endif %}
+                            {% if variant_secondary_media %}
+                              data-variant-img-alt="{{ variant_secondary_media | image_url: width: 533 }}"
                             {% endif %}
                             data-variant-price="{% if settings.currency_code_enabled %}{{ variant_for_value.price | money_with_currency }}{% else %}{{ variant_for_value.price | money }}{% endif %}"
                             data-variant-price-value="{{ variant_for_value.price }}"

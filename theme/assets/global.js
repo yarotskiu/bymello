@@ -2057,6 +2057,8 @@ class CardVariants extends HTMLElement {
         if (typeof variantImage === 'undefined') return;
         image.src = variantImage;
         image.srcset = variantImage;
+        image.dataset.defaultSrc = variantImage;
+        image.dataset.defaultSrcset = variantImage;
       });
     }
   }
@@ -2585,8 +2587,35 @@ console.log('Elixira-4.1.0');
     track.addEventListener('scroll', update, {passive:true});
     update();
     var card = slider.closest('.card-wrapper') || slider;
-    card.addEventListener('mouseenter', function(){ track.scrollTo({left:w(),behavior:'smooth'}); });
-    card.addEventListener('mouseleave', function(){ track.scrollTo({left:0,behavior:'smooth'}); });
+    var firstSlideImg = track.querySelector('.bm-card-slider__slide img');
+
+    function activeSwatchAltImage(){
+      var activeSwatch = card.querySelector('.card-variant.active');
+      return activeSwatch ? activeSwatch.dataset.variantImgAlt : null;
+    }
+
+    slider.addEventListener('mouseenter', function(){
+      var altImage = activeSwatchAltImage();
+      if (altImage && firstSlideImg) {
+        if (firstSlideImg.dataset.defaultSrc === undefined) {
+          firstSlideImg.dataset.defaultSrc = firstSlideImg.src;
+          firstSlideImg.dataset.defaultSrcset = firstSlideImg.srcset;
+        }
+        firstSlideImg.src = altImage;
+        firstSlideImg.srcset = altImage;
+        return;
+      }
+      track.scrollTo({left:w(),behavior:'smooth'});
+    });
+    slider.addEventListener('mouseleave', function(){
+      var altImage = activeSwatchAltImage();
+      if (altImage && firstSlideImg && firstSlideImg.dataset.defaultSrc !== undefined) {
+        firstSlideImg.src = firstSlideImg.dataset.defaultSrc;
+        firstSlideImg.srcset = firstSlideImg.dataset.defaultSrcset;
+        return;
+      }
+      track.scrollTo({left:0,behavior:'smooth'});
+    });
   }
   function init(){ document.querySelectorAll('.bm-card-slider').forEach(wire); }
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
