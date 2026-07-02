@@ -522,7 +522,6 @@ if (!customElements.get('vertical-filter-button')) {
 			this.toggleOpen = this.toggleOpen.bind(this);
 			this.elements = {
 				filter: document.querySelector('.facets-vertical'),
-				grid: document.querySelector('.facets-vertical .product-grid'),
 			}
 
 			this.elements.focusableItems = this.elements.filter
@@ -549,14 +548,12 @@ if (!customElements.get('vertical-filter-button')) {
         this.removeAttribute('open');
 				if (this.elements.filter) {
 					this.elements.filter.classList.remove('js-active');
-					this.updateGridColumns('increase');
 					this.updateFocusableState(false);
 				}
       } else {
         this.setAttribute('open', '');
 				if (this.elements.filter) {
 					this.elements.filter.classList.add('js-active');
-					this.updateGridColumns('reset');
 					this.updateFocusableState(true);
 				}
       }
@@ -566,31 +563,10 @@ if (!customElements.get('vertical-filter-button')) {
         ? this.elements.filter.querySelectorAll('.facets-wrapper :is(input:not(.field__range), summary, select, button, a, textarea)')
         : [];
 			if (this.elements.focusableItems.length == 0) return
-			
+
       this.elements.focusableItems.forEach((el) => {
         el.tabIndex = isOpen ? 0 : -1;
       });
-    }
-
-		updateGridColumns(action) {
-			this.elements.grid = document.querySelector('.facets-vertical .product-grid');
-
-      if (!this.elements.grid) return;
-
-      const gridClassMatch = this.elements.grid.className.match(/grid--(\d+)-col-desktop/);
-      if (!gridClassMatch) return;
-
-      const currentColumns = parseInt(gridClassMatch[1], 10);
-      let newColumns = currentColumns;
-
-      if (action === 'increase') {
-        newColumns = Math.min(currentColumns + 1, 5); 
-      } else if (action === 'reset') {
-				newColumns = Math.max(currentColumns - 1, 1);
-      }
-
-      const newClass = `grid--${newColumns}-col-desktop`;
-      this.elements.grid.className = this.elements.grid.className.replace(/grid--\d+-col-desktop/, newClass);
     }
 	}
 

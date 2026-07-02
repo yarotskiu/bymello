@@ -184,7 +184,7 @@
 						<div class="facets-top__wrapper {{ section.settings.heading_font_family_filter }}">
 							<div class="facets-top__enable-filter">
                 {%- if section.settings.enable_filtering -%}
-                  <vertical-filter-button class="vertical-filter-button h6 {{ section.settings.facets_heading_weight }}" role="button" tabindex="0" open>
+                  <vertical-filter-button class="vertical-filter-button h6 {{ section.settings.facets_heading_weight }}" role="button" tabindex="0">
                     <span class="{{ section.settings.heading_font_family_filter }}">
                     {{ 'products.facets.filter_button' | t }}
                     </span>
@@ -297,7 +297,7 @@
 				{%- endif -%}
 
         <div
-					class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width js-active{% elsif section.settings.filter_type == 'horizontal' -%} facets-horizontal{% else %}facets-drawer{% endif %}"
+					class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% elsif section.settings.filter_type == 'horizontal' -%} facets-horizontal{% else %}facets-drawer{% endif %}"
         >
           {%- if search.filters != empty -%}
             {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
