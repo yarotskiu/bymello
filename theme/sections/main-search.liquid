@@ -244,7 +244,7 @@
 														</select>
 														{% render 'icon-caret' %} {% endcomment %}
 
-														<details class="disclosure-has-popup facets__disclosure sort-by-disclosure" id="SortBy" aria-describedby="a11y-refresh-page-message">
+														<details class="disclosure-has-popup facets__disclosure sort-by-disclosure" id="Details-SortBy-{{ section.id }}" aria-describedby="a11y-refresh-page-message">
 															<summary class="facets__summary focus-offset">
 																<div>
 																	<span class="sort-by__row">
@@ -262,7 +262,7 @@
 																	{%- for option in results.sort_options -%}
 																		{%- unless option.value == 'title-ascending' or option.value == 'title-descending' -%}<li class="sort-by--item{% if option.value == sort_by %} selected{% endif %}">
 																			<label tabindex="0">
-																				<input id="SortBy-{{ option.value | escape }}" class="sr-only" name="sort_by" type="radio" value="{{ option.value | escape }}"{% if option.value == sort_by %} checked{% endif %}>
+																				<input id="SortBy-{{ option.value | escape }}-{{ section.id }}" class="sr-only" name="sort_by" type="radio" value="{{ option.value | escape }}"{% if option.value == sort_by %} checked{% endif %}>
 																				{{- option.name | escape -}}
 																			</label>
 																		</li>

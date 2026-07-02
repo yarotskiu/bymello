@@ -2677,10 +2677,28 @@ console.log('Elixira-4.1.0');
     if (Math.abs(from - to) < 1) return;
 
     if (head.__sortWAnim) head.__sortWAnim.cancel();
+
+    if (willOpen) {
+      /* <details> gets its [open] attribute the instant this click's default action runs —
+         way before our 320ms glide finishes. That flips the sizer to display:grid immediately,
+         and its 26rem min-width snaps the grid track (and the caret riding along inside it) to
+         full width for one frame, before sliding back — the "jumps right, then returns" glitch.
+         Keep the sizer out of the grid until the glide actually reaches that width. */
+      sizer.style.display = 'none';
+    }
+
     head.__sortWAnim = head.animate(
       [{ width: from + 'px' }, { width: to + 'px' }],
       { duration: 320, easing: 'cubic-bezier(0.33, 0, 0.2, 1)' }
     );
+
+    if (willOpen) {
+      head.__sortWAnim.finished
+        .then(function () { sizer.style.display = ''; })
+        .catch(function () {});
+    } else {
+      sizer.style.display = '';
+    }
   }
 
   document.addEventListener('click', function (e) {
