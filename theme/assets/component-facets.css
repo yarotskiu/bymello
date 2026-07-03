@@ -1817,8 +1817,15 @@ facet-filters-form:focus-within .select {
   margin-bottom: 0;
   cursor: pointer;
   padding-right: 0;
+  padding-top: 1.5rem; /* unconditional (not just [open]) so toggling never resizes the box and jumps the text */
   display: flex;
   justify-content: flex-end; /* right-anchor the head: when it widens on open, the word shifts left while the caret stays at the edge */
+}
+.sort-by-disclosure[open] .facets__summary {
+  background-color: rgb(var(--color-background));
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+  box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
 }
 /* The visible row and a hidden sizer (holding every option name) stack in one grid cell,
    so the head width = max(current label, longest option, sizer min-width): compact when
@@ -1838,8 +1845,8 @@ facet-filters-form:focus-within .select {
   justify-content: space-between;
   gap: 16px;
   min-width: max-content;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 /* Everything except `display` stays applied even when hidden, so the JS can measure the
    open width while the dropdown is closing (when [open] is already gone). */
@@ -1849,8 +1856,8 @@ facet-filters-form:focus-within .select {
   overflow: hidden;
   visibility: hidden;
   pointer-events: none;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .sort-by-disclosure[open] .sort-by__sizer {
   display: grid;
@@ -1882,21 +1889,18 @@ facet-filters-form:focus-within .select {
 }
 /* match the responsive h6 sizing of the Filter label across breakpoints (sort shows only >=750px) */
 .sort-by-disclosure .facets__summary-label,
-.sort-by-disclosure .sort-by__sizer,
-.sort-by__display .facets__header .sort-by__header-label {
+.sort-by-disclosure .sort-by__sizer {
   font-size: var(--font-heading-6-size) !important;
 }
 @media only screen and (min-width: 750px) and (max-width: 989px) {
   .sort-by-disclosure .facets__summary-label,
-  .sort-by-disclosure .sort-by__sizer,
-  .sort-by__display .facets__header .sort-by__header-label {
+  .sort-by-disclosure .sort-by__sizer {
     font-size: calc((var(--font-heading-6-size-mb) + var(--font-heading-6-size)) / 2) !important;
   }
 }
 @media only screen and (min-width: 1560px) {
   .extra-large-layout .sort-by-disclosure .facets__summary-label,
-  .extra-large-layout .sort-by-disclosure .sort-by__sizer,
-  .extra-large-layout .sort-by__display .facets__header .sort-by__header-label {
+  .extra-large-layout .sort-by-disclosure .sort-by__sizer {
     font-size: calc(var(--font-heading-6-size) * 1.2) !important;
   }
 }
@@ -1919,16 +1923,15 @@ facet-filters-form:focus-within .select {
 }
 .sort-by__display {
   position: absolute !important; /* float over content, never push it down (vertical layout forces relative) */
-  width: max-content;
-  min-width: 100%;
-  max-width: none;
-  left: auto;
-  right: -0.3rem;
-  top: calc(100% + 0.8rem); /* list drops BELOW the trigger (the trigger is the header) */
+  width: 100%; /* match the trigger's own width exactly instead of measuring list content independently — the two never agree to the pixel since header/list use different type sizes */
+  left: 0;
+  right: auto;
+  top: 100%; /* flush against the trigger so trigger + list read as one plate */
   border: 0; /* no stroke around the panel */
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
 }
 .sort-by__display .facets__list {
-  padding: 1.2rem 0 2rem; /* top 12px (+8px header-bottom = 20px gap), 20px bottom; 0 sides so the band reaches edges */
+  padding: 1.2rem 0 1rem; /* top 12px (+8px header-bottom = 20px gap), 10px bottom; 0 sides so the band reaches edges */
 }
 .sort-by__display .sort-by--item label {
   padding-right: 2.4rem;
@@ -1936,31 +1939,6 @@ facet-filters-form:focus-within .select {
 /* 14px text inside the panel */
 .sort-by__display .sort-by--item label {
   font-size: 1.4rem;
-}
-/* trigger is the header now; the panel is just the list */
-.sort-by__display .facets__header {
-  display: none;
-}
-@keyframes sortHeaderSlide {
-  from {
-    opacity: 0;
-    transform: translateX(1.4rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.sort-by__display .facets__header .sort-by__header-label {
-  font-weight: 500;
-  letter-spacing: var(--letter-spacing-h6);
-}
-.sort-by__display .facets__header .icon-caret {
-  display: inline-block; /* plate owns the caret, pinned to the panel right edge */
-  flex: 0 0 auto;
-  width: 1.1rem;
-  height: auto;
-  transform: rotate(180deg); /* points up while open */
 }
 /* clicking the header/empty area passes through to the trigger → closes (toggle); list still catches clicks */
 .sort-by__display {
@@ -2101,7 +2079,7 @@ facet-filters-form:focus-within .select.sort-by-field {
 .sort-by__display .sort-by--item.selected label:after { content: none; }
 .sort-by__display .sort-by--item label {
   display: block;
-  padding: 0.8rem 2rem; /* text inset 20px L/R; comfortable row height */
+  padding: 0.8rem 1.5rem; /* text inset matches the trigger row; comfortable row height */
   margin: 0;
   border-radius: 0; /* straight band, no pill */
   transition: background-color 0.2s ease;
