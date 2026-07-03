@@ -385,6 +385,156 @@ noscript .localization-selector.link {
   transform: rotate(180deg);
 }
 
+/* Language selector — styled to match the sort-by dropdown (flat panel, no hover state on the trigger) */
+.language-selector .localization-form__select {
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-h6);
+}
+
+/* the base icon-caret is absolutely positioned to the right, pinned to the button's edge
+   regardless of the (now wider, panel-matched) button width — make it a normal flex item
+   sitting right next to the text instead, matching the sort-by dropdown */
+.language-selector .icon-caret {
+  position: static;
+  top: auto;
+  right: auto;
+  width: 1.1rem;
+  height: auto;
+  transition: transform 0.25s ease;
+}
+
+/* the visible row and a hidden sizer (holding every language code) stack in one grid cell,
+   so the button width = max(current code, longest code): global.js glides between the
+   compact and longest states on click, matching the sort-by dropdown */
+.language-selector .disclosure__button > div {
+  display: inline-grid;
+  align-items: center;
+  justify-items: stretch;
+  overflow: hidden;
+}
+.language-selector .disclosure__button > div > * {
+  grid-area: 1 / 1;
+}
+.language-selector__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  min-width: max-content;
+}
+.language-selector__sizer {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}
+.language-selector__sizer > span {
+  white-space: nowrap;
+}
+.language-selector .disclosure__button[aria-expanded='true'] .language-selector__sizer {
+  display: grid;
+}
+
+/* right-anchor the trigger so the JS width glide (global.js) shifts the word left while the
+   caret stays pinned to the edge, matching the sort-by dropdown — applies everywhere the
+   language selector appears (header, announcement bar, footer, drawer), not just the header.
+   Chained classes (rather than a single one) to reliably outrank same-specificity rules
+   elsewhere in this file/section-announcement-bar.css that set justify-content/padding-left
+   on .localization-form__select in specific contexts (desktop header, utility bar), regardless
+   of source order. */
+.js .language-selector .disclosure__button.localization-form__select.localization-selector {
+  justify-content: flex-end;
+  padding-left: 1.5rem; /* match the list items' left inset so the text lines up */
+}
+
+.language-selector .disclosure__button:hover {
+  color: inherit !important;
+}
+
+.language-selector .disclosure__list-wrapper {
+  border: 0;
+}
+
+.language-selector .localization-selector + .disclosure__list-wrapper {
+  animation: languageSelectorPlateOpen var(--duration-default) ease !important;
+}
+
+/* Trigger + panel merge into one seamless card when open, matching the sort-by dropdown */
+.language-selector .disclosure__button {
+  position: relative;
+  z-index: 1;
+}
+
+.language-selector:has(.disclosure__button[aria-expanded='true']) .disclosure__button {
+  background-color: rgb(var(--color-background));
+}
+
+/* default: panel opens above the trigger (footer, mobile drawer, announcement bar) */
+.language-selector .disclosure__list-wrapper {
+  transform: translateY(0);
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+  /* match the trigger's own width exactly instead of measuring list content independently —
+     the two never agree to the pixel otherwise (same issue as the sort-by dropdown) */
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+.language-selector .disclosure__list {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+}
+
+.language-selector:has(.disclosure__button[aria-expanded='true']) .disclosure__button {
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+}
+
+/* desktop header: panel opens below the trigger, so the corners flip */
+.header-localization:not(.menu-drawer__localization) .language-selector .disclosure__list-wrapper {
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+}
+
+.header-localization:not(.menu-drawer__localization) .language-selector:has(.disclosure__button[aria-expanded='true']) .disclosure__button {
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+}
+
+@keyframes languageSelectorPlateOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* active/hover row = full-width band, matching the sort-by dropdown (component-facets.css) */
+.language-selector .disclosure__link {
+  transition: background-color 0.2s ease;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: rgb(var(--color-foreground));
+}
+
+.language-selector .disclosure__link:hover {
+  background-color: rgba(var(--color-foreground), 0.05);
+}
+
+.language-selector .disclosure__link[aria-current='true'] {
+  font-weight: 600;
+  background-color: rgba(var(--color-foreground), 0.07);
+}
+
+/* no underline anywhere in this component, matching the sort-by dropdown */
+.language-selector .disclosure__button,
+.language-selector .disclosure__link,
+.language-selector .disclosure__link:hover,
+.language-selector .disclosure__link[aria-current='true'] {
+  text-decoration: none !important;
+}
+
 /* Header localization */
 .header-localization .localization-form:only-child {
   margin: 0;

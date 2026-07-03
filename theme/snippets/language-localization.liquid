@@ -7,42 +7,72 @@
 		- popup_scheme: {String}
 {%- endcomment -%}
 
-<div class="disclosure">
+<div class="disclosure language-selector">
   <button
     type="button"
     class="disclosure__button localization-form__select localization-selector link link--text caption-large"
     aria-expanded="false"
     aria-controls="{{ localPosition }}List"
     aria-describedby="{{ localPosition }}Label"
+    aria-label="{{ localization.language.endonym_name }}"
   >
-    <span class="{{ text_weight }}">
-			{% if localPosition == 'HeaderLanguage' %}
-				{{- localization.language.iso_code | capitalize -}}
-				{% else %}
-				{{- localization.language.endonym_name | capitalize -}}
-			{% endif %}
-		</span>
-    {% render 'icon-caret' %}
+    <div>
+      <span class="language-selector__row">
+        <span class="{{ text_weight }}">
+					{{- localization.language.iso_code | capitalize -}}
+				</span>
+        {% render 'icon-caret' %}
+      </span>
+      <span class="language-selector__sizer" aria-hidden="true">
+        {%- for language in localization.available_languages -%}
+          <span>{{ language.iso_code | capitalize }}</span>
+        {%- endfor -%}
+      </span>
+    </div>
   </button>
   <div class="disclosure__list-wrapper {% if popup_scheme != blank%} color-{{ popup_scheme }} {% endif %}" hidden>
     <ul id="{{ localPosition }}List" role="list" class="disclosure__list list-unstyled">
       {%- for language in localization.available_languages -%}
-        <li class="disclosure__item" tabindex="-1">
-          <a
-            class="link link--text disclosure__link caption-large focus-inset"
-            href="#"
-            hreflang="{{ language.iso_code }}"
-            lang="{{ language.iso_code }}"
-            {% if language.iso_code == localization.language.iso_code %}
-              aria-current="true"
-            {% endif %}
-            data-value="{{ language.iso_code }}"
-          >
-            <span>
-              {{ language.endonym_name | capitalize }}
-            </span>
-          </a>
-        </li>
+        {%- unless language.iso_code == 'ru' -%}
+          <li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              hreflang="{{ language.iso_code }}"
+              lang="{{ language.iso_code }}"
+              aria-label="{{ language.endonym_name }}"
+              {% if language.iso_code == localization.language.iso_code %}
+                aria-current="true"
+              {% endif %}
+              data-value="{{ language.iso_code }}"
+            >
+              <span>
+                {{ language.iso_code | capitalize }}
+              </span>
+            </a>
+          </li>
+        {%- endunless -%}
+      {%- endfor -%}
+      {%- for language in localization.available_languages -%}
+        {%- if language.iso_code == 'ru' -%}
+          <li class="disclosure__item" tabindex="-1">
+            <a
+              class="link link--text disclosure__link caption-large focus-inset"
+              href="#"
+              hreflang="{{ language.iso_code }}"
+              lang="{{ language.iso_code }}"
+              aria-label="{{ language.endonym_name }}"
+              {% if language.iso_code == localization.language.iso_code %}
+                aria-current="true"
+              {% endif %}
+              data-value="{{ language.iso_code }}"
+            >
+              <span>
+                {{ language.iso_code | capitalize }}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
       {%- endfor -%}
     </ul>
   </div>

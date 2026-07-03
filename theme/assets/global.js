@@ -2648,14 +2648,37 @@ console.log('Elixira-4.1.0');
   var mo=new MutationObserver(function(){ wireButtons(); markButtons(); }); mo.observe(document.body||document.documentElement,{subtree:true,childList:true});
 })();
 
-/* Glides the sort dropdown's width between its compact (closed) and longest (open) states,
-   which component-facets.css otherwise snaps. Driven from the summary's 'click' rather than
-   the 'toggle' event: click runs BEFORE <details> applies the open state, whereas Chrome
+/* Glides a dropdown trigger's width between its compact (closed) and longest (open) states,
+   which the component's CSS otherwise snaps. Driven from the trigger's 'click' rather than
+   the 'toggle'/state-change event: click runs BEFORE the open state is applied, whereas Chrome
    fires 'toggle' only after painting the snapped state — which caused a one-frame jump.
    Delegated on document so it also covers dropdowns facets.js recreates on AJAX re-render.
    Animated with the Web Animations API so the glide overrides the base width regardless of
-   when the browser recomputes it. */
+   when the browser recomputes it. Shared by the sort-by dropdown (native <details>/[open]) and
+   the language selector (button[aria-expanded]) — same mechanism, different open/close signal. */
 (function () {
+  var GLIDE_CONFIGS = [
+    {
+      root: '.sort-by-disclosure',
+      trigger: '.facets__summary',
+      head: '.facets__summary > div',
+      sizer: '.sort-by__sizer',
+      isOpen: function (root) {
+        return root.hasAttribute('open');
+      },
+    },
+    {
+      root: '.language-selector',
+      trigger: '.disclosure__button',
+      head: '.disclosure__button > div',
+      sizer: '.language-selector__sizer',
+      isOpen: function (root) {
+        var button = root.querySelector('.disclosure__button');
+        return !!button && button.getAttribute('aria-expanded') === 'true';
+      },
+    },
+  ];
+
   function measureCompactAndLongest(head, sizer) {
     sizer.style.display = 'none';
     var compactW = head.getBoundingClientRect().width;
@@ -2665,9 +2688,9 @@ console.log('Elixira-4.1.0');
     return [compactW, longestW];
   }
 
-  function animate(root, willOpen) {
-    var head = root.querySelector('.facets__summary > div');
-    var sizer = root.querySelector('.sort-by__sizer');
+  function animate(config, root, willOpen) {
+    var head = root.querySelector(config.head);
+    var sizer = root.querySelector(config.sizer);
     if (!head || !sizer || !head.animate) return;
 
     var widths = measureCompactAndLongest(head, sizer);
@@ -2676,24 +2699,24 @@ console.log('Elixira-4.1.0');
 
     if (Math.abs(from - to) < 1) return;
 
-    if (head.__sortWAnim) head.__sortWAnim.cancel();
+    if (head.__glideAnim) head.__glideAnim.cancel();
 
     if (willOpen) {
-      /* <details> gets its [open] attribute the instant this click's default action runs —
-         way before our 320ms glide finishes. That flips the sizer to display:grid immediately,
-         and its 26rem min-width snaps the grid track (and the caret riding along inside it) to
-         full width for one frame, before sliding back — the "jumps right, then returns" glitch.
-         Keep the sizer out of the grid until the glide actually reaches that width. */
+      /* The open state (details[open] / aria-expanded) lands the instant this click's default
+         action runs — way before our 320ms glide finishes. That flips the sizer to display:grid
+         immediately, snapping the grid track (and anything riding along inside it) to full width
+         for one frame before sliding back — the "jumps right, then returns" glitch. Keep the
+         sizer out of the grid until the glide actually reaches that width. */
       sizer.style.display = 'none';
     }
 
-    head.__sortWAnim = head.animate(
+    head.__glideAnim = head.animate(
       [{ width: from + 'px' }, { width: to + 'px' }],
       { duration: 320, easing: 'cubic-bezier(0.33, 0, 0.2, 1)' }
     );
 
     if (willOpen) {
-      head.__sortWAnim.finished
+      head.__glideAnim.finished
         .then(function () { sizer.style.display = ''; })
         .catch(function () {});
     } else {
@@ -2702,10 +2725,14 @@ console.log('Elixira-4.1.0');
   }
 
   document.addEventListener('click', function (e) {
-    var summary = e.target.closest && e.target.closest('.facets__summary');
-    if (!summary) return;
-    var root = summary.closest('.sort-by-disclosure');
-    if (root) animate(root, !root.hasAttribute('open'));
+    for (var i = 0; i < GLIDE_CONFIGS.length; i++) {
+      var config = GLIDE_CONFIGS[i];
+      var trigger = e.target.closest && e.target.closest(config.trigger);
+      if (!trigger) continue;
+      var root = trigger.closest(config.root);
+      if (root) animate(config, root, !config.isOpen(root));
+      return;
+    }
   }, true);
 })();
 
