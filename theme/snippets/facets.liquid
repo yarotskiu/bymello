@@ -1291,9 +1291,6 @@
                   </div>
                 </summary>
                 <div class="parent-display facets__display sort-by__display">
-                  <div class="facets__header">
-                    <span>{{ 'products.facets.sort_by_label' | t }}</span>
-                  </div>
                   <ul class="facets__list list-unstyled">
                     {%- for option in results.sort_options -%}
                       {%- unless option.value == 'title-ascending' or option.value == 'title-descending' -%}<li class="sort-by--item{% if option.value == sort_by %} selected{% endif %}">

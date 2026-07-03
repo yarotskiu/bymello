@@ -320,9 +320,6 @@
 														</div>
 													</summary>
 													<div class="parent-display facets__display sort-by__display">
-														<div class="facets__header">
-															<span class="sort-by__header-label">{%- for option in results.sort_options -%}{%- if option.value == sort_by -%}{{- option.name | escape -}}{%- endif -%}{%- endfor -%}</span>{% render 'icon-caret' %}
-														</div>
 														<ul class="facets__list list-unstyled">
 															{%- for option in results.sort_options -%}
 																{%- unless option.value == 'title-ascending' or option.value == 'title-descending' -%}<li class="sort-by--item{% if option.value == sort_by %} selected{% endif %}">
