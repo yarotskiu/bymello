@@ -4,16 +4,44 @@ variant-selects {
 	gap: 2.4rem;
 }
 
+variant-selects .swatch {
+	border: none;
+}
+
+.product-form__input--swatch .swatch-input__input:not(:checked) + .swatch-input__label:hover .swatch,
+.product-form__input--swatch .swatch-input__input:hover:not(:checked) + .swatch-input__label .swatch {
+	outline: none;
+}
+
 variant-selects.block-borders {
 	padding: 2.4rem 0;
 	border-top: .1rem solid rgb(var(--color-outline));
 	border-bottom: .1rem solid rgb(var(--color-outline));
 }
 
+.product variant-selects.block-borders {
+	border-top: none;
+	border-bottom: none;
+	padding: 1.2rem 0;
+}
+
+.product variant-selects {
+	gap: 1.8rem;
+	flex-direction: column;
+}
+
 @media screen and (min-width: 1560px) {
 	.extra-large-layout variant-selects.block-borders {
 		padding: 3.2rem 0;
 	}
+
+	.extra-large-layout .product variant-selects.block-borders {
+		padding: 1.2rem 0;
+	}
+}
+
+.product variant-selects .product-form__input--swatch {
+	order: -1;
 }
 
 variant-selects:has(.product-form__input--pill) {
@@ -77,8 +105,12 @@ variant-selects:has(.product-form__input--pill) {
 }
 
 .product-form__input--dropdown .select {
-	margin-top: 1.2rem;
 	color: rgb(var(--color-background));
+	width: calc(20rem + var(--inputs-border-width) * 2);
+}
+
+.product-form__dropdown-row {
+	margin-top: 1.2rem;
 }
 
 .product-form__input--dropdown .select__select {
@@ -86,6 +118,11 @@ variant-selects:has(.product-form__input--pill) {
 	color: rgb(var(--color-background));
 	background: rgb(var(--color-foreground));
 	border-color: rgb(var(--color-foreground));
+	padding: 0 calc(var(--inputs-border-width) + 2rem) 0 1.6rem;
+}
+
+.product-form__input--dropdown .select .icon-caret {
+	right: calc(var(--inputs-border-width) + 1.6rem);
 }
 
 /* Override when custom picker background is provided */
@@ -245,15 +282,28 @@ variant-selects.has-custom-picker-bg .product-form__input--dropdown .select:afte
 
 /* Custom styles for Swatch display type */
 .product-form__input--swatch {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.product-form__swatch-list {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 0.2rem;
+  margin-top: 1.2rem;
 }
 
 .product-form__input--swatch .swatch-input__input + .swatch-input__label {
   --swatch-input--size: 4.4rem;
 	width: var(--swatch-input--size);
 	height: var(--swatch-input--size);
-  margin: 0.7rem 1.6rem 0.2rem 0;
+  margin: 0 0.6rem 0 0;
+  outline-offset: 0.2rem;
+}
+
+.product-form__input--swatch .swatch-input__input + .swatch-input__label .swatch {
+	outline-offset: 0.2rem;
 }
 
 @media screen and (max-width: 749px) {
@@ -264,15 +314,25 @@ variant-selects.has-custom-picker-bg .product-form__input--dropdown .select:afte
 
 @media screen and (min-width: 750px) {
 	.product-form__input--swatch .swatch-input__input + .swatch-input__label {
-		--swatch-input--size: 2.2rem;
+		--swatch-input--size: var(--product-variants-size);
 
-		margin: 1.8rem 1.6rem 1.2rem 0;
+		margin: 0 0.6rem 0 0;
   }
+}
+
+@media screen and (min-width: 1560px) {
+	.extra-large-layout .product-form__input--swatch .swatch-input__input + .swatch-input__label {
+		--swatch-input--size: 2.8rem;
+	}
 }
 /* End custom styles for Swatch display type */
 
 @media screen and (min-width: 1200px) {
 	variant-selects {
 		gap: 2.4rem 8rem;
+	}
+
+	.product variant-selects {
+		gap: 1.8rem;
 	}
 }

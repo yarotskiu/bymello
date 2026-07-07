@@ -8,6 +8,8 @@
   - update_url: {Boolean} whether or not to update url when changing variants. If false, the url isn't updated. Default: true (optional).
 	- class: {String} Add a class
 	- text_weight: {String} Add a text weight class
+	- bm_sg: {Object} Size guide metafield value (optional). When present, a "Size guide" link renders next to the dropdown option's label.
+	- bm_modal_id: {String} Id of the size guide modal to open (required when bm_sg is present).
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
@@ -51,17 +53,19 @@
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="product-form__label h6 {% if text_weight %} {{ text_weight }} {% endif %}">
-            {{ option.name }}:
-            <span data-selected-swatch-value="{{ option.name }}">
+            {{ option.name }}
+            <span class="visually-hidden" data-selected-swatch-value="{{ option.name }}">
               {{- option.selected_value -}}
             </span>
           </legend>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
+          <div class="product-form__swatch-list">
+            {% render 'product-variant-options',
+              product: product,
+              option: option,
+              block: block,
+              picker_type: picker_type
+            %}
+          </div>
         </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
@@ -79,29 +83,38 @@
           <label class="product-form__label h6 {% if text_weight %} {{ text_weight }} {% endif %}" for="Option-{{ section.id }}-{{ forloop.index0 }}">
             {{ option.name }}
           </label>
-          <div class="select">
-            {%- if picker_type == 'swatch_dropdown' -%}
-              <span
-                data-selected-dropdown-swatch="options[{{ option.name | escape }}]"
-                class="dropdown-swatch"
+          <div class="product-form__dropdown-row">
+            <div class="select">
+              {%- if picker_type == 'swatch_dropdown' -%}
+                <span
+                  data-selected-dropdown-swatch="options[{{ option.name | escape }}]"
+                  class="dropdown-swatch"
+                >
+                  {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
+                </span>
+              {%- endif -%}
+              <select
+                id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                class="select__select {% if variant_item_weight %} {{ variant_item_weight }} {% endif %}"
+                name="options[{{ option.name | escape }}]"
+                form="{{ product_form_id }}"
               >
-                {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
-              </span>
+                {% render 'product-variant-options',
+                  product: product,
+                  option: option,
+                  block: block,
+                  picker_type: picker_type
+                %}
+              </select>
+              {% render 'icon-caret' %}
+            </div>
+            {%- if bm_sg != blank -%}
+              <button type="button" class="bm-size-guide-btn"
+                onclick="(function(id){var m=document.getElementById(id);if(m){document.body.appendChild(m);m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}}('{{ bm_modal_id }}'))">
+                {% render 'icon-accordion', icon: 'ruler' %}
+                Size guide
+              </button>
             {%- endif -%}
-            <select
-              id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select {% if variant_item_weight %} {{ variant_item_weight }} {% endif %}"
-              name="options[{{ option.name | escape }}]"
-              form="{{ product_form_id }}"
-            >
-              {% render 'product-variant-options',
-                product: product,
-                option: option,
-                block: block,
-                picker_type: picker_type
-              %}
-            </select>
-            {% render 'icon-caret' %}
           </div>
         </div>
       {%- endif -%}

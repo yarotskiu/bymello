@@ -19,18 +19,25 @@
             "enable_type_custom_color": true,
             "type_custom_color_value": "#666666",
             "heading_font_family": "font-heading",
-            "heading_size": "h3",
+            "heading_size": "h4",
             "heading_weight": "fw-500",
-            "space": "mb-0_8"
+            "space": "mb-2_4 mb-lg-2_4"
           }
         },
         "price": {
           "type": "price",
           "settings": {
-            "space": "mb-2_4 mb-lg-2_4",
+            "space": "mb-0_8",
             "price_font_family": "font-heading",
             "text_weight": "fw-400",
             "text_size": "small"
+          }
+        },
+        "sku": {
+          "type": "sku",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "text_style": "body"
           }
         },
         "variant_picker": {
@@ -38,7 +45,7 @@
           "settings": {
             "space": "mb-0",
             "text_weight": "fw-400",
-            "picker_type": "button",
+            "picker_type": "dropdown",
             "variant_item_weight": "fw-400",
             "enable_borders": true,
             "variant_picker_background_color_enable": false,
@@ -97,8 +104,8 @@
             "custom_icons_color_value": "#101010",
             "icon_1": "return",
             "heading_1": "Easy 7-day return policy",
-            "icon_2": "medal",
-            "heading_2": "Dermatologist-approved formulations",
+            "icon_2": "none",
+            "heading_2": "",
             "icon_3": "package",
             "heading_3": "Ships within 2–4 business days"
           }
@@ -184,6 +191,7 @@
       "block_order": [
         "title",
         "price",
+        "sku",
         "variant_picker",
         "quantity_selector",
         "inventory_37kwAJ",
