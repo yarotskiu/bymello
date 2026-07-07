@@ -68,10 +68,12 @@ For anything under "content differs", check `git log -- <path>` for that file:
   lost, before pushing your own changes.
 
 `config/settings_data.json`, `templates/*.json`, and `sections/*-group.json`
-(header/footer/features section groups) almost always differ because
-merchants/editors change them constantly — that's normal, not a bug. Routine
-pushes to live never touch them anyway (see `theme/shopify.theme.toml`'s
-`ignore` list for the `live` environment), so editor content is safe by default.
+(header/footer/features section groups) are the files most likely to differ,
+since merchants/editors change them constantly — finding drift there is
+expected, not a bug. But routine pushes to live **do** include these files
+now, so any unreconciled drift in them will be overwritten. Pull and commit
+it into git first (as its own commit, separate from task code) before
+pushing — the `finish-task` skill's drift gate blocks on this automatically.
 
 ## 6. Push to the live theme
 

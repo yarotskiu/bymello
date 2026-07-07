@@ -7,12 +7,11 @@
 #
 #   --apply  copy real content changes (and live-only files) into theme/ so
 #            they can be reviewed and committed.
-#   --gate   exit non-zero only if drift exists outside the files the live
-#            push itself ignores (config/settings_data.json, templates/*.json,
-#            sections/*-group.json — see theme/shopify.theme.toml). Drift in
-#            those files is normal (merchants edit them constantly) and can't
-#            be clobbered by a routine push, so it isn't blocking. Used by the
-#            finish-task skill to gate merging/pushing.
+#   --gate   exit non-zero if any content drift exists between live and git.
+#            Every file (including config/settings_data.json, templates/*.json,
+#            sections/*-group.json) is pushed to live, so any drift there
+#            would be silently overwritten by a routine push - it's always
+#            blocking. Used by the finish-task skill to gate merging/pushing.
 #
 # Usage: scripts/check-live-drift.sh [--apply|--gate]
 
@@ -110,29 +109,13 @@ if [ "$apply" = true ]; then
 fi
 
 if [ "$gate" = true ]; then
-  live_ignore_patterns=(
-    "config/settings_data.json"
-    "templates/*.json"
-    "sections/*-group.json"
-  )
-  is_live_ignored() {
-    local path="$1" pattern
-    for pattern in "${live_ignore_patterns[@]}"; do
-      # shellcheck disable=SC2053
-      [[ "$path" == $pattern ]] && return 0
-    done
-    return 1
-  }
-  blocking=()
-  for relative_path in "${content_diffs[@]}" "${only_on_live[@]}"; do
-    is_live_ignored "$relative_path" || blocking+=("$relative_path")
-  done
+  blocking=("${content_diffs[@]}" "${only_on_live[@]}")
   if [ "${#blocking[@]}" -gt 0 ]; then
     print_section "BLOCKING drift (would be overwritten by a live push)" "${blocking[@]}"
-    echo "Live theme has changes outside the editor-owned ignore list. Do not commit/merge/push yet." >&2
+    echo "Live theme has changes not yet in git. Do not commit/merge/push yet." >&2
     exit 1
   fi
-  echo "No blocking drift: any content differences are limited to editor-owned files the live push already ignores."
+  echo "No blocking drift: live theme content matches git."
   exit 0
 fi
 

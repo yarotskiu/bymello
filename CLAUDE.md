@@ -25,9 +25,9 @@ Every task follows this lifecycle, no exceptions:
 
 ### Editor drift
 
-The Theme Editor can change files directly on the live theme (content, settings, even code via "Edit code") without ever touching git. `config/settings_data.json`, `templates/*.json`, and `sections/*-group.json` are treated as editor-owned content and are excluded from routine live pushes (see `theme/shopify.theme.toml`) — drift in those files is expected and not blocking.
+The Theme Editor can change files directly on the live theme (content, settings, even code via "Edit code") without ever touching git. Every file in `theme/` — including `config/settings_data.json`, `templates/*.json`, and `sections/*-group.json` — gets pushed to the live theme, so drift in any of them is treated as blocking, not expected.
 
-The `finish-task` skill already gates every publish on this (`scripts/check-live-drift.sh --gate`), so it doesn't need to be run by hand as part of the normal workflow. To check drift ad hoc, or to pull editor-made changes into git outside of finishing a task, use `scripts/check-live-drift.sh` (see [SETUP.md](SETUP.md)) or the [`pull-live-theme-changes`](.claude/skills/pull-live-theme-changes/SKILL.md) skill.
+The `finish-task` skill gates every publish on this (`scripts/check-live-drift.sh --gate`): if live has diverged from git anywhere, it stops before merging or pushing. To check drift ad hoc, or to pull editor-made changes into git outside of finishing a task, use `scripts/check-live-drift.sh` (see [SETUP.md](SETUP.md)) or the [`pull-live-theme-changes`](.claude/skills/pull-live-theme-changes/SKILL.md) skill — and commit whatever it brings in as its own commit, separate from any task code, per the `finish-task` skill's step 1.
 
 ## Code style
 
