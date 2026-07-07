@@ -141,6 +141,12 @@
                       {{ product.title | escape }}
                     </h2>
                   </a>
+
+                  {%- if product.vendor != blank -%}
+                    <div class="product__vendor">
+                      <a href="{{ routes.root_url }}pages/{{ product.vendor | handle }}">{{ product.vendor }}</a>
+                    </div>
+                  {%- endif -%}
                 </div>
               {%- when 'price' -%}
 								{%- assign price_class = 'h5 ' | append: block.settings.text_weight -%}
@@ -169,9 +175,6 @@
 										price_font_family: block.settings.price_font_family
                   -%}
 									<div class="product__tax rte">
-										{%- if cart.taxes_included -%}
-											{{ 'products.product.include_taxes' | t }}
-										{%- endif -%}
 										{%- if shop.shipping_policy.body != blank -%}
 											{{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
 										{%- endif -%}
@@ -427,8 +430,8 @@
                   role="status"
                   {{ block.shopify_attributes }}
                 >
-                  <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
-                  {{- product.selected_or_first_available_variant.sku -}}
+                  {{ 'products.product.sku' | t }}:
+                  {{ product.selected_or_first_available_variant.sku -}}
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
@@ -691,40 +694,33 @@
                 %}
 
               {%- when 'variant_picker' -%}
-                {% liquid 
+                {% liquid
                   assign picker_class = block.settings.space
 									if block.settings.enable_borders
 										assign picker_class = picker_class | append: ' block-borders'
 									endif
+                  assign bm_sg = product.metafields.custom.size_guide.value
+                  assign bm_modal_id = 'bm-sg-' | append: product.id
                 %}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id,  class: picker_class, variant_picker_background_color: block.settings.variant_picker_background_color, variant_picker_background_color_enable: block.settings.variant_picker_background_color_enable, text_weight: block.settings.text_weight, variant_item_weight: block.settings.variant_item_weight, variant_picker_border_color: block.settings.variant_picker_border_color, variant_picker_border_color_fallback: block.settings.variant_picker_border_color %}
-              {%- assign bm_sg = product.metafields.custom.size_guide.value -%}
-              {%- assign bm_fit = product.metafields.custom.fit_rating.value -%}
-              {%- if bm_sg != blank -%}
-                {%- assign bm_modal_id = 'bm-sg-' | append: product.id -%}
-                <div class="bm-size-guide-wrap">
-                  <button type="button" class="bm-size-guide-btn"
-                    onclick="(function(id){var m=document.getElementById(id);if(m){document.body.appendChild(m);m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}}('{{ bm_modal_id }}'))">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9h20M2 15h20M9 3v18M15 3v18"/></svg>
-                    Size guide
-                  </button>
-                </div>
-                <div id="{{ bm_modal_id }}" class="bm-modal" aria-hidden="true" role="dialog" aria-modal="true">
-                  <div class="bm-modal__overlay" onclick="this.closest('.bm-modal').setAttribute('aria-hidden','true');document.body.style.overflow='';"></div>
-                  <div class="bm-modal__box">
-                    <div class="bm-modal__head">
-                      <span class="bm-modal__title">{{ bm_sg.title }}</span>
-                      <button type="button" class="bm-modal__close" aria-label="Close"
-                        onclick="this.closest('.bm-modal').setAttribute('aria-hidden','true');document.body.style.overflow='';">&times;</button>
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id,  class: picker_class, variant_picker_background_color: block.settings.variant_picker_background_color, variant_picker_background_color_enable: block.settings.variant_picker_background_color_enable, text_weight: block.settings.text_weight, variant_item_weight: block.settings.variant_item_weight, variant_picker_border_color: block.settings.variant_picker_border_color, variant_picker_border_color_fallback: block.settings.variant_picker_border_color, bm_sg: bm_sg, bm_modal_id: bm_modal_id %}
+                {%- if bm_sg != blank -%}
+                  <div id="{{ bm_modal_id }}" class="bm-modal" aria-hidden="true" role="dialog" aria-modal="true">
+                    <div class="bm-modal__overlay" onclick="this.closest('.bm-modal').setAttribute('aria-hidden','true');document.body.style.overflow='';"></div>
+                    <div class="bm-modal__box">
+                      <div class="bm-modal__head">
+                        <span class="bm-modal__title">{{ bm_sg.title }}</span>
+                        <button type="button" class="bm-modal__close" aria-label="Close"
+                          onclick="this.closest('.bm-modal').setAttribute('aria-hidden','true');document.body.style.overflow='';">&times;</button>
+                      </div>
+                      <div class="bm-modal__body">{{ bm_sg.content }}</div>
                     </div>
-                    <div class="bm-modal__body">{{ bm_sg.content }}</div>
                   </div>
-                </div>
-              {%- endif -%}
+                {%- endif -%}
+              {%- assign bm_fit = product.metafields.custom.fit_rating.value -%}
               {%- if bm_fit != blank -%}
                 {%- assign bm_fit_int = bm_fit | plus: 0 -%}
+                <p class="bm-fit__label">Fit</p>
                 <div class="bm-fit">
-                  <p class="bm-fit__label">Fit</p>
                   <div class="bm-fit__tiles">
                     {%- for i in (1..5) -%}
                       <div class="bm-fit__tile{% if forloop.index == bm_fit_int %} bm-fit__tile--active{% endif %}"></div>

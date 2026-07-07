@@ -1182,27 +1182,5 @@
   .extra-large-layout .card-title-row .card__heading{margin-bottom:0;}
 }
 
-/* Bymello: size guide modal + fit scale */
-.bm-size-guide-wrap{margin:.8rem 0 .4rem;}
-.bm-size-guide-btn{display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;padding:0;cursor:pointer;font-size:1.3rem;color:rgb(var(--color-foreground));text-decoration:underline;text-underline-offset:.2em;}
-.bm-size-guide-btn:hover{opacity:.7;}
-.bm-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;}
-.bm-modal[aria-hidden="false"]{display:flex;}
-.bm-modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);}
-.bm-modal__box{position:relative;background:rgb(var(--color-background));max-width:680px;width:calc(100% - 4rem);max-height:85vh;overflow-y:auto;border-radius:.4rem;padding:3rem;}
-.bm-modal__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;}
-.bm-modal__title{font-size:1.8rem;font-weight:600;}
-.bm-modal__close{background:none;border:none;font-size:2.4rem;cursor:pointer;line-height:1;padding:0;color:rgb(var(--color-foreground));}
-.bm-modal__body table{width:100%;border-collapse:collapse;font-size:1.3rem;}
-.bm-modal__body th,.bm-modal__body td{padding:.7rem 1rem;text-align:center;border:1px solid rgba(var(--color-foreground),.12);}
-.bm-modal__body th{background:rgba(var(--color-foreground),.05);font-weight:600;}
-.bm-modal__body tr:nth-child(even) td{background:rgba(var(--color-foreground),.02);}
-.bm-fit{margin:1.6rem 0;}
-.bm-fit__label{font-size:1.3rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.08em;}
-.bm-fit__bar{position:relative;height:.3rem;background:rgba(var(--color-foreground),.15);border-radius:.2rem;margin:.8rem 0;}
-.bm-fit__track{position:absolute;inset:0;border-radius:.2rem;}
-.bm-fit__marker{position:absolute;top:50%;transform:translate(-50%,-50%);width:1.4rem;height:1.4rem;background:rgb(var(--color-foreground));border-radius:50%;}
-.bm-fit__scale{display:flex;justify-content:space-between;font-size:1.2rem;color:rgba(var(--color-foreground),.65);}
-
 /* Bymello: smaller BESTSELLER/NEW badges on product cards */
 .card__badge .badge{padding:.3rem .8rem;font-size:1.1rem;}
