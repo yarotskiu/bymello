@@ -2,5 +2,5 @@
 store = "bymello-store"
 
 [environments.live]
-theme = "201621700933"
+store = "bymello-store"
 live = true

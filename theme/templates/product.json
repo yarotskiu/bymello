@@ -27,7 +27,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "space": "mb-0_8",
+            "space": "mb-0",
             "price_font_family": "font-heading",
             "text_weight": "fw-400",
             "text_size": "small"
@@ -48,7 +48,7 @@
             "picker_type": "dropdown",
             "variant_item_weight": "fw-400",
             "enable_borders": true,
-            "variant_picker_background_color_enable": false,
+            "variant_picker_background_color_enable": true,
             "variant_picker_background_color": "rgba(0,0,0,0)",
             "variant_picker_border_color": "#0b225c",
             "swatch_picker_type": "button",
@@ -84,12 +84,12 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "space": "mb-0_8",
+            "space": "mb-2_4 mb-lg-2_4",
             "pickup_availability": "short",
             "gift_icon_color": "#101010",
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true,
-            "card_button_style": "primary",
+            "card_button_style": "secondary",
             "card_button_outline": "outline",
             "buy_it_now_button_capitalize": ""
           }
@@ -103,11 +103,11 @@
             "enable_custom_icons_color": true,
             "custom_icons_color_value": "#101010",
             "icon_1": "return",
-            "heading_1": "Easy 7-day return policy",
+            "heading_1": "Easy 14-day return policy",
             "icon_2": "none",
             "heading_2": "",
             "icon_3": "package",
-            "heading_3": "Ships within 2–4 business days"
+            "heading_3": "Ships within 3–5 business days"
           }
         },
         "complementary_n7i6qM": {
@@ -124,14 +124,21 @@
             "image_ratio": "square"
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4"
+          }
+        },
         "collapsible_tab_MyqbpV": {
           "type": "collapsible_tab",
           "settings": {
             "space": "mb-0",
-            "heading": "Ingredients",
+            "heading": "At a Glance",
             "heading_font_family": "font-body",
-            "heading_weight": "fw-500",
+            "heading_weight": "fw-400",
             "icon": "none",
+            "metafield_key": "ingredients",
             "content": "",
             "page": "",
             "open_row": true
@@ -141,10 +148,11 @@
           "type": "collapsible_tab",
           "settings": {
             "space": "mb-0",
-            "heading": "Usage Instructions",
+            "heading": "Product Details",
             "heading_font_family": "font-body",
             "heading_weight": "fw-500",
             "icon": "none",
+            "metafield_key": "usage_instructions",
             "content": "",
             "page": "",
             "open_row": false
@@ -158,6 +166,7 @@
             "heading_font_family": "font-body",
             "heading_weight": "fw-500",
             "icon": "none",
+            "metafield_key": "additional_information",
             "content": "",
             "page": "",
             "open_row": false
@@ -172,19 +181,11 @@
             "heading_weight": "fw-400",
             "show_linkedin_share": true,
             "show_fb_share": true,
-            "show_twitter_share": true,
+            "show_twitter_share": false,
             "show_pinterest_share": false,
             "show_telegram_share": false,
             "show_snapchat_share": false,
             "show_tumblr_share": false
-          }
-        },
-        "text_97qjKA": {
-          "type": "text",
-          "settings": {
-            "space": "mb-0",
-            "text": "Note: This is a demo store. The images have been sourced from Freepik and Adobestock.",
-            "text_style": "body"
           }
         }
       },
@@ -198,15 +199,15 @@
         "buy_buttons",
         "icon_with_text_A3mVxF",
         "complementary_n7i6qM",
+        "description",
         "collapsible_tab_MyqbpV",
         "collapsible_tab_k3D93y",
         "collapsible_tab_qPNwdp",
-        "share_RdKeKa",
-        "text_97qjKA"
+        "share_RdKeKa"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-9",
+        "color_scheme": "scheme-1",
         "show_badges": true,
         "show_breadcrumbs": "products_all",
         "breadcrumbs_collection": "",
@@ -253,6 +254,7 @@
         "heading_9fMpYx",
         "icon_4jFaJ4"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-7",
         "scroll_speed": "ultra-fast",
@@ -274,6 +276,7 @@
     },
     "video_etGDQk": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_font_family": "font-heading",
@@ -367,6 +370,7 @@
         "item_ae49mz",
         "item_yUiPbK"
       ],
+      "disabled": true,
       "name": "Showcase",
       "settings": {
         "color_scheme": "",
@@ -379,108 +383,6 @@
         "columns_number": 3.2,
         "columns_number_mb": 1.2,
         "vertical_alignments": "bottom",
-        "padding_top": 120,
-        "padding_bottom": 120,
-        "padding_top_mb": 80,
-        "padding_bottom_mb": 80
-      }
-    },
-    "sticky_multicolumn_iDEKjr": {
-      "type": "sticky-multicolumn",
-      "blocks": {
-        "column_RJL47J": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "scheme-5",
-            "enable_custom_background": false,
-            "custom_background_color": "#ffffff",
-            "content_alignment": "left",
-            "content_alignment_mb": "left",
-            "show_image": false,
-            "heading": "Unbox and Discover Your Essentials",
-            "heading_size": "h3",
-            "heading_weight": "fw-500",
-            "description": "<p>Discover everything you need for an rejuvenating experience right out of the box. Each item comes carefully packed with essential accessories and guides to ensure seamless setup and enhanced use.</p>"
-          }
-        },
-        "column_rMnnXi": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "scheme-3",
-            "enable_custom_background": true,
-            "custom_background_color": "#23386c",
-            "content_alignment": "left",
-            "content_alignment_mb": "left",
-            "show_image": true,
-            "heading": "Your product",
-            "heading_size": "h5",
-            "heading_weight": "fw-500",
-            "description": "<p>Carefully crafted with premium ingredients, designed for visible results.</p>"
-          }
-        },
-        "column_6bpe78": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "scheme-3",
-            "enable_custom_background": true,
-            "custom_background_color": "#23386c",
-            "content_alignment": "left",
-            "content_alignment_mb": "left",
-            "show_image": true,
-            "heading": "How to use",
-            "heading_size": "h5",
-            "heading_weight": "fw-500",
-            "description": "<p>A step-by-step manual to get you set up and use your skincare.</p>"
-          }
-        },
-        "column_hGCR7m": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "scheme-3",
-            "enable_custom_background": true,
-            "custom_background_color": "#23386c",
-            "content_alignment": "left",
-            "content_alignment_mb": "left",
-            "show_image": true,
-            "heading": "Warranty card",
-            "heading_size": "h5",
-            "heading_weight": "fw-500",
-            "description": "<p>Coverage and support details to protect your product investment.</p>"
-          }
-        },
-        "column_z8dKex": {
-          "type": "column",
-          "settings": {
-            "color_scheme": "scheme-3",
-            "enable_custom_background": true,
-            "custom_background_color": "#23386c",
-            "content_alignment": "left",
-            "content_alignment_mb": "left",
-            "show_image": true,
-            "heading": "Travel pouch",
-            "heading_size": "h5",
-            "heading_weight": "fw-500",
-            "description": "<p>Durable and stylish, perfect for storing and transporting your skincare essentials.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "column_RJL47J",
-        "column_rMnnXi",
-        "column_6bpe78",
-        "column_hGCR7m",
-        "column_z8dKex"
-      ],
-      "settings": {
-        "color_scheme": "scheme-5",
-        "title": "",
-        "heading_font_family": "font-heading",
-        "heading_size": "h2",
-        "image_width": "custom",
-        "custom_image_width": 55,
-        "image_ratio": "square",
-        "custom_image_height": 120,
-        "banner_position": "left",
         "padding_top": 120,
         "padding_bottom": 120,
         "padding_top_mb": 80,
@@ -577,6 +479,7 @@
         "testimonial_HHDpqN",
         "testimonial_gejmBF"
       ],
+      "disabled": true,
       "settings": {
         "testimonials_layout": "column",
         "color_scheme": "",
@@ -660,6 +563,7 @@
         "item_gzybEj",
         "item_9Pf8kt"
       ],
+      "disabled": true,
       "name": "t:sections.faq.name",
       "settings": {
         "title": "Frequently Asked Questions",
@@ -717,7 +621,7 @@
         "icon_TzWAkq"
       ],
       "settings": {
-        "color_scheme": "scheme-7",
+        "color_scheme": "scheme-1",
         "scroll_speed": "ultra-fast",
         "column_gap": 40,
         "column_gap_mb": 40,
@@ -969,7 +873,6 @@
     "scrolling_banner_7JyAiC",
     "video_etGDQk",
     "showcase_G7qAg4",
-    "sticky_multicolumn_iDEKjr",
     "related-products",
     "testimonials_banner_DkzGw8",
     "faq_VRcrdz",
