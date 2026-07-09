@@ -34,8 +34,11 @@ trap 'rm -rf "$tmp_dir"' EXIT
 echo "Pulling live theme into $tmp_dir ..."
 # --path re-roots the CLI's project directory for the whole command, so it
 # can't be combined with --environment (the environment file wouldn't be
-# found at that path). Pass the live theme's store/id directly instead.
-shopify theme pull --store=bymello-store --theme=201621700933 --path "$tmp_dir"
+# found at that path). Pass the store directly and target whatever theme is
+# currently published (--live), never a hardcoded theme id: the published
+# theme can change (e.g. a preview theme gets published) and a stale id
+# would silently compare against the wrong theme.
+shopify theme pull --store=bymello-store --live --path "$tmp_dir"
 echo
 
 # Some files in theme/ use CRLF line endings while a Shopify pull always
