@@ -436,6 +436,10 @@
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
+                {%- assign tab_metafield = blank -%}
+                {%- if block.settings.metafield_key != blank -%}
+                  {%- assign tab_metafield = product.metafields.custom[block.settings.metafield_key] -%}
+                {%- endif -%}
                 <div class="product__accordion accordion quick-add-hidden {{  block.settings.space }}" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}"{% if block.settings.open_row %} open{% endif %}>
                     <summary>
@@ -448,8 +452,12 @@
                       <div class="accordion__btn"></div>
                     </summary>
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                      {{ block.settings.content }}
-                      {{ block.settings.page.content }}
+                      {%- if tab_metafield.value != blank -%}
+                        {{ tab_metafield | metafield_tag }}
+                      {%- else -%}
+                        {{ block.settings.content }}
+                        {{ block.settings.page.content }}
+                      {%- endif -%}
                     </div>
                   </details>
                 </div>
@@ -2320,6 +2328,35 @@
           ],
           "default": "check_mark",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
+        },
+        {
+          "type": "header",
+          "content": "Metafield content"
+        },
+        {
+          "type": "select",
+          "id": "metafield_key",
+          "options": [
+            {
+              "value": "",
+              "label": "None"
+            },
+            {
+              "value": "ingredients",
+              "label": "Ingredients"
+            },
+            {
+              "value": "usage_instructions",
+              "label": "Usage Instructions"
+            },
+            {
+              "value": "additional_information",
+              "label": "Additional Information"
+            }
+          ],
+          "default": "",
+          "label": "Product metafield (custom namespace)",
+          "info": "Reads product.metafields.custom.<key>.value as rich text. Takes priority over Content/Page below when the product has a value set."
         },
         {
           "type": "richtext",

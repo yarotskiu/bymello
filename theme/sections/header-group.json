@@ -50,6 +50,7 @@
         "heading_CnFqBX",
         "heading_6mPFnQ"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-3",
         "scroll_speed": "very-fast",
@@ -82,7 +83,7 @@
         "icons_style": "modern",
         "use_general_header_scheme": true,
         "cart_icon_bg_transparent": true,
-        "cart_color_scheme": "scheme-1",
+        "cart_color_scheme": "scheme-2",
         "counter_color": "#ffffff",
         "counter_bg": "#0042eb",
         "text_weight": "fw-500",
