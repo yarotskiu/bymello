@@ -95,6 +95,7 @@
 }
 
 .accordion__content {
+  margin-top: -1.2rem;
   margin-bottom: 2.4rem;
   word-break: break-word;
   overflow-x: auto;

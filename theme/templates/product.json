@@ -658,6 +658,7 @@
     },
     "sticky_add_to_cart_giPRnf": {
       "type": "sticky-add-to-cart",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-2",
         "style": "default-swatches",
