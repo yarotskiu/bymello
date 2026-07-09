@@ -107,7 +107,7 @@
             "icon_2": "none",
             "heading_2": "",
             "icon_3": "package",
-            "heading_3": "Ships within 3–5 business days"
+            "heading_3": "Ships within 3\u20135 business days"
           }
         },
         "complementary_n7i6qM": {
@@ -302,7 +302,7 @@
             "image_ratio": "adapt",
             "custom_image_height": 100,
             "link": "",
-            "heading": "Complete Care – Skin, hair, body & fragrance in one ritual.",
+            "heading": "Complete Care \u2013 Skin, hair, body & fragrance in one ritual.",
             "heading_color": "foreground"
           }
         },
@@ -429,11 +429,11 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "“Finally a brand that keeps it simple.”",
+            "heading": "\u201cFinally a brand that keeps it simple.\u201d",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
-            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
+            "text": "SPF 50 mineral sunscreen blends better than any I\u2019ve used before.",
             "full_name": "Riya, 26",
             "use_custom_text_color_mobile": true,
             "text_custom_color_mobile": "#ffffff"
@@ -446,7 +446,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "“Unisex but genuinely effective.”",
+            "heading": "\u201cUnisex but genuinely effective.\u201d",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
@@ -463,7 +463,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\"My skin hasn’t looked this even in years.\"",
+            "heading": "\"My skin hasn\u2019t looked this even in years.\"",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
@@ -747,7 +747,7 @@
         "heading_CXQMUa": {
           "type": "heading",
           "settings": {
-            "heading": "The Simplicity Sale — Up to 25% Off Essentials",
+            "heading": "The Simplicity Sale \u2014 Up to 25% Off Essentials",
             "heading_size": "h1",
             "heading_weight": "fw-500",
             "text_gradient": ""
@@ -790,83 +790,6 @@
         "padding_top_mb": 0,
         "padding_bottom_mb": 80
       }
-    },
-    "icon_wtih_text_A9C6Jd": {
-      "type": "icon-with-text",
-      "blocks": {
-        "column_1": {
-          "type": "column",
-          "settings": {
-            "title": "Free delivery",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_2": {
-          "type": "column",
-          "settings": {
-            "title": "Customer support",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_3": {
-          "type": "column",
-          "settings": {
-            "title": "Free shipping",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_6twLw6": {
-          "type": "column",
-          "settings": {
-            "title": "Secure payment",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        }
-      },
-      "block_order": [
-        "column_1",
-        "column_2",
-        "column_3",
-        "column_6twLw6"
-      ],
-      "settings": {
-        "title": "",
-        "heading_font_family": "font-heading",
-        "heading_size": "h3",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "desktop_content_alignment": "left",
-        "color_scheme": "",
-        "container_color_scheme": "scheme-10",
-        "auto_rotate": true,
-        "slides_per_view": 1,
-        "change_slides_speed": 5,
-        "scroll_speed": 1.7,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 24
-      }
     }
   },
   "order": [
@@ -881,7 +804,6 @@
     "recently_viewed_products",
     "sticky_add_to_cart_giPRnf",
     "compare_product",
-    "image_banner_f7tzkF",
-    "icon_wtih_text_A9C6Jd"
+    "image_banner_f7tzkF"
   ]
 }

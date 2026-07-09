@@ -125,93 +125,11 @@
         "padding_top_mb": 0,
         "padding_bottom_mb": 80
       }
-    },
-    "icon_wtih_text": {
-      "type": "icon-with-text",
-      "blocks": {
-        "column_1": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Free delivery",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_2": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Customer support",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_3": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Free shipping",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_6twLw6": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Secure payment",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        }
-      },
-      "block_order": [
-        "column_1",
-        "column_2",
-        "column_3",
-        "column_6twLw6"
-      ],
-      "settings": {
-        "title": "",
-        "heading_font_family": "font-heading",
-        "heading_size": "h3",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "desktop_content_alignment": "left",
-        "color_scheme": "",
-        "container_color_scheme": "scheme-10",
-        "auto_rotate": true,
-        "slides_per_view": 1,
-        "change_slides_speed": 5,
-        "scroll_speed": 1.7,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 24
-      }
     }
   },
   "order": [
     "cart-items",
     "cart-footer",
-    "scrolling_banner",
-    "icon_wtih_text"
+    "scrolling_banner"
   ]
 }

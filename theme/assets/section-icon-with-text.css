@@ -97,3 +97,7 @@ icon-with-text .icon-with-text__item {
 		--icon-width: 4.4rem;
 	}
 }
+
+.icon-with-text__icon{display:inline-flex;flex:0 0 auto;}
+.icon-with-text__icon .icon{width:2.4rem;height:2.4rem;display:block;fill:currentColor;}
+.icon-with-text__info:has(> .icon-with-text__icon){display:flex;align-items:center;gap:0.6rem;}

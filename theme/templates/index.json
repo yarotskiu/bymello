@@ -16,7 +16,7 @@
           "type": "slide",
           "settings": {
             "image": "",
-            "heading": "Skincare That Doesn’t Overpromise. Just Works.",
+            "heading": "Skincare That Doesn\u2019t Overpromise. Just Works.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
@@ -76,7 +76,7 @@
           "type": "slide",
           "settings": {
             "image": "",
-            "heading": "Good Skin Isn’t Complicated.",
+            "heading": "Good Skin Isn\u2019t Complicated.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
@@ -482,7 +482,7 @@
         "heading_font_family": "font-heading",
         "heading_size": "h3",
         "heading_weight": "fw-500",
-        "description": "<p>Buy 3 products and save upto 30%<\/p>",
+        "description": "<p>Buy 3 products and save upto 30%</p>",
         "collection": "",
         "product_list": [],
         "products_to_show": 12,
@@ -523,7 +523,7 @@
             "title": "01 Clinically Proven Ingredients",
             "title_size": "h5",
             "heading_weight": "fw-500",
-            "text": "Every formula uses active concentrations validated by studies—no hype, no filler."
+            "text": "Every formula uses active concentrations validated by studies\u2014no hype, no filler."
           }
         },
         "item_2": {
@@ -688,7 +688,7 @@
         "heading_CXQMUa": {
           "type": "heading",
           "settings": {
-            "heading": "The Simplicity Sale — Up to 25% Off Essentials",
+            "heading": "The Simplicity Sale \u2014 Up to 25% Off Essentials",
             "heading_size": "h1",
             "heading_weight": "fw-500",
             "text_gradient": ""
@@ -781,11 +781,11 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "“Finally a brand that keeps it simple.”",
+            "heading": "\u201cFinally a brand that keeps it simple.\u201d",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
-            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
+            "text": "SPF 50 mineral sunscreen blends better than any I\u2019ve used before.",
             "full_name": "Riya, 26",
             "use_custom_text_color_mobile": true,
             "text_custom_color_mobile": "#ffffff"
@@ -798,7 +798,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "“Unisex but genuinely effective.”",
+            "heading": "\u201cUnisex but genuinely effective.\u201d",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
@@ -815,7 +815,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\"My skin hasn’t looked this even in years.\"",
+            "heading": "\"My skin hasn\u2019t looked this even in years.\"",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
@@ -936,87 +936,6 @@
         "padding_top_mb": 0,
         "padding_bottom_mb": 80
       }
-    },
-    "icon_wtih_text_A9C6Jd": {
-      "type": "icon-with-text",
-      "blocks": {
-        "column_1": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Free delivery",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_2": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Customer support",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_3": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Free shipping",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "column_6twLw6": {
-          "type": "column",
-          "settings": {
-            "image": "",
-            "title": "Secure payment",
-            "heading_font_family": "font-heading",
-            "heading_color": "foreground",
-            "title_size": "h6",
-            "title_weight": "fw-500",
-            "text": "",
-            "text_color": "foreground-secondary"
-          }
-        }
-      },
-      "block_order": [
-        "column_1",
-        "column_2",
-        "column_3",
-        "column_6twLw6"
-      ],
-      "settings": {
-        "title": "",
-        "heading_font_family": "font-heading",
-        "heading_size": "h3",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "desktop_content_alignment": "left",
-        "color_scheme": "",
-        "container_color_scheme": "scheme-10",
-        "auto_rotate": true,
-        "slides_per_view": 1,
-        "change_slides_speed": 5,
-        "scroll_speed": 1.7,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 24
-      }
     }
   },
   "order": [
@@ -1034,7 +953,6 @@
     "featured_collection_PcN7DA",
     "testimonials_banner_79DMhQ",
     "scrolling_banner_pyLhKX",
-    "featured_blog_BTwgdC",
-    "icon_wtih_text_A9C6Jd"
+    "featured_blog_BTwgdC"
   ]
 }
