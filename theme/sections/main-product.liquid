@@ -718,7 +718,7 @@
                       <div class="bm-modal__head">
                         <span class="bm-modal__title">{{ bm_sg.title }}</span>
                         <button type="button" class="bm-modal__close" aria-label="Close"
-                          onclick="this.closest('.bm-modal').setAttribute('aria-hidden','true');document.body.style.overflow='';">&times;</button>
+                          onclick="this.closest('.bm-modal').setAttribute('aria-hidden','true');document.body.style.overflow='';">{% render 'icon-close' %}</button>
                       </div>
                       <div class="bm-modal__body">{{ bm_sg.content }}</div>
                     </div>

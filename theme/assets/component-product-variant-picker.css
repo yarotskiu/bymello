@@ -22,7 +22,7 @@ variant-selects.block-borders {
 .product variant-selects.block-borders {
 	border-top: none;
 	border-bottom: none;
-	padding: 1.2rem 0;
+	padding: 0 0 1.2rem;
 }
 
 .product variant-selects {
@@ -36,7 +36,7 @@ variant-selects.block-borders {
 	}
 
 	.extra-large-layout .product variant-selects.block-borders {
-		padding: 1.2rem 0;
+		padding: 0 0 1.2rem;
 	}
 }
 
@@ -165,6 +165,24 @@ variant-selects.has-custom-picker-bg svg path {
   width: var(--swatch-input--size);
   height: var(--swatch-input--size);
   z-index: 1;
+}
+
+variant-selects.has-custom-picker-border .product-form__input--dropdown .select:hover.select:after,
+variant-selects.has-custom-picker-bg .product-form__input--dropdown .select:hover.select:after {
+  box-shadow: 0 0 0 var(--inputs-border-width) var(--picker-border, var(--picker-bg, rgba(var(--input-border-color), var(--inputs-border-opacity))));
+}
+
+.product-form__input--dropdown .select__select:focus,
+.product-form__input--dropdown .select__select:focus-visible {
+  box-shadow: none;
+  outline: none;
+}
+
+@supports (-webkit-appearance: none) {
+  variant-selects.has-custom-picker-border .product-form__input--dropdown .select:hover.select:after,
+  variant-selects.has-custom-picker-bg .product-form__input--dropdown .select:hover.select:after {
+    box-shadow: none;
+  }
 }
 
 /* Custom styles for Pill display type */
