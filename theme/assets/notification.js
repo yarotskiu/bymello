@@ -33,9 +33,6 @@
 
 		const hideNotification = () => {
 			btn.closest('.notification').classList.add('close');
-			if (typeof MOUSE_CURSOR !== 'undefined' && MOUSE_CURSOR) {
-				MOUSE_CURSOR.hide();
-			}
 		};
 
 	const handleSubscription = () => {

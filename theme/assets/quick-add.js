@@ -16,10 +16,6 @@ if (!customElements.get('quick-add-modal')) {
 
         if (preventFocus) this.openedBy = null;
         super.hide();
-
-				if (MOUSE_CURSOR) {
-					MOUSE_CURSOR.hide();
-				}
       }
 
       show(opener) {

@@ -5119,48 +5119,8 @@ shop-pay-wallet-button {
   border-radius: 100px;
 }
 
-#mouse-cursor {
-  --translate-x: -50%;
-  --translate-y: -60%;
-
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: rgb(var(--color-foreground));
-  background-color: rgb(var(--color-background));
-  transform: translate(calc(var(--translate-x) * 1), var(--translate-y)) scale(0);
-  inset-block-start: var(--y);
-  inset-inline-start: var(--x);
-  transition:
-    width var(--duration-medium),
-    height var(--duration-medium),
-    transform var(--duration-medium);
-  z-index: 2001;
-  pointer-events: none;
-  width: 4rem;
-  height: 4rem;
-}
-
-#mouse-cursor .icon {
-  width: 0;
-  height: 0;
-  transition: width var(--duration-medium);
-}
-
-#mouse-cursor.active {
-  transform: translate(calc(var(--translate-x) * 1), var(--translate-y)) scale(1);
-}
-
-#mouse-cursor.active .icon {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
 .popup-overlay {
   display: block;
-  cursor: none;
 }
 
 .shopify-email-marketing-confirmation__container {

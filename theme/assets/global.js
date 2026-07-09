@@ -448,8 +448,6 @@ class MenuDrawer extends HTMLElement {
     this.closeAnimation(this.mainDetailsToggle);
 
     if (event instanceof KeyboardEvent) elementToFocus?.setAttribute('aria-expanded', false);
-
-    if (MOUSE_CURSOR) MOUSE_CURSOR.hide();
   }
 
   onFocusOut() {
@@ -2193,81 +2191,6 @@ class CardVariants extends HTMLElement {
 }
 
 customElements.define('card-variants', CardVariants);
-
-const MOUSE_CURSOR = document.getElementById('mouse-cursor');
-
-if (!customElements.get('mouse-cursor')) {
-  class MouseCursor extends HTMLElement {
-    constructor() {
-      super();
-      this.onHover = this.onHover.bind(this);
-    }
-
-    connectedCallback() {
-      window.addEventListener('mouseover', this.onHover);
-      window.addEventListener('mousemove', this.onHover);
-      window.addEventListener('mouseleave', this.onHover);
-    }
-
-    onHover(e) {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      this.style.setProperty('--x', `${x}px`);
-      this.style.setProperty('--y', `${y}px`);
-    }
-
-    hide() {
-      this.classList.remove('active');
-    }
-  }
-
-  customElements.define('mouse-cursor', MouseCursor);
-}
-
-if (!customElements.get('popup-overlay')) {
-  class PopupOverlay extends HTMLElement {
-    constructor() {
-      super();
-      this.onMouseEnter = this.onMouseEnter.bind(this);
-      this.onMouseLeave = this.onMouseLeave.bind(this);
-      this.isMouseDevice = window.matchMedia('(pointer: fine)').matches;
-    }
-
-    connectedCallback() {
-      if (this.isMouseDevice) {
-        this.addEventListener('mousemove', this.onMouseEnter);
-        this.addEventListener('mouseleave', this.onMouseLeave);
-      }
-    }
-
-    disconnectedCallback() {
-      if (this.isMouseDevice) {
-        this.removeEventListener('mousemove', this.onMouseEnter);
-        this.removeEventListener('mouseleave', this.onMouseLeave);
-      }
-    }
-  }
-
-  PopupOverlay.prototype.mouseCursor = document.getElementById('mouse-cursor');
-
-  PopupOverlay.prototype.onMouseEnter = function (e) {
-    if (!this.mouseCursor) return;
-    this.mouseCursor.classList.add('active');
-    if (!this.mouseMoved) {
-      this.mouseMoved = true;
-      this.mouseCursor.classList.add('active');
-    }
-  };
-
-  PopupOverlay.prototype.onMouseLeave = function (e) {
-    if (!this.mouseCursor) return;
-    this.mouseCursor.classList.remove('active');
-    this.mouseMoved = false;
-  };
-
-  customElements.define('popup-overlay', PopupOverlay);
-}
 
 const addKeyboardInteraction = () => {
   const swiperBtns = document.querySelectorAll('.swiper-button');
