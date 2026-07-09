@@ -67,8 +67,6 @@ class CartDrawer extends HTMLElement {
     this.classList.remove("active");
     removeTrapFocus(this.activeElement);
     document.body.classList.remove("overflow-hidden");
-
-    if (MOUSE_CURSOR) MOUSE_CURSOR.hide();
   }
 
   setSummaryAccessibility(cartDrawerNote) {

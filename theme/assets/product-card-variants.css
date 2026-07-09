@@ -8,7 +8,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  padding: 0.7rem;
 }
 
 .card-variants .card-variant {
@@ -40,7 +39,6 @@
   margin: 0 auto;
   border-radius: 50%;
   box-sizing: border-box;
-  outline-offset: 0.2rem;
   forced-color-adjust: none;
   cursor: pointer;
 }

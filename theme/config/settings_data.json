@@ -168,17 +168,10 @@
       }
     },
     "content_for_index": [],
-    "blocks": {
-      "9741741230116411038": {
-        "type": "shopify://apps/optis-color-swatch/blocks/bss-se-script/ad128d8f-5ebd-45ad-954a-7dd4c4226109",
-        "disabled": false,
-        "settings": {}
-      }
-    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#fffcee",
+          "background": "#FFFFFF",
           "background_gradient": "",
           "text": "#101010",
           "text_secondary": "#666666",
@@ -207,12 +200,12 @@
           "social_button_hover": "#101010",
           "social_button_label_hover": "#ffffff",
           "social_button_outline_hover": "#101010",
-          "slider_button": "#EDE9D9",
+          "slider_button": "#ede9d9",
           "slider_button_label": "#101010",
-          "slider_button_outline": "#EDE9D9",
-          "slider_button_hover": "#EDE9D9",
+          "slider_button_outline": "#ede9d9",
+          "slider_button_hover": "#ede9d9",
           "slider_button_label_hover": "#101010",
-          "slider_button_outline_hover": "#EDE9D9"
+          "slider_button_outline_hover": "#ede9d9"
         }
       },
       "scheme-2": {
@@ -246,12 +239,12 @@
           "social_button_hover": "#ffffff",
           "social_button_label_hover": "#101010",
           "social_button_outline_hover": "#101010",
-          "slider_button": "#EDE9D9",
+          "slider_button": "#ede9d9",
           "slider_button_label": "#101010",
-          "slider_button_outline": "#EDE9D9",
-          "slider_button_hover": "#EDE9D9",
+          "slider_button_outline": "#ede9d9",
+          "slider_button_hover": "#ede9d9",
           "slider_button_label_hover": "#101010",
-          "slider_button_outline_hover": "#EDE9D9"
+          "slider_button_outline_hover": "#ede9d9"
         }
       },
       "scheme-3": {
@@ -451,7 +444,7 @@
       },
       "scheme-8": {
         "settings": {
-          "background": "#ede9d9",
+          "background": "#F5F5F4",
           "background_gradient": "",
           "text": "#0042eb",
           "text_secondary": "#101010",

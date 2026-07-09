@@ -131,8 +131,6 @@ if (!customElements.get('pickup-availability-drawer')) {
         document.body.removeEventListener('click', this.onBodyClick);
         document.body.classList.remove('overflow-hidden');
         removeTrapFocus(this.focusElement);
-
-				if (MOUSE_CURSOR) MOUSE_CURSOR.hide();
       }
 
       show(focusElement) {
