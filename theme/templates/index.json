@@ -128,6 +128,54 @@
         "padding_bottom_mb": 0
       }
     },
+    "comfort_sale_banner": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Comfort Sale \u2014 Up to 25% Off Sleep & Loungewear",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Organic cotton pajamas and loungewear from European brands \u2014 for slow mornings and soft evenings.</p>",
+            "text_style": "body",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Sale",
+            "button_link": "shopify://collections/sale-25-off",
+            "button_style": "primary",
+            "button_outline": "outline-none"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    },
     "collection_list_RXGMLR": {
       "type": "collection-list",
       "blocks": {
@@ -682,57 +730,6 @@
         "padding_bottom_mb": 0
       }
     },
-    "image_banner_bqheBQ": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_CXQMUa": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Simplicity Sale \u2014 Up to 25% Off Essentials",
-            "heading_size": "h1",
-            "heading_weight": "fw-500",
-            "text_gradient": ""
-          }
-        },
-        "buttons_MFArjU": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "",
-            "button_style_1": "primary",
-            "button_outline_1": "outline-none",
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_2": "primary",
-            "button_outline_2": "outline"
-          }
-        }
-      },
-      "block_order": [
-        "heading_CXQMUa",
-        "buttons_MFArjU"
-      ],
-      "settings": {
-        "full_width": false,
-        "desktop_content_position": "bottom-left-to-right",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "section_color_scheme": "",
-        "color_scheme": "scheme-3",
-        "image": "",
-        "image_height": "adapt",
-        "image_overlay_opacity": 0,
-        "image_behavior": "none",
-        "image_height_mb": "adapt",
-        "mobile_content_alignment": "bottom-left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false,
-        "padding_top": 120,
-        "padding_bottom": 120,
-        "padding_top_mb": 72,
-        "padding_bottom_mb": 80
-      }
-    },
     "featured_collection_PcN7DA": {
       "type": "featured-collection",
       "settings": {
@@ -949,7 +946,7 @@
     "product_bundle_pK9nWX",
     "multi_scroll_gallery_H9fT3k",
     "featured_product_9UePgg",
-    "image_banner_bqheBQ",
+    "comfort_sale_banner",
     "featured_collection_PcN7DA",
     "testimonials_banner_79DMhQ",
     "scrolling_banner_pyLhKX",
