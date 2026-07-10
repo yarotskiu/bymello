@@ -319,7 +319,7 @@
           "settings": {
             "button_label": "Shop the Sale",
             "button_link": "shopify://collections/sale-25-off",
-            "button_style": "primary",
+            "button_style": "secondary",
             "button_outline": "outline-none"
           }
         }
