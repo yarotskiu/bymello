@@ -115,14 +115,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "The Comfort Sale \u2014 Up to 25% Off Sleep & Loungewear",
+            "heading": "The Comfort Sale — Up to 25% Off Sleep & Loungewear",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Organic cotton pajamas and loungewear from European brands \u2014 for slow mornings and soft evenings.</p>",
+            "text": "<p>Organic cotton pajamas and loungewear from European brands — for slow mornings and soft evenings.</p>",
             "text_style": "body",
             "text_color": "foreground-secondary"
           }
@@ -133,7 +133,12 @@
             "button_label": "Shop the Sale",
             "button_link": "shopify://collections/sale-25-off",
             "button_style": "primary",
-            "button_outline": "outline-none"
+            "button_outline": "outline-none",
+            "secondary_button": false,
+            "secondary_button_label": "Secondary Button",
+            "secondary_button_link": "",
+            "secondary_button_style": "secondary",
+            "secondary_button_outline": "outline-hover"
           }
         }
       },
@@ -143,6 +148,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/body_home.png",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -151,6 +157,8 @@
         "content_layout": "no-overlap",
         "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
         "padding_top": 0,
         "padding_bottom": 40,
         "padding_top_mb": 0,

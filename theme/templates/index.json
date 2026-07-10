@@ -15,8 +15,7 @@
         "slide_TtLGFw": {
           "type": "slide",
           "settings": {
-            "image": "",
-            "heading": "Skincare That Doesn\u2019t Overpromise. Just Works.",
+            "heading": "Skincare That Doesn’t Overpromise. Just Works.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
@@ -45,7 +44,6 @@
         "slide_ny48D9": {
           "type": "slide",
           "settings": {
-            "image": "",
             "heading": "Science First. Fuss-Free Always.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
@@ -75,8 +73,7 @@
         "slide_AHfwhB": {
           "type": "slide",
           "settings": {
-            "image": "",
-            "heading": "Good Skin Isn\u2019t Complicated.",
+            "heading": "Good Skin Isn’t Complicated.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
@@ -126,54 +123,6 @@
         "padding_bottom": 0,
         "padding_top_mb": 0,
         "padding_bottom_mb": 0
-      }
-    },
-    "comfort_sale_banner": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Comfort Sale \u2014 Up to 25% Off Sleep & Loungewear",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Organic cotton pajamas and loungewear from European brands \u2014 for slow mornings and soft evenings.</p>",
-            "text_style": "body",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop the Sale",
-            "button_link": "shopify://collections/sale-25-off",
-            "button_style": "primary",
-            "button_outline": "outline-none"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-2",
-        "padding_top": 0,
-        "padding_bottom": 40,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 24
       }
     },
     "collection_list_RXGMLR": {
@@ -255,7 +204,6 @@
         "icon_7kWBhN": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         },
@@ -272,7 +220,6 @@
         "icon_DUgJhk": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         }
@@ -472,7 +419,6 @@
         "before_label_color": "#0b225c",
         "before_label_size": "h2",
         "before_label_weight": "fw-500",
-        "before_image": "",
         "before_product": "",
         "before_product_title": "",
         "before_show_type": true,
@@ -481,7 +427,6 @@
         "after_label_color": "#0b225c",
         "after_label_size": "h2",
         "after_label_weight": "fw-500",
-        "after_image": "",
         "after_product": "",
         "after_product_title": "",
         "after_show_type": true,
@@ -567,17 +512,15 @@
         "item_H3Vm6U": {
           "type": "item",
           "settings": {
-            "image": "",
             "title": "01 Clinically Proven Ingredients",
             "title_size": "h5",
             "heading_weight": "fw-500",
-            "text": "Every formula uses active concentrations validated by studies\u2014no hype, no filler."
+            "text": "Every formula uses active concentrations validated by studies—no hype, no filler."
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
-            "image": "",
             "title": "02  Made for All Genders & All Skin Types",
             "title_size": "h5",
             "heading_weight": "fw-500",
@@ -587,7 +530,6 @@
         "item_HnqmFi": {
           "type": "item",
           "settings": {
-            "image": "",
             "title": "03  Sustainable & Minimal",
             "title_size": "h5",
             "heading_weight": "fw-500",
@@ -730,6 +672,62 @@
         "padding_bottom_mb": 0
       }
     },
+    "comfort_sale_banner": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Comfort Sale — Up to 25% Off Sleep & Loungewear",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Organic cotton pajamas and loungewear from European brands — for slow mornings and soft evenings.</p>",
+            "text_style": "body",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Sale",
+            "button_link": "shopify://collections/sale-25-off",
+            "button_style": "primary",
+            "button_outline": "outline-none",
+            "secondary_button": false,
+            "secondary_button_label": "Secondary Button",
+            "secondary_button_link": "",
+            "secondary_button_style": "secondary",
+            "secondary_button_outline": "outline-hover"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/body_home.png",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    },
     "featured_collection_PcN7DA": {
       "type": "featured-collection",
       "settings": {
@@ -778,11 +776,11 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\u201cFinally a brand that keeps it simple.\u201d",
+            "heading": "“Finally a brand that keeps it simple.”",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
-            "text": "SPF 50 mineral sunscreen blends better than any I\u2019ve used before.",
+            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
             "full_name": "Riya, 26",
             "use_custom_text_color_mobile": true,
             "text_custom_color_mobile": "#ffffff"
@@ -795,7 +793,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\u201cUnisex but genuinely effective.\u201d",
+            "heading": "“Unisex but genuinely effective.”",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
@@ -812,7 +810,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\"My skin hasn\u2019t looked this even in years.\"",
+            "heading": "\"My skin hasn’t looked this even in years.\"",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
@@ -832,7 +830,6 @@
         "testimonials_layout": "column",
         "color_scheme": "",
         "container_color_scheme": "scheme-2",
-        "background_image": "",
         "heading": "Beauty, Affirmed",
         "heading_font_family": "font-heading",
         "heading_size": "h0-xs",
@@ -862,7 +859,6 @@
         "icon_PgpaXE": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         },
@@ -879,7 +875,6 @@
         "icon_Pa4r6j": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         }
