@@ -34,7 +34,7 @@
             "button_label": "Shop Now",
             "link": "/collections/all",
             "button_style": "primary",
-            "button_outline": "outline-none",
+            "button_outline": "outline-hover",
             "button_2_label": "",
             "link_2": "/collections/all",
             "button_2_style": "secondary",
@@ -133,9 +133,10 @@
           "type": "featured_collection",
           "settings": {
             "collection": "women",
-            "custom_title": "",
+            "custom_title": "For Women",
             "custom_title_color": "",
-            "custom_title_size": "h5",
+            "custom_title_size": "h1",
+            "custom_title_weight": "fw-400",
             "custom_image": "shopify://shop_images/womens-organic-cotton-loungewear_0_5x_0_5x_a5d74b22-4a63-4441-bad9-69c0769b1fd9.jpg",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Her"
@@ -147,7 +148,8 @@
             "collection": "men",
             "custom_title": "For Men",
             "custom_title_color": "#32383e",
-            "custom_title_size": "text-body--large",
+            "custom_title_size": "h1",
+            "custom_title_weight": "fw-500",
             "custom_image": "shopify://shop_images/for_men_a9833eff-9c23-4643-b371-710917181824.png",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Him"
