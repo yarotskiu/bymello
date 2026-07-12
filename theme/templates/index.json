@@ -15,27 +15,28 @@
         "slide_TtLGFw": {
           "type": "slide",
           "settings": {
-            "heading": "Skincare That Doesn\u2019t Overpromise. Just Works.",
+            "image": "shopify://shop_images/hero_2400.webp",
+            "heading": "Organic Cotton That Doesn't Compromise. Just Comfort.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
             "heading_weight": "fw-500",
-            "subheading": "Clinically tested formulas for everyday skin and body essentials.",
+            "subheading": "Vegan, 100% organic cotton essentials from Europe's most trusted brands.",
             "text_color": "foreground-secondary",
             "show_text_box": false,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
-            "color_scheme": "scheme-5",
+            "color_scheme": "scheme-9",
             "enable_mobile_color_scheme": true,
             "color_scheme_mobile": "scheme-1",
             "remove_space_for_content_on_mobile": true,
             "image_border_radius_mobile": true,
             "button_label": "Shop Now",
-            "link": "",
+            "link": "/collections/all",
             "button_style": "primary",
             "button_outline": "outline-none",
-            "button_2_label": "View Collection",
-            "link_2": "",
+            "button_2_label": "",
+            "link_2": "/collections/all",
             "button_2_style": "secondary",
             "button_2_outline": "outline",
             "text_alignment_mobile": "left"
@@ -73,7 +74,7 @@
         "slide_AHfwhB": {
           "type": "slide",
           "settings": {
-            "heading": "Good Skin Isn\u2019t Complicated.",
+            "heading": "Good Skin Isn’t Complicated.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
@@ -131,37 +132,21 @@
         "featured_collection_WW9N7d": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
+            "collection": "women",
+            "custom_image_hover_text": "For Her"
           }
         },
         "featured_collection_UgGCJf": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
-          }
-        },
-        "featured_collection_8paiBV": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
-          }
-        },
-        "featured_collection_FyQWkw": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
+            "collection": "men",
+            "custom_image_hover_text": "For Him"
           }
         }
       },
       "block_order": [
         "featured_collection_WW9N7d",
-        "featured_collection_UgGCJf",
-        "featured_collection_8paiBV",
-        "featured_collection_FyQWkw"
+        "featured_collection_UgGCJf"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
@@ -169,7 +154,7 @@
         "heading_font_family": "font-heading",
         "heading_size": "h3",
         "image_ratio": "portrait",
-        "columns_desktop": 4,
+        "columns_desktop": 2,
         "color_scheme": "",
         "show_view_all": false,
         "button_style": "primary",
@@ -515,7 +500,7 @@
             "title": "01 Clinically Proven Ingredients",
             "title_size": "h5",
             "heading_weight": "fw-500",
-            "text": "Every formula uses active concentrations validated by studies\u2014no hype, no filler."
+            "text": "Every formula uses active concentrations validated by studies—no hype, no filler."
           }
         },
         "item_2": {
@@ -678,14 +663,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "The Comfort Sale \u2014 Up to 25% Off Sleep & Loungewear",
+            "heading": "The Comfort Sale — Up to 25% Off Sleep & Loungewear",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Organic cotton pajamas and loungewear from European brands \u2014 for slow mornings and soft evenings.</p>",
+            "text": "<p>Organic cotton pajamas and loungewear from European brands — for slow mornings and soft evenings.</p>",
             "text_style": "body",
             "text_color": "foreground-secondary"
           }
@@ -776,11 +761,11 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\u201cFinally a brand that keeps it simple.\u201d",
+            "heading": "“Finally a brand that keeps it simple.”",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
-            "text": "SPF 50 mineral sunscreen blends better than any I\u2019ve used before.",
+            "text": "SPF 50 mineral sunscreen blends better than any I’ve used before.",
             "full_name": "Riya, 26",
             "use_custom_text_color_mobile": true,
             "text_custom_color_mobile": "#ffffff"
@@ -793,7 +778,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\u201cUnisex but genuinely effective.\u201d",
+            "heading": "“Unisex but genuinely effective.”",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
@@ -810,7 +795,7 @@
             "use_custom_rating_colors": true,
             "rating_custom_bg_color": "#101010",
             "rating_custom_text_color": "#ffffff",
-            "heading": "\"My skin hasn\u2019t looked this even in years.\"",
+            "heading": "\"My skin hasn’t looked this even in years.\"",
             "heading_font_weight": "fw-400",
             "heading_font_size": "h4",
             "heading_font_family": "font-heading",
