@@ -83,7 +83,7 @@
                 columns: columns,
                 placeholder_image: placeholder_image,
                 individual_color_sheme: section.settings.individual_card_color_scheme,
-                heading_size: 'h5',
+                heading_size: block.settings.custom_title_size,
                 custom_image: block.settings.custom_image,
                 custom_image_hover: block.settings.custom_image_hover,
                 custom_image_hover_text: block.settings.custom_image_hover_text
@@ -94,7 +94,7 @@
               media_aspect_ratio: section.settings.image_ratio,
               show_description: false,
               columns: columns,
-							heading_size: 'h5',
+							heading_size: block.settings.custom_title_size,
               placeholder_image: placeholder_image,
               wrapper_class: 'collection-card-wrapper cc-overlay-card',
               color_sheme: section.settings.individual_card_color_scheme,
@@ -110,6 +110,7 @@
 							show_description: false,
               columns: columns,
               placeholder_image: placeholder_image,
+              heading_size: block.settings.custom_title_size,
               custom_title: block.settings.custom_title,
               custom_title_color: block.settings.custom_title_color,
               custom_image: block.settings.custom_image,
@@ -477,6 +478,30 @@
           "id": "custom_title_color",
           "label": "Custom title color",
           "info": "Leave blank to use the card's default text color"
+        },
+        {
+          "type": "select",
+          "id": "custom_title_size",
+          "label": "Title size",
+          "options": [
+            {
+              "value": "text-body--large",
+              "label": "Extra small"
+            },
+            {
+              "value": "h5",
+              "label": "Small"
+            },
+            {
+              "value": "h4",
+              "label": "Medium"
+            },
+            {
+              "value": "h3",
+              "label": "Large"
+            }
+          ],
+          "default": "h5"
         },
         {
           "type": "image_picker",
