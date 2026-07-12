@@ -132,37 +132,21 @@
         "featured_collection_WW9N7d": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
+            "collection": "women",
+            "custom_image_hover_text": "For Her"
           }
         },
         "featured_collection_UgGCJf": {
           "type": "featured_collection",
           "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
-          }
-        },
-        "featured_collection_8paiBV": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
-          }
-        },
-        "featured_collection_FyQWkw": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "",
-            "custom_image_hover_text": "View Collection"
+            "collection": "men",
+            "custom_image_hover_text": "For Him"
           }
         }
       },
       "block_order": [
         "featured_collection_WW9N7d",
-        "featured_collection_UgGCJf",
-        "featured_collection_8paiBV",
-        "featured_collection_FyQWkw"
+        "featured_collection_UgGCJf"
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
@@ -170,7 +154,7 @@
         "heading_font_family": "font-heading",
         "heading_size": "h3",
         "image_ratio": "portrait",
-        "columns_desktop": 4,
+        "columns_desktop": 2,
         "color_scheme": "",
         "show_view_all": false,
         "button_style": "primary",
