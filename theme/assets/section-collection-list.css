@@ -144,6 +144,54 @@
 	font-size: var(--font-heading-2-size);
 }
 
+/* Bymello: let per-tile Heading size (custom_title_size) override the
+   site-wide 16px card title pin (base.css) for this section's own cards */
+.collection-list-wrapper .card__heading.h1,
+.collection-list-wrapper .card__heading.h1 a {
+	font-size: var(--font-heading-1-size-mb) !important;
+	line-height: 1.2 !important;
+}
+.collection-list-wrapper .card__heading.h2,
+.collection-list-wrapper .card__heading.h2 a {
+	font-size: var(--font-heading-2-size-mb) !important;
+	line-height: 1.08334 !important;
+}
+.collection-list-wrapper .card__heading.h3,
+.collection-list-wrapper .card__heading.h3 a {
+	font-size: var(--font-heading-3-size-mb) !important;
+	line-height: 1.1 !important;
+}
+
+@media only screen and (min-width: 750px) and (max-width: 989px) {
+	.collection-list-wrapper .card__heading.h1,
+	.collection-list-wrapper .card__heading.h1 a {
+		font-size: calc((var(--font-heading-1-size-mb) + var(--font-heading-1-size)) / 2) !important;
+	}
+	.collection-list-wrapper .card__heading.h2,
+	.collection-list-wrapper .card__heading.h2 a {
+		font-size: calc((var(--font-heading-2-size-mb) + var(--font-heading-2-size)) / 2) !important;
+	}
+	.collection-list-wrapper .card__heading.h3,
+	.collection-list-wrapper .card__heading.h3 a {
+		font-size: calc((var(--font-heading-3-size-mb) + var(--font-heading-3-size)) / 2) !important;
+	}
+}
+
+@media only screen and (min-width: 990px) {
+	.collection-list-wrapper .card__heading.h1,
+	.collection-list-wrapper .card__heading.h1 a {
+		font-size: var(--font-heading-1-size) !important;
+	}
+	.collection-list-wrapper .card__heading.h2,
+	.collection-list-wrapper .card__heading.h2 a {
+		font-size: var(--font-heading-2-size) !important;
+	}
+	.collection-list-wrapper .card__heading.h3,
+	.collection-list-wrapper .card__heading.h3 a {
+		font-size: var(--font-heading-3-size) !important;
+	}
+}
+
 .collection-list-wrapper .title-wrapper-with-link {
 	align-items: center;
 }
