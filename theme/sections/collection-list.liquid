@@ -97,7 +97,10 @@
 							heading_size: 'h5',
               placeholder_image: placeholder_image,
               wrapper_class: 'collection-card-wrapper cc-overlay-card',
-              color_sheme: section.settings.individual_card_color_scheme
+              color_sheme: section.settings.individual_card_color_scheme,
+              custom_title: block.settings.custom_title,
+              custom_image: block.settings.custom_image,
+              button_color_scheme: block.settings.button_color_scheme
             %}
             {% else %}
             {% render 'card-collection',
@@ -106,7 +109,9 @@
 							show_description: false,
               columns: columns,
               placeholder_image: placeholder_image,
-              
+              custom_title: block.settings.custom_title,
+              custom_image: block.settings.custom_image,
+              button_color_scheme: block.settings.button_color_scheme
             %}
             {% endif %}
           </li>
@@ -460,10 +465,22 @@
           "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
         },
         {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom title",
+          "info": "Leave blank to use the collection's own title"
+        },
+        {
           "type": "image_picker",
           "id": "custom_image",
           "label": "Custom image",
-          "visible_if": "{{ section.settings.individual_card_style == 'rounded' }}",
+          "info": "Leave blank to use the collection's featured image"
+        },
+        {
+          "type": "color_scheme",
+          "id": "button_color_scheme",
+          "label": "Button color scheme",
+          "info": "Leave blank to use the card's color scheme"
         },
         {
           "type": "image_picker",
