@@ -153,7 +153,7 @@
         "title": "Everyday Essentials",
         "heading_font_family": "font-heading",
         "heading_size": "h3",
-        "image_ratio": "portrait",
+        "image_ratio": "landscape",
         "columns_desktop": 2,
         "color_scheme": "",
         "show_view_all": false,
