@@ -84,6 +84,7 @@
                 placeholder_image: placeholder_image,
                 individual_color_sheme: section.settings.individual_card_color_scheme,
                 heading_size: block.settings.custom_title_size,
+                custom_title_weight: block.settings.custom_title_weight,
                 custom_image: block.settings.custom_image,
                 custom_image_hover: block.settings.custom_image_hover,
                 custom_image_hover_text: block.settings.custom_image_hover_text
@@ -95,6 +96,7 @@
               show_description: false,
               columns: columns,
 							heading_size: block.settings.custom_title_size,
+                custom_title_weight: block.settings.custom_title_weight,
               placeholder_image: placeholder_image,
               wrapper_class: 'collection-card-wrapper cc-overlay-card',
               color_sheme: section.settings.individual_card_color_scheme,
@@ -111,6 +113,7 @@
               columns: columns,
               placeholder_image: placeholder_image,
               heading_size: block.settings.custom_title_size,
+                custom_title_weight: block.settings.custom_title_weight,
               custom_title: block.settings.custom_title,
               custom_title_color: block.settings.custom_title_color,
               custom_image: block.settings.custom_image,
@@ -502,6 +505,30 @@
             }
           ],
           "default": "h5"
+        },
+        {
+          "type": "select",
+          "id": "custom_title_weight",
+          "label": "Title weight",
+          "options": [
+            {
+              "value": "fw-400",
+              "label": "t:settings_schema.global.settings.text_weight.options__1.label"
+            },
+            {
+              "value": "fw-500",
+              "label": "t:settings_schema.global.settings.text_weight.options__2.label"
+            },
+            {
+              "value": "fw-600",
+              "label": "t:settings_schema.global.settings.text_weight.options__3.label"
+            },
+            {
+              "value": "fw-700",
+              "label": "t:settings_schema.global.settings.text_weight.options__4.label"
+            }
+          ],
+          "default": "fw-500"
         },
         {
           "type": "image_picker",
