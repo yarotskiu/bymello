@@ -133,6 +133,8 @@
           "type": "featured_collection",
           "settings": {
             "collection": "women",
+            "custom_title": "",
+            "button_color_scheme": "",
             "custom_image_hover_text": "For Her"
           }
         },
@@ -140,6 +142,9 @@
           "type": "featured_collection",
           "settings": {
             "collection": "men",
+            "custom_title": "For Men",
+            "custom_image": "shopify://shop_images/for_men_a9833eff-9c23-4643-b371-710917181824.png",
+            "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Him"
           }
         }
@@ -696,7 +701,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/body_home.png",
+        "image": "shopify://shop_images/sleep-loungewear-sale-organic-cotton-80.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "text_first",
