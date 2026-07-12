@@ -134,7 +134,9 @@
           "settings": {
             "collection": "women",
             "custom_title": "",
-            "button_color_scheme": "",
+            "custom_title_color": "",
+            "custom_image": "shopify://shop_images/womens-organic-cotton-loungewear_0_5x_0_5x_a5d74b22-4a63-4441-bad9-69c0769b1fd9.jpg",
+            "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Her"
           }
         },
@@ -143,6 +145,7 @@
           "settings": {
             "collection": "men",
             "custom_title": "For Men",
+            "custom_title_color": "#32383E",
             "custom_image": "shopify://shop_images/for_men_a9833eff-9c23-4643-b371-710917181824.png",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Him"
