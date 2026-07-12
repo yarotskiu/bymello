@@ -15,6 +15,7 @@
 	- position: {Number} Position of collection
 	- content_align: {String}
   - custom_title: {String} Overrides the collection's own title (optional)
+  - custom_title_color: {String} Color applied to the custom/collection title (optional)
   - custom_image: {Object} Overrides the collection's featured image (optional)
   - button_color_scheme: {String} Color scheme id applied to the arrow button (optional)
 
@@ -139,6 +140,9 @@
                     href="{{ card_collection.url }}"
                   {% endif %}
                   class="card__link link-underline"
+                  {% if custom_title_color != blank %}
+                    style="color: {{ custom_title_color }};"
+                  {% endif %}
                 >
                   {%- if display_title != blank -%}
                     {{- display_title | escape -}}
@@ -180,6 +184,9 @@
                   href="{{ card_collection.url }}"
                 {% endif %}
                 class="card__link link-underline"
+                {% if custom_title_color != blank %}
+                  style="color: {{ custom_title_color }};"
+                {% endif %}
               >
                 {%- if display_title != blank -%}
                   {{- display_title | escape -}}

@@ -99,6 +99,7 @@
               wrapper_class: 'collection-card-wrapper cc-overlay-card',
               color_sheme: section.settings.individual_card_color_scheme,
               custom_title: block.settings.custom_title,
+              custom_title_color: block.settings.custom_title_color,
               custom_image: block.settings.custom_image,
               button_color_scheme: block.settings.button_color_scheme
             %}
@@ -110,6 +111,7 @@
               columns: columns,
               placeholder_image: placeholder_image,
               custom_title: block.settings.custom_title,
+              custom_title_color: block.settings.custom_title_color,
               custom_image: block.settings.custom_image,
               button_color_scheme: block.settings.button_color_scheme
             %}
@@ -469,6 +471,12 @@
           "id": "custom_title",
           "label": "Custom title",
           "info": "Leave blank to use the collection's own title"
+        },
+        {
+          "type": "color",
+          "id": "custom_title_color",
+          "label": "Custom title color",
+          "info": "Leave blank to use the card's default text color"
         },
         {
           "type": "image_picker",
