@@ -2379,10 +2379,11 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
   .bm-modal__close:hover .icon{rotate:90deg;}
 }
 .bm-modal__body{max-width:100%;overflow-x:auto;}
-.bm-modal__body table{width:auto;border-collapse:collapse;font-size:1.3rem;}
+.bm-modal__body table{width:auto;margin-left:1px;border-collapse:collapse;font-size:1.3rem;}
 .bm-modal__body th,.bm-modal__body td{padding:.7rem 1rem;text-align:center;white-space:nowrap;border:1px solid rgba(var(--color-foreground),.12);}
 .bm-modal__body th{background:rgba(var(--color-foreground),.05);font-weight:600;}
 .bm-modal__body tr:nth-child(even) td{background:rgba(var(--color-foreground),.02);}
+.bm-modal__body .lc-diagram-row>h4,.bm-modal__body .lc-diagram-row>table{flex-basis:100%;}
 .bm-fit{margin:0 0 1.8rem;}
 .bm-fit__label{font-size:1.3rem;font-weight:600;margin:0 0 .8rem;}
 .bm-fit__tiles{display:flex;gap:.4rem;margin-bottom:.6rem;}
