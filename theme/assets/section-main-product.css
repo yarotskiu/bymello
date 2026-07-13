@@ -2368,7 +2368,7 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
 .bm-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:stretch;justify-content:flex-end;}
 .bm-modal[aria-hidden="false"]{display:flex !important;}
 .bm-modal .bm-modal__overlay{display:block;position:absolute;inset:0;background:rgba(0,0,0,.45);}
-.bm-modal__box{position:relative;background:rgb(var(--color-background));max-width:680px;width:calc(100% - 4rem);height:100%;max-height:none;overflow-y:auto;border-radius:0;padding:3rem;}
+.bm-modal__box{position:relative;background:rgb(var(--color-background));width:fit-content;min-width:min(680px,calc(100% - 4rem));max-width:min(1100px,calc(100% - 4rem));height:100%;max-height:none;overflow-y:auto;border-radius:0;padding:3rem;}
 .bm-modal__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;}
 .bm-modal__title{font-size:1.8rem;font-weight:600;}
 .bm-modal__close{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:4.4rem;height:4.4rem;padding:0;background:rgb(var(--color-button));color:rgb(var(--color-button-text));border:0.1rem solid rgb(var(--color-button-text));border-radius:var(--buttons-radius);cursor:pointer;transition:color var(--duration-medium),background-color var(--duration-medium),border-color var(--duration-medium),border-radius var(--duration-medium);}
@@ -2378,8 +2378,9 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
   .bm-modal__close .icon{transition:rotate var(--duration-medium) ease-in-out;}
   .bm-modal__close:hover .icon{rotate:90deg;}
 }
-.bm-modal__body table{width:100%;border-collapse:collapse;font-size:1.3rem;}
-.bm-modal__body th,.bm-modal__body td{padding:.7rem 1rem;text-align:center;border:1px solid rgba(var(--color-foreground),.12);}
+.bm-modal__body{max-width:100%;overflow-x:auto;}
+.bm-modal__body table{width:auto;min-width:100%;border-collapse:collapse;font-size:1.3rem;}
+.bm-modal__body th,.bm-modal__body td{padding:.7rem 1rem;text-align:center;white-space:nowrap;border:1px solid rgba(var(--color-foreground),.12);}
 .bm-modal__body th{background:rgba(var(--color-foreground),.05);font-weight:600;}
 .bm-modal__body tr:nth-child(even) td{background:rgba(var(--color-foreground),.02);}
 .bm-fit{margin:0 0 1.8rem;}
