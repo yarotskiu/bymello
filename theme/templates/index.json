@@ -112,7 +112,7 @@
         "color_scheme": "",
         "slide_height": "medium",
         "loop": true,
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "box_align": "middle-left",
         "pagination_position": "outside-slider",
@@ -133,11 +133,11 @@
           "type": "featured_collection",
           "settings": {
             "collection": "women",
-            "custom_title": "For Women",
+            "custom_title": "For Her",
             "custom_title_color": "",
-            "custom_title_size": "h1",
+            "custom_title_size": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "shopify://shop_images/womens-organic-cotton-loungewear_0_5x_0_5x_a5d74b22-4a63-4441-bad9-69c0769b1fd9.jpg",
+            "custom_image": "shopify://shop_images/womens-organic-cotton-loungewear_0_5x_0_5x_4aa9a125-7351-4b0c-af81-46f43014a0ab.png",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Her"
           }
@@ -146,11 +146,11 @@
           "type": "featured_collection",
           "settings": {
             "collection": "men",
-            "custom_title": "For Men",
+            "custom_title": "For Him",
             "custom_title_color": "#32383e",
-            "custom_title_size": "h1",
-            "custom_title_weight": "fw-500",
-            "custom_image": "shopify://shop_images/for_men_a9833eff-9c23-4643-b371-710917181824.png",
+            "custom_title_size": "h3",
+            "custom_title_weight": "fw-400",
+            "custom_image": "shopify://shop_images/mens-organic-cotton-loungewear_0_5x_0_5x_0_5x_531cf7e5-70a7-433d-9ca0-4dd51cd48fef.jpg",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Him"
           }
@@ -162,7 +162,7 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "Everyday Essentials",
+        "title": "Shop by You",
         "heading_font_family": "font-heading",
         "heading_size": "h2",
         "image_ratio": "landscape",
@@ -191,7 +191,7 @@
         "heading_9fMpYx": {
           "type": "heading",
           "settings": {
-            "text": "Dermatologist-tested. Ingredient-led",
+            "text": "Curated From Europe's Homewear Brands",
             "color": "--color-secondary-foreground",
             "text_size": "h0",
             "heading_font_family": "font-heading",
@@ -201,13 +201,14 @@
         "icon_7kWBhN": {
           "type": "icon",
           "settings": {
-            "image_width": 50
+            "image": "shopify://shop_images/Asterisk-1--Streamline-Core_49879cab-ad13-45c4-9c76-fd0d1902aaca.svg",
+            "image_width": 28
           }
         },
         "heading_yBrtGY": {
           "type": "heading",
           "settings": {
-            "text": "Built for clarity in formulas, routines, and results",
+            "text": "100% Natural Materials.",
             "color": "--color-secondary-foreground",
             "text_size": "h0",
             "heading_font_family": "font-heading",
@@ -217,7 +218,8 @@
         "icon_DUgJhk": {
           "type": "icon",
           "settings": {
-            "image_width": 50
+            "image": "shopify://shop_images/Asterisk-1--Streamline-Core_49879cab-ad13-45c4-9c76-fd0d1902aaca.svg",
+            "image_width": 28
           }
         }
       },
@@ -228,7 +230,7 @@
         "icon_DUgJhk"
       ],
       "settings": {
-        "color_scheme": "scheme-7",
+        "color_scheme": "scheme-1",
         "scroll_speed": "ultra-fast",
         "column_gap": 45,
         "column_gap_mb": 20,
@@ -253,7 +255,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "scheme-2",
-            "product": "",
+            "product": "betty-organic-cotton-pajama-set",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -263,7 +265,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "",
-            "product": "",
+            "product": "lamina-organic-cotton-hooded-jacket",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -273,17 +275,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "",
-            "product": "",
-            "heading_size": "text-body--large",
-            "heading_weight": "fw-500",
-            "enable_product_variants": false
-          }
-        },
-        "product_kyGABe": {
-          "type": "product",
-          "settings": {
-            "color_scheme": "",
-            "product": "",
+            "product": "lavinia-organic-cotton-jogging-pants",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -293,7 +285,17 @@
           "type": "product",
           "settings": {
             "color_scheme": "scheme-2",
-            "product": "",
+            "product": "carl-organic-cotton-short-pajama-set",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-500",
+            "enable_product_variants": false
+          }
+        },
+        "product_kyGABe": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "",
+            "product": "alvar-organic-cotton-pajama-set",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -303,7 +305,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "",
-            "product": "",
+            "product": "bianca-merino-wool-long-sleeve-top",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -313,7 +315,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "scheme-2",
-            "product": "",
+            "product": "bassy-merino-wool-leggings",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -324,15 +326,15 @@
         "product_bHDiDw",
         "product_PtnTHN",
         "product_NjaDHX",
-        "product_kyGABe",
         "product_QeBnra",
+        "product_kyGABe",
         "product_3EyHtK",
         "product_p3BT4U"
       ],
       "name": "Sticky products",
       "settings": {
-        "color_scheme": "",
-        "title": "Curated Care for This Week",
+        "color_scheme": "scheme-1",
+        "title": "Curated Picks This Week",
         "heading_font_family": "font-heading",
         "heading_size": "h3",
         "heading_weight": "fw-500",
@@ -380,6 +382,7 @@
         "heading_e6gdrx",
         "heading_pEfHAr"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-3",
         "scroll_speed": "very-fast",
@@ -401,6 +404,7 @@
     },
     "before_after_AJQhaa": {
       "type": "before-after",
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "full_width": false,
@@ -440,6 +444,7 @@
     },
     "countdown_banner_DzcfRf": {
       "type": "countdown-banner",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-3",
         "heading": "Flash Sale!",
@@ -465,6 +470,63 @@
         "padding_bottom_mb": 40
       }
     },
+    "comfort_sale_banner": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Comfort Sale — Up to 25% Off Sleep & Loungewear",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Organic cotton pajamas and loungewear from European brands — for slow mornings and soft evenings.</p>",
+            "text_style": "body",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop the Sale",
+            "button_link": "shopify://collections/sale-25-off",
+            "button_style": "secondary",
+            "button_outline": "outline-none",
+            "secondary_button": false,
+            "secondary_button_label": "Secondary Button",
+            "secondary_button_link": "",
+            "secondary_button_style": "secondary",
+            "secondary_button_outline": "outline-hover"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "name": " Sale ",
+      "settings": {
+        "image": "shopify://shop_images/sleep-loungewear-sale-organic-cotton-80.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 24
+      }
+    },
     "product_bundle_pK9nWX": {
       "type": "product-bundle",
       "settings": {
@@ -472,15 +534,15 @@
         "heading_font_family": "font-heading",
         "heading_size": "h3",
         "heading_weight": "fw-500",
-        "description": "<p>Buy 3 products and save upto 30%</p>",
-        "collection": "",
+        "description": "<p>Buy 2 products and save upto 20%</p>",
+        "collection": "sets",
         "product_list": [],
         "products_to_show": 12,
         "columns_desktop": 3,
         "color_scheme": "",
         "bundle_title": "Your Bundle",
         "bundle_heading_font_family": "font-body",
-        "bundle_description": "Add  3 products and save 30%",
+        "bundle_description": "Add  2 products and save 20%",
         "discount_minimum_items": 3,
         "discount_maximum_items": 3,
         "bundle_cross_icon_radius": 50,
@@ -539,6 +601,7 @@
         "item_2",
         "item_HnqmFi"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-3",
         "title": "Redefining Self-Care Without Boundaries",
@@ -645,12 +708,13 @@
         "inventory_FtLxkt",
         "buy_buttons_FUmmmm"
       ],
+      "disabled": true,
       "name": "t:sections.featured-product.presets.name",
       "settings": {
         "product": "",
         "enable_sticky_info": true,
         "content_alignment": "flex-start",
-        "color_scheme": "scheme-9",
+        "color_scheme": "scheme-1",
         "secondary_background": false,
         "show_badges": true,
         "media_size": "large",
@@ -664,69 +728,14 @@
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 120,
-        "padding_bottom": 0,
+        "padding_bottom": 80,
         "padding_top_mb": 80,
         "padding_bottom_mb": 0
       }
     },
-    "comfort_sale_banner": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Comfort Sale — Up to 25% Off Sleep & Loungewear",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Organic cotton pajamas and loungewear from European brands — for slow mornings and soft evenings.</p>",
-            "text_style": "body",
-            "text_color": "foreground-secondary"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop the Sale",
-            "button_link": "shopify://collections/sale-25-off",
-            "button_style": "secondary",
-            "button_outline": "outline-none",
-            "secondary_button": false,
-            "secondary_button_label": "Secondary Button",
-            "secondary_button_link": "",
-            "secondary_button_style": "secondary",
-            "secondary_button_outline": "outline-hover"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/sleep-loungewear-sale-organic-cotton-80.jpg",
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-2",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 0,
-        "padding_bottom": 40,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 24
-      }
-    },
     "featured_collection_PcN7DA": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Most Popular Products",
         "heading_font_family": "font-heading",
@@ -823,6 +832,7 @@
         "testimonial_M8KcxQ",
         "testimonial_1"
       ],
+      "disabled": true,
       "settings": {
         "testimonials_layout": "column",
         "color_scheme": "",
@@ -882,6 +892,7 @@
         "heading_rnUJzX",
         "icon_Pa4r6j"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-7",
         "scroll_speed": "ultra-fast",
@@ -903,6 +914,7 @@
     },
     "featured_blog_BTwgdC": {
       "type": "featured-blog",
+      "disabled": true,
       "settings": {
         "heading": "Read Our Blogs",
         "heading_font_family": "font-heading",
@@ -935,10 +947,10 @@
     "scrolling_banner_fR8jNn",
     "before_after_AJQhaa",
     "countdown_banner_DzcfRf",
+    "comfort_sale_banner",
     "product_bundle_pK9nWX",
     "multi_scroll_gallery_H9fT3k",
     "featured_product_9UePgg",
-    "comfort_sale_banner",
     "featured_collection_PcN7DA",
     "testimonials_banner_79DMhQ",
     "scrolling_banner_pyLhKX",
