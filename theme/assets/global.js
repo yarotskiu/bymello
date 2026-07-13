@@ -2684,4 +2684,26 @@ console.log('Elixira-4.1.0');
       document.querySelectorAll('.bm-modal[aria-hidden="false"]').forEach(close);
     }
   });
+
+  var DEFAULT_WIDTH=680, MAX_WIDTH=1100;
+  function fitBoxToTable(modal){
+    var box=modal.querySelector('.bm-modal__box');
+    if(!box) return;
+    var tables=modal.querySelectorAll('.bm-modal__body table');
+    var tableWidth=0;
+    tables.forEach(function(t){ tableWidth=Math.max(tableWidth,t.scrollWidth); });
+    if(!tableWidth){ box.style.removeProperty('--bm-sg-width'); return; }
+    var boxStyle=getComputedStyle(box);
+    var padding=(parseFloat(boxStyle.paddingLeft)||0)+(parseFloat(boxStyle.paddingRight)||0);
+    var needed=Math.min(tableWidth+padding, MAX_WIDTH);
+    if(needed>DEFAULT_WIDTH){ box.style.setProperty('--bm-sg-width', needed+'px'); }
+    else{ box.style.removeProperty('--bm-sg-width'); }
+  }
+  new MutationObserver(function(mutations){
+    mutations.forEach(function(m){
+      if(m.attributeName==='aria-hidden' && m.target.classList.contains('bm-modal') && m.target.getAttribute('aria-hidden')==='false'){
+        fitBoxToTable(m.target);
+      }
+    });
+  }).observe(document.body, {attributes:true, attributeFilter:['aria-hidden'], subtree:true});
 })();
