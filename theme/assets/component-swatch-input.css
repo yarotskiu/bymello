@@ -46,8 +46,8 @@
 }
 
 /* Focus visible */
-.swatch-input__input:focus-visible + .swatch-input__label {
-  box-shadow: 0 0 0 0.5rem rgb(var(--color-background)), 0 0 0 0.7rem rgba(var(--color-foreground), 0.55);
+.swatch-input__input:focus-visible + .swatch-input__label .swatch {
+  border-color: #000;
 }
 
 /* Overrides for swatch snippet when used inside disabled swatch-input */

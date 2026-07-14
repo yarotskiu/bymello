@@ -4,10 +4,6 @@ variant-selects {
 	gap: 2.4rem;
 }
 
-variant-selects .swatch {
-	border: none;
-}
-
 .product-form__input--swatch .swatch-input__input:not(:checked) + .swatch-input__label:hover .swatch,
 .product-form__input--swatch .swatch-input__input:hover:not(:checked) + .swatch-input__label .swatch {
 	outline: none;
