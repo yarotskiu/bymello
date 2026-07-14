@@ -1324,6 +1324,12 @@ class VariantSelects extends HTMLElement {
     this.removeErrorMessage();
     this.updateVariantStatuses();
 
+    if (!this.currentVariant && this.selectNearestAvailableOptions(event.target)) {
+      this.updateOptions();
+      this.updateMasterId();
+      this.updateVariantStatuses();
+    }
+
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
       this.setUnavailable();
@@ -1334,6 +1340,90 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+  }
+
+  // Bymello: when changing an earlier option (e.g. Color) leaves a later one
+  // (e.g. Size) pointing at a now-unavailable value, jump to the closest
+  // available value instead of leaving the selection stuck on "Unavailable".
+  // Distance is measured on the standard size scale, not the option's
+  // configured value order - that order isn't reliably size-sequential in
+  // this catalog (e.g. one product's Size values are literally
+  // ["S","XXL","M","L","XL"]), so index-based "nearest" would pick nonsense.
+  selectNearestAvailableOptions(changedElement) {
+    const inputWrappers = [...this.querySelectorAll('.product-form__input')];
+    const changedWrapper = changedElement.closest('.product-form__input');
+    const changedIndex = inputWrappers.indexOf(changedWrapper);
+    if (changedIndex === -1) return false;
+
+    let corrected = false;
+    for (let i = changedIndex + 1; i < inputWrappers.length; i++) {
+      const wrapper = inputWrappers[i];
+      const priorOptionValues = this.options.slice(0, i);
+      const optionKey = `option${i + 1}`;
+
+      const availableValues = this.variantData
+        .filter(
+          (variant) =>
+            variant.available && priorOptionValues.every((val, idx) => variant[`option${idx + 1}`] === val),
+        )
+        .map((variant) => variant[optionKey]);
+
+      const currentValue = this.options[i];
+      if (availableValues.includes(currentValue) || availableValues.length === 0) continue;
+
+      const orderedValues = [...wrapper.querySelectorAll('input[type="radio"], option')].map((element) =>
+        element.getAttribute('value'),
+      );
+      const ranks = orderedValues.map((value) => this.sizeRank(value));
+      const useRank = !ranks.includes(null);
+      const positionOf = (value) => (useRank ? this.sizeRank(value) : orderedValues.indexOf(value));
+
+      const currentPosition = positionOf(currentValue);
+      if (currentPosition === null || currentPosition === -1) continue;
+
+      let nearestValue = null;
+      let nearestDistance = Infinity;
+      orderedValues.forEach((value) => {
+        if (!availableValues.includes(value)) return;
+        const distance = Math.abs(positionOf(value) - currentPosition);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestValue = value;
+        }
+      });
+      if (nearestValue === null) continue;
+
+      this.selectOptionValue(wrapper, nearestValue);
+      this.options[i] = nearestValue;
+      corrected = true;
+    }
+
+    return corrected;
+  }
+
+  // Ranks common apparel size labels on a fixed scale, plus plain numeric
+  // sizes (EU/US style). Returns null when a value doesn't match either, so
+  // callers can fall back to the option's configured order instead.
+  sizeRank(value) {
+    if (value == null) return null;
+    const normalized = value.trim().toUpperCase().replace(/\s+/g, '');
+    const canonicalSizes = ['XXXS', 'XXS', 'XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'];
+    const aliases = { XXL: '2XL', XXXL: '3XL', XXXXL: '4XL', XXXXXL: '5XL', '1XL': 'XL' };
+    const key = aliases[normalized] || normalized;
+    const rank = canonicalSizes.indexOf(key);
+    if (rank !== -1) return rank;
+    if (/^-?\d+([.,]\d+)?$/.test(normalized)) return parseFloat(normalized.replace(',', '.'));
+    return null;
+  }
+
+  selectOptionValue(wrapper, value) {
+    const select = wrapper.querySelector('select');
+    if (select) {
+      select.value = value;
+      return;
+    }
+    const radio = [...wrapper.querySelectorAll('input[type="radio"]')].find((input) => input.value === value);
+    if (radio) radio.checked = true;
   }
 
   updateOptions() {
