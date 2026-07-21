@@ -5311,7 +5311,7 @@ search-form.search-modal__form {
 }
 
 /* Bymello: header icons restyle */
-.header__icons { column-gap: 2rem; }
+.header__icons { column-gap: 1.5rem; }
 .header__icons .header__icon { width: 2.4rem; height: 2.4rem; min-width: auto; padding: 0; }
 .header__icon .icon { width: 2.4rem; height: 2.4rem; }
 .cart-count-bubble {
