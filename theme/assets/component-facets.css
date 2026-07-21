@@ -1419,7 +1419,17 @@ input.mobile-facets__checkbox {
   }
 
   .product-count-vertical {
+    /* hidden for now while the catalog is small; re-enable once there are enough products
+       for the count to be worth showing */
+    display: none;
     position: relative;
+  }
+
+  /* the divider after "Filter" existed only to separate it from the count; drop it while
+     the count above is hidden so it doesn't dangle on its own */
+  .facets-top__enable-filter .vertical-filter-button {
+    padding-right: 0;
+    border-right: none;
   }
 
   .product-count-vertical__text {
@@ -1812,6 +1822,14 @@ facet-filters-form:focus-within .select {
 .sort-by-disclosure {
   margin-right: 0;
   position: relative;
+  /* the summary's top-only padding (below) makes this box taller than its siblings in the
+     row, so flex centering leaves the visible label sitting half a padding-top too low;
+     shift the whole disclosure (label + its dropdown panel move together) back up rather
+     than touching the padding, which must stay as-is to avoid resizing on open/close.
+     transform creates a stacking context, so it needs an explicit z-index below or the
+     open panel paints behind the product grid that follows it in the DOM. */
+  transform: translateY(-0.75rem);
+  z-index: 20;
 }
 .sort-by-disclosure .facets__summary {
   margin-bottom: 0;
