@@ -61,8 +61,8 @@
         "products_per_page": 24,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "custom_image_height": 103,
+        "image_ratio": "portrait",
+        "custom_image_height": 120,
         "image_shape": "default",
         "product_heading_size": "text-body--large",
         "product_heading_weight": "fw-500",
@@ -115,14 +115,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "The Comfort Sale \u2014 Up to 25% Off Sleep & Loungewear",
+            "heading": "The Comfort Sale — Up to 25% Off Sleep & Loungewear",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Organic cotton pajamas and loungewear from European brands \u2014 for slow mornings and soft evenings.</p>",
+            "text": "<p>Organic cotton pajamas and loungewear from European brands — for slow mornings and soft evenings.</p>",
             "text_style": "body",
             "text_color": "foreground-secondary"
           }
