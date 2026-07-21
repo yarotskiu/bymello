@@ -5299,6 +5299,17 @@ search-form.search-modal__form {
 }
 
 
+/* Bymello: header logo restyle */
+.header__heading-logo-wrapper {
+  color: #6b6d73;
+  position: relative;
+  top: 4px;
+}
+
+.header__heading-link:hover .header__heading-logo-wrapper {
+  color: #0b225c;
+}
+
 /* Bymello: header icons restyle */
 .header__icons { column-gap: 2rem; }
 .header__icons .header__icon { width: 2.4rem; height: 2.4rem; min-width: auto; padding: 0; }
