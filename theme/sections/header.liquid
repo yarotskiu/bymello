@@ -325,7 +325,11 @@
 								{% endif %}
               </div>
             {%- else -%}
-              <span class="h5">{{ shop.name }}</span>
+              <div class="header__heading-logo-wrapper">
+                {%- assign bm_logo_width = settings.logo_width | times: 1.1 | round -%}
+                {%- assign bm_logo_height = bm_logo_width | times: 171.43 | divided_by: 720.9 | round -%}
+                {%- render 'logo-bymello', width: bm_logo_width, height: bm_logo_height, class: 'header__heading-logo header__heading-logo--default motion-reduce' -%}
+              </div>
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
