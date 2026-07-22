@@ -10,11 +10,17 @@
   position: absolute;
   right: 0;
   top: 100%;
-  padding: 4rem 0 6rem;
+  padding: 2rem 0;
   z-index: 1;
   transition: transform 0.5s ease-in-out;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/* Bymello: tighten the side inset to 20px instead of inheriting the site-wide .page-width gutter */
+.mega-menu__content .page-width {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .mega-menu__wrapper {
@@ -48,6 +54,11 @@
   visibility: visible;
   pointer-events: all;
   transform: translateY(0);
+  /* the closed state above sits at z-index:-1 to stay behind everything while hidden;
+     restore a positive stacking order once open, or the sticky header's opaque
+     background paints over the panel's first line (only visible once the panel's
+     own top padding got small enough for content to reach that overlap zone) */
+  z-index: 2;
 }
 
 /* Disable animation for transparent header */
@@ -507,9 +518,14 @@ html{scrollbar-gutter:stable;}
   max-width: min(92vw, 70rem);
   margin: 0 !important;
   border-radius: 0 0 1.6rem 1.6rem;
-  box-shadow: 0 1.2rem 3rem rgba(0,0,0,0.08);
+  box-shadow: 0 16px 1.2rem rgba(0,0,0,0.08);
 }
 .mega-menu__content .page-width { width: auto; max-width: none; margin: 0; }
+/* the second-style variant sets its own higher-specificity padding at >=1200px, so it needs its own override to match */
+.mega-menu--default .mega-menu__content.second-style {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .mega-menu__wrapper,
 .mega-menu__content.second-style .mega-menu__wrapper { grid-template-columns: max-content !important; }
 
