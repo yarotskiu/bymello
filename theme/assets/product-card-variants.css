@@ -16,10 +16,6 @@
   width: var(--swatch-size);
 }
 
-.card-variants .swatch {
-  border: none;
-}
-
 .card-variants .card-variant:focus-visible {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 0.3rem;
@@ -44,11 +40,6 @@
 }
 
 @media screen and (min-width: 1560px) {
-  .extra-large-layout .card-variants .card-variant,
-  .extra-large-layout .card-variants .card-variant__item {
-    --swatch-size: 2.8rem;
-  }
-
   .extra-large-layout .card-variant--disabled .swatch,
   .extra-large-layout .card-variant--disabled .swatch {
     --swatch-input--size: 3.2rem;
