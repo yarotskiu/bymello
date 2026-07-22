@@ -212,10 +212,10 @@
   background-color: transparent;
 }
 
-.card--media .card__inner .card__content {
+.card--media .card__content {
   position: relative;
   z-index: 1;
-  padding: calc(var(--image-padding) + 2rem);
+  padding: calc(var(--image-padding) + 1.6rem);
 }
 
 .card--product > .card__inner .card__content {
@@ -240,8 +240,9 @@
   padding: 2.4rem 1rem;
 }
 
-.card--product > .card__content > .card__information {
-  padding: 0.5rem;
+.card--product > .card__content > .card__information,
+.card--product .card__information {
+  padding: 0;
 }
 
 .card:not(.ratio) > .card__content {
@@ -262,10 +263,6 @@
   .card__information {
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
-  }
-
-  .card--product .card__information {
-    padding-block: 1rem;
   }
 }
 
@@ -338,12 +335,16 @@
   position: relative;
 }
 
-.card-title-row .card__heading {
+.card-title-block {
   flex: 1 1 auto;
-  padding-right: 3.2rem;
+  min-width: 0;
 }
 
-.card-title-row .card__heading > a.full-unstyled-link {
+.card-title-block > * + * {
+  margin-top: 0.2rem;
+}
+
+.card-title-block .card__heading > a.full-unstyled-link {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -606,10 +607,10 @@
 }
 
 .card-information > *:not(.visually-hidden:first-child) {
-  margin-top: 0.4rem;
+  margin-top: 0.8rem;
 }
 
-.card-information > .caption-with-letter-spacing.light {
+.card-information > *:first-child {
   margin-top: 0;
 }
 
@@ -623,7 +624,10 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-right: 0.5rem;
+  /* wishlist heart is 26px wide, swatches are 22px, so right-aligning both to the
+     same edge leaves their centers 2px apart; nudge the row to center the last
+     swatch under the heart instead */
+  margin-right: 0.2rem;
 }
 
 .card-information .caption {
@@ -1063,14 +1067,11 @@
     padding: 2.8rem;
   }
 
-  .extra-large-layout .card--product > .card__content > .card__information {
-    padding: 1.8rem;
-  }
   .extra-large-layout .product-card-wrapper .card__heading {
     margin-bottom: 0.8rem;
   }
 
-  .extra-large-layout .card--media .card__inner .card__content {
+  .extra-large-layout .card--media .card__content {
     padding: calc(var(--image-padding) + 2.8rem);
   }
 }
@@ -1151,7 +1152,7 @@
 .bm-card-slider__slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;display:block;}
 .bm-card-slider__slide img{width:100%;height:100%;object-fit:cover;display:block;}
 /* Bymello: card actions (wishlist + quick-add), grouped bottom-right, hover-reveal */
-.bm-card-actions{position:absolute !important;bottom:2rem !important;right:2rem !important;left:auto !important;top:auto !important;width:auto !important;height:auto !important;max-width:none !important;max-height:none !important;z-index:4;display:flex !important;align-items:center;justify-content:flex-end;gap:1rem;opacity:0;transition:opacity .2s ease;}
+.bm-card-actions{position:absolute !important;bottom:2rem !important;right:1.2rem !important;left:auto !important;top:auto !important;width:auto !important;height:auto !important;max-width:none !important;max-height:none !important;z-index:4;display:flex !important;align-items:center;justify-content:flex-end;gap:1rem;opacity:0;transition:opacity .2s ease;}
 .card-wrapper:hover .bm-card-actions{opacity:1;}
 @media (hover:none){.bm-card-actions{opacity:1;}}
 
@@ -1160,7 +1161,7 @@
 .bm-wishlist-btn .icon-heart{width:2.4rem;height:2.4rem;}
 .bm-wishlist-btn .icon-heart path{stroke:currentColor;fill:none;transition:fill .15s ease;}
 .bm-wishlist-btn.is-active .icon-heart path{fill:#000;stroke:#000;}
-.card-title-row__wishlist{position:absolute;top:0;right:0.5rem;width:2.6rem;height:2.6rem;}
+.card-title-row__wishlist{width:2.6rem;height:2.6rem;}
 .card-title-row .card__heading{margin-bottom:0;}
 
 .bm-quickview-btn{position:static;width:3.4rem;height:3.4rem;border-radius:50%;border:none;background:transparent;color:rgb(var(--color-foreground));cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:none;transition:transform .15s ease;}
@@ -1187,10 +1188,7 @@
 
 /* Bymello: card actions/arrows scale with extra-large layout (>=1560px) */
 @media screen and (min-width: 1560px){
-  .bm-card-actions{bottom:2.8rem !important;right:2.8rem !important;}
-  .card-title-row__wishlist{right:0;}
-  .card-title-row .card__heading{padding-right:4rem;}
-  .card-price-variants-row{margin-right:0;}
+  .bm-card-actions{bottom:2.8rem !important;right:2.4rem !important;}
   .extra-large-layout .card-title-row .card__heading{margin-bottom:0;}
 }
 
