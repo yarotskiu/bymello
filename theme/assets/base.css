@@ -5332,8 +5332,16 @@ search-form.search-modal__form {
 #FacetsWrapperDesktop > details:has(input[name="filter.p.m.custom.gender"]){ margin-bottom: 2.8rem; }
 
 
-/* Bymello: lock 4-up grid */
-@media (min-width: 990px) {
+/* Bymello: step the grid down from 4-up to 3-up before the 1-up mobile/tablet tier kicks in */
+@media (min-width: 990px) and (max-width: 1399px) {
+  .facets-vertical .product-grid > .grid__item {
+    flex: 1 1 calc(33.33% - 12px);
+    max-width: calc(33.33% - 12px);
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1400px) {
   .facets-vertical .product-grid > .grid__item {
     flex: 1 1 calc(25% - 12px);
     max-width: calc(25% - 12px);
