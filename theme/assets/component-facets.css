@@ -1065,7 +1065,7 @@ facet-filters-form[open] {
   visibility: visible;
 }
 
-.js details[open] {
+.js .mobile-facets__details[open] {
   padding-bottom: 1.4rem;
 }
 
