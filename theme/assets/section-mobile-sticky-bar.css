@@ -29,7 +29,6 @@
   margin: 0;
   flex-wrap: nowrap;
   justify-content: center;
-  column-gap: 0;
 }
 
 .mobile-sticky-bar .grid--col .grid__item {
