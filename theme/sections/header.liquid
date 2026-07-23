@@ -595,7 +595,7 @@
         </a>
       {%- endif -%}
 
-      <a href="/pages/wishlist" class="header__icon header__icon--wishlist link focus-inset" aria-label="Wishlist">
+      <a href="/pages/wishlist" class="header__icon header__icon--wishlist link focus-inset small-hide medium-hide" aria-label="Wishlist">
         {% render 'icon-heart' %}
         <div class="cart-count-bubble" data-wishlist-count></div>
       </a>
@@ -607,7 +607,7 @@
         {%- endcase -%}
       {%- endfor -%}
 
-			<a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset {% if section.settings.use_general_header_scheme == false %} color-{{ section.settings.cart_color_scheme}} {% endif %} {% if template == 'cart' %} hidden {%  endif %} {% if section.settings.cart_icon_bg_transparent %} bg-transparent {% endif %}" id="cart-icon-bubble">
+			<a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset small-hide medium-hide {% if section.settings.use_general_header_scheme == false %} color-{{ section.settings.cart_color_scheme}} {% endif %} {% if template == 'cart' %} hidden {%  endif %} {% if section.settings.cart_icon_bg_transparent %} bg-transparent {% endif %}" id="cart-icon-bubble">
 				{%- liquid
 					if cart == empty
 						if section.settings.icons_style == 'classic'

@@ -7,7 +7,7 @@
 			--counter-bg: {{ section.settings.counter_bg }};
 		}
 
-    @media screen and (max-width:749px) {
+    @media screen and (max-width:989px) {
       #shopify-section-footer {
         padding-bottom: 5.5rem;
       }
@@ -36,36 +36,14 @@
                   title="{{ shop.name | replace: '-', ' ' | capitalize }}"
                   aria-label="{{ shop.name | replace: '-', ' ' | capitalize }}"
                 >
-                  <svg
-                    class="icon icon-scroll"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="36"
-                    height="36"
-                    viewBox="0 0 36 36"
-                    fill="none"
-                  >
-                    <mask id="mask0_1415_1179" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
-                    <rect width="36" height="36" fill="currentColor"/>
-                    </mask>
-                    <g mask="url(#mask0_1415_1179)">
-                    <path d="M11.1 25.875V26.025H11.25H14.625H14.775V25.875V19.275H21.225V25.875V26.025H21.375H24.75H24.9V25.875V15.75V15.675L24.84 15.63L18.09 10.5675L18 10.5L17.91 10.5675L11.16 15.63L11.1 15.675V15.75V25.875ZM26.85 14.7V27.975H19.275V21.375V21.225H19.125H16.875H16.725V21.375V27.975H9.15V14.7L18 8.0625L26.85 14.7Z" fill="currentColor" stroke="currentColor" stroke-width="0.3"/>
-                    </g>
-                  </svg>
+                  {% render 'icon-nav-home' %}
                 </a>
               </li>
 
             {%- when 'collection' -%}
               <li class="grid__item" {{ block.shopify_attributes }}>
                 <a class="link" href="{{ routes.all_products_collection_url }}" title="Products" aria-label="Products">
-                  
-                  <svg class="icon icon-scroll" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                    <mask id="mask0_1415_1176" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
-                    <rect width="36" height="36" fill="currentColor"/>
-                    </mask>
-                    <g mask="url(#mask0_1415_1176)">
-                    <path d="M19.2871 18.4521H19.1371V18.6021V25.3521V25.5021H19.2871H26.0371H26.1871V25.3521V18.6021V18.4521H26.0371H19.2871ZM19.1371 16.3521V16.5021H19.2871H26.0371H26.1871V16.3521V9.60205V9.45205H26.0371H19.2871H19.1371V9.60205V16.3521ZM17.0371 16.5021H17.1871V16.3521V9.60205V9.45205H17.0371H10.2871H10.1371V9.60205V16.3521V16.5021H10.2871H17.0371ZM17.1871 18.6021V18.4521H17.0371H10.2871H10.1371V18.6021V25.3521V25.5021H10.2871H17.0371H17.1871V25.3521V18.6021ZM10.2871 27.4521C9.70846 27.4521 9.21683 27.2478 8.80411 26.835C8.39139 26.4223 8.18711 25.9307 8.18711 25.3521V9.60205C8.18711 9.0234 8.39139 8.53177 8.80411 8.11905C9.21683 7.70634 9.70846 7.50205 10.2871 7.50205H26.0371C26.6158 7.50205 27.1074 7.70634 27.5201 8.11905C27.9328 8.53177 28.1371 9.0234 28.1371 9.60205V25.3521C28.1371 25.9307 27.9328 26.4223 27.5201 26.835C27.1074 27.2478 26.6158 27.4521 26.0371 27.4521H10.2871Z" fill="currentColor" stroke="currentColor" stroke-width="0.3"/>
-                    </g>
-                  </svg>
+                  {% render 'icon-nav-store' %}
                 </a>
               </li>
 
@@ -79,36 +57,44 @@
 										name="{{ 'templates.cart.cart' | t }}"
 										aria-label="{{ 'templates.cart.cart' | t }}"
 									>
-										<svg class="icon icon-scroll" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<mask id="mask0_724_41" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
-											<rect width="36" height="36" fill="currentColor"/>
-											</mask>
-											<g mask="url(#mask0_724_41)">
-											<path d="M12.1607 12.072H12.2607V11.972C12.2607 10.5333 12.7723 9.30958 13.798 8.29535C14.8237 7.28109 16.0618 6.7748 17.5179 6.7748C18.9739 6.7748 20.212 7.28109 21.2377 8.29535C22.2634 9.30958 22.775 10.5333 22.775 11.972V12.072H22.875H25.0179C25.5808 12.072 26.06 12.2691 26.4609 12.6656C26.8619 13.062 27.0607 13.5353 27.0607 14.0909V26.8043C27.0607 27.3599 26.8619 27.8332 26.4609 28.2297C26.06 28.6261 25.5808 28.8232 25.0179 28.8232H10.0179C9.45494 28.8232 8.97573 28.6261 8.57478 28.2297C8.17386 27.8332 7.975 27.3599 7.975 26.8043V14.0909C7.975 13.5353 8.17386 13.062 8.57478 12.6656C8.97573 12.2691 9.45494 12.072 10.0179 12.072H12.1607ZM9.91786 26.8043V26.9043H10.0179H25.0179H25.1179V26.8043V14.0909V13.9909H25.0179H10.0179H9.91786V14.0909V26.8043ZM14.2036 11.972V12.072H14.3036H20.7321H20.8321V11.972C20.8321 11.0626 20.509 10.2865 19.865 9.64961C19.2209 9.01276 18.4366 8.6937 17.5179 8.6937C16.5991 8.6937 15.8148 9.01276 15.1708 9.64961C14.5267 10.2865 14.2036 11.0626 14.2036 11.972ZM21.2377 18.8271C20.212 19.8413 18.9739 20.3476 17.5179 20.3476C16.0618 20.3476 14.8237 19.8413 13.798 18.8271C12.7961 17.8364 12.2848 16.646 12.2615 15.2504H14.2049C14.2278 16.1169 14.5504 16.8594 15.1708 17.4728C15.8148 18.1097 16.5991 18.4287 17.5179 18.4287C18.4366 18.4287 19.2209 18.1097 19.865 17.4728C20.4853 16.8594 20.8079 16.1169 20.8308 15.2504H22.7742C22.7509 16.646 22.2396 17.8364 21.2377 18.8271Z" fill="currentColor" stroke="currentColor" stroke-width="0.2"/>
-											</g>
-										</svg>
-
-										<span class="header__icon-text cart-count">
-											<span aria-hidden="true" id="cart-count-bubble-sticky" class="cart-count-bubble cart-count-bubble-sticky"> {{ cart.item_count }} </span>
+										<span class="bm-sticky-icon">
+											{% render 'icon-nav-bag' %}
+											{%- if cart != empty -%}
+												<div class="cart-count-bubble cart-count-bubble-sticky">
+													{%- if cart.item_count <= 100 -%}
+														<span aria-hidden="true">{{ cart.item_count }}</span>
+													{%- endif -%}
+													<span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+												</div>
+											{%- endif -%}
 										</span>
 									</button>
 								{% else %}
 									<a href="{{ routes.cart_url }}" id="cart-icon-bubble-sticky" class="cart-icon-bubble-sticky link cart-modal">
-										<svg class="icon icon-scroll" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<mask id="mask0_724_41" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
-											<rect width="36" height="36" fill="currentColor"/>
-											</mask>
-											<g mask="url(#mask0_724_41)">
-											<path d="M12.1607 12.072H12.2607V11.972C12.2607 10.5333 12.7723 9.30958 13.798 8.29535C14.8237 7.28109 16.0618 6.7748 17.5179 6.7748C18.9739 6.7748 20.212 7.28109 21.2377 8.29535C22.2634 9.30958 22.775 10.5333 22.775 11.972V12.072H22.875H25.0179C25.5808 12.072 26.06 12.2691 26.4609 12.6656C26.8619 13.062 27.0607 13.5353 27.0607 14.0909V26.8043C27.0607 27.3599 26.8619 27.8332 26.4609 28.2297C26.06 28.6261 25.5808 28.8232 25.0179 28.8232H10.0179C9.45494 28.8232 8.97573 28.6261 8.57478 28.2297C8.17386 27.8332 7.975 27.3599 7.975 26.8043V14.0909C7.975 13.5353 8.17386 13.062 8.57478 12.6656C8.97573 12.2691 9.45494 12.072 10.0179 12.072H12.1607ZM9.91786 26.8043V26.9043H10.0179H25.0179H25.1179V26.8043V14.0909V13.9909H25.0179H10.0179H9.91786V14.0909V26.8043ZM14.2036 11.972V12.072H14.3036H20.7321H20.8321V11.972C20.8321 11.0626 20.509 10.2865 19.865 9.64961C19.2209 9.01276 18.4366 8.6937 17.5179 8.6937C16.5991 8.6937 15.8148 9.01276 15.1708 9.64961C14.5267 10.2865 14.2036 11.0626 14.2036 11.972ZM21.2377 18.8271C20.212 19.8413 18.9739 20.3476 17.5179 20.3476C16.0618 20.3476 14.8237 19.8413 13.798 18.8271C12.7961 17.8364 12.2848 16.646 12.2615 15.2504H14.2049C14.2278 16.1169 14.5504 16.8594 15.1708 17.4728C15.8148 18.1097 16.5991 18.4287 17.5179 18.4287C18.4366 18.4287 19.2209 18.1097 19.865 17.4728C20.4853 16.8594 20.8079 16.1169 20.8308 15.2504H22.7742C22.7509 16.646 22.2396 17.8364 21.2377 18.8271Z" fill="currentColor" stroke="currentColor" stroke-width="0.2"/>
-											</g>
-										</svg>
-
-										<span class="header__icon-text  cart-count">
-											<span aria-hidden="true" id="cart-count-bubble-sticky" class="cart-count-bubble cart-count-bubble-sticky"> {{ cart.item_count }} </span>
+										<span class="bm-sticky-icon">
+											{% render 'icon-nav-bag' %}
+											{%- if cart != empty -%}
+												<div class="cart-count-bubble cart-count-bubble-sticky">
+													{%- if cart.item_count <= 100 -%}
+														<span aria-hidden="true">{{ cart.item_count }}</span>
+													{%- endif -%}
+													<span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+												</div>
+											{%- endif -%}
 										</span>
 									</a>
 								{% endif %}
 							</li>
+
+            {%- when 'wishlist' -%}
+              <li class="grid__item" {{ block.shopify_attributes }}>
+                <a href="/pages/wishlist" class="link header__icon--wishlist" aria-label="Wishlist">
+                  <span class="bm-sticky-icon">
+                    {% render 'icon-nav-heart' %}
+                    <div class="cart-count-bubble" data-wishlist-count></div>
+                  </span>
+                </a>
+              </li>
 
             {%- when 'search' -%}
               <li class="grid__item" {{ block.shopify_attributes }}>
@@ -255,9 +241,7 @@
                     title="{{ account_title }}"
                     aria-label="{{ account_title }}"
                   >
-										<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M14.9622 12.9376C14.9622 11.26 16.3221 9.9001 17.9997 9.9001C19.6772 9.9001 21.0372 11.26 21.0372 12.9376C21.0372 14.6152 19.6772 15.9751 17.9997 15.9751C16.3221 15.9751 14.9622 14.6152 14.9622 12.9376ZM17.9997 8.1001C15.3279 8.1001 13.1622 10.2659 13.1622 12.9376C13.1622 15.6092 15.3279 17.7751 17.9997 17.7751C20.6713 17.7751 22.8372 15.6092 22.8372 12.9376C22.8372 10.2659 20.6713 8.1001 17.9997 8.1001ZM14.0474 20.1033C14.4572 19.8218 14.5611 19.2615 14.2797 18.8518C13.9984 18.4421 13.438 18.338 13.0283 18.6195C11.8546 19.4256 10.8949 20.5084 10.2322 21.7731C9.56963 23.0375 9.22387 24.4458 9.22461 25.8751V27.0001C9.22461 27.4971 9.62756 27.9001 10.1246 27.9001H25.8747C26.3717 27.9001 26.7747 27.4971 26.7747 27.0001V25.8756C26.7755 24.4461 26.4296 23.0377 25.767 21.7731C25.1044 20.5084 24.1446 19.4256 22.9709 18.6195C22.5612 18.338 22.0008 18.4421 21.7195 18.8518C21.4381 19.2615 21.5421 19.8218 21.9518 20.1033C22.8828 20.7426 23.6455 21.6026 24.1727 22.6085C24.6998 23.6146 24.9752 24.7358 24.9747 25.8745V26.1001H11.0246V25.8751C11.0239 24.7364 11.2994 23.6146 11.8266 22.6085C12.3537 21.6026 13.1164 20.7426 14.0474 20.1033Z" fill="currentColor"/>
-										</svg>									
+										{% render 'icon-nav-account' %}
                   </a>
                 </li>
               {%- endif -%}
@@ -273,7 +257,7 @@
 {% schema %}
 {
   "name": "t:sections.mobile-sticky-bar.name",
-  "class": "mobile-sticky-bar gradient medium-hide large-up-hide",
+  "class": "mobile-sticky-bar gradient large-up-hide",
   "limit": 1,
   "enabled_on": {
     "groups": ["custom.additions"]
@@ -333,6 +317,11 @@
       "limit": 1
     },
     {
+      "type": "wishlist",
+      "name": "Wishlist",
+      "limit": 1
+    },
+    {
       "type": "account",
       "name": "t:sections.mobile-sticky-bar.blocks.account.name",
       "limit": 1
@@ -352,7 +341,7 @@
           "type": "cart"
         },
         {
-          "type": "search"
+          "type": "wishlist"
         },
         {
           "type": "account"
