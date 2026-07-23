@@ -3429,7 +3429,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
   }
 }
 
-.header__icon .icon-close {
+.header__icon .icon.icon-close {
   height: 1.8rem;
   width: 1.8rem;
 }
