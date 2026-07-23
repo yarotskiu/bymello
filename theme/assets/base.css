@@ -3430,8 +3430,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 .header__icon .icon-close {
-  height: 2rem;
-  width: 2rem;
+  height: 1.8rem;
+  width: 1.8rem;
 }
 
 .header__icon {
