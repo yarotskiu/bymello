@@ -92,7 +92,7 @@
         "login_label": "",
         "enable_country_selector": false,
         "enable_language_selector": true,
-        "mobile_logo_position": "center",
+        "mobile_logo_position": "left",
         "mega_menu_image_color_scheme": "",
         "mega_menu_style": "second-style",
         "mega_menu_image_ratio": "landscape",

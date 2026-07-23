@@ -35,8 +35,8 @@
           "type": "cart",
           "settings": {}
         },
-        "search_rLQjNw": {
-          "type": "search",
+        "wishlist_bK4mQ2": {
+          "type": "wishlist",
           "settings": {}
         },
         "account_MPAECU": {
@@ -47,8 +47,8 @@
       "block_order": [
         "home_XqqdUf",
         "collection_Qq3JzT",
+        "wishlist_bK4mQ2",
         "cart_LUaz8x",
-        "search_rLQjNw",
         "account_MPAECU"
       ],
       "settings": {

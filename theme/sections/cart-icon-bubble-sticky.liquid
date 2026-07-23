@@ -5,23 +5,15 @@
 	name="{{ 'templates.cart.cart' | t }}"
 	aria-label="{{ 'templates.cart.cart' | t }}"
 >
-	<svg class="icon icon-scroll" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<mask id="mask0_724_41" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
-		<rect width="36" height="36" fill="currentColor"/>
-		</mask>
-		<g mask="url(#mask0_724_41)">
-		<path d="M12.1607 12.072H12.2607V11.972C12.2607 10.5333 12.7723 9.30958 13.798 8.29535C14.8237 7.28109 16.0618 6.7748 17.5179 6.7748C18.9739 6.7748 20.212 7.28109 21.2377 8.29535C22.2634 9.30958 22.775 10.5333 22.775 11.972V12.072H22.875H25.0179C25.5808 12.072 26.06 12.2691 26.4609 12.6656C26.8619 13.062 27.0607 13.5353 27.0607 14.0909V26.8043C27.0607 27.3599 26.8619 27.8332 26.4609 28.2297C26.06 28.6261 25.5808 28.8232 25.0179 28.8232H10.0179C9.45494 28.8232 8.97573 28.6261 8.57478 28.2297C8.17386 27.8332 7.975 27.3599 7.975 26.8043V14.0909C7.975 13.5353 8.17386 13.062 8.57478 12.6656C8.97573 12.2691 9.45494 12.072 10.0179 12.072H12.1607ZM9.91786 26.8043V26.9043H10.0179H25.0179H25.1179V26.8043V14.0909V13.9909H25.0179H10.0179H9.91786V14.0909V26.8043ZM14.2036 11.972V12.072H14.3036H20.7321H20.8321V11.972C20.8321 11.0626 20.509 10.2865 19.865 9.64961C19.2209 9.01276 18.4366 8.6937 17.5179 8.6937C16.5991 8.6937 15.8148 9.01276 15.1708 9.64961C14.5267 10.2865 14.2036 11.0626 14.2036 11.972ZM21.2377 18.8271C20.212 19.8413 18.9739 20.3476 17.5179 20.3476C16.0618 20.3476 14.8237 19.8413 13.798 18.8271C12.7961 17.8364 12.2848 16.646 12.2615 15.2504H14.2049C14.2278 16.1169 14.5504 16.8594 15.1708 17.4728C15.8148 18.1097 16.5991 18.4287 17.5179 18.4287C18.4366 18.4287 19.2209 18.1097 19.865 17.4728C20.4853 16.8594 20.8079 16.1169 20.8308 15.2504H22.7742C22.7509 16.646 22.2396 17.8364 21.2377 18.8271Z" fill="currentColor" stroke="currentColor" stroke-width="0.2"/>
-		</g>
-	</svg>
-
-	<span class="header__icon-text cart-count">
+	<span class="bm-sticky-icon">
+		{% render 'icon-nav-bag' %}
 		{%- if cart != empty -%}
-			<span id="cart-count-bubble-sticky" class="cart-count-bubble cart-count-bubble-sticky">
+			<div class="cart-count-bubble cart-count-bubble-sticky">
 				{%- if cart.item_count <= 100 -%}
 					<span aria-hidden="true">{{ cart.item_count }}</span>
 				{%- endif -%}
 				<span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-			</span>
+			</div>
 		{%- endif -%}
 	</span>
 </button>
