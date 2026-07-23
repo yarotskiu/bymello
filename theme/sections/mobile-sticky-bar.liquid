@@ -52,7 +52,7 @@
 								{% if settings.cart_type == 'drawer' %}
 									<button
 										id="cart-icon-bubble-sticky"
-										class="cart-icon-bubble-sticky link cart-modal"
+										class="cart-icon-bubble-sticky link cart-modal focus-inset"
 										type="button"
 										name="{{ 'templates.cart.cart' | t }}"
 										aria-label="{{ 'templates.cart.cart' | t }}"
@@ -70,7 +70,7 @@
 										</span>
 									</button>
 								{% else %}
-									<a href="{{ routes.cart_url }}" id="cart-icon-bubble-sticky" class="cart-icon-bubble-sticky link cart-modal">
+									<a href="{{ routes.cart_url }}" id="cart-icon-bubble-sticky" class="cart-icon-bubble-sticky link cart-modal focus-inset">
 										<span class="bm-sticky-icon">
 											{% render 'icon-nav-bag' %}
 											{%- if cart != empty -%}
