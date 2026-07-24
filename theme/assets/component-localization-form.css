@@ -800,7 +800,7 @@ noscript .localization-selector.link {
 }
 
 .menu-drawer__localization:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 2.4rem;
 }
 
 .menu-drawer__localization localization-form {
@@ -810,7 +810,7 @@ noscript .localization-selector.link {
 .menu-drawer__localization .localization-form__select {
   background-color: initial;
   margin-top: 0;
-  padding: 0.8rem 1.2rem;
+  padding: 1.1rem 1.6rem;
   /* otherwise wider than its own content, and justify-content:flex-end dumps the
      leftover space as an uneven gap on the left instead of even padding */
   min-width: 0;
@@ -821,7 +821,7 @@ noscript .localization-selector.link {
 }
 
 .js .menu-drawer__localization .language-selector .disclosure__button.localization-form__select.localization-selector {
-  padding-left: 1.2rem;
+  padding-left: 1.6rem;
 }
 
 .menu-drawer__localization .localization-form {

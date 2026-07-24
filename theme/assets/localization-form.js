@@ -19,6 +19,16 @@ if (!customElements.get('localization-form')) {
         this.addEventListener('keyup', this.onContainerKeyUp.bind(this));
         this.addEventListener('keydown', this.onContainerKeyDown.bind(this));
         this.addEventListener('focusout', this.closeSelector.bind(this));
+        /* On touch devices a tap on the trigger can fire a focusout (closing the panel via
+           closeSelector) before the click that's meant to toggle it is even dispatched — the
+           browser blurs the focused button as part of handling the tap. openSelector would then
+           read the just-closed state and toggle it back open, so re-tapping the trigger looked
+           like it never closed. Capture the true pre-click state on mousedown, which always
+           fires before any of that, so openSelector can decide open/close from it instead of
+           from state that closeSelector may have already mutated. */
+        this.elements.button.addEventListener('mousedown', () => {
+          this.wasExpanded = this.elements.button.getAttribute('aria-expanded') === 'true';
+        });
         this.elements.button.addEventListener('click', this.openSelector.bind(this));
 
         if (this.elements.search) {
@@ -97,6 +107,7 @@ if (!customElements.get('localization-form')) {
             break;
           case 'SPACE':
             if (this.elements.button.getAttribute('aria-expanded') == 'true') return;
+            this.wasExpanded = false;
             this.openSelector();
             break;
         }
@@ -110,12 +121,16 @@ if (!customElements.get('localization-form')) {
       }
 
       openSelector() {
+        const shouldOpen = !this.wasExpanded;
         this.elements.button.focus();
-        this.elements.panel.toggleAttribute('hidden');
-        this.elements.button.setAttribute(
-          'aria-expanded',
-          (this.elements.button.getAttribute('aria-expanded') === 'false').toString()
-        );
+
+        if (!shouldOpen) {
+          this.hidePanel();
+          return;
+        }
+
+        this.elements.panel.removeAttribute('hidden');
+        this.elements.button.setAttribute('aria-expanded', 'true');
         if (!document.body.classList.contains('overflow-hidden-tablet')) {
           document.body.classList.add('overflow-hidden-mobile');
         }
