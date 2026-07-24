@@ -278,57 +278,17 @@ noscript .localization-selector.link {
   left: 2rem !important;
 }
 
+/* Country selector is a small anchored card at every width, matching the language
+   selector — no full-screen sheet, no overlay, no separate close button. */
+.country-selector__overlay {
+  display: none;
+}
+
+.country-selector__close-button {
+  display: none;
+}
+
 @media screen and (max-width: 749px) {
-  .disclosure__list-wrapper.country-selector:not([hidden]) + .country-selector__overlay:empty {
-    display: block;
-  }
-
-  .country-selector__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(var(--color-foreground), 0.5);
-    z-index: 3;
-    animation: animateLocalization var(--duration-default) ease;
-  }
-
-  .disclosure__list-wrapper.country-selector {
-    position: fixed;
-    bottom: -1rem;
-    left: 0;
-    width: 100%;
-    height: 80%;
-    max-height: 80vh;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-    z-index: 4;
-  }
-
-  .disclosure__list.country-selector__list {
-    max-height: 85%;
-    min-width: 100%;
-    margin-bottom: 0;
-    z-index: 5;
-  }
-
-  .country-selector__close-button.link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0rem;
-    background-color: transparent;
-    height: 4.4rem;
-    width: 4.4rem;
-  }
-
-  .country-selector__close-button .icon {
-    width: 2rem;
-    height: 2rem;
-  }
-
   .country-filter {
     padding: 1.5rem 2rem 0.6rem 1.5rem;
   }
@@ -386,7 +346,8 @@ noscript .localization-selector.link {
 }
 
 /* Language selector — styled to match the sort-by dropdown (flat panel, no hover state on the trigger) */
-.language-selector .localization-form__select {
+.language-selector .localization-form__select,
+.disclosure:has(.country-selector) .localization-form__select {
   font-weight: 500;
   letter-spacing: var(--letter-spacing-h6);
 }
@@ -394,12 +355,17 @@ noscript .localization-selector.link {
 /* the base icon-caret is absolutely positioned to the right, pinned to the button's edge
    regardless of the (now wider, panel-matched) button width — make it a normal flex item
    sitting right next to the text instead, matching the sort-by dropdown */
-.language-selector .icon-caret {
+.disclosure:has(.country-selector) .disclosure__button .icon-caret {
+  margin-left: 0.8rem;
+}
+
+.language-selector .icon-caret,
+.disclosure:has(.country-selector) .disclosure__button .icon-caret {
   position: static;
   top: auto;
   right: auto;
-  width: 1.1rem;
-  height: auto;
+  width: auto;
+  height: 0.6rem;
   transition: transform 0.25s ease;
 }
 
@@ -419,7 +385,7 @@ noscript .localization-selector.link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.6rem;
+  gap: 0.8rem;
   min-width: max-content;
 }
 .language-selector__sizer {
@@ -456,7 +422,8 @@ noscript .localization-selector.link {
   border: 0;
 }
 
-.language-selector .localization-selector + .disclosure__list-wrapper {
+.language-selector .localization-selector + .disclosure__list-wrapper,
+.localization-selector + .disclosure__list-wrapper.country-selector {
   animation: languageSelectorPlateOpen var(--duration-default) ease !important;
 }
 
@@ -479,11 +446,21 @@ noscript .localization-selector.link {
   width: 100%;
   left: 0;
   right: auto;
+  /* shadow points up instead of down, so it doesn't cut a seam where the panel meets the trigger below it */
+  box-shadow: var(--popup-shadow-horizontal-offset) calc(-1 * var(--popup-shadow-vertical-offset)) var(--popup-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
 }
 .language-selector .disclosure__list {
   width: auto;
   min-width: 0;
   max-width: none;
+  /* flush against the wrapper's rounded top edge instead of leaving a gap above the first row */
+  padding-top: 0;
+}
+
+/* the highlighted row's flat-corner background otherwise pokes past the wrapper's rounded corner */
+.language-selector .disclosure__list .disclosure__item:first-child .disclosure__link {
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
 }
 
 .language-selector:has(.disclosure__button[aria-expanded='true']) .disclosure__button {
@@ -495,8 +472,160 @@ noscript .localization-selector.link {
   border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
 }
 
+.header-localization:not(.menu-drawer__localization) .language-selector .disclosure__list {
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+}
+
+.header-localization:not(.menu-drawer__localization) .language-selector .disclosure__list .disclosure__item:first-child .disclosure__link {
+  border-radius: 0;
+}
+
+.header-localization:not(.menu-drawer__localization) .language-selector .disclosure__list .disclosure__item:last-child .disclosure__link {
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+}
+
 .header-localization:not(.menu-drawer__localization) .language-selector:has(.disclosure__button[aria-expanded='true']) .disclosure__button {
   border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+}
+
+/* Country selector: same seamless-card treatment as the language selector, at every width. */
+.disclosure__list-wrapper.country-selector {
+  border: 0;
+  transform: translateY(0);
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+  box-shadow: var(--popup-shadow-horizontal-offset) calc(-1 * var(--popup-shadow-vertical-offset)) var(--popup-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
+  /* match the trigger's own width exactly, same as the language selector; long translated
+     country names truncate with an ellipsis instead of wrapping/scrolling (see .country below) */
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+.disclosure__list-wrapper.country-selector .disclosure__list {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+}
+
+.disclosure__list-wrapper.country-selector .disclosure__list {
+  padding-top: 0;
+}
+
+.disclosure__list-wrapper.country-selector .disclosure__item:first-child .disclosure__link {
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+}
+
+.disclosure:has(.disclosure__list-wrapper.country-selector) .disclosure__button {
+  position: relative;
+  z-index: 1;
+}
+
+.disclosure:has(.disclosure__button[aria-expanded='true']):has(.country-selector) .disclosure__button {
+  background-color: rgb(var(--color-background));
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+}
+
+/* Menu drawer: both dropdowns open downward instead of above, and sit more compactly. */
+.menu-drawer__localization .language-selector .disclosure__list-wrapper {
+  bottom: initial;
+  top: 100%;
+  transform: translateY(0);
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+  box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius) -2px
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
+}
+
+/* Menu drawer: light gray outline around the closed trigger button */
+.menu-drawer__localization .localization-form__select {
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+}
+
+
+.menu-drawer__localization .language-selector .disclosure__list {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.menu-drawer__localization .language-selector .disclosure__list .disclosure__item:first-child .disclosure__link {
+  border-radius: 0;
+}
+
+.menu-drawer__localization .language-selector .disclosure__list .disclosure__item:last-child .disclosure__link {
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+}
+
+.menu-drawer__localization .language-selector:has(.disclosure__button[aria-expanded='true']) .disclosure__button {
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+  border-bottom-color: transparent;
+}
+
+.menu-drawer__localization .language-selector .disclosure__list-wrapper {
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border-top: 0;
+}
+
+.menu-drawer__localization .disclosure__list-wrapper.country-selector {
+  bottom: initial;
+  top: 100%;
+  transform: translateY(0);
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+  box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius) -2px
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
+  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border-top: 0;
+}
+
+.menu-drawer__localization .disclosure__list-wrapper.country-selector .disclosure__list {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* the search-filter row is hidden (no close button, no filter needed for a short list),
+   but the "no-padding" fix for that only applied at min-width:750px — extend it here too */
+.menu-drawer__localization .country-filter--no-padding {
+  padding: 0;
+}
+
+.menu-drawer__localization .disclosure__list-wrapper.country-selector .countries {
+  padding-top: 0;
+}
+
+.menu-drawer__localization .disclosure__list-wrapper.country-selector .disclosure__item:first-child .disclosure__link {
+  border-radius: 0;
+}
+
+.menu-drawer__localization .disclosure__list-wrapper.country-selector .disclosure__item:last-child .disclosure__link {
+  border-radius: 0 0 var(--popup-corner-radius) var(--popup-corner-radius);
+}
+
+.menu-drawer__localization .disclosure:has(.disclosure__button[aria-expanded='true']):has(.country-selector) .disclosure__button {
+  border-radius: var(--popup-corner-radius) var(--popup-corner-radius) 0 0;
+  border-bottom-color: transparent;
+}
+
+/* more compact rows for the country dropdown (language's own .disclosure__link rule below is edited directly) */
+.country-selector .disclosure__link {
+  padding: 0.6rem 1.2rem;
+  line-height: 1.2;
+  /* country name shrinks/truncates instead of pushing the currency out or wrapping;
+     currency (always short) keeps its natural width in the last column */
+  grid-template-columns: 1fr auto;
+}
+
+.country-selector .disclosure__link .country {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Menu drawer: same row height (32px) for both dropdowns, regardless of font metrics */
+.menu-drawer__localization .disclosure__link {
+  height: 3.2rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: center;
 }
 
 @keyframes languageSelectorPlateOpen {
@@ -511,7 +640,7 @@ noscript .localization-selector.link {
 /* active/hover row = full-width band, matching the sort-by dropdown (component-facets.css) */
 .language-selector .disclosure__link {
   transition: background-color 0.2s ease;
-  padding: 0.8rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1.4rem;
   line-height: 1.2;
   letter-spacing: normal;
@@ -568,6 +697,17 @@ noscript .localization-selector.link {
 .disclosure__link[aria-current='true'] .localization-form__currency,
 .header-localization .disclosure__link[aria-current='true'] {
   text-decoration: underline;
+}
+
+/* Country selector: same gray-band active state as the language selector, no underline */
+.country-selector .disclosure__link[aria-current='true'] {
+  font-weight: 600;
+  background-color: rgba(var(--color-foreground), 0.07);
+  text-decoration: none !important;
+}
+
+.country-selector .disclosure__link[aria-current='true'] .localization-form__currency {
+  text-decoration: none !important;
 }
 
 .header-localization .localization-form__select.link:after,
@@ -635,9 +775,24 @@ noscript .localization-selector.link {
   top: 100%;
   right: 0;
   transform: translateY(0);
+  /* this variant opens below the trigger, so the shadow points back down */
+  box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
 }
 
 /* Menu drawer */
+.menu-drawer__localization {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+}
+
+.menu-drawer__localization localization-form,
+.menu-drawer__localization .localization-form {
+  flex: 0 0 auto;
+}
+
 @media screen and (min-width: 990px) {
   .menu-drawer__localization {
     display: none;
@@ -655,7 +810,18 @@ noscript .localization-selector.link {
 .menu-drawer__localization .localization-form__select {
   background-color: initial;
   margin-top: 0;
-  padding: 1rem 3.6rem 1rem 0rem;
+  padding: 0.8rem 1.2rem;
+  /* otherwise wider than its own content, and justify-content:flex-end dumps the
+     leftover space as an uneven gap on the left instead of even padding */
+  min-width: 0;
+}
+
+.menu-drawer__localization .disclosure .localization-form__select {
+  font-size: 1.4rem;
+}
+
+.js .menu-drawer__localization .language-selector .disclosure__button.localization-form__select.localization-selector {
+  padding-left: 1.2rem;
 }
 
 .menu-drawer__localization .localization-form {

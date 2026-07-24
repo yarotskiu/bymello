@@ -250,22 +250,32 @@
                   </a>
                 </li>
               {%- endif -%}
-              {%- if settings.social_facebook_link != blank -%}
-                <li class="list-social__item list-social__item--rounded button--animate-{{ settings.animations_hover_elements }}">
+              <li class="list-social__item list-social__item--rounded button--animate-{{ settings.animations_hover_elements }}">
+                {%- if settings.social_facebook_link != blank -%}
                   <a href="{{ settings.social_facebook_link }}" class="list-social__link link" target="_blank" rel="nofollow">
-										{%- render 'icon-facebook' -%}
+                    {%- render 'icon-facebook' -%}
                     <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
                   </a>
-                </li>
-              {%- endif -%}
-              {%- if settings.social_pinterest_link != blank -%}
-                <li class="list-social__item list-social__item--rounded button--animate-{{ settings.animations_hover_elements }}">
+                {%- else -%}
+                  <span class="list-social__link" aria-disabled="true">
+                    {%- render 'icon-facebook' -%}
+                    <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                  </span>
+                {%- endif -%}
+              </li>
+              <li class="list-social__item list-social__item--rounded button--animate-{{ settings.animations_hover_elements }}">
+                {%- if settings.social_pinterest_link != blank -%}
                   <a href="{{ settings.social_pinterest_link }}" class="list-social__link link" target="_blank" rel="nofollow">
                     {%- render 'icon-pinterest' -%}
                     <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
                   </a>
-                </li>
-              {%- endif -%}
+                {%- else -%}
+                  <span class="list-social__link" aria-disabled="true">
+                    {%- render 'icon-pinterest' -%}
+                    <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                  </span>
+                {%- endif -%}
+              </li>
               {%- if settings.social_instagram_link != blank -%}
                 <li class="list-social__item list-social__item--rounded button--animate-{{ settings.animations_hover_elements }}">
                   <a href="{{ settings.social_instagram_link }}" class="list-social__link link" target="_blank" rel="nofollow">
