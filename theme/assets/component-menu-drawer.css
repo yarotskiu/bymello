@@ -218,13 +218,14 @@ details[open] > summary.menu-drawer__menu-item .icon-caret {
   display: none;
 }
 
-.menu-drawer .list-social__item {
-  margin-top: 0.8rem;
+.menu-drawer .list-social__link {
+  padding: 1.1rem 1.1rem;
+  height: 4.4rem;
 }
 
-.menu-drawer .list-social__link {
-  padding: 0 0.8rem;
-  height: 3.8rem;
+.menu-drawer .list-social__item {
+  --_opacity: 0;
+  --_clr-text: var(--socials-button-outline);
 }
 
 .menu-drawer .list-social__link[aria-disabled='true'] {
