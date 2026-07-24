@@ -82,8 +82,7 @@ menu-drawer > details[open] > summary::before {
 
 .menu-drawer__navigation-container {
   display: grid;
-  grid-template-rows: 1fr auto;
-  align-content: space-between;
+  grid-template-rows: auto auto;
   overflow-y: auto;
   height: 100%;
 }
@@ -204,7 +203,7 @@ details[open] > summary.menu-drawer__menu-item .icon-caret {
 .menu-drawer__account .icon-account {
   height: 2rem;
   width: 2rem;
-  margin-right: 1rem;
+  margin-right: 0.8rem;
 }
 
 .menu-drawer__account:hover .icon-account {
@@ -219,8 +218,19 @@ details[open] > summary.menu-drawer__menu-item .icon-caret {
   display: none;
 }
 
+.menu-drawer .list-social__item {
+  margin-top: 0.8rem;
+}
+
 .menu-drawer .list-social__link {
-  padding: 1.1rem 1.1rem;
+  padding: 0 0.8rem;
+  height: 3.8rem;
+}
+
+.menu-drawer .list-social__link[aria-disabled='true'] {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
 }
 
 @media screen and (max-width: 749px) {
