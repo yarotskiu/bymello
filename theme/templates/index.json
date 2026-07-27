@@ -74,6 +74,7 @@
         "slide_AHfwhB": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/banner-100.jpg",
             "heading": "Good Skin Isn’t Complicated.",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
