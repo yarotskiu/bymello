@@ -108,7 +108,13 @@
 										</div>
 									<div class="icon-with-text__info">
 										{%- if block.settings.icon != blank and block.settings.icon != 'none' -%}
-											<span class="icon-with-text__icon">{%- render 'icon-accordion', icon: block.settings.icon -%}</span>
+											<span class="icon-with-text__icon">
+											{%- if block.settings.icon contains 'benefit_' -%}
+												{%- render 'icon-benefit', icon: block.settings.icon -%}
+											{%- else -%}
+												{%- render 'icon-accordion', icon: block.settings.icon -%}
+											{%- endif -%}
+										</span>
 										{%- endif -%}
 										{%- if block.settings.title != blank -%}
 											<h3 class="icon-with-text__title inline-richtext clr-text-{{ block.settings.heading_color }} {{ block.settings.heading_font_family }} {{ block.settings.title_size }} {{ block.settings.title_weight }}">{{ block.settings.title }}</h3>
@@ -345,6 +351,22 @@
             {
               "value": "none",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+            },
+            {
+              "value": "benefit_delivery",
+              "label": "Bymello — Delivery"
+            },
+            {
+              "value": "benefit_returns",
+              "label": "Bymello — Returns"
+            },
+            {
+              "value": "benefit_support",
+              "label": "Bymello — Support"
+            },
+            {
+              "value": "benefit_secure",
+              "label": "Bymello — Secure payment"
             },
             {
               "value": "apple",
