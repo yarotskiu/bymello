@@ -2713,8 +2713,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      ":root {--button-height: 3.6rem;}",
-      "@media screen and (min-width: 750px) {:root {--button-height: 4rem; }}",
+      ":root {--button-height: 4.2rem;}",
       ".button {font-size: 1.4rem;}"
     ]
   }
