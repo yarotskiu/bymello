@@ -2,6 +2,10 @@
   margin-top: 0;
 }
 
+.main-page-banner .page-width--policy-narrow {
+  max-width: 120rem;
+}
+
 .main-page-title:last-child {
   margin-bottom: 0;
 }
