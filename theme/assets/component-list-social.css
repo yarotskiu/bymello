@@ -26,12 +26,10 @@
   --_opacity: 1;
   --icon-size: 2.2rem;
 
-  border: 0.1rem solid rgb(var(--_clr-outline));
   border-radius: var(--buttons-radius);
   background: rgba(var(--_clr-bg), var(--_opacity));
   transition:
     background-color var(--duration-medium) ease,
-    border-color var(--duration-medium) ease,
     border-radius var(--duration-medium) ease,
     color var(--duration-medium) ease;
 }
@@ -39,18 +37,29 @@
 @media (hover: hover) {
   .animate--hover-glide .list-social__item:hover {
     background: rgb(var(--_clr-bg-hover));
-    border-color: rgb(var(--_clr-outline-hover));
     color: rgb(var(--_clr-text-hover));
     border-radius: var(--buttons-radius-hover);
   }
+
+  .animate--hover-glide .list-social__item:hover .list-social__link {
+    box-shadow: inset 0 0 0 0.1rem rgb(var(--_clr-outline-hover));
+  }
 }
 
+/* Ring is drawn inside the button so the outer box stays exactly 4.4rem;
+   it lives on the link, not the item, because the item's box-shadow is
+   already taken by the :focus-within ring in base.css. */
 .list-social__link {
   align-items: center;
   display: flex;
   padding: 1.1rem;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 0.1rem rgb(var(--_clr-outline));
   color: rgb(var(--_clr-text));
-  transition: color var(--duration-medium) ease;
+  transition:
+    border-radius var(--duration-medium) ease,
+    box-shadow var(--duration-medium) ease,
+    color var(--duration-medium) ease;
 }
 
 .utility-bar .list-social__link {
@@ -75,11 +84,11 @@
 
 .list-social--default .list-social__item {
   --_opacity: 0;
-  border-color: transparent;
 }
 
 .list-social--default .list-social__link {
   --_clr-text: var(--socials-button-text);
+  box-shadow: none;
   color: rgb(var(--_clr-text));
 }
 
@@ -93,7 +102,10 @@
 @media (hover) {
   .list-social__item--default:hover {
     background-color: transparent;
-    border-color: transparent;
+  }
+
+  .list-social__item--default:hover .list-social__link {
+    box-shadow: none;
   }
 }
 

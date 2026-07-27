@@ -567,9 +567,18 @@
 
 @media screen and (max-width: 749px) {
   .footer-block__details-content .list-menu__item--link {
-    padding-top: 0.4rem;
-    padding-bottom: 0.3rem;
     font-size: 1.6rem;
+    min-height: 4.4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Matches the specificity of the unconditional .footer__menu-link:not(:first-of-type)
+     .link padding rule above so min-height/align-items alone center each row,
+     instead of the previous 0/3px top/bottom split throwing "Contact Us" off-center. */
+  .footer-block__details-content .footer__menu-link .list-menu__item--link {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 @media screen and (min-width: 750px) {
