@@ -40,7 +40,7 @@
   border: var(--inputs-border-width) solid rgba(var(--input-border-color), var(--inputs-border-opacity));
   box-shadow: var(--inputs-shadow-horizontal-offset) var(--inputs-shadow-vertical-offset)
     var(--inputs-shadow-blur-radius) rgba(var(--color-shadow), var(--inputs-shadow-opacity));
-  padding: 2.1rem 2rem;
+  padding: 1.3rem 2rem;
   line-height: 1.2em;
 }
 
@@ -100,11 +100,11 @@
 }
 
 .contact .field__input:not(.text-area) {
-	height: 6rem;
+	height: 4.4rem;
 }
 
 .contact .text-area {
-	min-height: 14rem;
+	min-height: 10rem;
 }
 
 .contact .text-area::-webkit-scrollbar  {
