@@ -18,7 +18,7 @@
         "breadcrumbs_active_color": "#000000",
         "banner_text_alignment": "left",
         "title": "Shipping Information",
-        "title_size": "h1",
+        "title_size": "h3",
         "title_weight": "fw-500",
         "description": "",
         "text_color": "foreground",
