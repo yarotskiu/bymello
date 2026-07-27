@@ -11,13 +11,13 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-4",
         "show_breadcrumbs": false,
         "breadcrumbs_color_scheme": "",
         "breadcrumbs_active_color_enable": false,
         "breadcrumbs_active_color": "#000000",
-        "image": "",
         "image_overlay_opacity": 20,
         "banner_height": "medium",
         "banner_text_alignment": "left",
@@ -88,17 +88,17 @@
       ],
       "settings": {
         "heading": "Get in Touch",
-        "heading_font_family": "font-heading",
+        "heading_font_family": "font-body",
         "heading_size": "h3",
         "heading_weight": "fw-500",
         "description": "Reach out to us in case of any queries or concerns.",
         "button_style": "primary",
         "button_outline": "outline-none",
-        "show_select": true,
+        "show_select": false,
         "select_label": "Subject",
-        "bottom_border": true,
+        "bottom_border": false,
         "color_scheme": "scheme-1",
-        "padding_top": 80,
+        "padding_top": 88,
         "padding_bottom": 120,
         "padding_top_mb": 40,
         "padding_bottom_mb": 80
@@ -120,6 +120,7 @@
             "text_color": "foreground-secondary",
             "link_label": "",
             "link": "",
+            "make_image_clickable": false,
             "show_borders": "borders",
             "overlay": "",
             "image_overlay_opacity": 0
@@ -138,6 +139,7 @@
             "text_color": "foreground-secondary",
             "link_label": "",
             "link": "",
+            "make_image_clickable": false,
             "show_borders": "borders",
             "overlay": "",
             "image_overlay_opacity": 0
@@ -156,6 +158,7 @@
             "text_color": "foreground-secondary",
             "link_label": "",
             "link": "",
+            "make_image_clickable": false,
             "show_borders": "borders",
             "overlay": "",
             "image_overlay_opacity": 0
@@ -167,6 +170,7 @@
         "column_NeqFDz",
         "column_EKiKdj"
       ],
+      "disabled": true,
       "settings": {
         "title": "Or Reach Us at Our Stores",
         "heading_font_family": "font-heading",
@@ -213,7 +217,6 @@
         "icon_kQjwJP": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         }
@@ -222,6 +225,7 @@
         "heading_9fMpYx",
         "icon_kQjwJP"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-7",
         "scroll_speed": "ultra-fast",
