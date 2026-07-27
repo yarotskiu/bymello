@@ -12,12 +12,10 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "color_scheme": "scheme-1",
         "show_breadcrumbs": true,
         "breadcrumbs_color_scheme": "scheme-8",
         "breadcrumbs_active_color_enable": true,
         "breadcrumbs_active_color": "#0042eb",
-        "banner_height": "default",
         "banner_text_alignment": "left",
         "title": "More About Us",
         "title_size": "h3",
