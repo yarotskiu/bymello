@@ -2455,7 +2455,8 @@ input[type='checkbox'] {
   margin-right: 0.5rem;
 }
 
-.text-area.field__input:focus-visible {
+.text-area.field__input:focus-visible,
+.text-area.field__input:focus {
   border-radius: var(--textarea-radius);
 }
 
