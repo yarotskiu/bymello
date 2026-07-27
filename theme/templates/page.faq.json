@@ -48,7 +48,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How do I place an order?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>Browse the store, add the pieces you love to your cart, and go to checkout. Enter your shipping details and pay securely &mdash; you'll receive an email confirmation right away.</p>",
             "page": ""
@@ -58,7 +58,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Can I change or cancel my order?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>If your order hasn't shipped yet, we'll do our best to help. Email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> as soon as possible with your order number.</p>",
             "page": ""
@@ -71,7 +71,7 @@
       ],
       "settings": {
         "heading": "Ordering",
-        "heading_size": "h3",
+        "heading_size": "h4",
         "heading_alignment": "left",
         "description": "<p>Everything about placing and managing your order.</p>",
         "layout": "none",
@@ -94,7 +94,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How do I choose the right size?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>Each product page has a size guide with measurements. If you're between sizes or unsure, write to us &mdash; we're happy to advise.</p>",
             "page": ""
@@ -104,7 +104,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How should I care for my loungewear?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>Care instructions are on the label and the product page. As a rule, gentle, cooler washes keep natural fabrics soft and lasting longer.</p>",
             "page": ""
@@ -117,7 +117,7 @@
       ],
       "settings": {
         "heading": "Products & Sizing",
-        "heading_size": "h3",
+        "heading_size": "h4",
         "heading_alignment": "left",
         "description": "<p>Fit, fabric and caring for your pieces.</p>",
         "layout": "none",
@@ -140,7 +140,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "What payment methods do you accept?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>We accept major cards (Visa, Mastercard) as well as Apple Pay and Google Pay. All prices are shown in euro (EUR).</p>",
             "page": ""
@@ -150,7 +150,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Is my payment secure?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>Yes. Checkout is processed through Shopify's secure, encrypted payment system. We never see or store your full card details.</p>",
             "page": ""
@@ -163,7 +163,7 @@
       ],
       "settings": {
         "heading": "Payment",
-        "heading_size": "h3",
+        "heading_size": "h4",
         "heading_alignment": "left",
         "description": "<p>How you can pay and how we keep it secure.</p>",
         "layout": "none",
@@ -186,7 +186,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How do I return an item?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>You can return unworn items in their original condition within 14 days of delivery. Email <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> to start a return &mdash; full details are on our <a href=\"/pages/returns\">Returns</a> page.</p>",
             "page": ""
@@ -196,7 +196,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Who pays for return shipping?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>Return shipping costs are covered as described on our <a href=\"/pages/returns\">Returns</a> page. Please check it for the current conditions.</p>",
             "page": ""
@@ -209,7 +209,7 @@
       ],
       "settings": {
         "heading": "Returns",
-        "heading_size": "h3",
+        "heading_size": "h4",
         "heading_alignment": "left",
         "description": "<p>Changed your mind? Here's how returns work.</p>",
         "layout": "none",
@@ -232,7 +232,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "How long does delivery take?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>Delivery times depend on your destination. Estimated times and costs are shown at checkout and on our <a href=\"/pages/shipping\">Shipping</a> page.</p>",
             "page": ""
@@ -242,7 +242,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Can I track my order?",
-            "heading_size": "h4",
+            "heading_size": "h5",
             "icon": "none",
             "row_content": "<p>Yes &mdash; once your order ships, we'll email you a tracking number so you can follow it to your door.</p>",
             "page": ""
@@ -255,7 +255,7 @@
       ],
       "settings": {
         "heading": "Shipping",
-        "heading_size": "h3",
+        "heading_size": "h4",
         "heading_alignment": "left",
         "description": "<p>Delivery times, costs and tracking.</p>",
         "layout": "none",
