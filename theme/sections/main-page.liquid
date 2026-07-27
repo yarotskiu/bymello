@@ -1,5 +1,4 @@
 {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 
 {%- if section.settings.show_breadcrumbs -%}
 	{{ 'component-breadcrumb.css' | asset_url | stylesheet_tag }}
@@ -18,7 +17,6 @@
 		--padding-bottom: {{ section.settings.banner_padding_bottom }}px;
 		--padding-top-mb: {{ section.settings.banner_padding_top_mb }}px;
 		--padding-bottom-mb: {{ section.settings.banner_padding_bottom_mb }}px;
-		--image-overlay-opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
 {%- endstyle -%}
 
@@ -43,19 +41,6 @@
 {%- endif -%}		
 
 <div class="main-page-banner color-{{ section.settings.color_scheme }} gradient banner--{{ section.settings.banner_height }} banner-mobile--{{ section.settings.banner_height }}">
-  {%- if section.settings.image != blank -%}
-    <div class="main-page-banner__image">
-      {%- assign widths = '198, 320, 360, 380, 400, 420, 432, 460, 642, 768, 900, 1024, 1284, 1300, 1360, 1400, 1440, 1500, 1600, 1700, 1800, 1900, 1920, 2000' -%}
-      {%- capture sizes -%}
-        (min-width: 750px) 100vw, 
-        100vw
-      {%- endcapture -%}
-      {{ section.settings.image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, alt: section.settings.image.alt }}
-    </div>
-    {%- if section.settings.image_overlay_opacity > 0 -%}
-      <div class="main-page-banner__overlay"></div>
-    {%- endif -%}
-  {%- endif -%}
   <div class="main-page-banner__wrapper section-responsive-padding" style="text-align: {{ section.settings.banner_text_alignment }};">
     <div class="page-width">
 			<h1 class="main-page-title page-title title inline-richtext {{ section.settings.title_weight }} {{ section.settings.title_size }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text animate--slide-in {% endif %}">
@@ -160,21 +145,6 @@
       "label": "Custom color for active breadcrumb",
       "default": "#000000",
       "visible_if": "{{ section.settings.breadcrumbs_active_color_enable == true }}"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Background image"
-    },
-    {
-      "type": "range",
-      "id": "image_overlay_opacity",
-      "min": 0,
-      "max": 100,
-      "step": 10,
-      "unit": "%",
-      "label": "Image overlay opacity",
-      "default": 0
     },
     {
       "type": "select",
