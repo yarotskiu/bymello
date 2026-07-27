@@ -23,9 +23,9 @@
         "description": "",
         "text_color": "foreground",
         "banner_padding_top": 90,
-        "banner_padding_bottom": 90,
+        "banner_padding_bottom": 24,
         "banner_padding_top_mb": 56,
-        "banner_padding_bottom_mb": 24,
+        "banner_padding_bottom_mb": 16,
         "button_label": "",
         "button_link": "",
         "button_style": "primary",
@@ -94,9 +94,9 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "padding_top": 120,
+        "padding_top": 40,
         "padding_bottom": 0,
-        "padding_top_mb": 80,
+        "padding_top_mb": 24,
         "padding_bottom_mb": 0
       }
     },
