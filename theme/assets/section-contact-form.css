@@ -105,6 +105,7 @@
 
 .contact .text-area {
 	min-height: 10rem;
+	border-radius: 2.4rem;
 }
 
 .contact .text-area::-webkit-scrollbar  {
