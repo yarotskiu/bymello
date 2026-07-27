@@ -24,6 +24,7 @@
 }
 
 .newsletter-form__field-wrapper .field__input {
+  height: 4.2rem;
   padding-right: 6rem;
 }
 

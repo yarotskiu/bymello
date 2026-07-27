@@ -31,7 +31,7 @@
 
 .contact .field__input::placeholder {
 	opacity: 1;
-	color: rgb(var(--color-secondary-foreground));
+	color: #b3b3b3;
 }
 
 .contact .text-area, 

@@ -892,13 +892,9 @@
   }
 
   .footer__localization {
-    justify-content: space-between;
+    justify-content: center;
     margin-left: unset;
     padding: 0;
-  }
-
-  .footer__localization .disclosure__button {
-    padding-left: 0;
   }
 }
 
