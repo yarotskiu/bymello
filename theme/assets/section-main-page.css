@@ -33,11 +33,6 @@
   width: 100%;
 }
 
-.main-page-banner:not(.banner--default) {
-  display: flex;
-  align-items: end;
-}
-
 .main-page-banner .breadcrumbs + *,
 .main-page-banner * + .main-page-title {
   margin-top: 2rem;
@@ -86,16 +81,3 @@
 }
 
 
-@media screen and (max-width: 749px) {
-  .main-page-banner.banner-mobile--small {
-    min-height: 28rem;
-  }
-
-  .main-page-banner.banner-mobile--medium {
-    min-height: 34rem;
-  }
-
-  .main-page-banner.banner-mobile--large {
-    min-height: 60rem;
-  }
-}

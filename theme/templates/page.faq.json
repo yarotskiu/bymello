@@ -12,12 +12,10 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "color_scheme": "scheme-4",
         "show_breadcrumbs": false,
         "breadcrumbs_color_scheme": "",
         "breadcrumbs_active_color_enable": false,
         "breadcrumbs_active_color": "#000000",
-        "banner_height": "medium",
         "banner_text_alignment": "left",
         "title": "Frequently Asked Questions",
         "title_size": "h1",

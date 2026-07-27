@@ -13,12 +13,10 @@
       "type": "main-page",
       "disabled": true,
       "settings": {
-        "color_scheme": "scheme-4",
         "show_breadcrumbs": false,
         "breadcrumbs_color_scheme": "",
         "breadcrumbs_active_color_enable": false,
         "breadcrumbs_active_color": "#000000",
-        "banner_height": "medium",
         "banner_text_alignment": "left",
         "title": "Contact Us",
         "title_size": "h1",
