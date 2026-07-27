@@ -226,6 +226,10 @@
   font-size: var(--font-heading-6-size-mb);
 }
 
+.footer-block__brand-info .footer-block__heading {
+  font-size: var(--font-heading-3-size-mb);
+}
+
 @media screen and (min-width: 750px) {
   .footer-block__newsletter .newsletter-form {
     margin: 0;
@@ -234,6 +238,10 @@
   .footer-block__heading {
     margin-bottom: 0.8rem;
     font-size: var(--font-heading-6-size);
+  }
+
+  .footer-block__brand-info .footer-block__heading {
+    font-size: var(--font-heading-3-size);
   }
 }
 
