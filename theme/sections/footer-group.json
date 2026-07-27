@@ -24,7 +24,7 @@
             "title_weight": "fw-500",
             "text": "",
             "text_color": "foreground-secondary",
-            "icon": "truck"
+            "icon": "benefit_delivery"
           }
         },
         "column_3": {
@@ -37,7 +37,7 @@
             "title_weight": "fw-500",
             "text": "",
             "text_color": "foreground-secondary",
-            "icon": "return"
+            "icon": "benefit_returns"
           }
         },
         "column_2": {
@@ -50,7 +50,7 @@
             "title_weight": "fw-500",
             "text": "",
             "text_color": "foreground-secondary",
-            "icon": "chat_bubble"
+            "icon": "benefit_support"
           }
         },
         "column_6twLw6": {
@@ -63,7 +63,7 @@
             "title_weight": "fw-500",
             "text": "",
             "text_color": "foreground-secondary",
-            "icon": "lock"
+            "icon": "benefit_secure"
           }
         }
       },
