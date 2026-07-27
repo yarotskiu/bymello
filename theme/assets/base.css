@@ -2457,6 +2457,8 @@ input[type='checkbox'] {
 
 .text-area.field__input:focus-visible,
 .text-area.field__input:focus {
+  -webkit-appearance: none;
+  appearance: none;
   border-radius: var(--textarea-radius);
 }
 
