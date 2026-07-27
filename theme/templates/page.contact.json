@@ -19,7 +19,7 @@
         "breadcrumbs_active_color": "#000000",
         "banner_text_alignment": "left",
         "title": "Contact Us",
-        "title_size": "h1",
+        "title_size": "h3",
         "title_weight": "fw-500",
         "description": "",
         "text_color": "foreground",
@@ -86,7 +86,7 @@
       "settings": {
         "heading": "Get in Touch",
         "heading_font_family": "font-body",
-        "heading_size": "h3",
+        "heading_size": "h4",
         "heading_weight": "fw-500",
         "description": "Reach out to us in case of any queries or concerns.",
         "button_style": "primary",
