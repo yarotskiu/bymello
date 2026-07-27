@@ -442,9 +442,6 @@
 .footer .localization-form__select svg {
   right: var(--inputs-border-width);
 }
-.footer .localization-form__select:hover {
-  text-decoration: underline;
-}
 
 .footer .localization-form:only-child .button,
 .footer .localization-form:only-child .localization-form__select {
