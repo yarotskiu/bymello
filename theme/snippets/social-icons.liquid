@@ -4,12 +4,15 @@
   - class: {String} a class to be added to the <ul> element (optional).
   - item-class: {String} a class to be added to the <li> element (optional).
 	-style: {String} Style of social-icon.
+  - show_placeholders: {Boolean} render Facebook and Pinterest even without a
+    link, as disabled icons (optional).
 
   Usage:
   {% render 'social-icons',
     class: 'my-class'
     item-class: 'my-item-class',
 		style: 'rounded',
+    show_placeholders: true,
   %}
 {% endcomment %}
 
@@ -22,12 +25,19 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_facebook_link != blank -%}
+  {%- if settings.social_facebook_link != blank or show_placeholders -%}
     <li class="list-social__item list-social__item--{{ style }} {% if style == 'rounded' %} button--animate-{{ settings.animations_hover_elements }} {% endif %}">
-			<a href="{{ settings.social_facebook_link }}" class="link list-social__link" aria-label="{{ 'general.social.links.facebook' | t }}" target="_blank" rel="nofollow">
-				{%- render 'icon-facebook' -%}
-        <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
-      </a>
+			{%- if settings.social_facebook_link != blank -%}
+				<a href="{{ settings.social_facebook_link }}" class="link list-social__link" aria-label="{{ 'general.social.links.facebook' | t }}" target="_blank" rel="nofollow">
+					{%- render 'icon-facebook' -%}
+					<span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+				</a>
+			{%- else -%}
+				<span class="list-social__link" aria-disabled="true">
+					{%- render 'icon-facebook' -%}
+					<span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+				</span>
+			{%- endif -%}
     </li>
   {%- endif -%}
   {%- if settings.social_instagram_link != blank -%}
@@ -62,12 +72,19 @@
       </a>
     </li>
   {%- endif -%}
-  {%- if settings.social_pinterest_link != blank -%}
+  {%- if settings.social_pinterest_link != blank or show_placeholders -%}
     <li class="list-social__item list-social__item--{{ style }} {% if style == 'rounded' %} button--animate-{{ settings.animations_hover_elements }} {% endif %}">
-      <a href="{{ settings.social_pinterest_link }}" class="link list-social__link" aria-label="{{ 'general.social.links.pinterest' | t }}" target="_blank" rel="nofollow">
-				{%- render 'icon-pinterest' -%}
-        <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
-      </a>
+			{%- if settings.social_pinterest_link != blank -%}
+				<a href="{{ settings.social_pinterest_link }}" class="link list-social__link" aria-label="{{ 'general.social.links.pinterest' | t }}" target="_blank" rel="nofollow">
+					{%- render 'icon-pinterest' -%}
+					<span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+				</a>
+			{%- else -%}
+				<span class="list-social__link" aria-disabled="true">
+					{%- render 'icon-pinterest' -%}
+					<span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+				</span>
+			{%- endif -%}
     </li>
   {%- endif -%}
   {%- if settings.social_snapchat_link != blank -%}

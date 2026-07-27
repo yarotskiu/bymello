@@ -111,10 +111,16 @@
     justify-content: flex-start;
   }
   .footer-block__brand-info .list-social__link {
-    padding: 0;
+    padding: 1.1rem;
+    height: 4.4rem;
   }
   .footer-block__brand-info .list-social__item {
-    --icon-size: 2rem;
+    --_opacity: 0;
+  }
+  .footer-block__brand-info .list-social__link[aria-disabled='true'] {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
   }
   .footer-block__brand-localization {
     margin-top: 1.6rem;
@@ -349,8 +355,9 @@
                       {%- endif -%}
                       {%- if block.settings.show_social and has_social_icons -%}
                         {%- render 'social-icons',
-                          class: 'footer__list-social list-social--default',
-													style: 'default'
+                          class: 'footer__list-social',
+													style: 'rounded',
+													show_placeholders: true
                         -%}
                       {%- endif -%}
                     </div>
