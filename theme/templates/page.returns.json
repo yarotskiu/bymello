@@ -48,47 +48,55 @@
           "type": "item",
           "settings": {
             "heading": "",
-            "text": "<p>We are committed to ensuring that you are completely satisfied with your purchase. We understand that sometimes returns or exchanges may be necessary, and we want to make this process as smooth as possible. Please take a moment to review our return and exchange policy below. This information will help guide you through the necessary steps to return or exchange your item, ensuring a hassle-free experience with us. Your satisfaction is our priority; we are here to assist you at every step.</p>",
+            "text": "<p>We want you to be completely happy with your purchase. If an item didn't work out — wrong size, colour, or just not what you expected — we understand that's part of online shopping, and we've tried to make returns as simple and hassle-free as possible.</p>",
             "heading_color": "secondary"
           }
         },
         "item_4U3Ah3": {
           "type": "item",
           "settings": {
-            "heading": "Return Policy:",
-            "text": "<ul><li><strong>Return window:</strong> You have <strong>30 days</strong> from the date of purchase to return most items.</li><li><strong>Condition:</strong> Returned parts must be in <strong>new, unused, and unaltered condition</strong> with the <strong>original packaging</strong>. We cannot accept parts that have been installed, modified, or damaged.</li><li><strong>Ineligible items:</strong> Certain items may not be eligible for return, including special-order parts, electrical components,and hazardous materials. Please refer to your receipt or contact us for clarification.</li></ul>",
+            "heading": "Timeframe and conditions",
+            "text": "<p>You have <strong>14 days</strong> from receiving your order to request a return — no reason required, in accordance with the right of withdrawal established by EU consumer protection law (Directive 2011/83/EU). For us to accept the item back, it must be unworn, unwashed, with all original tags attached, and in its original packaging.</p><p>When trying on underwear, please follow general hygiene practices and wear it over your own underwear.</p><p>If an item is returned to us showing signs of use — including but not limited to: odour, makeup marks, stretched elastic, signs of washing, or damage — we reserve the right to refuse a refund. In this case, we will send the item back to you at your expense, or, if you do not cover the return shipping cost within 10 days, we reserve the right to dispose of the item.</p>",
             "heading_color": "secondary"
           }
         },
         "item_Trn7qX": {
           "type": "item",
           "settings": {
-            "heading": "Initiating a Return:",
-            "text": "<p>To initiate a return, you can either:</p><ul><li><strong>Contact our customer service:</strong> Our friendly representatives are happy to assist you. Call us at [phone number] or reach out via live chat during business hours.</li></ul>",
+            "heading": "Exchanges",
+            "text": "<p>We don't offer direct exchanges: if you need a different size, colour, or style, the fastest way is to return the item that doesn't work and place a new order for what you need.</p>",
             "heading_color": "secondary"
           }
         },
         "item_YDGU4D": {
           "type": "item",
           "settings": {
-            "heading": "Exchanges:",
-            "text": "<p>Exchanges are a great way to get the right part quickly. We offer exchanges for most items within our return window (30 days). When initiating your return online or contacting customer service, simply let them know you'd like to exchange the item for a different part.</p>",
+            "heading": "If the item was a gift",
+            "text": "<p>Only the person who paid for the order can request a return — that is, the purchaser, not the gift recipient. If you gave the item as a gift and need to return something, please contact us or log into your account and start a return.</p><p>A gift card that hasn't been used yet can be refunded within 14 days of purchase. If the gift card has already been used to pay for an order, any refund for that order will be issued as a new gift card.</p>",
             "heading_color": "secondary"
           }
         },
         "item_awc9jT": {
           "type": "item",
           "settings": {
-            "heading": "Refunds:",
-            "text": "<ul><li>Once we receive and inspect your returned item, we will process your refund within <strong>5 business days</strong>.</li><li>Refunds will be issued to the original form of payment used for the purchase.</li><li>Shipping costs are non-refundable unless the return is due to our error (e.g., incorrect part shipped).</li></ul>",
+            "heading": "How to make a return",
+            "text": "<p>Everything is done through your account on bymello.eu. Find the relevant order under \"My Orders\" and select \"Request a return\" — mark the items you'd like to return and state the reason. Once confirmed, we'll prepare a return label for you via Omniva. Simply pack the item, attach the return label (covering the original one), and drop the parcel off at an Omniva parcel locker. <strong>Returns are free of charge.</strong></p><p>We process refunds within <strong>10 business days</strong> of receiving and inspecting the returned item, to the same payment method used for the original order.</p>",
             "heading_color": "secondary"
           }
         },
         "item_4Mebwi": {
           "type": "item",
           "settings": {
-            "heading": "Additional Information:",
-            "text": "<ul><li>You can find a copy of your receipt in your email or by logging into your account (if you have one).</li><li>Be sure to pack your return securely to prevent damage during shipping.</li><li>We recommend using a trackable shipping service for your return.</li></ul>",
+            "heading": "If your item arrived faulty or isn't what you ordered",
+            "text": "<p>In this case, there's no need to file a standard return — just email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> with your order number and a photo of the item. We'll prioritize your case and offer a replacement or refund.</p><p>Faulty items are covered by a <strong>2-year statutory warranty</strong> under EU law (Directive 1999/44/EC).</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_coverage01": {
+          "type": "item",
+          "settings": {
+            "heading": "Coverage",
+            "text": "<p>This policy applies to orders delivered to Lithuania, Latvia, and Estonia.</p>",
             "heading_color": "secondary"
           }
         }
@@ -99,7 +107,8 @@
         "item_Trn7qX",
         "item_YDGU4D",
         "item_awc9jT",
-        "item_4Mebwi"
+        "item_4Mebwi",
+        "item_coverage01"
       ],
       "settings": {
         "color_scheme": "scheme-1",
