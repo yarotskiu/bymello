@@ -38,21 +38,34 @@
   flex-basis: 100%;
 }
 
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .footer__blocks-wrapper.grid {
+    row-gap: 3rem;
+  }
+
+  .footer__blocks-wrapper.grid .footer-block:not(.footer-block--menu) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer__blocks-wrapper.grid .footer-block--menu {
+    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+}
+
 @media screen and (min-width: 990px) {
   .footer__content-top .grid {
     row-gap: 3rem;
   }
 }
 
-@media screen and (min-width: 990px) {
-  .footer__content-top .grid {
-    flex-basis: calc(100% - 24rem);
+@media screen and (min-width: 1400px) {
+  .footer__content-top {
+    justify-content: flex-start;
   }
-}
 
-@media screen and (min-width: 1200px) {
   .footer__content-top .grid {
-    flex-basis: calc(100% - 41rem);
+    flex: 1 1 auto;
   }
 }
 
@@ -211,6 +224,7 @@
 @media screen and (min-width: 990px) {
   .footer-block--newsletter {
     flex-basis: 20rem;
+    flex-shrink: 0;
   }
 }
 
@@ -224,6 +238,10 @@
   margin-bottom: 1.6rem;
   margin-top: 0;
   font-size: var(--font-heading-6-size-mb);
+}
+
+.footer-block--menu .footer-block__heading {
+  white-space: nowrap;
 }
 
 .footer-block__brand-info .footer-block__heading {
@@ -247,7 +265,7 @@
 
 @media screen and (min-width: 1560px) {
   .extra-large-layout .footer-block__heading {
-    font-size: calc(var(--font-heading-6-size) * 1.2);
+    font-size: var(--font-heading-6-size);
     margin-bottom: 1.2rem;
   }
 
@@ -258,6 +276,14 @@
   .extra-large-layout .footer-block__details-content > :first-child .list-menu__item--link {
     padding-top: 0;
     padding-bottom: 0.5rem;
+  }
+
+  /* Matches the specificity of the two .extra-large-layout padding rules above
+     (one extra class versus the 750px min-height fix), otherwise rows grow to
+     2.8rem/3.3rem past this breakpoint instead of staying 2.6rem. */
+  .extra-large-layout .footer-block__details-content .footer__menu-link .list-menu__item--link {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .extra-large-layout .footer-block__newsletter-text {
@@ -446,7 +472,7 @@
 .footer .localization-form:only-child .button,
 .footer .localization-form:only-child .localization-form__select {
   margin: 0;
-  font-size: var(--f-size-text-md);
+  font-size: 1.4rem;
 }
 
 .footer .footer__localization .localization-form:only-child {
@@ -552,6 +578,10 @@
   transition: text-decoration-thickness var(--duration-short) ease;
 }
 
+.footer-block__details-content .list-menu__item--link .link-underline {
+  --bg-h: 1px;
+}
+
 @media screen and (min-width: 750px) {
   .footer-block__details-content .list-menu__item--link:hover,
   .copyright__content a:hover {
@@ -588,13 +618,24 @@
 }
 @media screen and (min-width: 750px) {
   .footer-block__details-content .list-menu__item--link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.8rem;
     font-size: var(--f-size-text-md);
   }
 
   .footer-block__details-content > :first-child .list-menu__item--link {
     padding-top: 0;
     padding-bottom: 0.3rem;
+  }
+
+  /* Matches the specificity of the unconditional .footer__menu-link:not(:first-of-type)
+     .link padding rule (and the :first-child padding rule above) so min-height/align-items
+     alone center each row, instead of the 0/0.3rem top/bottom split throwing items off-center
+     the way it did on mobile before that fix. */
+  .footer-block__details-content .footer__menu-link .list-menu__item--link {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -662,6 +703,16 @@
 
 .footer-block__brand-info .footer__list-social.list-social {
   justify-content: flex-start;
+}
+
+.footer-block__brand-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.footer-block__brand-info .footer__list-social {
+  margin-top: auto;
 }
 
 .footer-block__details-content .placeholder-svg {
@@ -739,18 +790,13 @@
 }
 
 /* newsletter */
-.footer .newsletter-form .field__label {
-  font-size: 1.4rem;
-  left: 2.4rem;
-}
+.footer .newsletter-form .field__label,
 .footer .newsletter-form .field__input:not(:placeholder-shown) ~ .field__label,
-.footer .newsletter-form .field__input:focus ~ .field__label {
-  top: calc(var(--inputs-border-width) + 0.2rem);
-}
-
 .footer .newsletter-form .field__input:focus ~ .field__label,
 .footer .newsletter-form .field__input:focus-visible ~ .field__label {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  left: 2.4rem;
+  top: calc(1rem + var(--inputs-border-width));
 }
 
 .footer .newsletter-form .field__input {

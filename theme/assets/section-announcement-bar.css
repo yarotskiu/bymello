@@ -15,7 +15,7 @@ announcement-bar .localization-wrapper .localization-form__select .icon-caret {
 }
 
 announcement-bar .localization-wrapper .disclosure .disclosure__button.localization-form__select {
-font-size: var(--f-size-text-sm);
+font-size: 1.4rem;
 }
 
 .announcement-bar {

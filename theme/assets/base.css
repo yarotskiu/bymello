@@ -2878,7 +2878,7 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .utility-bar .localization-wrapper .disclosure .localization-form__select,
 .utility-bar .localization-wrapper .disclosure__link {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 @media screen and (min-width: 990px) {
