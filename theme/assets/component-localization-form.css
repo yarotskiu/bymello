@@ -611,6 +611,9 @@ noscript .localization-selector.link {
   /* country name shrinks/truncates instead of pushing the currency out or wrapping;
      currency (always short) keeps its natural width in the last column */
   grid-template-columns: 1fr auto;
+  /* caption-large's font-size scales to 2rem under .extra-large-layout; pin this to a flat
+     1.4rem since these rows carry no other font-size override in that context */
+  font-size: 1.4rem;
 }
 
 .country-selector .disclosure__link .country {
@@ -675,7 +678,7 @@ noscript .localization-selector.link {
 }
 
 .header-localization .disclosure .localization-form__select {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   height: auto;
   min-height: initial;
   background: transparent;

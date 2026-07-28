@@ -42,10 +42,6 @@
 			margin-top: calc({{ section.settings.margin_top }}px * 1.333333);
 			padding-top: calc({{ section.settings.padding_top }}px * 1.333333);
     }
-
-    .extra-large-layout .footer-block__brand-info .list-social__link {
-      height: 5.2rem;
-    }
   }
 
   .footer__column--contact {
@@ -80,11 +76,29 @@
       grid-template-columns: none;
     }
     .footer__blocks-wrapper .footer-block:not(.footer-block--menu) {
-      flex: 0 0 22rem;
+      flex: 0 0 20rem;
     }
     .footer__blocks-wrapper .footer-block--menu {
       flex: 0 1 auto;
       max-width: 13rem;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .footer__blocks-wrapper .footer-block:not(.footer-block--menu) {
+      flex-basis: 31rem;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .footer__content-top .footer__blocks-wrapper.grid {
+      justify-content: flex-start;
+    }
+    .footer__blocks-wrapper .footer-block:not(.footer-block--menu) + .footer-block--menu {
+      margin-left: auto;
+    }
+    .footer__blocks-wrapper .footer-block--menu:last-child {
+      margin-right: auto;
     }
   }
   .footer-block__brand-description,
@@ -98,13 +112,6 @@
     margin-top: 0.8rem;
     max-width: 30rem;
   }
-
-  /* Brand block: separate it from the menu columns */
-  @media screen and (min-width: 990px) {
-    .footer__blocks-wrapper .footer-block:not(.footer-block--menu) {
-      margin-right: 3rem;
-    }
-  }
   /* Visible (light) social icons in the footer */
   .footer .footer__list-social .list-social__link {
     color: rgb(var(--color-foreground));
@@ -115,7 +122,7 @@
     justify-content: flex-start;
   }
   .footer-block__brand-info .list-social__link {
-    padding: 1.1rem;
+    padding: 1rem;
     height: 4.4rem;
   }
   .footer-block__brand-info .list-social__item {
