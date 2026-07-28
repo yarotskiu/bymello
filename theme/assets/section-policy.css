@@ -33,6 +33,15 @@
 	color: rgb(var(--color-foreground));
 }
 
+.policy-item__text a[href^="mailto"] {
+	color: #2563eb;
+	text-decoration: none;
+}
+
+.policy-item__text a[href^="mailto"]:hover {
+	color: #1e3a8a;
+}
+
 @media screen and (min-width: 750px) {
 	.policy-item__heading:not(:last-child) {
 		margin-bottom: var(--title-space-bottom);
