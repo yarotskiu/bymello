@@ -22,7 +22,7 @@
         "title_weight": "fw-500",
         "description": "",
         "text_color": "foreground",
-        "banner_padding_top": 90,
+        "banner_padding_top": 48,
         "banner_padding_bottom": 48,
         "banner_padding_top_mb": 56,
         "banner_padding_bottom_mb": 24,
@@ -48,7 +48,7 @@
           "type": "item",
           "settings": {
             "heading": "Shipping Cost",
-            "text": "<p>Lithuania: free delivery to an Omniva parcel locker for orders over €70. For orders under €70 — €2.99.</p><p>Latvia: free delivery to an Omniva parcel locker for orders over €80. For orders under €80 — €5.99.</p><p>Estonia: free delivery to an Omniva parcel locker for orders over €90. For orders under €90 — €8.99.</p>",
+            "text": "<p><strong>Lithuania: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €70; </li><li>for orders under €70 — €2.99.</li></ul><p><strong>Latvia: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €80; </li><li>for orders under €80 — €5.99.</li></ul><p><strong>Estonia: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €90;</li><li>For orders under €90 — €8.99.</li></ul>",
             "heading_color": "secondary"
           }
         },
@@ -84,7 +84,6 @@
     },
     "scrolling_banner": {
       "type": "scrolling-banner",
-      "disabled": true,
       "blocks": {
         "heading_9fMpYx": {
           "type": "heading",
@@ -99,7 +98,6 @@
         "icon_exWncB": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         }
@@ -108,6 +106,7 @@
         "heading_9fMpYx",
         "icon_exWncB"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-7",
         "scroll_speed": "ultra-fast",
