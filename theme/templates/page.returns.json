@@ -56,7 +56,7 @@
           "type": "item",
           "settings": {
             "heading": "Timeframe and conditions",
-            "text": "<p>You have <strong>14 days</strong> from receiving your order to request a return — no reason required, in accordance with the right of withdrawal established by EU consumer protection law (Directive 2011/83/EU). For us to accept the item back, it must be unworn, unwashed, with all original tags attached, and in its original packaging.</p><p>When trying on underwear, please follow general hygiene practices and wear it over your own underwear.</p><p>If an item is returned to us showing signs of use — including but not limited to: odour, makeup marks, stretched elastic, signs of washing, or damage — we reserve the right to refuse a refund. In this case, we will send the item back to you at your expense, or, if you do not cover the return shipping cost within 10 days, we reserve the right to dispose of the item.</p>",
+            "text": "<p>You have <strong>14 days</strong> from the date you receive your order to request a return — no reason needed — under the right of withdrawal established by EU consumer protection law (Directive 2011/83/EU).</p><p>Returned items must not be used, worn, washed, soiled, or damaged. They must be in the same condition as received, with all attached elements and tags intact. For example, items must be returned in their packaging, including cardboard inserts, etc.</p><p>When trying on underwear, please follow general hygiene practice and wear it over your own underwear.</p><p>If an item is returned to us showing signs of use — including odour, makeup marks, stretched elastic, wash marks, damage, or similar — we reserve the right to refuse a refund. In this case, we will send the item back to you at your expense.</p>",
             "heading_color": "secondary"
           }
         },
@@ -120,7 +120,6 @@
     },
     "scrolling_banner": {
       "type": "scrolling-banner",
-      "disabled": true,
       "blocks": {
         "heading_9fMpYx": {
           "type": "heading",
@@ -135,7 +134,6 @@
         "icon_xXnb6e": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         }
@@ -144,6 +142,7 @@
         "heading_9fMpYx",
         "icon_xXnb6e"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-7",
         "scroll_speed": "ultra-fast",
