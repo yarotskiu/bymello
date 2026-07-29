@@ -22,7 +22,7 @@
         "title_weight": "fw-500",
         "description": "",
         "text_color": "foreground",
-        "banner_padding_top": 70,
+        "banner_padding_top": 48,
         "banner_padding_bottom": 48,
         "banner_padding_top_mb": 56,
         "banner_padding_bottom_mb": 24,
@@ -41,94 +41,250 @@
         "padding_bottom_mb": 80
       }
     },
-    "collapsible_content_9UcbXU": {
+    "collapsible_content_Rk3Ptn": {
       "type": "collapsible-content",
       "blocks": {
-        "collapsible_row_Ad6WWA": {
+        "collapsible_row_Yt6Bxq": {
           "type": "collapsible_row",
           "settings": {
             "heading": "How do I place an order?",
             "heading_size": "h5",
             "icon": "none",
-            "row_content": "<p>Browse the store, add the pieces you love to your cart, and go to checkout. Enter your shipping details and pay securely &mdash; you'll receive an email confirmation right away.</p>",
+            "row_content": "<p>Browse our store, add the items you like to your cart, and proceed to checkout. Enter your shipping details and complete your payment securely — you'll receive an order confirmation by email right away.</p>",
             "page": ""
           }
         },
-        "collapsible_row_KyCigw": {
+        "collapsible_row_Ln4Cwz": {
           "type": "collapsible_row",
           "settings": {
             "heading": "Can I change or cancel my order?",
             "heading_size": "h5",
             "icon": "none",
-            "row_content": "<p>If your order hasn't shipped yet, we'll do our best to help. Email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> as soon as possible with your order number.</p>",
+            "row_content": "<p>If your order hasn't shipped yet, you can cancel it yourself under \"My Orders\" in your account. If you need to make a change instead, email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> as soon as possible with your order number, and we'll do everything we can to help.</p>",
             "page": ""
           }
         }
       },
       "block_order": [
-        "collapsible_row_Ad6WWA",
-        "collapsible_row_KyCigw"
+        "collapsible_row_Yt6Bxq",
+        "collapsible_row_Ln4Cwz"
       ],
       "settings": {
-        "heading": "Ordering",
+        "heading": "Order",
         "heading_size": "h4",
         "heading_alignment": "left",
-        "description": "<p>Everything about placing and managing your order.</p>",
-        "layout": "none",
+        "description": "",
+        "layout": "section",
         "color_scheme": "",
         "container_color_scheme": "",
         "open_first_collapsible_row": false,
-        "bottom_border": true,
+        "bottom_border": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
         "padding_top": 0,
-        "padding_bottom": 120,
+        "padding_bottom": 16,
         "padding_top_mb": 0,
         "padding_bottom_mb": 40
       }
     },
-    "collapsible_content_kAMdBc": {
+    "collapsible_content_Nq2VbW": {
       "type": "collapsible-content",
       "blocks": {
-        "collapsible_row_h3nPtH": {
+        "collapsible_row_Hd4Tqx": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I choose the right size?",
+            "heading": "How much does shipping cost?",
             "heading_size": "h5",
             "icon": "none",
-            "row_content": "<p>Each product page has a size guide with measurements. If you're between sizes or unsure, write to us &mdash; we're happy to advise.</p>",
+            "row_content": "<p>Lithuania: free to an Omniva parcel locker for orders over €70, under €70 — €2.99.</p><p>Latvia: free for orders over €80, under €80 — €5.99.</p><p>Estonia: free for orders over €90, under €90 — €8.99.</p>",
             "page": ""
           }
         },
-        "collapsible_row_GxRN3p": {
+        "collapsible_row_Pw9Zmn": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How should I care for my loungewear?",
+            "heading": "How long does it take to process my order?",
             "heading_size": "h5",
             "icon": "none",
-            "row_content": "<p>Care instructions are on the label and the product page. As a rule, gentle, cooler washes keep natural fabrics soft and lasting longer.</p>",
+            "row_content": "<p>Since all our items are in stock, we process your order as soon as it comes in. You'll receive a notification as soon as your item is ready to ship.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Ck3Rvy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How is my order shipped, and how long does it take?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Delivery is handled through Omniva parcel lockers, to the one closest to you. Typically: Lithuania — 2–3 days, Latvia and Estonia — 3–5 days.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Bn7Xql": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where can I check my shipping status?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Under \"My Orders\" in your account on bymello.eu.</p>",
             "page": ""
           }
         }
       },
       "block_order": [
-        "collapsible_row_h3nPtH",
-        "collapsible_row_GxRN3p"
+        "collapsible_row_Hd4Tqx",
+        "collapsible_row_Pw9Zmn",
+        "collapsible_row_Ck3Rvy",
+        "collapsible_row_Bn7Xql"
       ],
       "settings": {
-        "heading": "Products & Sizing",
+        "heading": "Shipping",
         "heading_size": "h4",
         "heading_alignment": "left",
-        "description": "<p>Fit, fabric and caring for your pieces.</p>",
-        "layout": "none",
+        "description": "",
+        "layout": "section",
         "color_scheme": "",
         "container_color_scheme": "",
         "open_first_collapsible_row": false,
-        "bottom_border": true,
+        "bottom_border": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
-        "padding_top": 120,
-        "padding_bottom": 120,
+        "padding_top": 0,
+        "padding_bottom": 16,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "collapsible_content_Zt8LmR": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_Rt4Kxa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How much time do I have to return an item?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>14 days from the date you receive your order — no reason needed, under the right of withdrawal established by EU consumer protection law (Directive 2011/83/EU).</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Cn8Vqm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What condition does the item need to be in for a return?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Unused, unworn, unwashed, undamaged, with tags attached and in its original packaging. When trying on underwear, please wear it over your own underwear. If an item is returned showing signs of use (odour, makeup marks, stretched elastic, wash marks, etc.), we reserve the right to refuse a refund and send the item back to you at your expense.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Xe3Bwl": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I exchange an item for a different size or colour?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>We don't offer direct exchanges: return the item that doesn't work and place a new order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Dp6Ztr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I request a return?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>In your account on bymello.eu — go to \"My Orders\" → \"Create a return\" → select the items and the reason. We'll prepare an Omniva return label; you pack the item and drop it off at a locker or service point.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Mq9Lxc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does a return cost anything?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>No, it's free.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Vh2Rwn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When will I get my money back?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Within 10 business days of us receiving and inspecting the item, to the original payment method used for the order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Jt5Kpz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if the item was a gift?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Only the person who paid for the order can request a return — not the gift recipient.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Wb7Xqd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I return a gift card?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>An unused one — yes, within 14 days of purchase. Once it's been applied to an order (in full or in part), that amount is non-refundable.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Ny4Rtm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I do if my item arrived faulty or wrong?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Don't use the regular return process — email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> with your order number and a photo. We'll prioritise your case and offer a replacement or refund.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Gc3Vwp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which countries does shipping and returns cover?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Lithuania, Latvia, and Estonia.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Rt4Kxa",
+        "collapsible_row_Cn8Vqm",
+        "collapsible_row_Xe3Bwl",
+        "collapsible_row_Dp6Ztr",
+        "collapsible_row_Mq9Lxc",
+        "collapsible_row_Vh2Rwn",
+        "collapsible_row_Jt5Kpz",
+        "collapsible_row_Wb7Xqd",
+        "collapsible_row_Ny4Rtm",
+        "collapsible_row_Gc3Vwp"
+      ],
+      "settings": {
+        "heading": "Returns & Exchanges",
+        "heading_size": "h4",
+        "heading_alignment": "left",
+        "description": "",
+        "layout": "section",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "bottom_border": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 0,
+        "padding_bottom": 16,
         "padding_top_mb": 40,
         "padding_bottom_mb": 40
       }
@@ -142,7 +298,7 @@
             "heading": "What payment methods do you accept?",
             "heading_size": "h5",
             "icon": "none",
-            "row_content": "<p>We accept major cards (Visa, Mastercard) as well as Apple Pay and Google Pay. All prices are shown in euro (EUR).</p>",
+            "row_content": "<p>We accept major debit and credit cards (Visa, Mastercard), as well as Apple Pay and Google Pay. All prices are listed in euros (EUR).</p>",
             "page": ""
           }
         },
@@ -152,7 +308,7 @@
             "heading": "Is my payment secure?",
             "heading_size": "h5",
             "icon": "none",
-            "row_content": "<p>Yes. Checkout is processed through Shopify's secure, encrypted payment system. We never see or store your full card details.</p>",
+            "row_content": "<p>Yes. Checkout runs through Shopify's secure, encrypted payment system. We never see or store your full card details.</p>",
             "page": ""
           }
         }
@@ -165,107 +321,105 @@
         "heading": "Payment",
         "heading_size": "h4",
         "heading_alignment": "left",
-        "description": "<p>How you can pay and how we keep it secure.</p>",
-        "layout": "none",
-        "color_scheme": "",
-        "container_color_scheme": "",
-        "open_first_collapsible_row": false,
-        "bottom_border": true,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_first",
-        "padding_top": 120,
-        "padding_bottom": 120,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
-      }
-    },
-    "collapsible_content_aMprWY": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_43qEKY": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How do I return an item?",
-            "heading_size": "h5",
-            "icon": "none",
-            "row_content": "<p>You can return unworn items in their original condition within 14 days of delivery. Email <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> to start a return &mdash; full details are on our <a href=\"/pages/returns\">Returns</a> page.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_rtCCtd": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Who pays for return shipping?",
-            "heading_size": "h5",
-            "icon": "none",
-            "row_content": "<p>Return shipping costs are covered as described on our <a href=\"/pages/returns\">Returns</a> page. Please check it for the current conditions.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_43qEKY",
-        "collapsible_row_rtCCtd"
-      ],
-      "settings": {
-        "heading": "Returns",
-        "heading_size": "h4",
-        "heading_alignment": "left",
-        "description": "<p>Changed your mind? Here's how returns work.</p>",
-        "layout": "none",
-        "color_scheme": "",
-        "container_color_scheme": "",
-        "open_first_collapsible_row": false,
-        "bottom_border": true,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_first",
-        "padding_top": 120,
-        "padding_bottom": 120,
-        "padding_top_mb": 40,
-        "padding_bottom_mb": 40
-      }
-    },
-    "collapsible_content_7cBaJJ": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_wHi7H7": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How long does delivery take?",
-            "heading_size": "h5",
-            "icon": "none",
-            "row_content": "<p>Delivery times depend on your destination. Estimated times and costs are shown at checkout and on our <a href=\"/pages/shipping\">Shipping</a> page.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_yQhwCA": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Can I track my order?",
-            "heading_size": "h5",
-            "icon": "none",
-            "row_content": "<p>Yes &mdash; once your order ships, we'll email you a tracking number so you can follow it to your door.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_wHi7H7",
-        "collapsible_row_yQhwCA"
-      ],
-      "settings": {
-        "heading": "Shipping",
-        "heading_size": "h4",
-        "heading_alignment": "left",
-        "description": "<p>Delivery times, costs and tracking.</p>",
-        "layout": "none",
+        "description": "",
+        "layout": "section",
         "color_scheme": "",
         "container_color_scheme": "",
         "open_first_collapsible_row": false,
         "bottom_border": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_first",
-        "padding_top": 120,
+        "padding_top": 0,
+        "padding_bottom": 16,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "collapsible_content_Vw9Ktm": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_Ez3Nqp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I choose the right size?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Every product page includes a size chart with measurements. If you're between sizes or unsure, just message us — we're happy to help.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Ft8Rvy": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I care for homewear properly?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Care instructions are listed on the label and the product page. As a general rule, gentle washing in cool water helps preserve the softness of natural fabrics and extends their lifespan.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Gh2Wxl": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you use organic cotton?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Yes — our suppliers Living Crafts and Trendsplant use organic cotton certified to the GOTS (Global Organic Textile Standard), which confirms environmentally responsible growing and production at every stage.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Jk5Ybq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What certifications do your products have?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>Our suppliers' products are certified to the GOTS standard.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Mp7Zcr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is organic cotton?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>It's cotton grown without synthetic pesticides, herbicides, or genetically modified seeds — using methods that are gentler on the soil, water, and the people who grow it.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Qs4Tnw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is GOTS certification?",
+            "heading_size": "h5",
+            "icon": "none",
+            "row_content": "<p>GOTS (Global Organic Textile Standard) is an international standard confirming that a textile is made from certified organic raw materials and produced responsibly and ethically at every stage — from farming to the finished garment — without toxic dyes or harmful chemicals, and under fair labour conditions. Compliance is verified through an independent annual audit.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Ez3Nqp",
+        "collapsible_row_Ft8Rvy",
+        "collapsible_row_Gh2Wxl",
+        "collapsible_row_Jk5Ybq",
+        "collapsible_row_Mp7Zcr",
+        "collapsible_row_Qs4Tnw"
+      ],
+      "settings": {
+        "heading": "Products & Sizes",
+        "heading_size": "h4",
+        "heading_alignment": "left",
+        "description": "",
+        "layout": "section",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "bottom_border": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_first",
+        "padding_top": 0,
         "padding_bottom": 64,
         "padding_top_mb": 40,
         "padding_bottom_mb": 40
@@ -273,7 +427,6 @@
     },
     "scrolling_banner": {
       "type": "scrolling-banner",
-      "disabled": true,
       "blocks": {
         "heading_9fMpYx": {
           "type": "heading",
@@ -288,7 +441,6 @@
         "icon_RjJEWT": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         }
@@ -297,6 +449,7 @@
         "heading_9fMpYx",
         "icon_RjJEWT"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-7",
         "scroll_speed": "ultra-fast",
@@ -319,11 +472,11 @@
   },
   "order": [
     "main",
-    "collapsible_content_9UcbXU",
-    "collapsible_content_kAMdBc",
+    "collapsible_content_Rk3Ptn",
+    "collapsible_content_Nq2VbW",
+    "collapsible_content_Zt8LmR",
     "collapsible_content_8Btnq6",
-    "collapsible_content_aMprWY",
-    "collapsible_content_7cBaJJ",
+    "collapsible_content_Vw9Ktm",
     "scrolling_banner"
   ]
 }
