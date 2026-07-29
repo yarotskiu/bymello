@@ -526,46 +526,6 @@ h6,
   }
 }
 
-@media screen and (min-width: 1560px) {
-  :where(.extra-large-layout) .h0 {
-    font-size: calc(var(--font-heading-0-size) * 1.3333);
-  }
-
-  :where(.extra-large-layout) .h0-xs {
-    font-size: calc(var(--font-heading-0-xs-size) * 1.5);
-  }
-
-  :where(.extra-large-layout) h1,
-  :where(.extra-large-layout) .h1 {
-    font-size: calc(var(--font-heading-1-size) * 1.142857);
-  }
-
-  :where(.extra-large-layout) h2,
-  :where(.extra-large-layout) .h2 {
-    font-size: calc(var(--font-heading-2-size) * 1.1667);
-  }
-
-  :where(.extra-large-layout) h3,
-  :where(.extra-large-layout) .h3 {
-    font-size: calc(var(--font-heading-3-size) * 1.2);
-  }
-
-  :where(.extra-large-layout) h4,
-  :where(.extra-large-layout) .h4 {
-    font-size: calc(var(--font-heading-4-size) * 1.25);
-  }
-
-  :where(.extra-large-layout) h5,
-  :where(.extra-large-layout) .h5 {
-    font-size: calc(var(--font-heading-5-size) * 1.1667);
-  }
-
-  :where(.extra-large-layout) h6,
-  :where(.extra-large-layout) .h6 {
-    font-size: calc(var(--font-heading-6-size) * 1.2);
-  }
-}
-
 /* With custom line-height */
 
 .custom-line-height .h0 {
