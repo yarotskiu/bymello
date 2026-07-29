@@ -24,7 +24,7 @@
         "text_color": "foreground",
         "banner_padding_top": 48,
         "banner_padding_bottom": 48,
-        "banner_padding_top_mb": 56,
+        "banner_padding_top_mb": 40,
         "banner_padding_bottom_mb": 24,
         "button_label": "",
         "button_link": "",
@@ -113,7 +113,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 64,
+        "padding_bottom": 100,
         "padding_top_mb": 0,
         "padding_bottom_mb": 40
       }
