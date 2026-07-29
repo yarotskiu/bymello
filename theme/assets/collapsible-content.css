@@ -142,6 +142,10 @@
   word-break: break-word;
 }
 
+.collapsible-content__grid--no-media {
+  align-items: flex-start;
+}
+
 .collapsible-content__description {
 color: rgba(var(--color-secondary-foreground), 1);
 }
@@ -158,6 +162,10 @@ color: rgba(var(--color-secondary-foreground), 1);
 
 .collapsible-content .accordion {
 	margin-top: 0;
+}
+
+.collapsible-content .accordion:first-of-type summary {
+	padding-top: 0.8rem;
 }
 
 .collapsible-none-layout .accordion + .accordion {
@@ -200,11 +208,11 @@ color: rgba(var(--color-secondary-foreground), 1);
   }
 
 	.grid--2-col-tablet .collapsible-content__grid-item-media {
-		width: calc(43% - var(--grid-desktop-horizontal-spacing) / 2);
+		width: calc(30% - var(--grid-desktop-horizontal-spacing) / 2);
 	}
 
 	.grid--2-col-tablet .collapsible-content__grid-item-accordion {
-		width: calc(57% - var(--grid-desktop-horizontal-spacing) / 2);
+		width: calc(70% - var(--grid-desktop-horizontal-spacing) / 2);
 	}
 }
 
@@ -230,13 +238,6 @@ color: rgba(var(--color-secondary-foreground), 1);
 
 .collapsible-row-layout .accordion .accordion__content {
   padding-top: 0;
-}
-
-@media (hover: hover) {
-	.collapsible-content summary:hover .accordion__title {
-		text-decoration: underline;
-		text-underline-offset: 0.3rem;
-	}
 }
 
 /* check for flexbox gap in older Safari versions */
