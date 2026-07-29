@@ -47,40 +47,24 @@
         "item_VkLhrg": {
           "type": "item",
           "settings": {
-            "heading": "",
-            "text": "<p>We make every effort to process your order within 24 hours, however orders placed over weekends or holidays may take a little longer. Once your order is processed you will receive an order confirmation followed by a shipping confirmation.</p>",
+            "heading": "Shipping Cost",
+            "text": "<p>Lithuania: free delivery to an Omniva parcel locker for orders over €70. For orders under €70 — €2.99.</p><p>Latvia: free delivery to an Omniva parcel locker for orders over €80. For orders under €80 — €5.99.</p><p>Estonia: free delivery to an Omniva parcel locker for orders over €90. For orders under €90 — €8.99.</p>",
             "heading_color": "secondary"
           }
         },
         "item_4U3Ah3": {
           "type": "item",
           "settings": {
-            "heading": "Shipping",
-            "text": "<p>Our shipping prices are based on the value of the items in your order and on the service level you choose. When calculating your total shipping time, please keep in mind that the day the package is shipped or picked up from our warehouse is not considered the first business day; start counting business days from first full day that the package is “in transit” to you.</p><p><strong>Note: business days are Monday through Friday, excluding weekends and Federal holidays.</strong></p><ul><li>Economy: Ships within 9 days, arriving 10 business days after the order was placed.</li><li>Standard: Ships within 5 days, arriving 6 business days after the order was placed.</li><li>Preferred: Ships within 3 days, arriving 4 business days after the order was placed.</li><li>Expedited: Ships within 2 days, arriving 3 business days after the order was placed.</li><li>Express: Ships within 1 day, arriving 2 business days after the order was placed.</li></ul>",
+            "heading": "Processing Time",
+            "text": "<p>Since all our items are in stock, we can process your order as soon as it comes in.</p><p>You can check your order's shipping status under \"My Orders.\"</p><p>You'll also receive a notification as soon as your item(s) are ready to ship.</p>",
             "heading_color": "secondary"
           }
         },
         "item_Trn7qX": {
           "type": "item",
           "settings": {
-            "heading": "North America",
-            "text": "<p>We charge a flat $4.95 on all North American orders when FedEx SmartPost shipping is selected . Expedited shipping rates are available at additional cost. We offer Ground (2-5 days) for $8.95, 3-Day Shipping for $19.95, 2-Day Shipping for $29.95.</p><p><strong>We also offer Free Shipping on all North American orders over $200.</strong></p>",
-            "heading_color": "secondary"
-          }
-        },
-        "item_YDGU4D": {
-          "type": "item",
-          "settings": {
-            "heading": "International",
-            "text": "<p>International orders are typically shipped via USPS Priority Mail International at a flat cost of $14.95. Please note that shipping does not include duties and taxes as these vary by destination country.  If you would prefer an alternate shipping method, please contact us before placing your order and we will do our best to accommodate your request.</p>",
-            "heading_color": "secondary"
-          }
-        },
-        "item_awc9jT": {
-          "type": "item",
-          "settings": {
-            "heading": "Returns",
-            "text": "<p>To return an item to us, follow the directions listed on the return exchange form included with your order. If you don’t have this form available, you can download one by <a href=\"/pages/contact\" title=\"Contact us\"><strong>clicking here.</strong></a></p><p>For items that are damaged, defective or not what you ordered, please contact us so we can best serve you and provide you with return instructions. Items that are made-to-order cannot be returned.</p>",
+            "heading": "Shipping Method and Timeframe",
+            "text": "<p>Delivery is handled through Omniva parcel lockers — your order is delivered to the locker closest to you.</p><p>Typical delivery times are:</p><ul><li>Lithuania – 2–3 days</li><li>Latvia – 3–5 days</li><li>Estonia – 3–5 days</li></ul>",
             "heading_color": "secondary"
           }
         }
@@ -88,9 +72,7 @@
       "block_order": [
         "item_VkLhrg",
         "item_4U3Ah3",
-        "item_Trn7qX",
-        "item_YDGU4D",
-        "item_awc9jT"
+        "item_Trn7qX"
       ],
       "settings": {
         "color_scheme": "scheme-1",
