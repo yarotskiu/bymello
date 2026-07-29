@@ -111,7 +111,7 @@
         "col_1": {
           "type": "link_list",
           "settings": {
-            "heading": "Legal",
+            "heading": "Policies",
             "menu": "footer-legal"
           }
         },
