@@ -33,12 +33,12 @@
 	color: rgb(var(--color-foreground));
 }
 
-.policy-item__text a[href^="mailto"] {
+.policy-item__text a {
 	color: #2563eb;
 	text-decoration: none;
 }
 
-.policy-item__text a[href^="mailto"]:hover {
+.policy-item__text a:hover {
 	color: #1e3a8a;
 }
 
