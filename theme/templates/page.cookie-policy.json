@@ -1,0 +1,190 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "banner_text_alignment": "left",
+        "title": "Cookie Policy",
+        "title_size": "h3",
+        "title_weight": "fw-500",
+        "description": "<p>Last updated: 29 July 2026</p>",
+        "text_color": "foreground",
+        "banner_padding_top": 90,
+        "banner_padding_bottom": 48,
+        "banner_padding_top_mb": 56,
+        "banner_padding_bottom_mb": 24,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "policy_cK9dR2": {
+      "type": "policy",
+      "blocks": {
+        "item_aBc123": {
+          "type": "item",
+          "settings": {
+            "heading": "",
+            "text": "<p>Our website, bymello.eu, uses cookies and similar technologies to make the Site work properly, make it more convenient for you, and — with your consent — allow us to analyse how the Site is used and show you relevant advertising.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_dEf456": {
+          "type": "item",
+          "settings": {
+            "heading": "What Are Cookies",
+            "text": "<p>Cookies are small text files stored in your browser when you visit a website. They don't contain malicious code and don't give us direct access to your device.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_gHi789": {
+          "type": "item",
+          "settings": {
+            "heading": "Cookie Categories We Use",
+            "text": "<h4>1. Necessary (Essential)</h4><p>Required for the basic functioning of the Site — cart, checkout, account login, security. Without them, the Site won't work correctly. These cookies do not require consent (they're set automatically, under the ePrivacy Directive) and cannot be disabled through the Site's settings.</p><h4>2. Functional</h4><p>Remember your preferences — language, country, currency — so you don't have to choose them again on every visit.</p><h4>3. Analytics</h4><p>We use Google Analytics to understand how visitors use the Site (which pages they visit, where they come from) — this helps us improve it. Set only with your consent.</p><h4>4. Marketing/Advertising</h4><p>We use Meta Pixel (Facebook/Instagram) to show you relevant ads and measure their effectiveness. These cookies may share information about your behaviour on the Site with Meta Platforms Ireland Limited. Set only with your consent.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_jKl012": {
+          "type": "item",
+          "settings": {
+            "heading": "How We Obtain Your Consent",
+            "text": "<p>On your first visit to the Site, you'll see a cookie settings banner where you can accept all categories, decline non-essential ones, or choose manually. You can change your choice at any time via the cookie settings on the Site (usually available in the footer).</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_mNo345": {
+          "type": "item",
+          "settings": {
+            "heading": "Third-Party Cookies",
+            "text": "<p>Some cookies are set not by us directly, but by our partners (Google, Meta, Shopify) — their processing is governed by these companies' own policies:</p><ul><li><a href=\"https://policies.google.com/technologies/cookies\">Google Cookie Policy</a></li><li><a href=\"https://www.facebook.com/privacy/policies/cookies/\">Meta Data Policy</a></li><li><a href=\"https://www.shopify.com/legal/cookies\">Shopify Cookie Policy</a></li></ul>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_pQr678": {
+          "type": "item",
+          "settings": {
+            "heading": "How Long Cookies Are Stored",
+            "text": "<p>Some cookies last only for your browsing session (deleted when you close your browser), while others persist longer (up to several months or years), depending on their purpose. The exact duration is set by each individual service (Google, Meta, Shopify) under its own rules.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_sTu901": {
+          "type": "item",
+          "settings": {
+            "heading": "How to Disable Cookies via Your Browser",
+            "text": "<p>In addition to the Site's cookie settings, you can manage cookies directly in your browser settings — including disabling them entirely. Note: disabling necessary cookies may break the Site's functionality (such as the cart or checkout).</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_vWx234": {
+          "type": "item",
+          "settings": {
+            "heading": "Updates to This Policy",
+            "text": "<p>We may update this policy from time to time. The current version is always published on this page with the update date.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_yZa567": {
+          "type": "item",
+          "settings": {
+            "heading": "Contact Us",
+            "text": "<p>For questions about our use of cookies, contact us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a>.</p>",
+            "heading_color": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "item_aBc123",
+        "item_dEf456",
+        "item_gHi789",
+        "item_jKl012",
+        "item_mNo345",
+        "item_pQr678",
+        "item_sTu901",
+        "item_vWx234",
+        "item_yZa567"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 64,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 40
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "disabled": true,
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_bH4KdD": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_bH4KdD"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "policy_cK9dR2",
+    "scrolling_banner"
+  ]
+}
