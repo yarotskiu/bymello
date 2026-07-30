@@ -160,7 +160,7 @@
         "image_margin_top_mb": 30,
         "image_margin_bottom_mb": 20,
         "image_position_mb": "top",
-        "show_policy": true,
+        "show_policy": false,
         "copyright_color_scheme": "scheme-6",
         "padding_top": 40,
         "padding_bottom": 0,
