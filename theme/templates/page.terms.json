@@ -17,10 +17,10 @@
         "breadcrumbs_active_color_enable": false,
         "breadcrumbs_active_color": "#000000",
         "banner_text_alignment": "left",
-        "title": "Terms of Service",
+        "title": "Terms of Use",
         "title_size": "h3",
         "title_weight": "fw-500",
-        "description": "",
+        "description": "<p>Last updated: 29 July 2026</p>",
         "text_color": "foreground",
         "banner_padding_top": 90,
         "banner_padding_bottom": 48,
@@ -44,62 +44,152 @@
     "policy_wVL9E6": {
       "type": "policy",
       "blocks": {
-        "item_VkLhrg": {
+        "item_aTc1x9": {
           "type": "item",
           "settings": {
-            "heading": "",
-            "text": "<p>We respect the privacy of all customers and their personal information. Information collected will be used solely by us to conduct our business. Your personally identifiable visitor information will not be disclosed to third parties, other than for the purpose of completing transaction, (i.e. processing payments or shipping packages). We will only ask for and use relevant personal information as necessary.</p>",
+            "heading": "Agreement to Terms",
+            "text": "<p>These Terms of Use constitute a legally binding agreement between you and UAB &quot;Bymello&quot; (legal entity code 308015345, registered office: Krokuvos g. 53-3, Vilnius, LT-09306, Lithuania) (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;), regarding your access to and use of the bymello.eu website. By accessing the site, you confirm that you have read, understood, and agree to comply with these Terms.</p><p>We may update these Terms at any time; the current version is always published on this page along with the update date.</p><p>The Site is intended for individuals aged 18 and over. Minors may use the Site only with the consent and under the supervision of a parent or guardian.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_4U3Ah3": {
+        "item_bR4mQ2": {
           "type": "item",
           "settings": {
-            "heading": "Information We Collect",
-            "text": "<p>We collect information from you when you visit this website, register, place an order, or subscribe to the newsletter. When ordering or registering, as appropriate, you may be asked to enter your: name, email address, mailing address, phone number, date of birth, or credit card information.</p>",
+            "heading": "Intellectual Property Rights",
+            "text": "<p>All content on the Site (text, images, design, logo) is the property of Bymello or used under license, and is protected by copyright and trademark law. You may view and download materials from the Site for personal, non-commercial use only — copying, distributing, or commercially using the content without our written permission is not permitted.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_Trn7qX": {
+        "item_cN8kP5": {
           "type": "item",
           "settings": {
-            "heading": "Use of Information",
-            "text": "<p>Any of the information we collect may be used in one of the following ways:</p><h4>1. For Customer Service Interactions</h4><p>The email address you provide for order processing will only be used to send you information and updates pertaining to your order, unless you decide to opt in to our newsletter. If you opt-in, we may use this information to notify you of any company updates, new arrivals, or any promotions you might find of value. If you don’t wish to receive these newsletters or updates, you can unsubscribe at any time.</p><h4>2. To Process Transactions</h4><p>Your personally identifiable information, whether public or private, will not be sold, exchanged, transferred, or given to any other company for any reason whatsoever, without your consent, other than for the express purpose of delivering the purchased product or service requested.</p><h4>3. For Internal Tracking Purposes</h4><p>We use Google Analytics to record visits to our website, including what website you came from, how long you stay for, what kind of computer you’re using, and other simple pieces of information about your visit.</p>",
-            "heading_color": "heading"
-          }
-        },
-        "item_YDGU4D": {
-          "type": "item",
-          "settings": {
-            "heading": "Your Information",
-            "text": "<p>We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information. All credit cards are processed securely through Shopify, a leading provider of payment gateway services online. We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our payment gateway provider’s database only to be accessible by those authorized with special access rights to such systems. All parties are required to keep the information confidential. After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.</p>",
+            "heading": "User Representations and Registration",
+            "text": "<p>By using the Site, you confirm that you provide accurate and current information, have the legal capacity to enter into a contract, are at least 18 years old (or have parental/guardian consent), and will not use the Site for unlawful purposes or through automated means (bots, scripts, etc.).</p><p>When registering an account, you are responsible for keeping your password confidential and for all activity under your account.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_awc9jT": {
+        "item_dF2wZ7": {
           "type": "item",
           "settings": {
-            "heading": "Cookies",
-            "text": "<p>Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject browser cookies. Please note that if you choose to remove or reject cookies, this could affect the availability and functionality of our Services.</p>",
+            "heading": "Products",
+            "text": "<p>We make every effort to accurately display the colours, features, and details of our products, but we do not guarantee that what you see on screen fully matches the actual product. Product availability is not guaranteed. We may discontinue a product or change its price at any time.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_4Mebwi": {
+        "item_eG9xH1": {
           "type": "item",
           "settings": {
-            "heading": "Sharing of Information",
-            "text": "<p>We don't sell, trade, or otherwise transfer to outside parties your personally identifiable information. This includes trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce this site’s policies, or protect our or others rights, property, or safety.</p>",
+            "heading": "Purchases and Payment",
+            "text": "<p>We accept payment by Visa, Mastercard, as well as Apple Pay and Google Pay. All prices are listed in euros (EUR), including VAT at the rate applicable to the delivery country (Lithuania, Latvia, or Estonia). We may change prices at any time and reserve the right to correct pricing errors, even if payment has already been made. We reserve the right to refuse to process any order or to limit the quantity of an item per customer.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_fH3yJ6": {
+          "type": "item",
+          "settings": {
+            "heading": "Return Policy",
+            "text": "<p>Please review our <a href=\"/pages/returns\">Return Policy</a> before making a purchase. If you are a consumer residing in Lithuania, Latvia, or Estonia, you have the right to withdraw from the contract within 14 days of receiving your order, without giving any reason. To exercise this right, contact us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a>. Refunds are issued within 10 business days of us receiving and inspecting the returned item.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_gJ5zK3": {
+          "type": "item",
+          "settings": {
+            "heading": "Statutory Guarantee of Conformity",
+            "text": "<p>All goods purchased by consumers in Lithuania, Latvia, and Estonia are covered by a 2-year statutory guarantee of conformity, under Directive (EU) 2019/771, starting from the date of delivery. If a defect appears within the first year after delivery, it is presumed to have existed at the time of delivery, unless proven otherwise.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_hK6aL8": {
+          "type": "item",
+          "settings": {
+            "heading": "Prohibited Activities",
+            "text": "<p>You agree not to use the Site for unlawful purposes, attempt unauthorized access to the Site's systems, collect user data through automated means, impersonate another person, or interfere with the normal operation of the Site (including hacking attempts, the use of bots/scripts, or distributing viruses).</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_iL7bM4": {
+          "type": "item",
+          "settings": {
+            "heading": "Product Safety Compliance",
+            "text": "<p>All products sold by Bymello comply with the requirements of the EU General Product Safety Regulation (Regulation (EU) 2023/988).</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_jM8cN5": {
+          "type": "item",
+          "settings": {
+            "heading": "Privacy Policy",
+            "text": "<p>We care about protecting your data. Please review our <a href=\"/policies/privacy-policy\">Privacy Policy</a>, which forms an integral part of these Terms. The Site is hosted and operated within the European Union.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_kN9dP6": {
+          "type": "item",
+          "settings": {
+            "heading": "Advertising and Analytics (Meta)",
+            "text": "<p>We may use Meta (Facebook, Instagram) tools, including the Meta Pixel, to show you relevant ads and measure their effectiveness. These tools may share information about your interaction with the Site (such as products viewed or added to your cart) with Meta Platforms Ireland Limited. This processing is based on your consent, given through the cookie settings banner. You can withdraw your consent at any time via the Site's cookie settings or your Meta ad preferences. For more on how Meta processes data, see their Data Policy.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_lP1eQ7": {
+          "type": "item",
+          "settings": {
+            "heading": "Term and Site Changes",
+            "text": "<p>We may restrict or terminate access to the Site, or modify or remove its content, at any time without prior notice. We do not guarantee uninterrupted operation of the Site.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_mQ2fR8": {
+          "type": "item",
+          "settings": {
+            "heading": "Governing Law and Dispute Resolution",
+            "text": "<p>These Terms are governed by the laws of the Republic of Lithuania. If you reside in the EU and are a consumer, you are also protected by the mandatory provisions of the law of your country of residence.</p><p>Disputes are resolved in the courts of Vilnius, or in the courts of your country of residence (for consumers in Latvia and Estonia, the applicable mandatory consumer protection provisions apply).</p><p>You may also contact your national consumer protection authority:</p><ul><li>Lithuania — State Consumer Rights Protection Authority (VVTAT), <a href=\"https://www.vvtat.lt\">www.vvtat.lt</a></li><li>Latvia — Consumer Rights Protection Centre (PTAC), <a href=\"https://www.ptac.gov.lv\">www.ptac.gov.lv</a></li><li>Estonia — Consumer Disputes Committee (Tarbijavaidluste komisjon), <a href=\"https://www.ttja.ee\">www.ttja.ee</a></li></ul><p>You may also file a complaint via the EU Online Dispute Resolution (ODR) platform: <a href=\"https://ec.europa.eu/consumers/odr\">https://ec.europa.eu/consumers/odr</a></p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_nR3gS9": {
+          "type": "item",
+          "settings": {
+            "heading": "Limitation of Liability",
+            "text": "<p>The Site is provided &quot;as is.&quot; To the extent permitted by law, we are not liable for indirect, incidental, or consequential damages arising from your use of the Site — except where liability cannot be limited by law (such as consumer rights).</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_oS4hT1": {
+          "type": "item",
+          "settings": {
+            "heading": "Miscellaneous",
+            "text": "<p>These Terms, together with the Return Policy and Privacy Policy, constitute the entire agreement between you and Bymello. If any provision is found invalid, the remaining provisions remain in effect.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_pT5iU2": {
+          "type": "item",
+          "settings": {
+            "heading": "Contact Us",
+            "text": "<p>For questions about the Site or your order, contact us at:</p><p>UAB &quot;Bymello&quot;<br>Krokuvos g. 53-3<br>Vilnius, LT-09306<br>Lithuania<br><a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a></p>",
             "heading_color": "secondary"
           }
         }
       },
       "block_order": [
-        "item_VkLhrg",
-        "item_4U3Ah3",
-        "item_Trn7qX",
-        "item_YDGU4D",
-        "item_awc9jT",
-        "item_4Mebwi"
+        "item_aTc1x9",
+        "item_bR4mQ2",
+        "item_cN8kP5",
+        "item_dF2wZ7",
+        "item_eG9xH1",
+        "item_fH3yJ6",
+        "item_gJ5zK3",
+        "item_hK6aL8",
+        "item_iL7bM4",
+        "item_jM8cN5",
+        "item_kN9dP6",
+        "item_lP1eQ7",
+        "item_mQ2fR8",
+        "item_nR3gS9",
+        "item_oS4hT1",
+        "item_pT5iU2"
       ],
       "settings": {
         "color_scheme": "scheme-1",
