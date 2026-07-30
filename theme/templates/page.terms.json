@@ -120,7 +120,7 @@
           "type": "item",
           "settings": {
             "heading": "Privacy Policy",
-            "text": "<p>We care about protecting your data. Please review our <a href=\"/policies/privacy-policy\">Privacy Policy</a>, which forms an integral part of these Terms. The Site is hosted and operated within the European Union.</p>",
+            "text": "<p>We care about protecting your data. Please review our <a href=\"/pages/privacy-policy\">Privacy Policy</a>, which forms an integral part of these Terms. The Site is hosted and operated within the European Union.</p>",
             "heading_color": "secondary"
           }
         },
