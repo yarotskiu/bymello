@@ -1,0 +1,226 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "banner_text_alignment": "left",
+        "title": "Privacy Policy",
+        "title_size": "h3",
+        "title_weight": "fw-500",
+        "description": "<p>Last updated: 29 July 2026</p>",
+        "text_color": "foreground",
+        "banner_padding_top": 90,
+        "banner_padding_bottom": 48,
+        "banner_padding_top_mb": 56,
+        "banner_padding_bottom_mb": 24,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "policy_pR1vC9": {
+      "type": "policy",
+      "blocks": {
+        "item_aAa111": {
+          "type": "item",
+          "settings": {
+            "heading": "",
+            "text": "<p>Thank you for being part of the Bymello community. UAB &quot;Bymello&quot; (legal entity code 308015345, Krokuvos g. 53-3, Vilnius, LT-09306, Lithuania &mdash; &quot;we&quot;, &quot;us&quot;, &quot;our&quot;) takes the protection of your personal data seriously. If you have any questions, please contact us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a>.</p><p>This policy applies to customers and visitors of bymello.eu in Lithuania, Latvia, and Estonia. It explains how Bymello acts as a data controller and how you can exercise your GDPR rights in your country of residence.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_bBb222": {
+          "type": "item",
+          "settings": {
+            "heading": "GDPR (General Data Protection Regulation)",
+            "text": "<p>Under Regulation (EU) 2016/679, you have the right to access, rectify, erase, and restrict the processing of your personal data, as well as the right to object to processing and to data portability. We process your data based on: your consent, the necessity to perform a contract, compliance with legal obligations, and our legitimate interests. You may withdraw your consent at any time by emailing <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> — this does not affect the lawfulness of processing carried out before the withdrawal.</p><p><strong>Data Controller:</strong> UAB &quot;Bymello&quot;, Krokuvos g. 53-3, Vilnius, LT-09306, Lithuania</p><p><strong>Purposes and Legal Bases:</strong></p><ul><li>Purchases and account management (performance of a contract; legal obligation for invoicing/accounting)</li><li>Customer support (legitimate interest; performance of a contract)</li><li>Marketing communications (consent — withdrawable at any time)</li><li>Analytics and site security (legitimate interest); non-essential cookies only with consent</li><li>Fraud prevention, legal claims, and legal compliance (legal obligation; legitimate interest)</li></ul>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_cCc333": {
+          "type": "item",
+          "settings": {
+            "heading": "What Information Do We Collect?",
+            "text": "<p>Information you provide directly: name, address, contact details, account login information, payment information.</p><p>We collect your name, email, postal address, and phone number when you register, place an order, or contact us.</p><p>Payment data: processed through Shopify Payments — we do not store full card numbers. Please also review Shopify's own privacy policy.</p><p>Automatically collected information: IP address, browser/device characteristics, language, country, and on-site behaviour — for site security and internal analytics. Non-essential cookies (marketing/analytics) are collected only with your consent via the cookie banner (see our <a href=\"/pages/cookie-policy\">Cookie Policy</a>).</p><p>Information from other sources: limited data from public databases, partners, and social media.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_dDd444": {
+          "type": "item",
+          "settings": {
+            "heading": "How Do We Use Your Information?",
+            "text": "<ul><li>To create and manage your account</li><li>To send marketing communications (only with your consent; you can unsubscribe anytime)</li><li>To send administrative notifications (orders, policy changes)</li><li>To fulfil and manage your orders, payments, and returns</li><li>To show personalised advertising (only with consent — see Meta section below)</li><li>To request feedback</li><li>To protect the Site (fraud prevention)</li><li>To enforce our Terms of Use</li><li>To respond to legal requests</li><li>To analyse Site usage and improve our services</li></ul><p>Service Providers (Processors): to run our store, we use vetted partners: Shopify (store platform/hosting), Shopify Payments (payment processing), email service providers, Google Analytics (analytics — only with consent), and Omniva (shipping/logistics). These partners process data on our instructions and under data processing agreements.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_eEe555": {
+          "type": "item",
+          "settings": {
+            "heading": "Will Your Information Be Shared With Anyone?",
+            "text": "<p>We share data only on the following legal bases: your consent, legitimate interest, performance of a contract, legal obligation, or protection of vital interests (fraud investigation, policy violations).</p><p>Advertising and Meta (Facebook/Instagram): we may use Meta tools, including the Meta Pixel, to show you relevant ads and measure their effectiveness — only with your prior consent via the cookie settings. You can withdraw consent at any time through the Site's cookie settings. For more on how Meta processes data, see their Data Policy.</p><p>International transfers: some of our providers (e.g. Shopify, Meta) may process data outside the EEA (e.g. in the US). In such cases, we ensure appropriate safeguards under GDPR Chapter V, including Standard Contractual Clauses (SCCs).</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_fFf666": {
+          "type": "item",
+          "settings": {
+            "heading": "Do We Use Cookies?",
+            "text": "<p>Yes — for details on which cookies we use and how to manage them, see our <a href=\"/pages/cookie-policy\">Cookie Policy</a>.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_gGg777": {
+          "type": "item",
+          "settings": {
+            "heading": "How Long Do We Keep Your Information?",
+            "text": "<p>We retain data only as long as necessary for the purposes described in this policy, or as required by law:</p><ul><li>Order and invoicing data: up to 10 years, in line with Lithuanian accounting and tax law requirements.</li><li>Customer support records: up to 3 years after resolution.</li><li>Marketing data: until you withdraw consent.</li><li>Account data: for the lifetime of your account.</li></ul><p>When data is no longer needed, we delete it or irreversibly anonymise it.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_hHh888": {
+          "type": "item",
+          "settings": {
+            "heading": "How Do We Keep Your Information Safe?",
+            "text": "<p>We apply technical and organisational security measures: encryption in transit, access controls, least-privilege staff access, and vendor due diligence. However, we cannot guarantee that the internet is 100% secure — transmitting data to our Site is at your own risk.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_iIi999": {
+          "type": "item",
+          "settings": {
+            "heading": "Do We Collect Information From Minors?",
+            "text": "<p>No. Our services are intended for individuals aged 18 and over. By using the Site, you confirm that you are at least 18, or that you are the parent/guardian of a minor and consent to their use of the Site. If we learn we have collected data from someone under 18, we will delete the account and the data.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_jJj000": {
+          "type": "item",
+          "settings": {
+            "heading": "What Are Your Privacy Rights?",
+            "text": "<p>You have the right to: request access to your data and a copy of it; request rectification or erasure; restrict processing; object to processing; and receive your data in a portable format. To exercise these rights, email <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a>. We will respond within one month (extendable by up to two additional months for complex requests, per GDPR).</p><p>If you believe we are processing your data unlawfully, you have the right to lodge a complaint with your national supervisory authority:</p><ul><li>Lithuania — State Data Protection Inspectorate (VDAI) — <a href=\"https://vdai.lrv.lt\">vdai.lrv.lt</a></li><li>Latvia — Data State Inspectorate (DVI) — <a href=\"https://www.dvi.gov.lv\">dvi.gov.lv</a></li><li>Estonia — Data Protection Inspectorate (AKI) — <a href=\"https://www.aki.ee\">aki.ee</a></li></ul><p>We'd appreciate the chance to resolve any concern directly first — please contact us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a>.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_kKk101": {
+          "type": "item",
+          "settings": {
+            "heading": "Do-Not-Track",
+            "text": "<p>There is currently no uniform standard for Do-Not-Track signals, so we do not respond to them. If such a standard is adopted, we will update this policy accordingly.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_lLl202": {
+          "type": "item",
+          "settings": {
+            "heading": "Updates to This Policy",
+            "text": "<p>We may update this policy from time to time. The current version is always published on this page with the update date.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_mMm303": {
+          "type": "item",
+          "settings": {
+            "heading": "Contact Us",
+            "text": "<p>For questions about this policy, contact:</p><p>UAB &quot;Bymello&quot;<br>Krokuvos g. 53-3, Vilnius, LT-09306, Lithuania<br><a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a></p><p>You can review, update, or delete your data by logging into your account on bymello.eu, or by contacting us directly — we will respond within 30 days.</p>",
+            "heading_color": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "item_aAa111",
+        "item_bBb222",
+        "item_cCc333",
+        "item_dDd444",
+        "item_eEe555",
+        "item_fFf666",
+        "item_gGg777",
+        "item_hHh888",
+        "item_iIi999",
+        "item_jJj000",
+        "item_kKk101",
+        "item_lLl202",
+        "item_mMm303"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 64,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 40
+      }
+    },
+    "scrolling_banner": {
+      "type": "scrolling-banner",
+      "disabled": true,
+      "blocks": {
+        "heading_9fMpYx": {
+          "type": "heading",
+          "settings": {
+            "text": "Science-backed essentials designed for clarity, consistency, and everyday confidence",
+            "color": "--color-secondary-foreground",
+            "text_size": "h0",
+            "heading_font_family": "font-heading",
+            "text_weight": "fw-500"
+          }
+        },
+        "icon_bH4KdD": {
+          "type": "icon",
+          "settings": {
+            "image": "",
+            "image_width": 50
+          }
+        }
+      },
+      "block_order": [
+        "heading_9fMpYx",
+        "icon_bH4KdD"
+      ],
+      "settings": {
+        "color_scheme": "scheme-7",
+        "scroll_speed": "ultra-fast",
+        "column_gap": 25,
+        "column_gap_mb": 20,
+        "bg_hover_1": "",
+        "text_hover_1": "",
+        "bg_hover_2": "",
+        "text_hover_2": "",
+        "bg_hover_3": "",
+        "text_hover_3": "",
+        "bg_hover_4": "",
+        "text_hover_4": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "policy_pR1vC9",
+    "scrolling_banner"
+  ]
+}
