@@ -1,5 +1,12 @@
 #shopify-pc__banner {
   font-family: var(--font-body-family);
+  border-radius: var(--product-card-corner-radius);
+  overflow: hidden;
+}
+
+#shopify-pc__prefs__dialog {
+  border-radius: var(--product-card-corner-radius);
+  overflow: hidden;
 }
 
 #shopify-pc__banner__body-title {
@@ -80,4 +87,21 @@
 #shopify-pc__prefs__header-decline:hover {
   background-color: rgb(var(--color-foreground));
   color: rgb(var(--color-background));
+}
+
+#shopify-pc__banner button:focus,
+#shopify-pc__banner a:focus,
+#shopify-pc__prefs button:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+#shopify-pc__banner button:focus-visible,
+#shopify-pc__banner a:focus-visible,
+#shopify-pc__prefs button:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: 0.3rem;
+  box-shadow:
+    0 0 0 0.3rem rgb(var(--color-background)),
+    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
