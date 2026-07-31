@@ -42,7 +42,7 @@
 
 <div class="main-page-banner">
   <div class="main-page-banner__wrapper section-responsive-padding" style="text-align: {{ section.settings.banner_text_alignment }};">
-    <div class="page-width{% if template.suffix == 'returns' or template.suffix == 'shipping' or template.suffix == 'terms' or template.suffix == 'support' or template.suffix == 'faq' or template.suffix == 'cookie-policy' %} page-width--policy-narrow{% endif %}">
+    <div class="page-width{% if template.suffix == 'returns' or template.suffix == 'shipping' or template.suffix == 'terms' or template.suffix == 'support' or template.suffix == 'faq' or template.suffix == 'cookie-policy' or template.suffix == 'privacy-policy' %} page-width--policy-narrow{% endif %}">
 			<h1 class="main-page-title page-title title title-wrapper--no-top-margin inline-richtext {{ section.settings.title_weight }} {{ section.settings.title_size }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text animate--slide-in {% endif %}">
 				{% if section.settings.title != blank %}
 					{{ section.settings.title }}
