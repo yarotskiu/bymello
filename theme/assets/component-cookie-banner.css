@@ -96,28 +96,28 @@
   appearance: none;
 }
 
-#shopify-pc__banner__btn-manage-prefs:focus,
-#shopify-pc__banner__btn-accept:focus,
-#shopify-pc__banner__btn-decline:focus,
-#shopify-pc__banner__body-policy-link:focus,
-#shopify-pc__prefs__header-close:focus,
-#shopify-pc__prefs__header-accept:focus,
-#shopify-pc__prefs__header-decline:focus,
-#shopify-pc__prefs__header-save:focus {
+html body #shopify-pc__banner__btn-manage-prefs:focus,
+html body #shopify-pc__banner__btn-accept:focus,
+html body #shopify-pc__banner__btn-decline:focus,
+html body #shopify-pc__banner__body-policy-link:focus,
+html body #shopify-pc__prefs__header-close:focus,
+html body #shopify-pc__prefs__header-accept:focus,
+html body #shopify-pc__prefs__header-decline:focus,
+html body #shopify-pc__prefs__header-save:focus {
   outline: 0 !important;
   box-shadow: none !important;
 }
 
-#shopify-pc__banner__btn-manage-prefs:focus-visible,
-#shopify-pc__banner__btn-accept:focus-visible,
-#shopify-pc__banner__btn-decline:focus-visible,
-#shopify-pc__banner__body-policy-link:focus-visible,
-#shopify-pc__prefs__header-close:focus-visible,
-#shopify-pc__prefs__header-accept:focus-visible,
-#shopify-pc__prefs__header-decline:focus-visible,
-#shopify-pc__prefs__header-save:focus-visible {
+html body #shopify-pc__banner__btn-manage-prefs:focus-visible,
+html body #shopify-pc__banner__btn-accept:focus-visible,
+html body #shopify-pc__banner__btn-decline:focus-visible,
+html body #shopify-pc__banner__body-policy-link:focus-visible,
+html body #shopify-pc__prefs__header-close:focus-visible,
+html body #shopify-pc__prefs__header-accept:focus-visible,
+html body #shopify-pc__prefs__header-decline:focus-visible,
+html body #shopify-pc__prefs__header-save:focus-visible {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5) !important;
-  outline-offset: 0.3rem;
+  outline-offset: 0.3rem !important;
   box-shadow:
     0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3) !important;
