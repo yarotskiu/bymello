@@ -1,0 +1,124 @@
+#shopify-pc__banner {
+  font-family: var(--font-body-family);
+  border-radius: var(--product-card-corner-radius);
+  overflow: hidden;
+}
+
+#shopify-pc__prefs__dialog {
+  border-radius: var(--product-card-corner-radius);
+  overflow: hidden;
+}
+
+#shopify-pc__banner__body-title {
+  font-family: var(--font-heading-family);
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-accept,
+#shopify-pc__banner .shopify-pc__banner__btn-decline {
+  border-radius: var(--buttons-radius);
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  transition: background-color var(--duration-short) ease, color var(--duration-short) ease, border-color var(--duration-short) ease;
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-accept {
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border-color: rgb(var(--color-button));
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-accept:hover {
+  background-color: rgb(var(--color-button-hover));
+  color: rgb(var(--color-button-text-hover));
+  border-color: rgb(var(--color-button-hover));
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-decline {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border-color: rgb(var(--color-foreground));
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-decline:hover {
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+
+#shopify-pc__banner .shopify-pc__banner__btn-manage-prefs {
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+#shopify-pc__prefs__header-title {
+  font-family: var(--font-heading-family);
+}
+
+#shopify-pc__prefs__header-accept,
+#shopify-pc__prefs__header-decline,
+#shopify-pc__prefs__header-save {
+  border-radius: var(--buttons-radius);
+  font-family: var(--font-body-family);
+  font-weight: 500;
+  transition: background-color var(--duration-short) ease, color var(--duration-short) ease, border-color var(--duration-short) ease;
+}
+
+#shopify-pc__prefs__header-accept,
+#shopify-pc__prefs__header-save {
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border-color: rgb(var(--color-button));
+}
+
+#shopify-pc__prefs__header-accept:hover,
+#shopify-pc__prefs__header-save:hover {
+  background-color: rgb(var(--color-button-hover));
+  color: rgb(var(--color-button-text-hover));
+  border-color: rgb(var(--color-button-hover));
+}
+
+#shopify-pc__prefs__header-decline {
+  background-color: transparent;
+  color: rgb(var(--color-foreground));
+  border-color: rgb(var(--color-foreground));
+}
+
+#shopify-pc__prefs__header-decline:hover {
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+}
+
+#shopify-pc__banner button,
+#shopify-pc__banner a,
+#shopify-pc__prefs button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+html body #shopify-pc__banner__btn-manage-prefs:focus,
+html body #shopify-pc__banner__btn-accept:focus,
+html body #shopify-pc__banner__btn-decline:focus,
+html body #shopify-pc__banner__body-policy-link:focus,
+html body #shopify-pc__prefs__header-close:focus,
+html body #shopify-pc__prefs__header-accept:focus,
+html body #shopify-pc__prefs__header-decline:focus,
+html body #shopify-pc__prefs__header-save:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+html body #shopify-pc__banner__btn-manage-prefs:focus-visible,
+html body #shopify-pc__banner__btn-accept:focus-visible,
+html body #shopify-pc__banner__btn-decline:focus-visible,
+html body #shopify-pc__banner__body-policy-link:focus-visible,
+html body #shopify-pc__prefs__header-close:focus-visible,
+html body #shopify-pc__prefs__header-accept:focus-visible,
+html body #shopify-pc__prefs__header-decline:focus-visible,
+html body #shopify-pc__prefs__header-save:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5) !important;
+  outline-offset: 0.3rem !important;
+  box-shadow:
+    0 0 0 0.3rem rgb(var(--color-background)),
+    0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3) !important;
+}
