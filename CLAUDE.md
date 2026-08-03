@@ -4,7 +4,7 @@ Project instructions for Claude Code. Read this before working.
 
 ## What this is
 - Shopify store **Bymello** (storefront: bymello.eu). Store handle: `bymello-store.myshopify.com`.
-- We modify the **Ovelia** theme (`#201621700933`, currently the **live** theme). Theme files live in `theme/`.
+- We modify the theme currently published as **live** on the store (currently named "Bymello", `#202342662469` as of 2026-08-03 — based on the Ovelia framework, but the published theme id/name can change any time a preview gets published, so never hardcode it; resolve `--live` at run time like `scripts/check-live-drift.sh` and `theme/shopify.theme.toml` already do). Theme files live in `theme/`.
 - Classic section-based theme (no `blocks/` architecture). The theme is **not** vendor-pristine — a prior developer made edits; the git baseline captures current state.
 - Repo: private `yarotskiu/bymello`, default branch **`main`**. Push over **HTTPS** (the SSH key on this machine maps to a different GitHub account).
 
