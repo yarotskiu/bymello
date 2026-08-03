@@ -20,7 +20,10 @@ shopify theme list --store=bymello-store.myshopify.com
 ```
 
 A browser window opens — log into the Shopify admin. You should then see the
-`Ovelia` (live) and `Horizon` (unpublished) themes listed.
+currently published (live) theme plus any unpublished preview themes listed.
+The published theme's id/name can change any time a preview gets published,
+so don't rely on a name or id you saw once — always target `--live`, as the
+commands below do.
 
 ## 3. Pull the theme (first time only)
 
@@ -28,7 +31,7 @@ The theme already lives in `theme/`. To re-pull a fresh copy into it:
 
 ```bash
 cd theme
-shopify theme pull --store=bymello-store.myshopify.com --theme=201621700933
+shopify theme pull --store=bymello-store.myshopify.com --live
 ```
 
 ## 4. Live preview while developing
