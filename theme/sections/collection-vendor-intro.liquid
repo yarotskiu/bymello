@@ -73,6 +73,8 @@
 
 {%- liquid
   assign vendor_image = collection.image | default: collection.featured_image
+  assign vendor_heading = section.settings.heading_override | default: collection.title
+  assign vendor_text = section.settings.text_override | default: collection.description
   if section.settings.color_scheme == section.settings.section_color_scheme
     assign remove_color_classes = true
   endif
@@ -89,7 +91,7 @@
             {{
               vendor_image
               | image_url: width: 600
-              | image_tag: class: 'vendor-logo-frame__image', alt: collection.title
+              | image_tag: class: 'vendor-logo-frame__image', alt: vendor_heading
             }}
           {%- else -%}
             {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -100,12 +102,12 @@
         id="VendorIntroText--{{ section.id }}"
         class="vendor-intro__text content-container image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }}"
       >
-        {%- if collection.title != blank -%}
-          <h2 class="image-with-text__heading inline-richtext h2">{{ collection.title }}</h2>
+        {%- if vendor_heading != blank -%}
+          <h2 class="image-with-text__heading inline-richtext h2">{{ vendor_heading }}</h2>
         {%- endif -%}
-        {%- if collection.description != blank -%}
+        {%- if vendor_text != blank -%}
           {%- liquid
-            assign description_plain = collection.description | strip_html
+            assign description_plain = vendor_text | strip_html
             assign description_is_long = false
             if description_plain.size > 250
               assign description_is_long = true
@@ -115,14 +117,14 @@
           {%- if description_is_long -%}
             <vendor-description-toggle class="vendor-description-toggle">
               <div class="image-with-text__text rte body clr-text-foreground-secondary" data-collapsed-text>{{ description_truncated }}</div>
-              <div class="image-with-text__text rte body clr-text-foreground-secondary hidden" data-full-text>{{ collection.description }}</div>
+              <div class="image-with-text__text rte body clr-text-foreground-secondary hidden" data-full-text>{{ vendor_text }}</div>
               <button type="button" class="link underlined-link vendor-description-toggle__button" data-toggle-button aria-expanded="false">
                 <span data-label-more>Show more</span>
                 <span data-label-less class="hidden">Show less</span>
               </button>
             </vendor-description-toggle>
           {%- else -%}
-            <div class="image-with-text__text rte body clr-text-foreground-secondary">{{ collection.description }}</div>
+            <div class="image-with-text__text rte body clr-text-foreground-secondary">{{ vendor_text }}</div>
           {%- endif -%}
         {%- endif -%}
       </div>
@@ -160,7 +162,19 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Shows the current collection's own image, title, and description — no per-vendor setup needed. Assign this template to a vendor's collection and set that collection's image + description in the Shopify admin."
+      "content": "By default this shows the current collection's own image, title, and description — no per-vendor setup needed. Use the Heading/Text overrides below only if you want different wording here than what's set on the collection itself."
+    },
+    {
+      "type": "text",
+      "id": "heading_override",
+      "label": "Heading override",
+      "info": "Leave blank to use the collection's title."
+    },
+    {
+      "type": "richtext",
+      "id": "text_override",
+      "label": "Text override",
+      "info": "Leave blank to use the collection's description."
     },
     {
       "type": "select",
