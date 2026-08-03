@@ -72,10 +72,12 @@
     {%- endif -%}
 
     <div class="collection-hero__text-wrapper page-width section-responsive-padding">
-      <h1 class="collection-hero__title {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} animate--fade-in">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
-      </h1>
+      {%- if section.settings.show_collection_title -%}
+        <h1 class="collection-hero__title {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} animate--fade-in">
+          <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+          {{- collection.title | escape -}}
+        </h1>
+      {%- endif -%}
 
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte clr-text-foreground-secondary">{{ collection.description | strip_html }}</div>
@@ -117,6 +119,12 @@
       "label": "Custom color for active breadcrumb",
       "default": "#000000",
       "visible_if": "{{ section.settings.breadcrumbs_active_color_enable == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_title",
+      "default": true,
+      "label": "Show collection title"
     },
     {
       "type": "checkbox",
