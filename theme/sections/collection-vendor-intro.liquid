@@ -1,0 +1,274 @@
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .vendor-intro-wrapper {
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+		--padding-top-mb: {{ section.settings.padding_top_mb }}px;
+		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+    padding-top: var(--padding-top-mb);
+    padding-bottom: var(--padding-bottom-mb);
+	}
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .vendor-intro-wrapper {
+      padding-top: var(--padding-top);
+      padding-bottom: var(--padding-bottom);
+    }
+  }
+  #shopify-section-{{ section.id }} .vendor-intro {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro--text_first {
+    flex-direction: row-reverse;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro--content-top {
+    align-items: flex-start;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro--content-bottom {
+    align-items: flex-end;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro__media {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro__media--small {
+    width: 160px;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro__media--medium {
+    width: 240px;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro__media--large {
+    width: 340px;
+  }
+  #shopify-section-{{ section.id }} .vendor-intro__text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .vendor-intro {
+      gap: 3rem;
+    }
+  }
+  #shopify-section-{{ section.id }} .vendor-logo-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+  #shopify-section-{{ section.id }} .vendor-logo-frame__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  #shopify-section-{{ section.id }} .vendor-description-toggle__button {
+    display: block;
+    margin-top: 0.5rem;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign vendor_image = collection.image | default: collection.featured_image
+  if section.settings.color_scheme == section.settings.section_color_scheme
+    assign remove_color_classes = true
+  endif
+-%}
+
+<div class="vendor-intro-wrapper section-responsive-padding gradient color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="vendor-intro vendor-intro--{{ section.settings.layout }} vendor-intro--content-{{ section.settings.desktop_content_position }}">
+      <div class="vendor-intro__media vendor-intro__media--{{ section.settings.logo_size }}">
+        <div
+          class="vendor-logo-frame{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% endunless %}{% if vendor_image == blank %} image-with-text__media--placeholder placeholder{% endif %}"
+        >
+          {%- if vendor_image != blank -%}
+            {{
+              vendor_image
+              | image_url: width: 600
+              | image_tag: class: 'vendor-logo-frame__image', alt: collection.title
+            }}
+          {%- else -%}
+            {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+      </div>
+      <div
+        id="VendorIntroText--{{ section.id }}"
+        class="vendor-intro__text content-container image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }}"
+      >
+        {%- if collection.title != blank -%}
+          <h2 class="image-with-text__heading inline-richtext h2">{{ collection.title }}</h2>
+        {%- endif -%}
+        {%- if collection.description != blank -%}
+          {%- liquid
+            assign description_plain = collection.description | strip_html
+            assign description_is_long = false
+            if description_plain.size > 250
+              assign description_is_long = true
+              assign description_truncated = description_plain | truncate: 250
+            endif
+          -%}
+          {%- if description_is_long -%}
+            <vendor-description-toggle class="vendor-description-toggle">
+              <div class="image-with-text__text rte body clr-text-foreground-secondary" data-collapsed-text>{{ description_truncated }}</div>
+              <div class="image-with-text__text rte body clr-text-foreground-secondary hidden" data-full-text>{{ collection.description }}</div>
+              <button type="button" class="link underlined-link vendor-description-toggle__button" data-toggle-button aria-expanded="false">
+                <span data-label-more>Show more</span>
+                <span data-label-less class="hidden">Show less</span>
+              </button>
+            </vendor-description-toggle>
+          {%- else -%}
+            <div class="image-with-text__text rte body clr-text-foreground-secondary">{{ collection.description }}</div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    if (customElements.get('vendor-description-toggle')) return;
+    customElements.define('vendor-description-toggle', class extends HTMLElement {
+      connectedCallback() {
+        const button = this.querySelector('[data-toggle-button]');
+        if (!button) return;
+        button.addEventListener('click', () => {
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          this.querySelector('[data-collapsed-text]').classList.toggle('hidden', !expanded);
+          this.querySelector('[data-full-text]').classList.toggle('hidden', expanded);
+          this.querySelector('[data-label-more]').classList.toggle('hidden', !expanded);
+          this.querySelector('[data-label-less]').classList.toggle('hidden', expanded);
+          button.setAttribute('aria-expanded', String(!expanded));
+        });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Vendor collection intro",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows the current collection's own image, title, and description — no per-vendor setup needed. Assign this template to a vendor's collection and set that collection's image + description in the Shopify admin."
+    },
+    {
+      "type": "select",
+      "id": "logo_size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium",
+      "label": "Logo size",
+      "info": "The logo box is sized to match the logo — no extra empty space."
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "image_first", "label": "Image first" },
+        { "value": "text_first", "label": "Text first" }
+      ],
+      "default": "image_first",
+      "label": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "middle", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "middle",
+      "label": "Vertical alignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Desktop content alignment"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Mobile content alignment"
+    },
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Logo box color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 56
+    }
+  ]
+}
+{% endschema %}
