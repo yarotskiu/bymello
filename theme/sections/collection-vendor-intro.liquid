@@ -30,6 +30,13 @@
   #shopify-section-{{ section.id }} .vendor-intro--content-bottom {
     align-items: flex-end;
   }
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .vendor-intro,
+    #shopify-section-{{ section.id }} .vendor-intro--text_first {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
   #shopify-section-{{ section.id }} .vendor-intro__media {
     flex: 0 0 auto;
     max-width: 100%;
