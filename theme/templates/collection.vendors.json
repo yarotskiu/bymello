@@ -15,7 +15,7 @@
         "show_breadcrumbs": true,
         "breadcrumbs_color_scheme": "scheme-8",
         "breadcrumbs_active_color_enable": true,
-        "breadcrumbs_active_color": "#DB742B",
+        "breadcrumbs_active_color": "#db742b",
         "show_collection_title": false,
         "show_collection_description": false,
         "show_collection_image": false,
@@ -35,6 +35,8 @@
     "vendor_intro": {
       "type": "collection-vendor-intro",
       "settings": {
+        "heading_override": "Trendsplant",
+        "text_override": "<p>Trendsplant is a Spanish clothing brand. From the start, the label has been guided by three principles: ethics, sustainability, and excellence — summed up in its own words as \"apparel with purpose.\" Trendsplant makes everyday essentials, mainly from GOTS-certified organic cotton grown in Portugal. The brand has been a certified B Corp since 2021 and is a member of 1% for the Planet, committing part of its revenue to environmental causes. For Trendsplant, sustainability is not marketing: the brand makes decisions that are equally good for the planet and for people, putting those interests ahead of its own.</p><p>The collection spans men's and women's lines. The men's range includes t-shirts, sweatshirts, shirts, polos, and more, including accessories. The women's range includes t-shirts, sweaters, and hoodies, along with a dedicated line of accessories. Beyond these core categories, Trendsplant offers a number of themed collections: Essentials — year-round basics, Color Block — featuring contrasting color blocks, as well as Origins and Workshop.</p>",
         "logo_size": "small",
         "layout": "image_first",
         "desktop_content_position": "middle",
