@@ -144,7 +144,7 @@
         "slide_height": "medium",
         "loop": true,
         "auto_rotate": false,
-        "change_slides_speed": 5,
+        "change_slides_speed": 9,
         "box_align": "middle-left",
         "pagination_position": "outside-slider",
         "pagination_transparent_background": true,
@@ -168,7 +168,7 @@
             "custom_title_color": "",
             "custom_title_size": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "shopify://shop_images/womens-organic-cotton-loungewear_0_5x_0_5x_4aa9a125-7351-4b0c-af81-46f43014a0ab.png",
+            "custom_image": "shopify://shop_images/drop-ecommerce-woman-299060wdss-7-optimized.webp",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Her"
           }
@@ -181,7 +181,7 @@
             "custom_title_color": "#32383e",
             "custom_title_size": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "shopify://shop_images/mens-organic-cotton-loungewear_0_5x_0_5x_0_5x_531cf7e5-70a7-433d-9ca0-4dd51cd48fef.jpg",
+            "custom_image": "shopify://shop_images/299060MQZS0066-optimized.webp",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Him"
           }
@@ -196,7 +196,7 @@
         "title": "Shop by You",
         "heading_font_family": "font-heading",
         "heading_size": "h2",
-        "image_ratio": "landscape",
+        "image_ratio": "adapt",
         "columns_desktop": 2,
         "color_scheme": "scheme-2",
         "show_view_all": false,
@@ -261,10 +261,10 @@
         "icon_DUgJhk"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "scroll_speed": "ultra-fast",
         "column_gap": 45,
-        "column_gap_mb": 20,
+        "column_gap_mb": 40,
         "bg_hover_1": "",
         "text_hover_1": "",
         "bg_hover_2": "",
@@ -273,10 +273,67 @@
         "text_hover_3": "",
         "bg_hover_4": "",
         "text_hover_4": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 0
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 20
+      }
+    },
+    "image_with_text_FNz9dk": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9Ynq3M": {
+          "type": "heading",
+          "settings": {
+            "heading": "Trendsplant, from Spain",
+            "heading_size": "h2"
+          }
+        },
+        "text_fMn4EQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Everyday clothing, made for real life — apparel with purpose. <br/>GOTS-certified organic cotton.</p>",
+            "text_style": "body",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "button_LaeEM7": {
+          "type": "button",
+          "settings": {
+            "button_label": "View Products",
+            "button_link": "",
+            "button_style": "primary",
+            "button_outline": "outline-hover",
+            "secondary_button": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "primary",
+            "secondary_button_outline": "outline-hover"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9Ynq3M",
+        "text_fMn4EQ",
+        "button_LaeEM7"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSCF6416-optimized.webp",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 74,
+        "padding_bottom": 74,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
       }
     },
     "sticky_products_Yd3N9D": {
@@ -560,6 +617,7 @@
     },
     "product_bundle_pK9nWX": {
       "type": "product-bundle",
+      "disabled": true,
       "settings": {
         "title": "Build Your Routine",
         "heading_font_family": "font-heading",
@@ -974,6 +1032,7 @@
     "slideshow_ERLpGU",
     "collection_list_RXGMLR",
     "scrolling_banner_Fey7Qm",
+    "image_with_text_FNz9dk",
     "sticky_products_Yd3N9D",
     "scrolling_banner_fR8jNn",
     "before_after_AJQhaa",
