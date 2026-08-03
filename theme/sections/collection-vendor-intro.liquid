@@ -77,6 +77,12 @@
     padding: 0;
     margin: 0.5rem 0 0;
     text-align: left;
+    text-decoration: none;
+    font-size: 1.4rem;
+  }
+  #shopify-section-{{ section.id }} .vendor-description-toggle__button:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
   }
 {%- endstyle -%}
 
@@ -127,7 +133,7 @@
             <vendor-description-toggle class="vendor-description-toggle">
               <div class="image-with-text__text rte body clr-text-foreground-secondary" data-collapsed-text>{{ description_truncated }}</div>
               <div class="image-with-text__text rte body clr-text-foreground-secondary hidden" data-full-text>{{ vendor_text }}</div>
-              <button type="button" class="link underlined-link vendor-description-toggle__button" data-toggle-button aria-expanded="false">
+              <button type="button" class="link underlined-link clr-text-foreground-secondary vendor-description-toggle__button" data-toggle-button aria-expanded="false">
                 <span data-label-more>Show more</span>
                 <span data-label-less class="hidden">Show less</span>
               </button>
