@@ -46,6 +46,7 @@
   #shopify-section-{{ section.id }} .vendor-intro__text {
     flex: 1 1 auto;
     min-width: 0;
+    max-width: 800px;
   }
   @media screen and (min-width: 750px) {
     #shopify-section-{{ section.id }} .vendor-intro {
@@ -65,9 +66,14 @@
     width: 100%;
     height: auto;
   }
+  #shopify-section-{{ section.id }} vendor-description-toggle {
+    display: block;
+  }
   #shopify-section-{{ section.id }} .vendor-description-toggle__button {
     display: block;
-    margin-top: 0.5rem;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    text-align: left;
   }
 {%- endstyle -%}
 
