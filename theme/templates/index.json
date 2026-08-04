@@ -285,7 +285,7 @@
         "heading_9Ynq3M": {
           "type": "heading",
           "settings": {
-            "heading": "Trendsplant, from Spain",
+            "heading": "Trendsplant",
             "heading_size": "h2"
           }
         },
@@ -325,7 +325,7 @@
         "layout": "image_first",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
+        "content_layout": "overlap",
         "section_color_scheme": "scheme-2",
         "color_scheme": "scheme-2",
         "image_behavior": "none",
@@ -490,6 +490,63 @@
         "padding_bottom_mb": 20
       }
     },
+    "image_with_text_Hqp3Dz": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_GdMrCn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Living Crafts",
+            "heading_size": "h2"
+          }
+        },
+        "text_UT3cGB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Organic cotton homewear, made in Germany since 1985. GOTS-certified since2009.</p>",
+            "text_style": "body",
+            "text_color": "foreground-secondary"
+          }
+        },
+        "button_TJYDfq": {
+          "type": "button",
+          "settings": {
+            "button_label": "View Products",
+            "button_link": "shopify://collections/living-crafts",
+            "button_style": "primary",
+            "button_outline": "outline",
+            "secondary_button": false,
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "primary",
+            "secondary_button_outline": "outline-hover"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GdMrCn",
+        "text_UT3cGB",
+        "button_TJYDfq"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/LC_banner_2x-100.jpg",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 74,
+        "padding_bottom": 74,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
+      }
+    },
     "before_after_AJQhaa": {
       "type": "before-after",
       "disabled": true,
@@ -556,6 +613,101 @@
         "padding_bottom": 40,
         "padding_top_mb": 40,
         "padding_bottom_mb": 40
+      }
+    },
+    "featured_collection_paTVFF": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Featured collection",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "heading_weight": "fw-500",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "essentials",
+        "product_list": [
+          "tatum-organic-cotton-sleep-pants",
+          "johanna-long-sleeved-undershirt",
+          "betty-organic-cotton-pajama-set",
+          "livingcrafts-beryl-vest",
+          "colin-organic-cotton-pajama-set",
+          "dean-t-shirt-pack-of-2",
+          "bob-organic-cotton-pajama-set",
+          "thomme-henley-shirt"
+        ],
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "enable_slider": false,
+        "slides_number": 4.2,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "custom_image_height": 120,
+        "image_shape": "default",
+        "product_heading_size": "text-body--large",
+        "product_heading_weight": "fw-400",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "show_type": true,
+        "enable_product_variants": false,
+        "columns_mobile": "2",
+        "padding_top": 74,
+        "padding_bottom": 74,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
+      }
+    },
+    "rich_text_6Jn497": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xRBjdh": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h2"
+          }
+        },
+        "text_RHNwha": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_THQU76": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "primary",
+            "button_outline": "outline-hover",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": "secondary",
+            "button_outline_2": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xRBjdh",
+        "text_RHNwha",
+        "button_THQU76"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 74,
+        "padding_bottom": 74,
+        "padding_top_mb": 56,
+        "padding_bottom_mb": 56
       }
     },
     "comfort_sale_banner": {
@@ -1035,8 +1187,11 @@
     "image_with_text_FNz9dk",
     "sticky_products_Yd3N9D",
     "scrolling_banner_fR8jNn",
+    "image_with_text_Hqp3Dz",
     "before_after_AJQhaa",
     "countdown_banner_DzcfRf",
+    "featured_collection_paTVFF",
+    "rich_text_6Jn497",
     "comfort_sale_banner",
     "product_bundle_pK9nWX",
     "multi_scroll_gallery_H9fT3k",
