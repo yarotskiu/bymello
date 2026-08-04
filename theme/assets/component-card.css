@@ -1102,14 +1102,23 @@
 }
 
 .cc-overlay-card .card__inner .card__content {
-  display: none;
+  position: absolute;
+  inset: 0;
+  padding: 3.2rem;
+  display: flex;
+  align-items: flex-start;
+  z-index: 2;
+  border-radius: var(--border-radius);
 }
 .cc-overlay-card .card__inner .card__content .card__information {
   display: flex;
   padding: 0;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.cc-overlay-card .card__inner .card__content .slider-button {
+  display: none;
 }
 
 .header-wrapper [id='cart-icon-bubble'] .icon-variant {
