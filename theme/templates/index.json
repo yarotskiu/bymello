@@ -28,7 +28,7 @@
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-2",
             "enable_mobile_color_scheme": true,
-            "color_scheme_mobile": "scheme-1",
+            "color_scheme_mobile": "scheme-2",
             "remove_space_for_content_on_mobile": true,
             "image_border_radius_mobile": true,
             "button_label": "Shop Now",
@@ -163,12 +163,12 @@
         "featured_collection_WW9N7d": {
           "type": "featured_collection",
           "settings": {
-            "collection": "women",
+            "collection": "men",
             "custom_title": "For Her",
             "custom_title_color": "",
             "custom_title_size": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "shopify://shop_images/drop-ecommerce-woman-299060wdss-7-optimized.webp",
+            "custom_image": "shopify://shop_images/forhim.webp",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Her"
           }
@@ -176,12 +176,12 @@
         "featured_collection_UgGCJf": {
           "type": "featured_collection",
           "settings": {
-            "collection": "men",
-            "custom_title": "For Him",
+            "collection": "women",
+            "custom_title": "",
             "custom_title_color": "#32383e",
             "custom_title_size": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "shopify://shop_images/299060MQZS0066-optimized.webp",
+            "custom_image": "shopify://shop_images/forher.webp",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Him"
           }
@@ -195,8 +195,8 @@
       "settings": {
         "title": "Shop by You",
         "heading_font_family": "font-heading",
-        "heading_size": "h2",
-        "image_ratio": "adapt",
+        "heading_size": "h3",
+        "image_ratio": "portrait",
         "columns_desktop": 2,
         "color_scheme": "scheme-2",
         "show_view_all": false,
@@ -208,7 +208,7 @@
         "image_overlay_opacity": 40,
         "individual_card_color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "slider_controls": "show-scrollbar",
         "padding_top": 120,
         "padding_bottom": 120,
@@ -343,7 +343,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "scheme-2",
-            "product": "betty-organic-cotton-pajama-set",
+            "product": "color-block-quarter-zip-sweatshirt-cashew",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -353,7 +353,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "",
-            "product": "lamina-organic-cotton-hooded-jacket",
+            "product": "sauce-pigment-dyed-quarter-zip-sweatshirt-elm-green",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -363,7 +363,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "",
-            "product": "lavinia-organic-cotton-jogging-pants",
+            "product": "womens-essential-t-shirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -373,7 +373,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "scheme-2",
-            "product": "carl-organic-cotton-short-pajama-set",
+            "product": "color-block-sweatshirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -383,7 +383,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "",
-            "product": "alvar-organic-cotton-pajama-set",
+            "product": "womens-color-block-oversized-sweatshirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -393,7 +393,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "",
-            "product": "bianca-merino-wool-long-sleeve-top",
+            "product": "womens-organic-essential-oversized-zip-hoodie-rossette-pink",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
@@ -403,7 +403,7 @@
           "type": "product",
           "settings": {
             "color_scheme": "scheme-2",
-            "product": "bassy-merino-wool-leggings",
+            "product": "womens-bloom-t-shirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
             "enable_product_variants": false
