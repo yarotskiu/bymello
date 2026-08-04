@@ -15,10 +15,10 @@
         "slide_TtLGFw": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/bymello-banner-1_1_5x_1_5x_8169b22a-5d92-45f8-ab78-8316ab9ab596.jpg",
+            "image": "shopify://shop_images/hero_banner_3-optimized_311b09c2-e472-40f0-aec6-2fc231d8bfb0.webp",
             "heading": "Organic Cotton That Doesn't Compromise. Just Comfort.",
             "heading_font_family": "font-heading",
-            "heading_size": "h1",
+            "heading_size": "h2",
             "heading_color": "foreground",
             "heading_weight": "fw-500",
             "subheading": "Vegan, 100% organic cotton essentials from Europe's most trusted brands.",
@@ -35,7 +35,7 @@
             "link": "/collections/all",
             "button_style": "primary",
             "button_outline": "outline-hover",
-            "button_2_label": "Shop Now",
+            "button_2_label": "",
             "link_2": "/collections/all",
             "button_2_style": "secondary",
             "button_2_outline": "outline",
@@ -45,6 +45,7 @@
         "slide_kawhBK": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/hero-banner-1.webp",
             "heading": "Image slide",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
@@ -99,43 +100,12 @@
             "button_2_outline": "outline",
             "text_alignment_mobile": "left"
           }
-        },
-        "slide_AHfwhB": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/banner-100.jpg",
-            "heading": "Good Skin Isn’t Complicated.",
-            "heading_font_family": "font-heading",
-            "heading_size": "h1",
-            "heading_color": "foreground",
-            "heading_weight": "fw-500",
-            "subheading": "Meet the unisex essentials built for real routines.",
-            "text_color": "foreground-secondary",
-            "show_text_box": false,
-            "text_alignment": "left",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-5",
-            "enable_mobile_color_scheme": true,
-            "color_scheme_mobile": "",
-            "remove_space_for_content_on_mobile": true,
-            "image_border_radius_mobile": true,
-            "button_label": "Shop Now",
-            "link": "",
-            "button_style": "primary",
-            "button_outline": "outline-none",
-            "button_2_label": "View Collection",
-            "link_2": "",
-            "button_2_style": "secondary",
-            "button_2_outline": "outline",
-            "text_alignment_mobile": "left"
-          }
         }
       },
       "block_order": [
         "slide_TtLGFw",
         "slide_kawhBK",
-        "slide_ny48D9",
-        "slide_AHfwhB"
+        "slide_ny48D9"
       ],
       "name": "t:sections.slideshow.presets.name",
       "settings": {
@@ -146,7 +116,7 @@
         "auto_rotate": false,
         "change_slides_speed": 9,
         "box_align": "middle-left",
-        "pagination_position": "outside-slider",
+        "pagination_position": "inside-slider",
         "pagination_transparent_background": true,
         "image_behavior": "none",
         "show_text_below": true,
@@ -168,7 +138,7 @@
             "custom_title_color": "",
             "custom_title_size": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "shopify://shop_images/forhim.webp",
+            "custom_image": "shopify://shop_images/forhim.jpg",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Her"
           }
@@ -177,11 +147,11 @@
           "type": "featured_collection",
           "settings": {
             "collection": "women",
-            "custom_title": "",
+            "custom_title": "For Her",
             "custom_title_color": "#32383e",
-            "custom_title_size": "h3",
+            "custom_title_size": "h1",
             "custom_title_weight": "fw-400",
-            "custom_image": "shopify://shop_images/forher.webp",
+            "custom_image": "shopify://shop_images/forher_fe450532-8d50-4870-8fe9-050907f385ce.webp",
             "button_color_scheme": "scheme-9",
             "custom_image_hover_text": "For Him"
           }
@@ -343,10 +313,12 @@
           "type": "product",
           "settings": {
             "color_scheme": "scheme-2",
-            "product": "color-block-quarter-zip-sweatshirt-cashew",
+            "product": "color-block-t-shirt-solemnity-brown",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
-            "enable_product_variants": false
+            "enable_product_variants": false,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
           }
         },
         "product_PtnTHN": {
@@ -356,7 +328,9 @@
             "product": "sauce-pigment-dyed-quarter-zip-sweatshirt-elm-green",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
-            "enable_product_variants": false
+            "enable_product_variants": false,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
           }
         },
         "product_NjaDHX": {
@@ -366,7 +340,9 @@
             "product": "womens-essential-t-shirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
-            "enable_product_variants": false
+            "enable_product_variants": false,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
           }
         },
         "product_QeBnra": {
@@ -376,7 +352,9 @@
             "product": "color-block-sweatshirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
-            "enable_product_variants": false
+            "enable_product_variants": false,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
           }
         },
         "product_kyGABe": {
@@ -386,7 +364,9 @@
             "product": "womens-color-block-oversized-sweatshirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
-            "enable_product_variants": false
+            "enable_product_variants": false,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
           }
         },
         "product_3EyHtK": {
@@ -396,7 +376,9 @@
             "product": "womens-organic-essential-oversized-zip-hoodie-rossette-pink",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
-            "enable_product_variants": false
+            "enable_product_variants": false,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
           }
         },
         "product_p3BT4U": {
@@ -406,7 +388,57 @@
             "product": "womens-bloom-t-shirt",
             "heading_size": "text-body--large",
             "heading_weight": "fw-500",
-            "enable_product_variants": false
+            "enable_product_variants": false,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
+          }
+        },
+        "product_y96J7x": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-2",
+            "product": "bloom-t-shirt",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-400",
+            "enable_product_variants": true,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
+          }
+        },
+        "product_Bge69G": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-2",
+            "product": "flowers-l-s-t-shirt",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-400",
+            "enable_product_variants": true,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
+          }
+        },
+        "product_mkhggp": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-2",
+            "product": "organic-essential-sweatpants",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-400",
+            "enable_product_variants": true,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
+          }
+        },
+        "product_VpT8De": {
+          "type": "product",
+          "settings": {
+            "color_scheme": "scheme-2",
+            "product": "womens-essential-zip-hoodie",
+            "heading_size": "text-body--large",
+            "heading_weight": "fw-400",
+            "enable_product_variants": true,
+            "image_ratio": "portrait",
+            "custom_image_height": 100
           }
         }
       },
@@ -417,7 +449,11 @@
         "product_QeBnra",
         "product_kyGABe",
         "product_3EyHtK",
-        "product_p3BT4U"
+        "product_p3BT4U",
+        "product_y96J7x",
+        "product_Bge69G",
+        "product_mkhggp",
+        "product_VpT8De"
       ],
       "name": "Sticky products",
       "settings": {
