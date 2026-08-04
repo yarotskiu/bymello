@@ -1096,14 +1096,7 @@
 }
 
 .cc-overlay-card .card__inner .card__content {
-  position: absolute;
-  inset: 0;
-  padding: 2rem;
-  display: flex;
-  align-items: flex-end;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 52.98%, rgba(0, 0, 0, 0.7) 116.06%);
-  z-index: 2;
-  border-radius: var(--border-radius);
+  display: none;
 }
 .cc-overlay-card .card__inner .card__content .card__information {
   display: flex;
