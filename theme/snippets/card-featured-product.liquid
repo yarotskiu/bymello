@@ -147,20 +147,6 @@
                   </div>
                 {%- endfor -%}
               </div>
-              <div class="slider-navigation">
-                <div
-                  class="swiper-button swiper-button-prev button--animate-{{ settings.animations_hover_elements }}"
-                  tabindex="0"
-                >
-									{% render 'icon-short-arrow' %}
-                </div>
-                <div
-                  class="swiper-button swiper-button-next button--animate-{{ settings.animations_hover_elements }}"
-                  tabindex="0"
-                >
-									{% render 'icon-short-arrow' %}
-                </div>
-              </div>
             </swiper-slider>
           </div>
         {%- else -%}
@@ -487,17 +473,9 @@
 
 							<div class="card__product-container">
 								{% render 'price', product: card_product, price_class: price_class, show_compare_at_price: true %}
-								<div class="product__tax rte">
-									{%- if cart.taxes_included -%}
-										{{ 'products.product.include_taxes' | t }}
-									{%- endif -%}
-									{%- if shop.shipping_policy.body != blank -%}
-										{{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-									{%- endif -%}
-								</div>
 							</div>
 
-					
+
 							{%- if card_product.quantity_price_breaks_configured? -%}
 								<div class="card__information-volume-pricing-note">
 									<span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -567,121 +545,11 @@
 						{% endif %}
 					</div>
 				</div>
-				<div>
-						{%- liquid 
-							assign qty_rules = false
-							assign has_variants = false
-							if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
-								assign qty_rules = true
-							endif
-							if card_product.variants.size > 1 or qty_rules 
-								assign has_variants = true
-							endif
-						-%}
-						{%- if allow_add_to_cart -%}
-							<product-form class="product-form" data-section-id="{{ section.id }}">
-								{%- form 'product',
-									card_product,
-									id: product_form_id,
-									class: 'form',
-									novalidate: 'novalidate',
-									data-type: 'add-to-cart-form'
-								-%}
-									<input
-										type="hidden"
-										name="id"
-										value="{{ card_product.selected_or_first_available_variant.id }}"
-										class="product-variant-id"
-										{% if card_product.selected_or_first_available_variant.available == false %}
-											disabled
-										{% endif %}
-									>
-									<button
-										id="{{ product_form_id }}-submit"
-										type="submit"
-										name="add"
-										class="quick-add__submit button button--full-width button--{{ settings.card_button_style }} button--{{ settings.card_button_outline }} {% if horizontal_quick_add %} card--horizontal__quick-add{% endif %} button--animate-{{ settings.animations_hover_elements }}"
-										aria-haspopup="dialog"
-										aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-										aria-live="polite"
-										data-sold-out-message="true"
-										{% if card_product.selected_or_first_available_variant.available == false %}
-											disabled
-										{% endif %}
-										data-initial-product-id="{{ card_product.id }}"
-									>
-										<span>
-											{%- if card_product.selected_or_first_available_variant.available -%}
-												{{ 'products.product.add_to_cart' | t }}
-											{%- else -%}
-												{{ 'products.product.sold_out' | t }}
-											{%- endif -%}
-										</span>
-										<span class="sold-out-message hidden">
-											{{ 'products.product.sold_out' | t }}
-										</span>
-										{%- if horizontal_quick_add -%}
-											<span class="icon-wrap">{% render 'icon-plus' %}</span>
-										{%- endif -%}
-										{%- render 'loading-spinner' -%}
-									</button>
-								{%- endform -%}
-							</product-form>
-						{%- elsif show_quick_add and allow_add_to_cart == false -%}
-							<div class="quick-add no-js-hidden">
-								{%- liquid
-									assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id
-									assign qty_rules = false
-									if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
-										assign qty_rules = true
-									endif
-								-%}
-								{%- if card_product.variants.size > 1 or qty_rules -%}
-									<modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
-										<button
-											id="{{ product_form_id }}-submit"
-											type="submit"
-											name="add"
-											class="quick-add__submit button button--full-width button--{{ settings.quick_add_button_style }} button--{{ settings.quick_add_button_outline }} {% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %} button--animate-{{ settings.animations_hover_elements }}"
-											aria-haspopup="dialog"
-											aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-											data-product-url="{{ card_product.url }}"
-											data-initial-product-id="{{ card_product.id }}"
-										>
-											{{ 'products.product.choose_options' | t }}
-											{%- if horizontal_quick_add -%}
-												<span class="icon-wrap">{% render 'icon-arrow' %}</span>
-											{%- endif -%}
-											{%- render 'loading-spinner' -%}
-										</button>
-									</modal-opener>
-									<quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
-										<popup-overlay class="popup-overlay"></popup-overlay>
-										<div
-											role="dialog"
-											aria-label="{{ 'products.product.choose_product_options' | t: product_name: card_product.title | escape }}"
-											aria-modal="true"
-											class="quick-add-modal__content global-settings-popup"
-											tabindex="-1"
-										>
-											<button
-												class="drawer__close button--animate-{{ settings.animations_hover_elements }}"
-												type="button"
-												id="ModalClose-{{ card_product.id }}"
-												aria-label="{{ 'accessibility.close' | t }}"
-											>
-												{% render 'icon-close' %}
-											</button>
-
-											<div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info"></div>
-										</div>
-									</quick-add-modal>
-								{%- endif -%}
-							</div>
-						{%- else -%}
-							<input type="hidden" name="id" value="{{ card_product.selected_or_first_available_variant.id }}" class="product-variant-id">
-						{%- endif -%}
-					</div>
+				<a
+						href="{{ card_product.url }}"
+						class="card-featured-product__link"
+						aria-label="{{ card_product.title | escape }}"
+					></a>
         </div>
         <div class="card__badge {{ settings.badge_position }} {{ settings.badge_text_weight }}">
           {% for tag in card_product.tags %}
@@ -768,14 +636,6 @@
 
 								<div class="card__price-container">
 									{% render 'price', price_class: price_class, color: 'foreground-secondary', show_compare_at_price: true %}
-									<div class="product__tax rte">
-										{%- if cart.taxes_included -%}
-											{{ 'products.product.include_taxes' | t }}
-										{%- endif -%}
-										{%- if shop.shipping_policy.body != blank -%}
-											{{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-										{%- endif -%}
-									</div>
 								</div>
 									
 
@@ -867,14 +727,6 @@
 					
 					<div class="card__product-container">
 						{% render 'price', price_class: price_class, color: 'foreground-secondary', show_compare_at_price: true %}
-						<div class="product__tax rte">
-							{%- if cart.taxes_included -%}
-								{{ 'products.product.include_taxes' | t }}
-							{%- endif -%}
-							{%- if shop.shipping_policy.body != blank -%}
-								{{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-							{%- endif -%}
-						</div>
 					</div>
 
 					{% if show_color_variants %}
