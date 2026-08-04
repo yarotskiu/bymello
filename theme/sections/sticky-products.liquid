@@ -180,12 +180,19 @@
 								</div>
 							{%- when 'product' -%}
 								<div class="collection__item grid-main__item sticky-products__featured-item {% if settings.card_style == 'card' %} color-{{ block.settings.color_scheme }} {% endif %} {% if section.settings.banner_position == 'right' %} large-up-hide {% endif %} {% if settings.theme_animations != 'no-animation' %} aside-media scroll-animation {% endif %}">
-									{% assign product_style = 'p-style-2' %}
+									{%- liquid
+										assign product_style = 'p-style-2'
+										assign block_image_ratio = block.settings.image_ratio | default: section.settings.image_ratio
+										assign block_custom_image_height = custom_image_height
+										if block.settings.image_ratio == 'custom'
+											assign block_custom_image_height = block.settings.custom_image_height
+										endif
+									-%}
 									{% render 'card-featured-product',
 										card_product: block.settings.product,
 										product_style: product_style,
-										media_aspect_ratio: section.settings.image_ratio,
-										custom_image_height: custom_image_height,
+										media_aspect_ratio: block_image_ratio,
+										custom_image_height: block_custom_image_height,
 										custom_color_scheme: block.settings.color_scheme,
 										show_secondary_image: section.settings.show_secondary_image,
 										show_vendor: section.settings.show_vendor,
@@ -239,10 +246,17 @@
 											</div>
 										{%- when 'product' -%}
 											<div class="collection__item grid-main__item swiper-slide {% if settings.theme_animations != 'no-animation' %} aside-media scroll-animation {% endif %}">
+												{%- liquid
+													assign block_image_ratio = block.settings.image_ratio | default: section.settings.image_ratio
+													assign block_custom_image_height = custom_image_height
+													if block.settings.image_ratio == 'custom'
+														assign block_custom_image_height = block.settings.custom_image_height
+													endif
+												-%}
 												{% render 'card-product',
 													card_product: block.settings.product,
-													media_aspect_ratio: section.settings.image_ratio,
-													custom_image_height: custom_image_height,
+													media_aspect_ratio: block_image_ratio,
+													custom_image_height: block_custom_image_height,
 													custom_color_scheme: block.settings.color_scheme,
 													show_secondary_image: section.settings.show_secondary_image,
 													show_vendor: section.settings.show_vendor,
@@ -314,12 +328,19 @@
 									</div>
 								{%- when 'product' -%}
 									<div class="collection__item grid-main__item grid-main__item-duplicate sticky-products__featured-item small-hide medium-hide color-{{ block.settings.color_scheme }} {% if settings.theme_animations != 'no-animation' %} aside-media scroll-animation {% endif %}">
-										{% assign product_style = 'p-style-2' %}
+										{%- liquid
+											assign product_style = 'p-style-2'
+											assign block_image_ratio = block.settings.image_ratio | default: section.settings.image_ratio
+											assign block_custom_image_height = custom_image_height
+											if block.settings.image_ratio == 'custom'
+												assign block_custom_image_height = block.settings.custom_image_height
+											endif
+										-%}
 										{% render 'card-featured-product',
 											card_product: block.settings.product,
 											product_style: product_style,
-											media_aspect_ratio: section.settings.image_ratio,
-											custom_image_height: custom_image_height,
+											media_aspect_ratio: block_image_ratio,
+											custom_image_height: block_custom_image_height,
 											show_secondary_image: section.settings.show_secondary_image,
 											show_vendor: section.settings.show_vendor,
 											show_rating: section.settings.show_rating,
@@ -652,6 +673,45 @@
 					"id": "enable_product_variants",
 					"default": true,
 					"label": "Show color variants"
+				},
+				{
+					"type": "select",
+					"id": "image_ratio",
+					"options": [
+						{
+							"value": "",
+							"label": "Use section default"
+						},
+						{
+							"value": "adapt",
+							"label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+						},
+						{
+							"value": "portrait",
+							"label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+						},
+						{
+							"value": "square",
+							"label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+						},
+						{
+							"value": "custom",
+							"label": "Custom"
+						}
+					],
+					"default": "",
+					"label": "Photo size"
+				},
+				{
+					"type": "range",
+					"id": "custom_image_height",
+					"min": 60,
+					"max": 120,
+					"step": 1,
+					"unit": "%",
+					"label": "Custom image height",
+					"default": 100,
+					"visible_if": "{{ block.settings.image_ratio == 'custom' }}"
 				}
 			]
     },

@@ -852,6 +852,12 @@
   display: none;
 }
 
+.card-featured-product__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .p-style-2 swiper-slider {
   display: block;
   height: 100%;
