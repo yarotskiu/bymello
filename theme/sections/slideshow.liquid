@@ -110,7 +110,14 @@
 				>
 					<style>
 						#Slide-{{ section.id }}-{{ forloop.index }} .slideshow__media {
-							--overlay-opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }}; 
+							--overlay-opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+						}
+						#Slide-{{ section.id }}-{{ forloop.index }} .banner__box {
+							--box-padding: {{ block.settings.box_padding }}px;
+							{%- if block.settings.box_background != blank -%}
+								--box-background: {{ block.settings.box_background }};
+								--box-background-opacity: {{ block.settings.box_background_opacity | divided_by: 100.0 }};
+							{%- endif -%}
 						}
 					</style>
 					<div class="slideshow-banner__item-wrapper slideshow-banner__item-wrapper--{{ section.settings.box_align }}">
@@ -164,7 +171,7 @@
 						</div>
 
 						<div class="slideshow__text-wrapper page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
-							<div class="slideshow__text banner__box slideshow-banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}{% if block.settings.enable_mobile_color_scheme %} color-mobile-{{ block.settings.color_scheme_mobile }}{% endif %}">
+							<div class="slideshow__text banner__box slideshow-banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}{% if block.settings.enable_mobile_color_scheme %} color-mobile-{{ block.settings.color_scheme_mobile }}{% endif %}{% if block.settings.box_background != blank %} banner__box--custom-background{% endif %}">
 								{%- if block.settings.heading != blank -%}
 									<h2 class="banner__heading inline-richtext {{ block.settings.heading_size }} {{ block.settings.heading_font_family }} clr-text-{{ block.settings.heading_color }} {{ block.settings.heading_weight }}">
 										{{ block.settings.heading }}
@@ -567,6 +574,35 @@
           "id": "show_text_box",
           "label": "t:sections.slideshow.blocks.slide.settings.show_text_box.label",
           "default": true
+        },
+        {
+          "type": "color_background",
+          "id": "box_background",
+          "label": "Text box background",
+          "info": "Leave blank to use the color scheme's background",
+          "visible_if": "{{ block.settings.show_text_box }}"
+        },
+        {
+          "type": "range",
+          "id": "box_background_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Text box background opacity",
+          "default": 100,
+          "visible_if": "{{ block.settings.show_text_box and block.settings.box_background != blank }}"
+        },
+        {
+          "type": "range",
+          "id": "box_padding",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Text box padding",
+          "default": 32,
+          "visible_if": "{{ block.settings.show_text_box }}"
         },
         {
           "type": "select",
