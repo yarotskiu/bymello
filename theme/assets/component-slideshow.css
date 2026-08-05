@@ -307,6 +307,7 @@ slideshow-banner .slideshow.banner {
 
 .slideshow__text.banner__box--custom-background {
   isolation: isolate;
+  background: transparent;
 }
 
 .slideshow__text.banner__box--custom-background:before {
