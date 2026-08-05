@@ -63,7 +63,8 @@
 	{%- endif -%}
 {%- endstyle -%}
 
-<div class="slideshow-banner color-{{ section.settings.color_scheme }} gradient section-responsive-padding page-width {{ section.settings.container_width }} {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--fade-in{% endif %}">
+<div class="slideshow-banner-wrapper color-{{ section.settings.color_scheme }} gradient">
+<div class="slideshow-banner section-responsive-padding page-width {{ section.settings.container_width }} {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--fade-in{% endif %}">
 	<slideshow-banner
 		class="slideshow-banner__slider slideshow swiper content-alignment--{{ section.settings.box_align }} {% if section.settings.show_text_below %} mobile-text-below{% endif %}"
 		role="region"
@@ -213,6 +214,7 @@
 		</div>
 
 	</slideshow-banner>
+</div>
 </div>
 
 {%- if request.design_mode -%}
