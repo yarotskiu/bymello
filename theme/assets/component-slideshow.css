@@ -401,6 +401,7 @@ slideshow-banner .slideshow.banner {
 
 .slideshow .banner__heading {
 	margin-bottom: 0;
+	max-width: 30ch;
 }
 
 @media screen and (max-width: 749px) {
