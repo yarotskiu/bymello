@@ -15,7 +15,7 @@
         "show_breadcrumbs": true,
         "breadcrumbs_color_scheme": "scheme-8",
         "breadcrumbs_active_color_enable": true,
-        "breadcrumbs_active_color": "#DB742B",
+        "breadcrumbs_active_color": "#db742b",
         "show_collection_title": false,
         "show_collection_description": false,
         "show_collection_image": false,
