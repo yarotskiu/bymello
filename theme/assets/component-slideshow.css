@@ -280,13 +280,13 @@ slideshow-banner .slideshow.banner {
 
 @media screen and (min-width: 990px) {
 	.slideshow .slideshow__text-wrapper .slideshow__text {
-		max-width: 65rem;
+		max-width: 60rem;
 	}
 }
 
 @media screen and (min-width: 1560px) {
 	.extra-large-layout .slideshow .slideshow__text-wrapper .slideshow__text {
-		max-width: 86rem;
+		max-width: 60rem;
 	}
 }
 
