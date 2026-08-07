@@ -5281,8 +5281,8 @@ search-form.search-modal__form {
   width: 1.5rem;
   height: 1.5rem;
   min-width: 1.5rem;
-  background-color: #0042EB;
-  color: #fff;
+  background-color: var(--counter-bg);
+  color: var(--counter-foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 600;
   font-size: 0.8rem;
