@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_breadcrumbs": false,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": false,
+        "breadcrumbs_active_color": "#000000",
+        "banner_text_alignment": "left",
+        "title": "Organic Cotton",
+        "title_size": "h3",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 48,
+        "banner_padding_bottom": 48,
+        "banner_padding_top_mb": 40,
+        "banner_padding_bottom_mb": 24,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "policy_organic_cotton": {
+      "type": "policy",
+      "blocks": {
+        "item_intro": {
+          "type": "item",
+          "settings": {
+            "heading": "",
+            "text": "<p>Organic cotton is a big part of why we chose the brands we carry. Here's what the term actually means, and what stands behind it for each brand in our catalog.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_what_is": {
+          "type": "item",
+          "settings": {
+            "heading": "What does organic cotton mean?",
+            "text": "<p>Organic cotton is grown without synthetic pesticides, synthetic fertilizers, or genetically modified seeds. It's a farming method, not a fabric type — the cotton itself is still cotton, just grown differently.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_gots": {
+          "type": "item",
+          "settings": {
+            "heading": "What GOTS certification means",
+            "text": "<p>The Global Organic Textile Standard (GOTS) is one of the strictest independent certifications for organic textiles. GOTS-certified fabric requires a minimum of <strong>70% certified organic fibres</strong>, rising to <strong>95%</strong> for products carrying the GOTS label. It also prohibits toxic pesticides, formaldehyde, and heavy metals, and sets requirements for fair wages and safe working conditions across the supply chain.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_living_crafts": {
+          "type": "item",
+          "settings": {
+            "heading": "Living Crafts",
+            "text": "<p>Living Crafts has held <strong>continuous GOTS certification since 2009</strong>, certified by Control Union. Their organic cotton is sourced mainly from India, where cultivation and processing happen close together to reduce transport emissions.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_trendsplant": {
+          "type": "item",
+          "settings": {
+            "heading": "Trendsplant",
+            "text": "<p>Trendsplant's garments are made from cotton fabric sourced and produced in Portugal, most often as 100% cotton.</p>",
+            "heading_color": "secondary"
+          }
+        },
+        "item_how_we_choose": {
+          "type": "item",
+          "settings": {
+            "heading": "How we choose our brands",
+            "text": "<p>We select brands against one consistent standard: comfortable clothing made from honestly organic materials — cotton with recognized certification, wool, and other natural fibres — produced in Europe, with quality construction. If a brand can't meet that bar, we don't carry it.</p>",
+            "heading_color": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "item_intro",
+        "item_what_is",
+        "item_gots",
+        "item_living_crafts",
+        "item_trendsplant",
+        "item_how_we_choose"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "policy_organic_cotton"
+  ]
+}
