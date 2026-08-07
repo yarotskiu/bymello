@@ -17,53 +17,53 @@
         "column_1": {
           "type": "column",
           "settings": {
-            "title": "Free delivery over \u20ac70",
+            "icon": "benefit_delivery",
+            "title": "Free delivery over €70",
             "heading_font_family": "font-heading",
             "heading_color": "foreground",
             "title_size": "h6",
             "title_weight": "fw-500",
             "text": "",
-            "text_color": "foreground-secondary",
-            "icon": "benefit_delivery"
+            "text_color": "foreground-secondary"
           }
         },
         "column_3": {
           "type": "column",
           "settings": {
-            "title": "14-day returns",
+            "icon": "benefit_returns",
+            "title": "14-day free returns",
             "heading_font_family": "font-heading",
             "heading_color": "foreground",
             "title_size": "h6",
             "title_weight": "fw-500",
             "text": "",
-            "text_color": "foreground-secondary",
-            "icon": "benefit_returns"
+            "text_color": "foreground-secondary"
           }
         },
         "column_2": {
           "type": "column",
           "settings": {
+            "icon": "benefit_support",
             "title": "Customer support",
             "heading_font_family": "font-heading",
             "heading_color": "foreground",
             "title_size": "h6",
             "title_weight": "fw-500",
             "text": "",
-            "text_color": "foreground-secondary",
-            "icon": "benefit_support"
+            "text_color": "foreground-secondary"
           }
         },
         "column_6twLw6": {
           "type": "column",
           "settings": {
+            "icon": "benefit_secure",
             "title": "Secure payment",
             "heading_font_family": "font-heading",
             "heading_color": "foreground",
             "title_size": "h6",
             "title_weight": "fw-500",
             "text": "",
-            "text_color": "foreground-secondary",
-            "icon": "benefit_secure"
+            "text_color": "foreground-secondary"
           }
         }
       },
@@ -153,7 +153,6 @@
         "top_text_color": "foreground",
         "button_text_color": "foreground",
         "image_full_width": false,
-        "image": "",
         "image_height": "adapt-image",
         "image_margin_top": 40,
         "image_margin_bottom": 30,

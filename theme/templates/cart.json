@@ -30,7 +30,7 @@
         "countdown_bar_PcPUxE"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "heading_font_family": "font-heading",
         "heading_size": "h3",
         "heading_weight": "fw-500",
@@ -98,7 +98,6 @@
         "icon_zrGKF4": {
           "type": "icon",
           "settings": {
-            "image": "",
             "image_width": 50
           }
         }
@@ -107,6 +106,7 @@
         "heading_bWacLg",
         "icon_zrGKF4"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-7",
         "scroll_speed": "very-fast",
