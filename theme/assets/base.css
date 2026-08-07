@@ -1137,6 +1137,11 @@ summary::-webkit-details-marker {
   box-shadow: 0 0 0.2rem 0 rgba(var(--color-foreground), 0.3);
 }
 
+.header__icon.focus-inset:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
 .focused.focus-inset,
 .no-js .focus-inset:focus {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
