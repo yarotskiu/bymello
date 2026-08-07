@@ -16,6 +16,10 @@
 	border-bottom: unset;
 }
 
+.policy--no-dividers .policy-item {
+	border-bottom: unset;
+}
+
 .policy-item__heading {
 	margin-top: 0;
 }

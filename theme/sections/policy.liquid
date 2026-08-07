@@ -9,7 +9,7 @@
   }
 {%- endstyle -%}
 
-<div class="policy section-responsive-padding color-{{ section.settings.color_scheme }} gradient">
+<div class="policy section-responsive-padding color-{{ section.settings.color_scheme }} gradient{% if template.suffix == 'organic-cotton' %} policy--no-dividers{% endif %}">
   <div class="policy__content-wrapper page-width">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
