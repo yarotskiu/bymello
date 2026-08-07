@@ -1367,8 +1367,8 @@ input.mobile-facets__checkbox {
     margin-right: 0;
   }
 
-  .facets-vertical-form .facets__display-vertical {
-    padding-bottom: 1rem;
+  .facets-vertical .facets__display-vertical {
+    padding-bottom: 1.6rem;
   }
 
   .facets-vertical-form .disclosure-has-popup[open] > .facets__summary:before {
