@@ -2679,6 +2679,11 @@ console.log('Elixira-4.1.0');
       isOpen: function (root) {
         return root.hasAttribute('open');
       },
+      close: function (root) {
+        root.removeAttribute('open');
+        var summary = root.querySelector('.facets__summary');
+        if (summary) summary.setAttribute('aria-expanded', 'false');
+      },
     },
     {
       root: '.language-selector',
@@ -2688,6 +2693,10 @@ console.log('Elixira-4.1.0');
       isOpen: function (root) {
         var button = root.querySelector('.disclosure__button');
         return !!button && button.getAttribute('aria-expanded') === 'true';
+      },
+      close: function (root) {
+        var form = root.closest('localization-form');
+        if (form && typeof form.hidePanel === 'function') form.hidePanel();
       },
     },
   ];
@@ -2737,13 +2746,27 @@ console.log('Elixira-4.1.0');
     }
   }
 
+  function closeOthers(exceptRoot) {
+    GLIDE_CONFIGS.forEach(function (config) {
+      document.querySelectorAll(config.root).forEach(function (root) {
+        if (root === exceptRoot || !config.isOpen(root)) return;
+        animate(config, root, false);
+        config.close(root);
+      });
+    });
+  }
+
   document.addEventListener('click', function (e) {
     for (var i = 0; i < GLIDE_CONFIGS.length; i++) {
       var config = GLIDE_CONFIGS[i];
       var trigger = e.target.closest && e.target.closest(config.trigger);
       if (!trigger) continue;
       var root = trigger.closest(config.root);
-      if (root) animate(config, root, !config.isOpen(root));
+      if (root) {
+        var willOpen = !config.isOpen(root);
+        if (willOpen) closeOthers(root);
+        animate(config, root, willOpen);
+      }
       return;
     }
   }, true);

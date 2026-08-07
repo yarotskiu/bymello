@@ -174,7 +174,7 @@
   }
   .footer .disclosure__list {
     padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
+    padding-bottom: 0;
   }
   .footer .disclosure__list-wrapper.country-selector .countries {
     padding-top: 0;
@@ -188,13 +188,12 @@
     opacity: 0.6;
   }
 
-  /* Selected country: bold, no underline, no hover block */
+  /* Selected country: no underline, no hover block */
   .footer .disclosure__list .disclosure__link[aria-current='true'],
   .footer .disclosure__list .disclosure__link[aria-current='true'] .localization-form__currency {
     text-decoration: none;
   }
   .footer .disclosure__list .disclosure__link[aria-current='true'] {
-    font-weight: 700;
     color: rgb(var(--color-foreground));
   }
 {%- endstyle -%}

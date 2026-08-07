@@ -1915,12 +1915,6 @@ facet-filters-form:focus-within .select {
     font-size: calc((var(--font-heading-6-size-mb) + var(--font-heading-6-size)) / 2) !important;
   }
 }
-@media only screen and (min-width: 1560px) {
-  .extra-large-layout .sort-by-disclosure .facets__summary-label,
-  .extra-large-layout .sort-by-disclosure .sort-by__sizer {
-    font-size: calc(var(--font-heading-6-size) * 1.2) !important;
-  }
-}
 .sort-by-disclosure .facets__summary-label,
 .sort-by-disclosure .facets__summary:hover .facets__summary-label {
   text-decoration: none !important;
@@ -1979,10 +1973,6 @@ facet-filters-form:focus-within .select {
 /* Bymello: in-plate type (line-height 1.2; remove list letter-spacing) */
 .sort-by__display { line-height: 1.2; }
 .sort-by__display .sort-by--item label { letter-spacing: normal; }
-/* active option: bold + keep the dot marker */
-.sort-by__display .sort-by--item.selected label {
-  font-weight: 600;
-}
 /* align the selection dot to the same vertical line as the caret/arrow */
 .sort-by__display .sort-by--item.selected label:after {
   right: 0.3rem;

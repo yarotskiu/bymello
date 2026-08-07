@@ -385,7 +385,7 @@ noscript .localization-selector.link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.8rem;
+  gap: 1rem;
   min-width: max-content;
 }
 .language-selector__sizer {
@@ -402,16 +402,16 @@ noscript .localization-selector.link {
   display: grid;
 }
 
-/* right-anchor the trigger so the JS width glide (global.js) shifts the word left while the
-   caret stays pinned to the edge, matching the sort-by dropdown — applies everywhere the
-   language selector appears (header, announcement bar, footer, drawer), not just the header.
-   Chained classes (rather than a single one) to reliably outrank same-specificity rules
-   elsewhere in this file/section-announcement-bar.css that set justify-content/padding-left
-   on .localization-form__select in specific contexts (desktop header, utility bar), regardless
-   of source order. */
+/* left-anchor the trigger so the text stays put at the panel's own left inset while the JS
+   width glide (global.js) grows the box to the right, matching the sort-by dropdown — applies
+   everywhere the language selector appears (header, announcement bar, footer, drawer), not
+   just the header. Chained classes (rather than a single one) to reliably outrank
+   same-specificity rules elsewhere in this file/section-announcement-bar.css that set
+   justify-content/padding-left on .localization-form__select in specific contexts (desktop
+   header, utility bar), regardless of source order. */
 .js .language-selector .disclosure__button.localization-form__select.localization-selector {
-  justify-content: flex-end;
-  padding-left: 1.5rem; /* match the list items' left inset so the text lines up */
+  justify-content: flex-start;
+  padding-left: 1.2rem; /* match .language-selector .disclosure__link's own left padding so the text lines up */
 }
 
 .language-selector .disclosure__button:hover {
@@ -655,7 +655,6 @@ noscript .localization-selector.link {
 }
 
 .language-selector .disclosure__link[aria-current='true'] {
-  font-weight: 600;
   background-color: rgba(var(--color-foreground), 0.07);
 }
 
@@ -678,7 +677,7 @@ noscript .localization-selector.link {
 }
 
 .header-localization .disclosure .localization-form__select {
-  font-size: 1.4rem;
+  font-size: var(--font-heading-6-size);
   height: auto;
   min-height: initial;
   background: transparent;
@@ -704,7 +703,6 @@ noscript .localization-selector.link {
 
 /* Country selector: same gray-band active state as the language selector, no underline */
 .country-selector .disclosure__link[aria-current='true'] {
-  font-weight: 600;
   background-color: rgba(var(--color-foreground), 0.07);
   text-decoration: none !important;
 }

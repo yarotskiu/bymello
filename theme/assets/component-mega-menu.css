@@ -121,8 +121,7 @@
   word-wrap: break-word;
 }
 
-.mega-menu__link:hover,
-.mega-menu__link--active:not(.mega-menu__link--level-2) {
+.mega-menu__link:hover {
   font-weight: 600;
 }
 
@@ -212,9 +211,12 @@ variant-megamenu-img .slider-button svg {
 
 .mega-menu__link--level-3.active,
 .mega-menu__link.mega-menu__link--level-3:hover {
-  font-weight: 600;
   color: rgb(var(--color-accent));
   text-decoration: underline;
+}
+
+.mega-menu__link.mega-menu__link--level-3:hover {
+  font-weight: 600;
 }
 
 .mega-menu__link--level-2:hover {
