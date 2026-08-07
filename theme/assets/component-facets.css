@@ -1321,7 +1321,6 @@ input.mobile-facets__checkbox {
     align-items: center;
     gap: 1rem 3rem;
     margin-bottom: var(--text-space-bottom);
-    border-top: 0.1rem solid rgb(var(--color-outline));
     border-bottom: 0.1rem solid rgb(var(--color-outline));
   }
 
