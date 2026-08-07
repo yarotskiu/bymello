@@ -17,7 +17,7 @@
           "settings": {
             "image": "shopify://shop_images/hero_banner_1.webp",
             "image_mb": "shopify://shop_images/hero_banner_1.webp",
-            "heading": "Organic Cotton Casualwear for Everyday",
+            "heading": "Quality Cotton Casualwear for Everyday",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
@@ -85,7 +85,7 @@
           "settings": {
             "image": "shopify://shop_images/hero_banner_4.webp",
             "image_mb": "shopify://shop_images/hero_banner_1-optimized_940c959d-db5a-47ec-afa9-f71f3bf1fd68.webp",
-            "heading": "Natural Fiber Clothing, Quality Tailoring",
+            "heading": "Best Fiber Clothing, Considered Tailoring",
             "heading_font_family": "font-heading",
             "heading_size": "h1",
             "heading_color": "foreground",
@@ -275,7 +275,7 @@
         "text_fMn4EQ": {
           "type": "text",
           "settings": {
-            "text": "<p>Everyday clothing, made for real life — apparel with purpose. <br/>GOTS-certified organic cotton.</p>",
+            "text": "<p>Everyday clothing, made for real life — apparel with purpose. </p>",
             "text_style": "body",
             "text_color": "foreground-secondary"
           }
@@ -552,7 +552,7 @@
         "text_UT3cGB": {
           "type": "text",
           "settings": {
-            "text": "<p>Organic cotton homewear, made in Germany since 1985. GOTS-certified since2009.</p>",
+            "text": "<p>Organic cotton homewear, made in Germany since 1985. GOTS-certified since 2009.</p>",
             "text_style": "body",
             "text_color": "foreground-secondary"
           }
@@ -718,21 +718,21 @@
         "heading_xRBjdh": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Talk about Organic Cotton",
             "heading_size": "h2"
           }
         },
         "text_RHNwha": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p>What organic cotton actually means — and how we choose the brands that use it.</p>"
           }
         },
         "button_THQU76": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
+            "button_label": "Learn More",
+            "button_link": "/pages/organic-cotton",
             "button_style": "primary",
             "button_outline": "outline-hover",
             "button_label_2": "",
