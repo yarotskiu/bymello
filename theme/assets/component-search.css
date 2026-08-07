@@ -7,10 +7,29 @@
 	font-size: 1.4rem;
 	left: 3.2rem;
 	top: calc(1.2rem + var(--inputs-border-width));
+	opacity: 0.55;
 }
 
 .field__input:focus~.field__label {
 	left: 3.2rem;
+}
+
+.search__input.field__input:focus ~ .field__label,
+.search__input.field__input:not(:placeholder-shown) ~ .field__label,
+.search__input.field__input:-webkit-autofill ~ .field__label {
+	font-size: 1.4rem;
+	top: calc(1.2rem + var(--inputs-border-width));
+	left: 3.2rem;
+	letter-spacing: normal;
+}
+
+.search__input.field__input:focus,
+.search__input.field__input:not(:placeholder-shown),
+.search__input.field__input:-webkit-autofill {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	padding-left: 3.2rem;
+	padding-right: 9.4rem;
 }
 
 .search__button {
