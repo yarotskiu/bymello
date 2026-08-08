@@ -9,6 +9,29 @@
  */
 {
   "sections": {
+    "image_organic_cotton": {
+      "type": "image-banner",
+      "settings": {
+        "full_width": true,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image": "shopify://shop_images/organic-cotton-field-optimized.jpg",
+        "image_height": "small",
+        "image_overlay_opacity": 0,
+        "image_behavior": "none",
+        "image_height_mb": "small",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true,
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -59,31 +82,9 @@
       "settings": {
         "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_bottom": 80,
         "padding_top_mb": 0,
-        "padding_bottom_mb": 0
-      }
-    },
-    "image_organic_cotton": {
-      "type": "image-banner",
-      "settings": {
-        "full_width": true,
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
-        "image_height": "medium",
-        "image_overlay_opacity": 0,
-        "image_behavior": "none",
-        "image_height_mb": "medium",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 0
+        "padding_bottom_mb": 40
       }
     },
     "policy_organic_cotton_bottom": {
@@ -138,9 +139,9 @@
     }
   },
   "order": [
+    "image_organic_cotton",
     "main",
     "policy_organic_cotton_top",
-    "image_organic_cotton",
     "policy_organic_cotton_bottom"
   ]
 }
