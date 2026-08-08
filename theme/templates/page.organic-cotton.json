@@ -41,7 +41,52 @@
         "padding_bottom_mb": 80
       }
     },
-    "policy_organic_cotton": {
+    "policy_organic_cotton_top": {
+      "type": "policy",
+      "blocks": {
+        "item_vs_conventional": {
+          "type": "item",
+          "settings": {
+            "heading": "",
+            "text": "<p>Conventional cotton is one of the most chemically intensive crops in the world — it covers a small share of global farmland, but accounts for a significant share of all agricultural pesticide use.</p>",
+            "heading_color": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "item_vs_conventional"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "image_organic_cotton": {
+      "type": "image-banner",
+      "settings": {
+        "full_width": true,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_height": "medium",
+        "image_overlay_opacity": 0,
+        "image_behavior": "none",
+        "image_height_mb": "medium",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "policy_organic_cotton_bottom": {
       "type": "policy",
       "blocks": {
         "item_what_is": {
@@ -49,14 +94,6 @@
           "settings": {
             "heading": "What organic cotton is",
             "text": "<p>Organic cotton is cotton grown without synthetic pesticides, synthetic fertilizers, or genetically modified seeds. Farmers use natural methods instead to protect the soil and the people working it. It's the same cotton, just grown differently — healthier soil, cleaner water runoff, and a farmer who didn't have to work with toxic chemicals.</p><p>Organic farming also protects soil health through crop rotation, rather than depleting it season after season.</p>",
-            "heading_color": "secondary"
-          }
-        },
-        "item_vs_conventional": {
-          "type": "item",
-          "settings": {
-            "heading": "",
-            "text": "<p>Conventional cotton is one of the most chemically intensive crops in the world — it covers a small share of global farmland, but accounts for a significant share of all agricultural pesticide use.</p>",
             "heading_color": "secondary"
           }
         },
@@ -86,7 +123,6 @@
         }
       },
       "block_order": [
-        "item_vs_conventional",
         "item_what_is",
         "item_how_made",
         "item_verification",
@@ -103,6 +139,8 @@
   },
   "order": [
     "main",
-    "policy_organic_cotton"
+    "policy_organic_cotton_top",
+    "image_organic_cotton",
+    "policy_organic_cotton_bottom"
   ]
 }
