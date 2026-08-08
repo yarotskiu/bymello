@@ -48,47 +48,47 @@
           "type": "item",
           "settings": {
             "heading": "",
-            "text": "<p>Organic cotton is a big part of why we chose the brands we carry. Here's what the term actually means, and what stands behind it for each brand in our catalog.</p>",
+            "text": "<p>Organic cotton is one of the main reasons we chose this clothing.</p>",
             "heading_color": "secondary"
           }
         },
         "item_what_is": {
           "type": "item",
           "settings": {
-            "heading": "What does organic cotton mean?",
-            "text": "<p>Organic cotton is grown without synthetic pesticides, synthetic fertilizers, or genetically modified seeds. It's a farming method, not a fabric type — the cotton itself is still cotton, just grown differently.</p>",
+            "heading": "What organic cotton is",
+            "text": "<p>Organic cotton is cotton grown without synthetic pesticides, synthetic fertilizers, or genetically modified seeds. Farmers use natural methods instead to protect the soil and the people working it. It's still the same cotton, just grown differently — healthier soil, cleaner water runoff, and a farmer who didn't have to work with toxic chemicals.</p><p>Organic farming also protects soil health through crop rotation, rather than depleting it season after season.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_gots": {
+        "item_vs_conventional": {
           "type": "item",
           "settings": {
-            "heading": "What GOTS certification means",
-            "text": "<p>The Global Organic Textile Standard (GOTS) is one of the strictest independent certifications for organic textiles. GOTS-certified fabric requires a minimum of <strong>70% certified organic fibres</strong>, rising to <strong>95%</strong> for products carrying the GOTS label. It also prohibits toxic pesticides, formaldehyde, and heavy metals, and sets requirements for fair wages and safe working conditions across the supply chain.</p>",
+            "heading": "Organic vs. conventional cotton",
+            "text": "<p>Conventional cotton is one of the most chemically intensive crops in the world — it covers a small share of global farmland, but accounts for a significant share of all agricultural pesticide use.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_living_crafts": {
+        "item_how_made": {
           "type": "item",
           "settings": {
-            "heading": "Living Crafts",
-            "text": "<p>Living Crafts has held <strong>continuous GOTS certification since 2009</strong>, certified by Control Union. Their organic cotton is sourced mainly from India, where cultivation and processing happen close together to reduce transport emissions.</p>",
+            "heading": "How it's made",
+            "text": "<p>After harvest, the raw cotton is ginned to remove seeds and debris, then spun into yarn. That yarn is woven or knitted into fabric, dyed, and cut and sewn into the finished garment.</p><p>Because no synthetic chemicals were used at the farming stage, organic cotton processing carries that principle forward — limiting harsh chlorine bleaches, toxic dyes, formaldehyde, and heavy metals at every later step, from spinning through finishing. The goal is a fabric that's clean end to end, not just at the field.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_trendsplant": {
+        "item_verification": {
           "type": "item",
           "settings": {
-            "heading": "Trendsplant",
-            "text": "<p>Trendsplant's garments are made from cotton fabric sourced and produced in Portugal, most often as 100% cotton.</p>",
+            "heading": "How it's verified",
+            "text": "<p>Organic cotton claims are checked through independent certification. Certifying bodies audit farms and factories every year, test soil samples, and trace the fiber from field to finished garment — confirming that no prohibited chemicals were used at any stage, from growing to dyeing to final stitching.</p>",
             "heading_color": "secondary"
           }
         },
-        "item_how_we_choose": {
+        "item_why_we_sell": {
           "type": "item",
           "settings": {
-            "heading": "How we choose our brands",
-            "text": "<p>We select brands against one consistent standard: comfortable clothing made from honestly organic materials — cotton with recognized certification, wool, and other natural fibres — produced in Europe, with quality construction. If a brand can't meet that bar, we don't carry it.</p>",
+            "heading": "Why we sell it",
+            "text": "<p>We sell organic cotton clothing because it's better at every stage — for the soil it's grown in, for the people who grow and sew it, and for the body that wears it. Without residual pesticides or harsh processing chemicals, organic cotton also tends to be softer, more breathable, and gentler on sensitive skin.</p><p>But the main reason is this: behind the word \"organic\" is a specific, checkable promise — that this cotton was actually grown without synthetic pesticides. It's a smaller claim than most talk about \"sustainability\" and \"eco-friendliness,\" and we'd rather stick to it.</p>",
             "heading_color": "secondary"
           }
         }
@@ -96,10 +96,10 @@
       "block_order": [
         "item_intro",
         "item_what_is",
-        "item_gots",
-        "item_living_crafts",
-        "item_trendsplant",
-        "item_how_we_choose"
+        "item_vs_conventional",
+        "item_how_made",
+        "item_verification",
+        "item_why_we_sell"
       ],
       "settings": {
         "color_scheme": "scheme-1",
