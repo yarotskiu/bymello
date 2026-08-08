@@ -2591,6 +2591,7 @@ console.log('Elixira-4.1.0');
     var firstSlideImg = track.querySelector('.bm-card-slider__slide img');
 
     function activeSwatchAltImage(){
+      if (card.querySelectorAll('.card-variant').length < 2) return null;
       var activeSwatch = card.querySelector('.card-variant.active');
       return activeSwatch ? activeSwatch.dataset.variantImgAlt : null;
     }
@@ -2619,6 +2620,25 @@ console.log('Elixira-4.1.0');
     });
   }
   function init(){ document.querySelectorAll('.bm-card-slider').forEach(wire); }
+  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('shopify:section:load', init);
+  var mo = new MutationObserver(function(){ init(); });
+  mo.observe(document.body || document.documentElement, {subtree:true, childList:true});
+})();
+
+/* Bymello: featured-product card (card-featured-product.liquid) image swap on hover —
+   its swiper-slider has no built-in hover trigger, unlike the .bm-card-slider carousel. */
+(function(){
+  function wire(el){
+    if (el.__bmHover) return; el.__bmHover = true;
+    el.addEventListener('mouseenter', function(){
+      if (el.swiper && el.swiper.slides.length > 1) el.swiper.slideNext();
+    });
+    el.addEventListener('mouseleave', function(){
+      if (el.swiper) el.swiper.slideTo(0);
+    });
+  }
+  function init(){ document.querySelectorAll('.card-product__slider').forEach(wire); }
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
   document.addEventListener('shopify:section:load', init);
   var mo = new MutationObserver(function(){ init(); });
