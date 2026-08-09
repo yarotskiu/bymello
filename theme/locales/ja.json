@@ -609,6 +609,9 @@
     "product_comparison": "商品比較",
     "view_product": "商品を見る"
   },
+  "wishlist": {
+    "empty": "お気に入りリストは空です。"
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "プライバシーポリシー",

@@ -151,6 +151,9 @@
     "product_comparison": "Comparação de produtos",
     "view_product": "Ver produto"
   },
+  "wishlist": {
+    "empty": "A sua lista de desejos está vazia."
+  },
   "products": {
     "product": {
       "add_to_cart": "Adicionar ao Carrinho",

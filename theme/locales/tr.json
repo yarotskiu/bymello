@@ -609,6 +609,9 @@
     "product_comparison": "Ürün karşılaştırması",
     "view_product": "Ürünü görüntüle"
   },
+  "wishlist": {
+    "empty": "İstek listeniz boş."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Gizlilik politikası",

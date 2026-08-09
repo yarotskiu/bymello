@@ -609,6 +609,9 @@
     "product_comparison": "Tuotevertailu",
     "view_product": "Näytä tuote"
   },
+  "wishlist": {
+    "empty": "Toivelistasi on tyhjä."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Tietosuojakäytäntö",

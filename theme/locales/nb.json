@@ -618,6 +618,9 @@
     "product_comparison": "Produktsammenligning",
     "view_product": "Se produkt"
   },
+  "wishlist": {
+    "empty": "Ønskelisten din er tom."
+  },
   "shopify": {
     "filters": {
       "availability": {

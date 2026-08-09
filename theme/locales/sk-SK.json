@@ -633,6 +633,9 @@
     "product_comparison": "Porovnanie produktov",
     "view_product": "Zobraziť produkt"
   },
+  "wishlist": {
+    "empty": "Váš zoznam želaní je prázdny."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Ochrana súkromia",

@@ -609,6 +609,9 @@
     "product_comparison": "การเปรียบเทียบสินค้า",
     "view_product": "ดูสินค้า"
   },
+  "wishlist": {
+    "empty": "รายการโปรดของคุณว่างเปล่า"
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "นโยบายความเป็นส่วนตัว",

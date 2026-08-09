@@ -151,6 +151,9 @@
     "product_comparison": "Comparație produse",
     "view_product": "Vizualizați produsul"
   },
+  "wishlist": {
+    "empty": "Lista ta de dorințe este goală."
+  },
   "products": {
     "product": {
       "add_to_cart": "Adăugați în coș",

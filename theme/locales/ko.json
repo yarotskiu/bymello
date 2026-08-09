@@ -609,6 +609,9 @@
     "product_comparison": "제품 비교",
     "view_product": "제품 보기"
   },
+  "wishlist": {
+    "empty": "위시리스트가 비어 있습니다."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "개인정보 처리방침",

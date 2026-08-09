@@ -633,6 +633,9 @@
     "product_comparison": "Produktų palyginimas",
     "view_product": "Peržiūrėti produktą"
   },
+  "wishlist": {
+    "empty": "Jūsų norų sąrašas tuščias."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Privatumo politika",

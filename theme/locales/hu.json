@@ -609,6 +609,9 @@
     "product_comparison": "Termék összehasonlítás",
     "view_product": "Termék megtekintése"
   },
+  "wishlist": {
+    "empty": "A kívánságlistád üres."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Adatvédelmi tájékoztató",

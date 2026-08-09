@@ -609,6 +609,9 @@
     "product_comparison": "产品比较",
     "view_product": "查看产品"
   },
+  "wishlist": {
+    "empty": "您的心愿单是空的。"
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "隐私政策",

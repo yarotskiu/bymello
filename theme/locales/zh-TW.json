@@ -609,6 +609,9 @@
     "product_comparison": "產品比較",
     "view_product": "檢視產品"
   },
+  "wishlist": {
+    "empty": "您的願望清單是空的。"
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "隱私權政策",
