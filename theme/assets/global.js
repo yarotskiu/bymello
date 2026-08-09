@@ -2651,7 +2651,12 @@ console.log('Elixira-4.1.0');
    an arbitrary list of product IDs into fully-featured cards. */
 (function(){
   var KEY='bm_wishlist';
-  function read(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function read(){
+    var a; try{ a=JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; }
+    var clean=a.filter(function(x){ return x.id; });
+    if(clean.length!==a.length) write(clean);
+    return clean;
+  }
   function write(a){ localStorage.setItem(KEY, JSON.stringify(a)); }
   function has(id){ return read().some(function(x){return String(x.id)===String(id);}); }
   function toggle(item){
