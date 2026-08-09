@@ -1180,15 +1180,18 @@
 .header__icon--wishlist{position:relative;display:flex;align-items:center;}
 .header__icon--wishlist .icon-heart{width:2.4rem;height:2.4rem;}
 .header__icon--wishlist .cart-count-bubble{top:0.4rem;right:0.4rem;}
-.bm-wishlist-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem;margin-top:2rem;}
-@media (max-width:990px){.bm-wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.bm-wishlist-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem 2rem;margin-top:3rem;}
+@media (max-width:989px){.bm-wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem 1.6rem;}}
 .bm-wl-card{position:relative;}
 .bm-wl-link{display:block;text-decoration:none;color:inherit;}
-.bm-wl-img img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;}
-.bm-wl-title{margin-top:.8rem;font-size:1.6rem;}
-.bm-wl-price{color:rgba(var(--color-foreground),0.7);margin-top:.2rem;}
-.bm-wl-remove{position:absolute;top:.8rem;right:.8rem;width:2.8rem;height:2.8rem;border-radius:50%;border:none;background:rgba(var(--color-background),0.9);font-size:1.8rem;line-height:1;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,0.12);}
-.bm-wishlist-empty{margin-top:2rem;color:rgba(var(--color-foreground),0.7);}
+.bm-wl-img{overflow:hidden;border-radius:var(--product-card-corner-radius);background:rgb(var(--color-background));}
+.bm-wl-img img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .5s cubic-bezier(0.2, 0.75, 0.5, 1);}
+@media (hover:hover){.bm-wl-link:hover .bm-wl-img img{transform:scale(1.06);}}
+.bm-wl-title{margin-top:1.2rem;font-family:var(--font-body-family);font-size:1.5rem;line-height:1.4;}
+.bm-wl-price{font-family:var(--font-body-family);color:rgba(var(--color-foreground),0.75);margin-top:.3rem;font-size:1.4rem;}
+.bm-wl-remove{position:absolute;top:1rem;right:1rem;width:3rem;height:3rem;border-radius:50%;border:none;background:rgb(var(--color-background));color:rgb(var(--color-foreground));font-size:1.8rem;line-height:1;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,0.15);transition:transform .15s ease;}
+.bm-wl-remove:hover{transform:scale(1.08);}
+.bm-wishlist-empty{margin-top:4rem;padding:4rem 2rem;text-align:center;color:rgba(var(--color-foreground),0.75);font-size:1.6rem;}
 
 /* Bymello: wishlist count position */
 .header__icon--wishlist{position:relative !important;}
