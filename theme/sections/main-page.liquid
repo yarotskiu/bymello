@@ -97,7 +97,7 @@
 
 {% if page.content != blank %}
   <div class="main-page-content section-responsive-padding color-{{ section.settings.content_color_scheme }} gradient">
-    <div class="page-width page-width--narrow">
+    <div class="page-width{% unless page.handle == 'wishlist' %} page-width--narrow{% endunless %}">
       <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ page.content }}
       </div>
