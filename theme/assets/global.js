@@ -2699,10 +2699,8 @@ console.log('Elixira-4.1.0');
     if(!items.length){ grid.innerHTML=''; if(empty) empty.removeAttribute('hidden'); return; }
     if(empty) empty.setAttribute('hidden','');
     var showVariants = grid.getAttribute('data-show-variants') === 'true';
-    var imageRatio = grid.getAttribute('data-image-ratio') || 'portrait';
-    var imageHeight = grid.getAttribute('data-image-height') || '120';
     var query = items.map(function(it){ return 'id:'+it.id; }).join(' OR ');
-    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0') + '&wishlist_image_ratio=' + imageRatio + '&wishlist_image_height=' + imageHeight)
+    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0'))
       .then(function(r){ return r.text(); })
       .then(function(html){
         var results = new DOMParser().parseFromString(html, 'text/html').querySelector('#search-list-id');
