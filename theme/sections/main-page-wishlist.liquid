@@ -12,6 +12,15 @@
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
+{%- liquid
+  assign wishlist_ratio_percent = 100
+  if section.settings.image_ratio == 'portrait'
+    assign wishlist_ratio_percent = 125
+  elsif section.settings.image_ratio == 'custom'
+    assign wishlist_ratio_percent = section.settings.custom_image_height
+  endif
+-%}
+
 {%- style -%}
   #shopify-section-{{ section.id }} {
     --padding-top: {{ section.settings.padding_top }}px;
@@ -19,6 +28,15 @@
     --padding-top-mb: {{ section.settings.padding_top_mb }}px;
     --padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
   }
+
+  {%- unless section.settings.image_ratio == 'adapt' -%}
+  #bm-wishlist-grid .card,
+  #bm-wishlist-grid .card.card--standard,
+  #bm-wishlist-grid .card .card__inner,
+  #bm-wishlist-grid .card .card__inner.ratio {
+    --ratio-percent: {{ wishlist_ratio_percent }}% !important;
+  }
+  {%- endunless -%}
 
   #bm-wishlist-grid {
     display: grid;
@@ -47,8 +65,6 @@
       class="product-grid"
       role="list"
       data-show-variants="{{ section.settings.enable_product_variants }}"
-      data-image-ratio="{{ section.settings.image_ratio }}"
-      data-image-height="{{ section.settings.custom_image_height }}"
     ></ul>
     <div class="bm-wishlist-empty" hidden>
       <p>{{ 'wishlist.empty' | t }}</p>
