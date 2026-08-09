@@ -2676,6 +2676,22 @@ console.log('Elixira-4.1.0');
       });
     });
   }
+  function addRemoveButton(el, it){
+    var media = el.querySelector('.card__media') || el.querySelector('.media');
+    if(!media || media.querySelector('.bm-wl-remove')) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'bm-wl-remove';
+    btn.setAttribute('aria-label', 'Remove from wishlist');
+    btn.innerHTML = '&times;';
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      toggle({id:it.id});
+      updateHeader();
+      renderPage();
+    });
+    media.appendChild(btn);
+  }
   function renderPage(){
     var grid=document.getElementById('bm-wishlist-grid'); if(!grid) return;
     var items=read().slice().reverse();
@@ -2683,8 +2699,10 @@ console.log('Elixira-4.1.0');
     if(!items.length){ grid.innerHTML=''; if(empty) empty.removeAttribute('hidden'); return; }
     if(empty) empty.setAttribute('hidden','');
     var showVariants = grid.getAttribute('data-show-variants') === 'true';
+    var imageRatio = grid.getAttribute('data-image-ratio') || 'portrait';
+    var imageHeight = grid.getAttribute('data-image-height') || '120';
     var query = items.map(function(it){ return 'id:'+it.id; }).join(' OR ');
-    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0'))
+    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0') + '&wishlist_image_ratio=' + imageRatio + '&wishlist_image_height=' + imageHeight)
       .then(function(r){ return r.text(); })
       .then(function(html){
         var results = new DOMParser().parseFromString(html, 'text/html').querySelector('#search-list-id');
@@ -2699,6 +2717,7 @@ console.log('Elixira-4.1.0');
           if(!el) return;
           el.classList.remove('scroll-trigger', 'scroll-trigger--offscreen');
           el.querySelectorAll('.scroll-trigger').forEach(function(n){ n.classList.remove('scroll-trigger', 'scroll-trigger--offscreen'); });
+          addRemoveButton(el, it);
           grid.appendChild(el);
         });
         wireButtons();

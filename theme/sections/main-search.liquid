@@ -12,6 +12,17 @@
   elsif request.query_string contains 'recently_viewed_swatches=0'
     assign show_color_variants_for_cards = false
   endif
+
+  assign image_ratio_for_cards = section.settings.image_ratio
+  if request.query_string contains 'wishlist_image_ratio=portrait'
+    assign image_ratio_for_cards = 'portrait'
+  elsif request.query_string contains 'wishlist_image_ratio=square'
+    assign image_ratio_for_cards = 'square'
+  elsif request.query_string contains 'wishlist_image_ratio=adapt'
+    assign image_ratio_for_cards = 'adapt'
+  elsif request.query_string contains 'wishlist_image_ratio=custom'
+    assign image_ratio_for_cards = 'custom'
+  endif
 -%}
 
 {% if show_color_variants_for_cards %}
@@ -46,6 +57,9 @@
   assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
 
   assign custom_image_height = section.settings.custom_image_height
+  if request.query_string contains 'wishlist_image_height='
+    assign custom_image_height = request.query_string | split: 'wishlist_image_height=' | last | split: '&' | first | plus: 0
+  endif
 
 	assign show_search_recommendations = false
 	if settings.predictive_search_products_list != blank or settings.predictive_search_products_list_label != blank or settings.predictive_search_menu != blank or settings.predictive_search_products_menu_label != blank
@@ -364,7 +378,7 @@
                         {%- when 'product' -%}
                           {% render 'card-product',
                             card_product: item,
-                            media_aspect_ratio: section.settings.image_ratio,
+                            media_aspect_ratio: image_ratio_for_cards,
                             custom_image_height: custom_image_height,
                             image_shape: section.settings.image_shape,
                             show_secondary_image: section.settings.show_secondary_image,
