@@ -19,15 +19,36 @@
     --padding-top-mb: {{ section.settings.padding_top_mb }}px;
     --padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
   }
+
+  #bm-wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr));
+    column-gap: var(--grid-mobile-horizontal-spacing);
+    row-gap: var(--grid-mobile-vertical-spacing);
+  }
+  #bm-wishlist-grid .grid__item {
+    width: auto;
+    max-width: none;
+    flex: none;
+  }
+  @media screen and (min-width: 990px) {
+    #bm-wishlist-grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr));
+      column-gap: var(--grid-desktop-horizontal-spacing);
+      row-gap: var(--grid-desktop-vertical-spacing);
+    }
+  }
 {%- endstyle -%}
 
 <div class="section-responsive-padding">
   <div class="page-width">
     <ul
       id="bm-wishlist-grid"
-      class="product-grid grid grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ section.settings.columns_desktop }}-col-desktop"
+      class="product-grid"
       role="list"
       data-show-variants="{{ section.settings.enable_product_variants }}"
+      data-image-ratio="{{ section.settings.image_ratio }}"
+      data-image-height="{{ section.settings.custom_image_height }}"
     ></ul>
     <div class="bm-wishlist-empty" hidden>
       <p>{{ 'wishlist.empty' | t }}</p>
@@ -87,6 +108,44 @@
       ],
       "default": "2",
       "label": "t:sections.main-collection-product-grid.settings.columns_mobile.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-search.settings.header__1.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-search.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-search.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-search.settings.image_ratio.options__3.label"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "portrait",
+      "label": "t:sections.main-search.settings.image_ratio.label"
+    },
+    {
+      "type": "range",
+      "id": "custom_image_height",
+      "min": 60,
+      "max": 120,
+      "step": 1,
+      "unit": "%",
+      "label": "Custom image height",
+      "default": 120
     },
     {
       "type": "header",
