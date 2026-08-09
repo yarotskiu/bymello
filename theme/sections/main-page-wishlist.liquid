@@ -40,6 +40,8 @@
 
   #bm-wishlist-grid {
     display: grid;
+    list-style: none;
+    padding: 0;
     grid-template-columns: repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr));
     column-gap: var(--grid-mobile-horizontal-spacing);
     row-gap: var(--grid-mobile-vertical-spacing);
