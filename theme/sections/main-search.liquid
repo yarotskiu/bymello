@@ -12,6 +12,11 @@
   elsif request.query_string contains 'recently_viewed_swatches=0'
     assign show_color_variants_for_cards = false
   endif
+
+  assign show_inline_variant_picker_for_cards = false
+  if request.query_string contains 'wishlist_size_picker=1'
+    assign show_inline_variant_picker_for_cards = true
+  endif
 -%}
 
 {% if show_color_variants_for_cards %}
@@ -376,6 +381,7 @@
 														heading_weight: section.settings.product_heading_weight,
                             show_compare: settings.enable_compare,
 														show_color_variants: show_color_variants_for_cards,
+                            show_inline_variant_picker: show_inline_variant_picker_for_cards,
                             columns: section.settings.columns_desktop,
                             lazy_load: lazy_load
                            

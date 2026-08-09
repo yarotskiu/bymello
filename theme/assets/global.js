@@ -2700,7 +2700,7 @@ console.log('Elixira-4.1.0');
     if(empty) empty.setAttribute('hidden','');
     var showVariants = grid.getAttribute('data-show-variants') === 'true';
     var query = items.map(function(it){ return 'id:'+it.id; }).join(' OR ');
-    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0'))
+    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0') + '&wishlist_size_picker=1')
       .then(function(r){ return r.text(); })
       .then(function(html){
         var results = new DOMParser().parseFromString(html, 'text/html').querySelector('#search-list-id');
