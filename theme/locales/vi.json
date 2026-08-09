@@ -609,6 +609,9 @@
     "product_comparison": "So sánh sản phẩm",
     "view_product": "Xem sản phẩm"
   },
+  "wishlist": {
+    "empty": "Danh sách yêu thích của bạn đang trống."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Chính sách bảo mật",

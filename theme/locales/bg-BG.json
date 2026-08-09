@@ -609,6 +609,9 @@
     "product_comparison": "Сравнение на продукти",
     "view_product": "Преглед на продукта"
   },
+  "wishlist": {
+    "empty": "Списъкът ви с желания е празен."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Политика за поверителност",

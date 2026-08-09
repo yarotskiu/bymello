@@ -621,6 +621,9 @@
     "product_comparison": "Comparaison de produits",
     "view_product": "Voir le produit"
   },
+  "wishlist": {
+    "empty": "Votre liste de souhaits est vide."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Politique de confidentialité",

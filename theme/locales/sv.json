@@ -609,6 +609,9 @@
     "product_comparison": "Produktjämförelse",
     "view_product": "Visa produkt"
   },
+  "wishlist": {
+    "empty": "Din önskelista är tom."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Integritetspolicy",

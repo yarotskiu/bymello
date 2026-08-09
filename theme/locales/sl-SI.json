@@ -633,6 +633,9 @@
     "product_comparison": "Primerjava izdelkov",
     "view_product": "Prikaži izdelek"
   },
+  "wishlist": {
+    "empty": "Vaš seznam želja je prazen."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Politika zasebnosti",

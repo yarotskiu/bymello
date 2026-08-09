@@ -609,6 +609,9 @@
     "product_comparison": "Productvergelijking",
     "view_product": "Product bekijken"
   },
+  "wishlist": {
+    "empty": "Je verlanglijst is leeg."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Privacybeleid",

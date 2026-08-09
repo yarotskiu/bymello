@@ -2645,35 +2645,61 @@ console.log('Elixira-4.1.0');
   mo.observe(document.body || document.documentElement, {subtree:true, childList:true});
 })();
 
-/* Bymello: wishlist */
+/* Bymello: wishlist. Cards on the wishlist page are the real card-product
+   markup (swatches, quick-add) fetched via the search page's section
+   rendering, the same technique recently-viewed-products.js uses to turn
+   an arbitrary list of product IDs into fully-featured cards. */
 (function(){
   var KEY='bm_wishlist';
   function read(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
   function write(a){ localStorage.setItem(KEY, JSON.stringify(a)); }
-  function has(h){ return read().some(function(x){return x.handle===h;}); }
-  function toggle(item){ var a=read(); var i=-1; a.forEach(function(x,idx){ if(x.handle===item.handle) i=idx; }); if(i>=0){a.splice(i,1);} else {a.push(item);} write(a); return i<0; }
+  function has(id){ return read().some(function(x){return String(x.id)===String(id);}); }
+  function toggle(item){
+    var a=read(); var i=-1;
+    a.forEach(function(x,idx){ if(String(x.id)===String(item.id)) i=idx; });
+    if(i>=0){ a.splice(i,1); } else { a.push(item); }
+    write(a);
+    return i<0;
+  }
   function updateHeader(){ var n=read().length; document.querySelectorAll('[data-wishlist-count]').forEach(function(e){ e.textContent = n>9 ? '9+' : (n>0 ? n : ''); }); }
-  function markButtons(){ document.querySelectorAll('.bm-wishlist-btn').forEach(function(b){ b.classList.toggle('is-active', has(b.getAttribute('data-wl-handle'))); }); }
+  function markButtons(){ document.querySelectorAll('.bm-wishlist-btn').forEach(function(b){ b.classList.toggle('is-active', has(b.getAttribute('data-wl-id'))); }); }
   function wireButtons(){ document.querySelectorAll('.bm-wishlist-btn').forEach(function(b){
       if(b.__bmwl) return; b.__bmwl=true;
       b.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation();
-        var item={handle:b.getAttribute('data-wl-handle'),url:b.getAttribute('data-wl-url'),title:b.getAttribute('data-wl-title'),price:b.getAttribute('data-wl-price'),image:b.getAttribute('data-wl-image')};
+        var item={id:b.getAttribute('data-wl-id'),handle:b.getAttribute('data-wl-handle'),url:b.getAttribute('data-wl-url'),title:b.getAttribute('data-wl-title'),price:b.getAttribute('data-wl-price'),image:b.getAttribute('data-wl-image')};
         var added=toggle(item); b.classList.toggle('is-active', added); updateHeader(); renderPage();
       });
     });
   }
   function renderPage(){
     var grid=document.getElementById('bm-wishlist-grid'); if(!grid) return;
-    var items=read(); var empty=document.querySelector('.bm-wishlist-empty');
-    grid.innerHTML='';
-    if(!items.length){ if(empty) empty.removeAttribute('hidden'); return; }
+    var items=read().slice().reverse();
+    var empty=document.querySelector('.bm-wishlist-empty');
+    if(!items.length){ grid.innerHTML=''; if(empty) empty.removeAttribute('hidden'); return; }
     if(empty) empty.setAttribute('hidden','');
-    items.forEach(function(it){
-      var c=document.createElement('div'); c.className='bm-wl-card';
-      c.innerHTML='<a class="bm-wl-link" href="'+it.url+'"><div class="bm-wl-img"><img src="'+(it.image||'')+'" alt="" loading="lazy"></div><div class="bm-wl-title">'+(it.title||'')+'</div><div class="bm-wl-price">'+(it.price||'')+'</div></a><button class="bm-wl-remove" type="button" aria-label="Remove">&times;</button>';
-      c.querySelector('.bm-wl-remove').addEventListener('click', function(){ toggle({handle:it.handle}); renderPage(); updateHeader(); markButtons(); });
-      grid.appendChild(c);
-    });
+    var showVariants = grid.getAttribute('data-show-variants') === 'true';
+    var query = items.map(function(it){ return 'id:'+it.id; }).join(' OR ');
+    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0'))
+      .then(function(r){ return r.text(); })
+      .then(function(html){
+        var results = new DOMParser().parseFromString(html, 'text/html').querySelector('#search-list-id');
+        grid.innerHTML='';
+        if(!results) return;
+        var elements = Array.from(results.children);
+        items.forEach(function(it){
+          var el = elements.find(function(el){
+            var pid = el.querySelector('[data-product-id]');
+            return pid && pid.getAttribute('data-product-id') === String(it.id);
+          });
+          if(!el) return;
+          el.classList.remove('scroll-trigger', 'scroll-trigger--offscreen');
+          el.querySelectorAll('.scroll-trigger').forEach(function(n){ n.classList.remove('scroll-trigger', 'scroll-trigger--offscreen'); });
+          grid.appendChild(el);
+        });
+        wireButtons();
+        markButtons();
+      })
+      .catch(function(e){ console.error('Wishlist render failed', e); });
   }
   function init(){ wireButtons(); markButtons(); updateHeader(); renderPage(); }
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);

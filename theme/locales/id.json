@@ -609,6 +609,9 @@
     "product_comparison": "Perbandingan produk",
     "view_product": "Lihat produk"
   },
+  "wishlist": {
+    "empty": "Wishlist Anda kosong."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Kebijakan Privasi",

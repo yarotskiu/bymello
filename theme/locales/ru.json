@@ -633,6 +633,9 @@
     "product_comparison": "Сравнение товаров",
     "view_product": "Просмотр товара"
   },
+  "wishlist": {
+    "empty": "Ваш список избранного пуст."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Политика конфиденциальности",

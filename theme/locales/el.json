@@ -609,6 +609,9 @@
     "product_comparison": "Σύγκριση προϊόντων",
     "view_product": "Προβολή προϊόντος"
   },
+  "wishlist": {
+    "empty": "Η λίστα επιθυμιών σας είναι άδεια."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Πολιτική απορρήτου",

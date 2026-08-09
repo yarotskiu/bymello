@@ -36,6 +36,18 @@
         "button_style_2": "secondary",
         "button_outline_2": "outline",
         "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "wishlist_grid": {
+      "type": "main-page-wishlist",
+      "settings": {
+        "enable_product_variants": true,
+        "columns_desktop": "4",
+        "columns_mobile": "2",
+        "padding_top": 0,
         "padding_bottom": 100,
         "padding_top_mb": 0,
         "padding_bottom_mb": 80
@@ -43,6 +55,7 @@
     }
   },
   "order": [
-    "main"
+    "main",
+    "wishlist_grid"
   ]
 }

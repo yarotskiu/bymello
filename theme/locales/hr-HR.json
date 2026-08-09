@@ -621,6 +621,9 @@
     "product_comparison": "Usporedba proizvoda",
     "view_product": "Prikaži proizvod"
   },
+  "wishlist": {
+    "empty": "Vaš popis želja je prazan."
+  },
   "customer_accounts": {
     "shop_policies": {
       "privacy_policy": "Pravila privatnosti",

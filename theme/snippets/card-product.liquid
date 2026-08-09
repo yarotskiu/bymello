@@ -670,6 +670,7 @@
               {%- endif -%}
             </div>
             <button type="button" class="bm-wishlist-btn card-title-row__wishlist" aria-label="Save to wishlist"
+              data-wl-id="{{ card_product.id }}"
               data-wl-handle="{{ card_product.handle }}"
               data-wl-url="{{ card_product.url }}"
               data-wl-title="{{ card_product.title | escape }}"

@@ -151,6 +151,9 @@
     "product_comparison": "Product Comparison",
     "view_product": "View Product"
   },
+  "wishlist": {
+    "empty": "Your wishlist is empty."
+  },
   "products": {
     "product": {
       "add_to_cart": "Add To Cart",
