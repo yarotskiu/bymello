@@ -115,7 +115,7 @@
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ color_scheme }} gradient{% endif %}">
             <div class="media media--transparent bm-card-media">
               <div class="bm-card-actions">
-                {%- if show_quick_add and allow_add_to_cart == false and is_bundle != true -%}
+                {%- if show_quick_add and allow_add_to_cart == false and is_bundle != true and show_inline_variant_picker != true -%}
                   <modal-opener class="bm-quickview-opener" data-modal="#QuickAdd-{{ card_product.id }}">
                     <button
                       type="button"
@@ -341,7 +341,7 @@
                   </span>
                   {%- render 'loading-spinner' -%}
                 </button>
-              {%- elsif allow_add_to_cart -%}
+              {%- elsif allow_add_to_cart or show_inline_variant_picker -%}
                 <product-form class="product-form" data-section-id="{{ section.id }}">
                   {%- form 'product',
                     card_product,
@@ -350,6 +350,9 @@
                     novalidate: 'novalidate',
                     data-type: 'add-to-cart-form'
                   -%}
+                    {%- unless allow_add_to_cart -%}
+                      {% render 'product-variant-picker', product: card_product, product_form_id: product_form_id %}
+                    {%- endunless -%}
                     <input
                       type="hidden"
                       name="id"
@@ -551,7 +554,7 @@
                 </span>
                 {%- render 'loading-spinner' -%}
               </button>
-            {%- elsif allow_add_to_cart -%}
+            {%- elsif allow_add_to_cart or show_inline_variant_picker -%}
               <product-form class="product-form" data-section-id="{{ section.id }}">
                 {%- form 'product',
                   card_product,
@@ -560,6 +563,9 @@
                   novalidate: 'novalidate',
                   data-type: 'add-to-cart-form'
                 -%}
+                  {%- unless allow_add_to_cart -%}
+                    {% render 'product-variant-picker', product: card_product, product_form_id: product_form_id %}
+                  {%- endunless -%}
                   <input
                     type="hidden"
                     name="id"
