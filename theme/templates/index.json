@@ -481,7 +481,7 @@
         "image_ratio": "adapt",
         "custom_image_height": 120,
         "show_secondary_image": true,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "enable_quick_add": true,
         "show_type": false,
