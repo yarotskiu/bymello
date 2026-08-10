@@ -267,7 +267,6 @@
           {%- endif -%}
           {%- if settings.enable_static_buttons == false -%}
             <div class="card__wrapper 1">
-
               {%- if is_bundle -%}
                 {% liquid
                   assign product_variants = ''
@@ -350,15 +349,45 @@
                     novalidate: 'novalidate',
                     data-type: 'add-to-cart-form'
                   -%}
-                    {%- unless allow_add_to_cart -%}
-                      {% render 'product-variant-picker', product: card_product, product_form_id: product_form_id %}
-                    {%- endunless -%}
+                    {%- liquid
+                      assign bm_size_option = null
+                      assign bm_color_option = null
+                      unless allow_add_to_cart
+                        assign color_label_list = settings.product_variants_name | replace: ', ', ',' | downcase | split: ','
+                        for option in card_product.options_with_values
+                          assign option_name_downcase = option.name | downcase
+                          if color_label_list contains option_name_downcase
+                            assign bm_color_option = option
+                          else
+                            assign bm_size_option = option
+                          endif
+                        endfor
+                      endunless
+                    -%}
+                    {%- if bm_size_option -%}
+                      <div
+                        class="bm-inline-size-picker"
+                        data-size-position="{{ bm_size_option.position }}"
+                        {%- if bm_color_option %} data-color-position="{{ bm_color_option.position }}"{% endif %}
+                      >
+                        <div class="select">
+                          <select class="bm-inline-size-select select__select" aria-label="{{ bm_size_option.name | escape }}">
+                            <option value="" selected disabled hidden>{{ bm_size_option.name }}</option>
+                            {%- for value in bm_size_option.values -%}
+                              <option value="{{ value | escape }}">{{ value | escape }}</option>
+                            {%- endfor -%}
+                          </select>
+                          {% render 'icon-caret' %}
+                        </div>
+                        <script type="application/json" class="bm-inline-size-variants">{{ card_product.variants | json }}</script>
+                      </div>
+                    {%- endif -%}
                     <input
                       type="hidden"
                       name="id"
                       value="{{ card_product.selected_or_first_available_variant.id }}"
                       class="product-variant-id"
-                      {% if card_product.selected_or_first_available_variant.available == false %}
+                      {% if card_product.selected_or_first_available_variant.available == false or bm_size_option %}
                         disabled
                       {% endif %}
                     >
@@ -372,7 +401,7 @@
                       aria-live="polite"
                       data-sold-out-message="true"
                       data-initial-product-id="{{ card_product.id }}"
-                      {% if card_product.selected_or_first_available_variant.available == false %}
+                      {% if card_product.selected_or_first_available_variant.available == false or bm_size_option %}
                         disabled
                       {% endif %}
                     >
@@ -388,6 +417,9 @@
                       </span>
                       {%- if horizontal_quick_add -%}
                         <span class="icon-wrap">{% render 'icon-plus' %}</span>
+                      {%- endif -%}
+                      {%- if bm_size_option -%}
+                        <span class="icon-wrap bm-size-btn-icon">{% render 'icon-bag-plus' %}</span>
                       {%- endif -%}
                       {%- render 'loading-spinner' -%}
                     </button>
@@ -563,15 +595,45 @@
                   novalidate: 'novalidate',
                   data-type: 'add-to-cart-form'
                 -%}
-                  {%- unless allow_add_to_cart -%}
-                    {% render 'product-variant-picker', product: card_product, product_form_id: product_form_id %}
-                  {%- endunless -%}
+                  {%- liquid
+                    assign bm_size_option = null
+                    assign bm_color_option = null
+                    unless allow_add_to_cart
+                      assign color_label_list = settings.product_variants_name | replace: ', ', ',' | downcase | split: ','
+                      for option in card_product.options_with_values
+                        assign option_name_downcase = option.name | downcase
+                        if color_label_list contains option_name_downcase
+                          assign bm_color_option = option
+                        else
+                          assign bm_size_option = option
+                        endif
+                      endfor
+                    endunless
+                  -%}
+                  {%- if bm_size_option -%}
+                    <div
+                      class="bm-inline-size-picker"
+                      data-size-position="{{ bm_size_option.position }}"
+                      {%- if bm_color_option %} data-color-position="{{ bm_color_option.position }}"{% endif %}
+                    >
+                      <div class="select">
+                        <select class="bm-inline-size-select select__select" aria-label="{{ bm_size_option.name | escape }}">
+                          <option value="" selected disabled>{{ bm_size_option.name }}</option>
+                          {%- for value in bm_size_option.values -%}
+                            <option value="{{ value | escape }}">{{ value | escape }}</option>
+                          {%- endfor -%}
+                        </select>
+                        {% render 'icon-caret' %}
+                      </div>
+                      <script type="application/json" class="bm-inline-size-variants">{{ card_product.variants | json }}</script>
+                    </div>
+                  {%- endif -%}
                   <input
                     type="hidden"
                     name="id"
                     value="{{ card_product.selected_or_first_available_variant.id }}"
                     class="product-variant-id"
-                    {% if card_product.selected_or_first_available_variant.available == false %}
+                    {% if card_product.selected_or_first_available_variant.available == false or bm_size_option %}
                       disabled
                     {% endif %}
                   >
@@ -585,7 +647,7 @@
                     aria-live="polite"
                     data-sold-out-message="true"
                     data-initial-product-id="{{ card_product.id }}"
-                    {% if card_product.selected_or_first_available_variant.available == false %}
+                    {% if card_product.selected_or_first_available_variant.available == false or bm_size_option %}
                       disabled
                     {% endif %}
                   >
@@ -601,6 +663,9 @@
                     </span>
                     {%- if horizontal_quick_add -%}
                       <span class="icon-wrap">{% render 'icon-plus' %}</span>
+                    {%- endif -%}
+                    {%- if bm_size_option -%}
+                      <span class="icon-wrap bm-size-btn-icon">{% render 'icon-bag-plus' %}</span>
                     {%- endif -%}
                     {%- render 'loading-spinner' -%}
                   </button>

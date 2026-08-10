@@ -1154,6 +1154,7 @@
 .card-wrapper .content-link{pointer-events:none !important;}
 .card-wrapper .card__content{pointer-events:none;}
 .card-wrapper .card__content a,.card-wrapper .card__content button,.card-wrapper .card__content .quick-add,.card-wrapper .card__content [role="button"]{pointer-events:auto;}
+.card-wrapper .card__content .bm-inline-size-picker,.card-wrapper .card__content .bm-inline-size-select{pointer-events:auto;}
 .bm-card-slider{position:relative;width:100%;height:100%;overflow:hidden;}
 .bm-card-slider__track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;}
 .bm-card-slider__track::-webkit-scrollbar{display:none;height:0;width:0;}

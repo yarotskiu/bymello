@@ -14,8 +14,10 @@
   endif
 
   assign show_inline_variant_picker_for_cards = false
-  if request.query_string contains 'wishlist_size_picker=1'
+  assign show_quick_add_for_cards = section.settings.enable_quick_add
+  if search.terms contains 'id:'
     assign show_inline_variant_picker_for_cards = true
+    assign show_quick_add_for_cards = true
   endif
 -%}
 
@@ -375,7 +377,7 @@
                             show_secondary_image: section.settings.show_secondary_image,
                             show_vendor: section.settings.show_vendor,
                             show_rating: section.settings.show_rating,
-                            show_quick_add: section.settings.enable_quick_add,
+                            show_quick_add: show_quick_add_for_cards,
 														show_type: section.settings.show_type,
                             heading_size: section.settings.product_heading_size,
 														heading_weight: section.settings.product_heading_weight,
