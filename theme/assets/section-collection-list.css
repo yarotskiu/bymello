@@ -333,12 +333,3 @@
 .collection-card-wrapper.cc-overlay-card .card__media .media img {
 	object-position: center top;
 }
-
-@media screen and (min-width: 990px) {
-	.collection-card-wrapper.cc-overlay-card .card__inner.ratio {
-		max-height: calc(100vh - var(--header-height, 0px) - var(--padding-top, 0px) - var(--padding-bottom, 0px) - 120px);
-	}
-	.collection-card-wrapper.cc-overlay-card .card__inner.ratio:before {
-		max-height: inherit;
-	}
-}
