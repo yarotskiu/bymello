@@ -148,6 +148,10 @@ slideshow-banner .slideshow.banner {
 		min-height: 0;
 	}
 
+	.banner--mobile-bottom .slideshow__text-wrapper {
+		min-height: 24rem;
+	}
+
 	.slideshow-banner .swiper-pagination {
 		margin-top: var(--button-space-top);
 	}
