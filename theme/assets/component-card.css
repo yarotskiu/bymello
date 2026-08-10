@@ -1132,7 +1132,7 @@
 }
 
 .collection-card-wrapper.cc-overlay-card .card .card__inner {
-  flex: 1;
+  flex: 0 0 auto;
 }
 
 .cc-overlay-card:hover .button--animate-glide {
