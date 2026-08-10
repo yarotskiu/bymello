@@ -2770,6 +2770,15 @@ console.log('Elixira-4.1.0');
   function wire(select){
     sizePicker(select);
     if(select.__bmSize) return; select.__bmSize = true;
+    var caret = select.parentElement && select.parentElement.querySelector('.icon-caret');
+    if(caret){
+      caret.addEventListener('click', function(){
+        select.focus();
+        if(typeof select.showPicker === 'function'){
+          try{ select.showPicker(); }catch(e){}
+        }
+      });
+    }
     select.addEventListener('change', function(){
       sizePicker(select);
       var wrap = select.closest('.bm-inline-size-picker');
