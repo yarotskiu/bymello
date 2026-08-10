@@ -358,6 +358,8 @@ slideshow-banner .slideshow.banner {
 
   .banner--mobile-bottom .slideshow__text.banner__box {
     height: 100%;
+    padding-top: 0;
+    margin-top: -0.5px;
   }
 
   .banner--mobile-bottom .banner--mobile-standard .banner__box {
