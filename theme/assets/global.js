@@ -2683,7 +2683,7 @@ console.log('Elixira-4.1.0');
     btn.type = 'button';
     btn.className = 'bm-wl-remove';
     btn.setAttribute('aria-label', 'Remove from wishlist');
-    btn.innerHTML = '&times;';
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17"><path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"></path></svg>';
     btn.addEventListener('click', function(e){
       e.preventDefault(); e.stopPropagation();
       toggle({id:it.id});
@@ -2691,6 +2691,16 @@ console.log('Elixira-4.1.0');
       renderPage();
     });
     media.appendChild(btn);
+  }
+  function relocateSizePicker(el){
+    el.querySelectorAll('.card__product-subheading').forEach(function(n){ n.remove(); });
+    var wrapper = el.querySelector('.card__wrapper');
+    var priceRow = el.querySelector('.card-price-variants-row');
+    if(!wrapper || !priceRow) return;
+    var form = wrapper.querySelector('product-form');
+    if(!form) return;
+    priceRow.insertAdjacentElement('afterend', form);
+    wrapper.remove();
   }
   function renderPage(){
     var grid=document.getElementById('bm-wishlist-grid'); if(!grid) return;
@@ -2700,7 +2710,7 @@ console.log('Elixira-4.1.0');
     if(empty) empty.setAttribute('hidden','');
     var showVariants = grid.getAttribute('data-show-variants') === 'true';
     var query = items.map(function(it){ return 'id:'+it.id; }).join(' OR ');
-    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0') + '&wishlist_size_picker=1')
+    fetch(window.routes.root_url + 'search?section_id=main-search&q=' + encodeURIComponent(query) + '&resources[limit]=' + items.length + '&resources[type]=product&recently_viewed_swatches=' + (showVariants ? '1' : '0'))
       .then(function(r){ return r.text(); })
       .then(function(html){
         var results = new DOMParser().parseFromString(html, 'text/html').querySelector('#search-list-id');
@@ -2716,6 +2726,7 @@ console.log('Elixira-4.1.0');
           el.classList.remove('scroll-trigger', 'scroll-trigger--offscreen');
           el.querySelectorAll('.scroll-trigger').forEach(function(n){ n.classList.remove('scroll-trigger', 'scroll-trigger--offscreen'); });
           addRemoveButton(el, it);
+          relocateSizePicker(el);
           grid.appendChild(el);
         });
         wireButtons();
@@ -2727,6 +2738,75 @@ console.log('Elixira-4.1.0');
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
   document.addEventListener('shopify:section:load', init);
   var mo=new MutationObserver(function(){ wireButtons(); markButtons(); }); mo.observe(document.body||document.documentElement,{subtree:true,childList:true});
+})();
+
+/* Bymello: inline size picker on wishlist cards. Purpose-built rather than reusing the
+   product-page <variant-selects> component, which keys its element ids off section.id —
+   fine for a single product page, but every wishlist card shares the same search section,
+   so multiple pickers on the page would collide on the same ids. */
+(function(){
+  function findVariant(variants, sizePos, sizeValue, colorPos, colorValue){
+    return variants.filter(function(v){
+      var okSize = String(v['option' + sizePos]) === String(sizeValue);
+      var okColor = !colorPos || String(v['option' + colorPos]) === String(colorValue);
+      return okSize && okColor;
+    })[0];
+  }
+  function measureTextWidth(text, font){
+    var canvas = measureTextWidth._canvas || (measureTextWidth._canvas = document.createElement('canvas'));
+    var ctx = canvas.getContext('2d');
+    ctx.font = font;
+    return ctx.measureText(text).width;
+  }
+  function sizePicker(select){
+    var opt = select.options[select.selectedIndex];
+    var text = opt ? opt.text : '';
+    var cs = getComputedStyle(select);
+    var font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + '/' + cs.lineHeight + ' ' + cs.fontFamily;
+    var textWidth = measureTextWidth(text, font);
+    var safetyBuffer = 4;
+    select.style.width = Math.ceil(textWidth + safetyBuffer) + 'px';
+  }
+  function wire(select){
+    sizePicker(select);
+    if(select.__bmSize) return; select.__bmSize = true;
+    select.addEventListener('change', function(){
+      sizePicker(select);
+      var wrap = select.closest('.bm-inline-size-picker');
+      var form = select.closest('form');
+      if(!wrap || !form) return;
+      var variantsScript = wrap.querySelector('.bm-inline-size-variants');
+      var variants;
+      try{ variants = JSON.parse(variantsScript.textContent); }catch(e){ return; }
+      var sizePos = wrap.getAttribute('data-size-position');
+      var colorPos = wrap.getAttribute('data-color-position');
+      var idInput = form.querySelector('input[name="id"]');
+      var submitBtn = form.querySelector('[type="submit"]');
+      if(!idInput) return;
+      var colorValue = null;
+      if(colorPos){
+        var currentVariant = variants.filter(function(v){ return String(v.id) === String(idInput.value); })[0];
+        colorValue = currentVariant ? currentVariant['option' + colorPos] : null;
+      }
+      var match = findVariant(variants, sizePos, select.value, colorPos, colorValue);
+      if(match){
+        idInput.value = match.id;
+        idInput.disabled = false;
+        if(submitBtn){ submitBtn.removeAttribute('disabled'); submitBtn.removeAttribute('aria-disabled'); }
+      } else if(submitBtn){
+        submitBtn.setAttribute('disabled', 'disabled');
+      }
+    });
+  }
+  function init(){ document.querySelectorAll('.bm-inline-size-select').forEach(wire); }
+  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
+  document.addEventListener('shopify:section:load', init);
+  var mo=new MutationObserver(function(){ init(); }); mo.observe(document.body||document.documentElement,{subtree:true,childList:true});
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){
+      document.querySelectorAll('.bm-inline-size-select').forEach(sizePicker);
+    });
+  }
 })();
 
 /* Glides a dropdown trigger's width between its compact (closed) and longest (open) states,
