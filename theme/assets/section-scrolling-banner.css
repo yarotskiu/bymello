@@ -87,6 +87,29 @@
   width: var(--icon-width, 11rem);
 }
 
+.scroller-item--icon-wrap--masked {
+  position: relative;
+}
+
+.scroller-item--icon-wrap--masked img {
+  opacity: 0;
+}
+
+.scroller-item--icon-wrap--masked::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgb(var(--color-secondary-foreground));
+  -webkit-mask-image: var(--icon-src);
+  mask-image: var(--icon-src);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
 .scroller-item img,
 .scroller-item svg {
   width: 100%;
