@@ -136,7 +136,7 @@ slideshow-banner .slideshow.banner {
 	.banner--mobile-bottom .slideshow-banner__item-wrapper {
 		flex-direction: column;
 		height: calc(100vh - var(--header-height, 0px) - var(--sticky-bar-height, 0px));
-		height: calc(100dvh - var(--header-height, 0px) - var(--sticky-bar-height, 0px));
+		height: calc(100svh - var(--header-height, 0px) - var(--sticky-bar-height, 0px));
 	}
 
 	.banner--mobile-bottom .slideshow-banner__item--small .media,
