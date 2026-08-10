@@ -358,8 +358,7 @@ slideshow-banner .slideshow.banner {
 
   .banner--mobile-bottom .slideshow__text.banner__box {
     height: 100%;
-    padding-top: 0;
-    margin-top: -0.5px;
+    padding-top: 1.6rem;
   }
 
   .banner--mobile-bottom .banner--mobile-standard .banner__box {
@@ -553,15 +552,6 @@ slideshow-banner:not(.page-width) .slider-buttons {
 }
 
 /* animation start */
-.js .slideshow-banner__item .media img {
-	scale: 1.3;
-	transition: scale var(--duration-extra-long) .1s;
-}
-
-.js .slideshow-banner__item.swiper-slide-active .media img {
-	scale: 1;
-}
-
 .js .swiper-initialized .slideshow-banner__item :is(.banner__heading, .banner__text, .banner__buttons) {
 	opacity: 0;
 	transform: translateY(2.5rem);
