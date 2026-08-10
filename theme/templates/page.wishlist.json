@@ -17,6 +17,7 @@
         "breadcrumbs_active_color_enable": false,
         "breadcrumbs_active_color": "#000000",
         "banner_text_alignment": "left",
+        "show_title": false,
         "title": "Wishlist",
         "title_size": "h3",
         "title_weight": "fw-500",
