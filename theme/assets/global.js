@@ -2770,9 +2770,10 @@ console.log('Elixira-4.1.0');
   function wire(select){
     sizePicker(select);
     if(select.__bmSize) return; select.__bmSize = true;
-    var caret = select.parentElement && select.parentElement.querySelector('.icon-caret');
-    if(caret){
-      caret.addEventListener('click', function(){
+    var wrapEl = select.parentElement;
+    if(wrapEl){
+      wrapEl.addEventListener('click', function(e){
+        if(e.target === select) return;
         select.focus();
         if(typeof select.showPicker === 'function'){
           try{ select.showPicker(); }catch(e){}
