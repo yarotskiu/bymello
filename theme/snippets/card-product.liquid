@@ -352,7 +352,7 @@
                     {%- liquid
                       assign bm_size_option = null
                       assign bm_color_option = null
-                      unless allow_add_to_cart
+                      if show_inline_variant_picker or allow_add_to_cart == false
                         assign color_label_list = settings.product_variants_name | replace: ', ', ',' | downcase | split: ','
                         for option in card_product.options_with_values
                           assign option_name_downcase = option.name | downcase
@@ -362,7 +362,7 @@
                             assign bm_size_option = option
                           endif
                         endfor
-                      endunless
+                      endif
                     -%}
                     {%- if bm_size_option -%}
                       <div
@@ -418,7 +418,7 @@
                       {%- if horizontal_quick_add -%}
                         <span class="icon-wrap">{% render 'icon-plus' %}</span>
                       {%- endif -%}
-                      {%- if bm_size_option -%}
+                      {%- if show_inline_variant_picker -%}
                         <span class="icon-wrap bm-size-btn-icon">{% render 'icon-bag-plus' %}</span>
                       {%- endif -%}
                       {%- render 'loading-spinner' -%}
@@ -664,7 +664,7 @@
                     {%- if horizontal_quick_add -%}
                       <span class="icon-wrap">{% render 'icon-plus' %}</span>
                     {%- endif -%}
-                    {%- if bm_size_option -%}
+                    {%- if show_inline_variant_picker -%}
                       <span class="icon-wrap bm-size-btn-icon">{% render 'icon-bag-plus' %}</span>
                     {%- endif -%}
                     {%- render 'loading-spinner' -%}
