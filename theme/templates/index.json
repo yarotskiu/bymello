@@ -135,7 +135,7 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand",
         "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_bottom": 60,
         "padding_top_mb": 0,
         "padding_bottom_mb": 0
       }
@@ -193,8 +193,8 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "slider_controls": "show-scrollbar",
-        "padding_top": 120,
-        "padding_bottom": 120,
+        "padding_top": 60,
+        "padding_bottom": 60,
         "padding_top_mb": 80,
         "padding_bottom_mb": 80
       }
