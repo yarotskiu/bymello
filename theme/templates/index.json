@@ -179,7 +179,7 @@
         "title": "Shop by You",
         "heading_font_family": "font-heading",
         "heading_size": "h3",
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "columns_desktop": 2,
         "color_scheme": "scheme-2",
         "show_view_all": false,
