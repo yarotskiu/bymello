@@ -333,3 +333,33 @@
 .collection-card-wrapper.cc-overlay-card .card__media .media img {
 	object-position: center top;
 }
+
+@media screen and (min-width: 990px) {
+	.collection-list-wrapper:has(.cc-overlay-card) {
+		display: flex;
+		flex-direction: column;
+		height: calc(100vh - var(--header-height, 0px) - var(--padding-top, 0px) - var(--padding-bottom, 0px));
+	}
+	.collection-list-wrapper:has(.cc-overlay-card) .title-wrapper {
+		flex: 0 0 auto;
+	}
+	.collection-list-wrapper:has(.cc-overlay-card) slider-component {
+		display: flex;
+		flex: 1;
+		min-height: 0;
+	}
+	.collection-list-wrapper:has(.cc-overlay-card) .collection-list.grid {
+		flex: 1;
+		min-height: 0;
+		height: 100%;
+		align-items: stretch;
+	}
+	.collection-list-wrapper:has(.cc-overlay-card) .collection-list__item {
+		height: 100%;
+	}
+	.collection-card-wrapper.cc-overlay-card,
+	.collection-card-wrapper.cc-overlay-card .card,
+	.collection-card-wrapper.cc-overlay-card .card__inner.ratio {
+		height: 100%;
+	}
+}
