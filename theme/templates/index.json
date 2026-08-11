@@ -211,7 +211,7 @@
           "settings": {
             "text": "Curated From Europe's Homewear Brands",
             "color": "--color-secondary-foreground",
-            "text_size": "h0",
+            "text_size": "h1",
             "heading_font_family": "font-heading",
             "text_weight": "fw-500"
           }
@@ -228,7 +228,7 @@
           "settings": {
             "text": "100% Natural Materials.",
             "color": "--color-secondary-foreground",
-            "text_size": "h0",
+            "text_size": "h1",
             "heading_font_family": "font-heading",
             "text_weight": "fw-500"
           }
@@ -1152,7 +1152,7 @@
           "settings": {
             "text": "Dermatologist-tested. Ingredient-led.",
             "color": "--color-secondary-foreground",
-            "text_size": "h0",
+            "text_size": "h1",
             "heading_font_family": "font-heading",
             "text_weight": "fw-500"
           }
@@ -1168,7 +1168,7 @@
           "settings": {
             "text": "Built for clarity in formulas, routines, and results.",
             "color": "--color-secondary-foreground",
-            "text_size": "h0",
+            "text_size": "h1",
             "heading_font_family": "font-heading",
             "text_weight": "fw-500"
           }

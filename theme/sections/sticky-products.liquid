@@ -52,13 +52,13 @@
 								{% else %}
 									href="{{ section.settings.button_link }}"
 								{% endif %}
-								class="link link-with-underline small-hide medium-hide"
+								class="button button--{{ section.settings.button_style }} button--{{ section.settings.button_outline }} button--animate-{{ settings.animations_hover_elements }} small-hide medium-hide"
 							>
 								{{- section.settings.button_label | escape -}}
 							</a>
 						</div>
 					{%- endif -%}
-								
+
 				</div>
 			{% endif %}
 			<div id="main-collection-product-grid" data-id="{{ section.id }}" class="main-collection__list grid-main grid-main--default grid_list grid col-2 {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -141,7 +141,7 @@
 							{% else %}
 								href="{{ section.settings.button_link }}"
 							{% endif %}
-							class="link link-with-underline small-hide medium-hide"
+							class="button button--{{ section.settings.button_style }} button--{{ section.settings.button_outline }} button--animate-{{ settings.animations_hover_elements }} small-hide medium-hide"
 						>
 							{{- section.settings.button_label | escape -}}
 						</a>
@@ -288,7 +288,7 @@
 								{% else %}
 									href="{{ section.settings.button_link }}"
 								{% endif %}
-								class="link link-with-underline large-up-hide"
+								class="button button--{{ section.settings.button_style }} button--{{ section.settings.button_outline }} button--animate-{{ settings.animations_hover_elements }} large-up-hide"
 							>
 								{{- section.settings.button_label | escape -}}
 							</a>
@@ -467,6 +467,42 @@
 			"type": "url",
 			"id": "button_link",
 			"label": "Button link"
+		},
+		{
+			"type": "select",
+			"id": "button_style",
+			"options": [
+				{
+					"value": "primary",
+					"label": "Primary"
+				},
+				{
+					"value": "secondary",
+					"label": "Secondary"
+				}
+			],
+			"default": "primary",
+			"label": "Button style"
+		},
+		{
+			"type": "select",
+			"id": "button_outline",
+			"label": "Button outline",
+			"options": [
+				{
+				"value": "outline-none",
+				"label": "None"
+				},
+				{
+				"value": "outline",
+				"label": "Outline"
+				},
+				{
+				"value": "outline-hover",
+				"label": "Outline on hover"
+				}
+			],
+			"default": "outline"
 		},
     {
       "type": "header",
