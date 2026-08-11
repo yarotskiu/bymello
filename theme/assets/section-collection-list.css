@@ -162,6 +162,24 @@
 	line-height: 1.1 !important;
 }
 
+@media screen and (max-width: 749px) {
+	.collection-list-wrapper .card__heading.card__heading-mobile-h1,
+	.collection-list-wrapper .card__heading.card__heading-mobile-h1 a {
+		font-size: var(--font-heading-1-size-mb) !important;
+		line-height: 1.2 !important;
+	}
+	.collection-list-wrapper .card__heading.card__heading-mobile-h2,
+	.collection-list-wrapper .card__heading.card__heading-mobile-h2 a {
+		font-size: var(--font-heading-2-size-mb) !important;
+		line-height: 1.08334 !important;
+	}
+	.collection-list-wrapper .card__heading.card__heading-mobile-h3,
+	.collection-list-wrapper .card__heading.card__heading-mobile-h3 a {
+		font-size: var(--font-heading-3-size-mb) !important;
+		line-height: 1.1 !important;
+	}
+}
+
 @media only screen and (min-width: 750px) and (max-width: 989px) {
 	.collection-list-wrapper .card__heading.h1,
 	.collection-list-wrapper .card__heading.h1 a {

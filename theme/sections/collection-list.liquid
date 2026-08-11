@@ -97,6 +97,7 @@
               show_description: false,
               columns: columns,
 							heading_size: block.settings.custom_title_size,
+                heading_size_mobile: block.settings.custom_title_size_mobile,
                 custom_title_weight: block.settings.custom_title_weight,
               placeholder_image: placeholder_image,
               wrapper_class: 'collection-card-wrapper cc-overlay-card',
@@ -526,6 +527,26 @@
           ],
           "default": "h3",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "select",
+          "id": "custom_title_size_mobile",
+          "options": [
+            {
+              "value": "h3",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__3.label"
+            }
+          ],
+          "default": "h3",
+          "label": "Heading size (mobile)"
         },
         {
           "type": "select",
