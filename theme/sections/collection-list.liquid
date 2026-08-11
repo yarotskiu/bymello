@@ -93,6 +93,7 @@
             {% render 'card-collection',
               card_collection: block.settings.collection,
               media_aspect_ratio: section.settings.image_ratio,
+              media_aspect_ratio_mobile: section.settings.image_ratio_mobile,
               show_description: false,
               columns: columns,
 							heading_size: block.settings.custom_title_size,
@@ -259,6 +260,30 @@
       "default": "square",
       "label": "t:sections.collection-list.settings.image_ratio.label",
       "info": "t:sections.collection-list.settings.image_ratio.info"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio_mobile",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.collection-list.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.collection-list.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.collection-list.settings.image_ratio.options__3.label"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        }
+      ],
+      "default": "square",
+      "label": "Image ratio (mobile)"
     },
     {
       "type": "range",

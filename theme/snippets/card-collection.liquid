@@ -54,6 +54,21 @@
     assign ratio_percent = custom_image_height
   endif
 
+  assign ratio_mobile = ratio
+  if media_aspect_ratio_mobile != blank
+    assign ratio_mobile = 1
+    if display_image and media_aspect_ratio_mobile == 'portrait'
+      assign ratio_mobile = 0.8
+    elsif display_image and media_aspect_ratio_mobile == 'adapt'
+      assign ratio_mobile = display_image.aspect_ratio
+    elsif display_image and media_aspect_ratio_mobile == 'landscape'
+      assign ratio_mobile = 1.5
+    endif
+    if ratio_mobile == 0 or ratio_mobile == null
+      assign ratio_mobile = 1
+    endif
+  endif
+
   assign card_color_scheme = settings.card_color_scheme
   assign card_style = settings.card_style
   if wrapper_class == null or wrapper_class == 'none'
@@ -83,11 +98,11 @@
       {% if display_image == nil and card_style == 'card' %} ratio{% endif %}
 			{% if settings.collection_card_image_padding > 0 %} card--image-padding{% endif %}
     "
-    style="--ratio-percent: {{ ratio_percent }}%;"
+    style="--ratio-percent: {{ ratio_percent }}%; --card-ratio-mobile: {{ ratio_mobile }};"
   >
     <div
       class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if display_image or card_style == 'standard' or card_style == 'card' %} ratio{% endif %}"
-      style="--ratio-percent: {{ ratio_percent }}%;"
+      style="--ratio-percent: {{ ratio_percent }}%; --card-ratio-mobile: {{ ratio_mobile }};"
     >
       {%- if display_image -%}
         <a class="card__media"

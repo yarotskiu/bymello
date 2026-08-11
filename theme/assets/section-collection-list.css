@@ -334,6 +334,32 @@
 	object-position: center top;
 }
 
+@media screen and (max-width: 989px) {
+	.collection-card-wrapper.cc-overlay-card .card__inner.ratio {
+		display: block;
+	}
+	.collection-card-wrapper.cc-overlay-card .card__inner.ratio:before {
+		content: none;
+	}
+	.collection-card-wrapper.cc-overlay-card .card__media {
+		display: block;
+		position: static;
+		inset: auto;
+		top: auto;
+		bottom: auto;
+		width: 100%;
+		aspect-ratio: var(--card-ratio-mobile, 1) / 1;
+	}
+	.collection-card-wrapper.cc-overlay-card .card__inner .card__content {
+		position: static;
+		inset: auto;
+		padding: 1.6rem 0 0;
+	}
+	.collection-card-wrapper.cc-overlay-card .card__inner .card__content .card__information {
+		align-items: flex-start;
+	}
+}
+
 @media screen and (min-width: 990px) {
 	.collection-list-wrapper:has(.cc-overlay-card) {
 		display: flex;
