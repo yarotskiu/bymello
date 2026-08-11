@@ -365,6 +365,10 @@ slideshow-banner .slideshow.banner {
     padding-top: 1.6rem;
   }
 
+  .banner__box--hide-bg-mobile.banner__box--custom-background:before {
+    display: none;
+  }
+
   .banner--mobile-bottom .banner--mobile-standard .banner__box {
 		padding-left: 0;
 		padding-right: 0;

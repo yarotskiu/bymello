@@ -171,7 +171,7 @@
 						</div>
 
 						<div class="slideshow__text-wrapper page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}">
-							<div class="slideshow__text banner__box slideshow-banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}{% if block.settings.enable_mobile_color_scheme %} color-mobile-{{ block.settings.color_scheme_mobile }}{% endif %}{% if block.settings.box_background != blank %} banner__box--custom-background{% endif %}">
+							<div class="slideshow__text banner__box slideshow-banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}{% if block.settings.enable_mobile_color_scheme %} color-mobile-{{ block.settings.color_scheme_mobile }}{% endif %}{% if block.settings.box_background != blank %} banner__box--custom-background{% endif %}{% if block.settings.hide_box_background_mobile %} banner__box--hide-bg-mobile{% endif %}">
 								{%- if block.settings.heading != blank -%}
 									<h2 class="banner__heading inline-richtext {{ block.settings.heading_size }} {{ block.settings.heading_font_family }} clr-text-{{ block.settings.heading_color }} {{ block.settings.heading_weight }}">
 										{{ block.settings.heading }}
@@ -591,6 +591,13 @@
           "unit": "%",
           "label": "Text box background opacity",
           "default": 100,
+          "visible_if": "{{ block.settings.show_text_box and block.settings.box_background != blank }}"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_box_background_mobile",
+          "label": "Hide background on mobile",
+          "default": false,
           "visible_if": "{{ block.settings.show_text_box and block.settings.box_background != blank }}"
         },
         {
