@@ -14,7 +14,6 @@
       "blocks": {
         "slide_ny48D9": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/hero_banner_1.webp",
             "image_mb": "shopify://shop_images/hero_banner_1.webp",
@@ -85,7 +84,6 @@
         },
         "slide_TtLGFw": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/hero_banner_4.webp",
             "image_mb": "shopify://shop_images/hero_banner_1-optimized_940c959d-db5a-47ec-afa9-f71f3bf1fd68.webp",
