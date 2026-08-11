@@ -148,7 +148,7 @@
         <div class="card__content">
           <div class="card__information">
             <div class="card__information-wrapper">
-              <h3 class="card__heading {{ heading_size }} {{ custom_title_weight }}">
+              <h3 class="card__heading {{ heading_size }}{% if heading_size_mobile != blank %} card__heading-mobile-{{ heading_size_mobile }}{% endif %} {{ custom_title_weight }}">
                 <a
                   {% if card_collection == blank %}
                     role="link" aria-disabled="true"
@@ -192,7 +192,7 @@
       <div class="card__content">
         <div class="card__information">
           <div class="card__information-wrapper">
-            <h2 class="card__heading {{ heading_size }} {{ custom_title_weight }}">
+            <h2 class="card__heading {{ heading_size }}{% if heading_size_mobile != blank %} card__heading-mobile-{{ heading_size_mobile }}{% endif %} {{ custom_title_weight }}">
               <a
                 {% if card_collection == blank %}
                   role="link" aria-disabled="true"
