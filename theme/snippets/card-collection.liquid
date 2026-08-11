@@ -69,6 +69,8 @@
     endif
   endif
 
+  assign ratio_percent_mobile = 1 | divided_by: ratio_mobile | times: 100
+
   assign card_color_scheme = settings.card_color_scheme
   assign card_style = settings.card_style
   if wrapper_class == null or wrapper_class == 'none'
@@ -98,11 +100,11 @@
       {% if display_image == nil and card_style == 'card' %} ratio{% endif %}
 			{% if settings.collection_card_image_padding > 0 %} card--image-padding{% endif %}
     "
-    style="--ratio-percent: {{ ratio_percent }}%; --card-ratio-mobile: {{ ratio_mobile }};"
+    style="--ratio-percent: {{ ratio_percent }}%; --ratio-percent-mobile: {{ ratio_percent_mobile }}%;"
   >
     <div
       class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if display_image or card_style == 'standard' or card_style == 'card' %} ratio{% endif %}"
-      style="--ratio-percent: {{ ratio_percent }}%; --card-ratio-mobile: {{ ratio_mobile }};"
+      style="--ratio-percent: {{ ratio_percent }}%; --ratio-percent-mobile: {{ ratio_percent_mobile }}%;"
     >
       {%- if display_image -%}
         <a class="card__media"
