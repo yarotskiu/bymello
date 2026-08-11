@@ -31,12 +31,12 @@
           "type": "collection",
           "settings": {}
         },
-        "cart_LUaz8x": {
-          "type": "cart",
-          "settings": {}
-        },
         "wishlist_bK4mQ2": {
           "type": "wishlist",
+          "settings": {}
+        },
+        "cart_LUaz8x": {
+          "type": "cart",
           "settings": {}
         },
         "account_MPAECU": {
@@ -55,7 +55,7 @@
         "enable_in_customizer": true,
         "color_scheme": "scheme-2",
         "counter_color": "#ffffff",
-        "counter_bg": "#0042eb"
+        "counter_bg": "#DD7C5C"
       }
     },
     "notification_VzgkFW": {
@@ -64,7 +64,6 @@
       "settings": {
         "enable_in_customizer": false,
         "color_scheme": "scheme-1",
-        "image": "",
         "text": "Subscribe to our newsletter & get 10% off",
         "text_weight": "fw-500",
         "description": "Your data will be used to enhance your website experience and as outlined in our <a href=\"/pages/privacy-policy\" title=\"Privacy Policy\">Privacy Policy</a>.",

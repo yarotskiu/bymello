@@ -14,6 +14,7 @@
       "blocks": {
         "slide_ny48D9": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/hero_banner_1.webp",
             "image_mb": "shopify://shop_images/hero_banner_1.webp",
@@ -27,6 +28,7 @@
             "show_text_box": true,
             "box_background": "#f8fafd",
             "box_background_opacity": 50,
+            "hide_box_background_mobile": false,
             "box_padding": 38,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
@@ -61,6 +63,7 @@
             "show_text_box": true,
             "box_background": "#d1d9dd",
             "box_background_opacity": 0,
+            "hide_box_background_mobile": false,
             "box_padding": 32,
             "text_alignment": "left",
             "image_overlay_opacity": 0,
@@ -82,6 +85,7 @@
         },
         "slide_TtLGFw": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/hero_banner_4.webp",
             "image_mb": "shopify://shop_images/hero_banner_1-optimized_940c959d-db5a-47ec-afa9-f71f3bf1fd68.webp",
