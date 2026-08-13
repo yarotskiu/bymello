@@ -209,11 +209,26 @@
       {%- endif -%}
       <div class="drawer__header">
         <h2 class="drawer__heading fw-500">{{ 'sections.cart.title' | t }}</h2>
-        {%- if settings.cart_drawer_description != blank -%}
-          <div class="drawer__description inline-richtext clr-text-foreground-secondary">
-            {{ settings.cart_drawer_description }}
-          </div>
-        {%- endif -%}
+        {%- case localization.country.iso_code -%}
+          {%- when 'EE' -%}
+            <div class="drawer__description inline-richtext clr-text-foreground-secondary">
+              Free shipping on all orders above 90€!
+            </div>
+          {%- when 'LV' -%}
+            <div class="drawer__description inline-richtext clr-text-foreground-secondary">
+              Free shipping on all orders above 80€!
+            </div>
+          {%- when 'LT' -%}
+            <div class="drawer__description inline-richtext clr-text-foreground-secondary">
+              Free shipping on all orders above 70€!
+            </div>
+          {%- else -%}
+            {%- if settings.cart_drawer_description != blank -%}
+              <div class="drawer__description inline-richtext clr-text-foreground-secondary">
+                {{ settings.cart_drawer_description }}
+              </div>
+            {%- endif -%}
+        {%- endcase -%}
         <button
           class="drawer__close button--animate-{{ settings.animations_hover_elements }}"
           type="button"
