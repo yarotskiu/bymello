@@ -554,6 +554,10 @@ cart-drawer {
   font-weight: 500;
 }
 
+.cart-drawer .tax-note a {
+  text-decoration-thickness: 0.1rem;
+}
+
 .tax-note strong {
   font-weight: 700;
 }
@@ -576,6 +580,7 @@ cart-drawer {
 
 .cart-drawer .cart__checkout-button {
   max-width: none;
+  --button-height: 4.4rem;
 }
 
 .drawer__footer .cart__dynamic-checkout-buttons {
@@ -610,7 +615,7 @@ cart-drawer {
 }
 
 .cart-drawer__continue-link {
-  margin: 2rem auto 1.5rem;
+  margin: 1.6rem auto 1.5rem;
 }
 
 .cart-drawer td.cart-item__totals .price.price--end {
