@@ -74,18 +74,6 @@
               {% render block %}
             {%- when 'subtotal' -%}
               <div class="js-contents" {{ block.shopify_attributes }}>
-                <div class="subtotals clr-text-foreground-secondary">
-                  <h2 class="subtotals__total clr-text-foreground-secondary">
-                    {{ 'sections.cart.subtotal' | t }}
-                  </h2>
-                  <p class="subtotals__total-value">
-										{% if settings.currency_code_enabled %}
-											{{ cart.items_subtotal_price | money_with_currency }}
-										{% else %}
-											{{ cart.items_subtotal_price | money }}
-										{% endif %}
-									</p>
-                </div>
 								<div>
 									{%- if cart.cart_level_discount_applications.size > 0 -%}
 									<ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -124,19 +112,6 @@
                 </small>
               </div>
             {%- else -%}
-              {%- if settings.show_cart_note -%}
-                <cart-note class="cart__note field">
-                  <label class="{{ settings.cart_note_heading_fw }}" for="Cart-note">{{ 'sections.cart.note' | t }}</label>
-                  <textarea
-                    class="cart__text-area text-area field__input"
-                    name="note"
-                    form="cart"
-                    id="Cart-note"
-                    placeholder="{{ 'sections.cart.note' | t }}"
-                  >{{ cart.note }}</textarea>
-                </cart-note>
-              {%- endif -%}
-
               <div class="cart__ctas" {{ block.shopify_attributes }}>
                 <noscript>
                   <button type="submit" class="cart__update-button button button--outline" form="cart">
