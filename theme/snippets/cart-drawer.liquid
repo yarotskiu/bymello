@@ -222,12 +222,6 @@
             <div class="drawer__description inline-richtext clr-text-foreground-secondary">
               Free shipping on all orders above 70€!
             </div>
-          {%- else -%}
-            {%- if settings.cart_drawer_description != blank -%}
-              <div class="drawer__description inline-richtext clr-text-foreground-secondary">
-                {{ settings.cart_drawer_description }}
-              </div>
-            {%- endif -%}
         {%- endcase -%}
         <button
           class="drawer__close button--animate-{{ settings.animations_hover_elements }}"
@@ -727,12 +721,6 @@
 							{{ 'general.continue_shopping' | t }}
 					</a>
         </div>
-				
-				{%- if additional_checkout_buttons -%}
-					<div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-						{{ content_for_additional_checkout_buttons }}
-					</div>
-				{%- endif -%}
       </div>
     </div>
   </div>
