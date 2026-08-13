@@ -11,24 +11,8 @@
   "sections": {
     "cart-items": {
       "type": "main-cart-items",
-      "blocks": {
-        "countdown_bar_PcPUxE": {
-          "type": "countdown_bar",
-          "settings": {
-            "countdown_date": "Nov 01, 2025",
-            "countdown_end": "cycle",
-            "countdown_label": "Hurry Up! Sale Ends In",
-            "heading_fw": "fw-500",
-            "days_label": "Days",
-            "hours_label": "Hrs",
-            "mins_label": "Mins",
-            "secs_label": "Secs"
-          }
-        }
-      },
-      "block_order": [
-        "countdown_bar_PcPUxE"
-      ],
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "color_scheme": "scheme-2",
         "heading_font_family": "font-heading",
