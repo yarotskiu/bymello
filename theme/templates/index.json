@@ -483,8 +483,6 @@
         "heading_weight": "fw-500",
         "button_label": "All Products",
         "button_link": "shopify://collections/all",
-        "button_style": "primary",
-        "button_outline": "outline",
         "banner_position": "left",
         "image_ratio": "adapt",
         "custom_image_height": 120,
