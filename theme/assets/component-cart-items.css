@@ -342,6 +342,10 @@ cart-remove-button .icon-remove {
     padding-left: 2rem;
   }
 
+  .cart-item__name {
+    font-size: 1.6rem;
+  }
+
   .cart-item__price-wrapper {
     font-size: 1.6rem;
   }
