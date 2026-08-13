@@ -747,14 +747,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "The Comfort Sale — Up to 25% Off Sleep & Loungewear",
+            "heading": "Essentials — Staples for Everyday Comfort",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Organic cotton pajamas and loungewear from European brands — for slow mornings and soft evenings.</p>",
+            "text": "<p>Everyday basics made predominantly from organic cotton.</p>",
             "text_style": "body",
             "text_color": "foreground-secondary"
           }
@@ -762,9 +762,9 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Shop the Sale",
-            "button_link": "shopify://collections/sale-25-off",
-            "button_style": "secondary",
+            "button_label": "View collection",
+            "button_link": "shopify://collections/essentials",
+            "button_style": "primary",
             "button_outline": "outline-none",
             "secondary_button": false,
             "secondary_button_label": "Secondary Button",
@@ -780,10 +780,10 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/body_home.png",
+        "image": "shopify://shop_images/banner-100_bc6678f9-b28e-4df5-a31e-f3244844baec.jpg",
         "height": "small",
         "desktop_image_width": "medium",
-        "layout": "text_first",
+        "layout": "image_first",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
@@ -791,7 +791,7 @@
         "color_scheme": "scheme-2",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 0,
+        "padding_top": 40,
         "padding_bottom": 40,
         "padding_top_mb": 0,
         "padding_bottom_mb": 24
