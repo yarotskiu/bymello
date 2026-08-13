@@ -39,11 +39,20 @@
         <h1 class="title title-wrapper--no-top-margin {{ section.settings.heading_size }} {{ section.settings.heading_font_family }} {{ section.settings.heading_weight }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--text {% endif %}">
           {{ 'sections.cart.title' | t }}
         </h1>
-        {%- if section.settings.description != blank -%}
-          <div class="description clr-text-foreground-secondary rte {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-            {{ section.settings.description -}}
-          </div>
-        {%- endif -%}
+        {%- case localization.country.iso_code -%}
+          {%- when 'EE' -%}
+            <div class="description clr-text-foreground-secondary rte {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              <p>Free shipping on all orders above 90€!</p>
+            </div>
+          {%- when 'LV' -%}
+            <div class="description clr-text-foreground-secondary rte {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              <p>Free shipping on all orders above 80€!</p>
+            </div>
+          {%- when 'LT' -%}
+            <div class="description clr-text-foreground-secondary rte {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              <p>Free shipping on all orders above 70€!</p>
+            </div>
+        {%- endcase -%}
       </div>
       <div class="cart-items__countdown-wrapper">
         {%- for block in section.blocks -%}
