@@ -11,8 +11,6 @@
   "sections": {
     "cart-items": {
       "type": "main-cart-items",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "color_scheme": "scheme-2",
         "heading_font_family": "font-heading",
