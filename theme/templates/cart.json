@@ -38,7 +38,7 @@
         "show_breadcrumbs": true,
         "breadcrumbs_color_scheme": "scheme-8",
         "breadcrumbs_active_color_enable": true,
-        "breadcrumbs_active_color": "#0042eb",
+        "breadcrumbs_active_color": "#DD7C5C",
         "button_style": "primary",
         "button_outline": "outline-none",
         "padding_top": 80,
@@ -69,11 +69,11 @@
         "buttons"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "gift_wrapping_color_scheme": "scheme-3",
+        "color_scheme": "scheme-2",
+        "gift_wrapping_color_scheme": "scheme-2",
         "promoted_collection": "",
         "promoted_collection_heading": "Buy This With",
-        "promoted_product_color_scheme": "",
+        "promoted_product_color_scheme": "scheme-2",
         "button_style": "primary",
         "button_outline": "outline-none",
         "padding_top": 40,
