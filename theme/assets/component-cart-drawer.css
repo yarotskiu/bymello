@@ -273,6 +273,7 @@ cart-drawer {
 .drawer__body {
   overflow: auto;
   flex: 1;
+  padding-right: 1.2rem;
 }
 
 @media screen and (orientation: landscape) and (max-height: 650px) {
