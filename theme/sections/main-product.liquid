@@ -174,12 +174,7 @@
 										price_class: price_class,
 										price_font_family: block.settings.price_font_family
                   -%}
-									<div class="product__tax rte">
-										{%- if shop.shipping_policy.body != blank -%}
-											{{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-										{%- endif -%}
-									</div>
-                </div>						
+                </div>
 
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
