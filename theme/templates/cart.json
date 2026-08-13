@@ -20,12 +20,12 @@
         "show_breadcrumbs": true,
         "breadcrumbs_color_scheme": "scheme-8",
         "breadcrumbs_active_color_enable": true,
-        "breadcrumbs_active_color": "#DD7C5C",
+        "breadcrumbs_active_color": "#dd7c5c",
         "button_style": "primary",
         "button_outline": "outline-none",
-        "padding_top": 80,
+        "padding_top": 40,
         "padding_bottom": 0,
-        "padding_top_mb": 80,
+        "padding_top_mb": 40,
         "padding_bottom_mb": 0
       }
     },
@@ -39,9 +39,9 @@
         "buttons": {
           "type": "buttons",
           "settings": {
-            "continue_button_style": "primary",
+            "continue_button_style": "secondary",
             "continue_button_outline": "outline-none",
-            "checkout_button_style": "secondary",
+            "checkout_button_style": "primary",
             "checkout_button_outline": "outline-none"
           }
         }
