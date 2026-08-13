@@ -309,7 +309,7 @@ variant-selects.has-custom-picker-bg .product-form__input--dropdown .select:afte
 }
 
 .product-form__input--swatch .swatch-input__input + .swatch-input__label {
-  --swatch-input--size: 4.4rem;
+  --swatch-input--size: var(--product-variants-size, 4.4rem);
 	width: var(--swatch-input--size);
 	height: var(--swatch-input--size);
   margin: 0 0.6rem 0 0;
@@ -326,17 +326,9 @@ variant-selects.has-custom-picker-bg .product-form__input--dropdown .select:afte
 	}
 }
 
-@media screen and (min-width: 750px) {
-	.product-form__input--swatch .swatch-input__input + .swatch-input__label {
-		--swatch-input--size: var(--product-variants-size);
-
-		margin: 0 0.6rem 0 0;
-  }
-}
-
 @media screen and (min-width: 1560px) {
 	.extra-large-layout .product-form__input--swatch .swatch-input__input + .swatch-input__label {
-		--swatch-input--size: 2.8rem;
+		--swatch-input--size: var(--product-variants-size, 2.8rem);
 	}
 }
 /* End custom styles for Swatch display type */
