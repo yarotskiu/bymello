@@ -351,7 +351,7 @@
       "cart_error": "There was an error while updating your cart. Please try again.",
       "bundle_error": "A selected variant is out of stock. Please choose another.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
-      "taxes_and_shipping_policy_at_checkout_html": "Tax included. <a href=\"{{ link }}\"><strong>Shipping</strong></a> calculated at check out.",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes, discounts and <a href=\"{{ link }}\"><strong>shipping</strong></a> calculated at check out.",
       "taxes_included_but_shipping_at_checkout": "Tax included and shipping and discounts calculated at check out",
       "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> and discounts calculated at check out.",
       "taxes_and_shipping_at_checkout": "Taxes, discounts and shipping calculated at check out",
