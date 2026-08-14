@@ -879,12 +879,19 @@ aside .mobile-facets__inner {
   .mobile-facets__open-wrapper {
     height: 40px;
     box-sizing: border-box;
+    background-color: transparent;
   }
 
   .mobile-facets__open {
     height: 100%;
     padding-top: 0;
     padding-bottom: 0;
+    background-color: transparent;
+    color: inherit;
+  }
+
+  .mobile-facets__open > * + * {
+    margin-left: 0;
   }
 }
 
