@@ -22,6 +22,18 @@
     margin-left: -1.5rem;
     margin-right: -1.5rem;
   }
+
+  .product.grid .product__media-wrapper .global-media-settings,
+  .product.grid .product__media-wrapper .global-media-settings img,
+  .product.grid .product__media-wrapper .global-media-settings video,
+  .product.grid .product__media-wrapper .global-media-settings model-viewer {
+    border-radius: 0;
+  }
+
+  .product.grid .product__media-wrapper .product__media-toggle:focus-visible:after,
+  .product.grid .product__media-wrapper .product__media-toggle.focused:after {
+    box-shadow: none;
+  }
 }
 
 .product--slideshow .swiper-button-prev,
@@ -1877,6 +1889,15 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   max-width: none;
   margin: 0;
   align-items: stretch;
+}
+
+.product__newsletter-discount-form .newsletter-form__field-wrapper .field__input:focus ~ .field__label,
+.product__newsletter-discount-form .newsletter-form__field-wrapper .field__input:not(:placeholder-shown) ~ .field__label,
+.product__newsletter-discount-form .newsletter-form__field-wrapper .field__input:-webkit-autofill ~ .field__label {
+  font-size: 1rem;
+  top: calc(var(--inputs-border-width) + 0.5rem);
+  left: calc(var(--inputs-border-width) + 2rem);
+  letter-spacing: 0.04rem;
 }
 
 .product__newsletter-discount-text {
