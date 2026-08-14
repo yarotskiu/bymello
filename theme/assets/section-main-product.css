@@ -1900,6 +1900,10 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   letter-spacing: 0.04rem;
 }
 
+.product__newsletter-discount-form form:has(.product__newsletter-discount-success) .newsletter-form__field-wrapper {
+  display: none;
+}
+
 .product__newsletter-discount-text {
   font-size: 1.2rem;
   line-height: 1.5;
