@@ -2315,7 +2315,9 @@ function addEmailInputsValidation() {
     const message = form?.querySelector('.form__message');
     const successMessage = form?.querySelector('.form__message--success');
 
-    if (!submitBtn) return;
+    if (!submitBtn || !form) return;
+
+    let hasAttemptedSubmit = false;
 
     const validateEmail = () => {
       const emailValue = input.value.trim();
@@ -2323,16 +2325,9 @@ function addEmailInputsValidation() {
 
       if (!isValid) {
         if (message) {
-          message.textContent = window.forms.emailError;
+          message.textContent = emailValue === '' ? '' : window.forms.emailError;
         }
-        input.classList.add('invalid');
-        submitBtn.setAttribute('disabled', 'true');
-
-        if (emailValue === '') {
-          message.textContent = '';
-          input.classList.remove('invalid');
-          submitBtn.removeAttribute('disabled');
-        }
+        input.classList.toggle('invalid', emailValue !== '');
 
         if (successMessage) {
           successMessage.textContent = '';
@@ -2342,34 +2337,26 @@ function addEmailInputsValidation() {
           message.textContent = '';
         }
         input.classList.remove('invalid');
-        submitBtn.removeAttribute('disabled');
       }
+
+      return isValid;
     };
 
-    // Validate email when the user changes input (debounced)
+    // Before the first submit attempt, don't show errors or block typing —
+    // only start live-validating once the user has tried to submit once.
     const debouncedValidateEmail = debounce(validateEmail, 300);
-    input.addEventListener('input', debouncedValidateEmail);
-    input.addEventListener('change', debouncedValidateEmail);
+    input.addEventListener('input', () => {
+      if (hasAttemptedSubmit) debouncedValidateEmail();
+    });
+    input.addEventListener('change', () => {
+      if (hasAttemptedSubmit) debouncedValidateEmail();
+    });
 
-    // Remove message and enable button when user starts typing again
-    input.addEventListener('focus', () => {
-      const emailValue = input.value.trim();
-      const isValid = emailPattern.test(emailValue);
-
-      if (!isValid) {
-        message.textContent = window.forms.emailError;
-        input.classList.add('invalid');
-        submitBtn.setAttribute('disabled', 'true');
-
-        if (emailValue === '') {
-          message.textContent = '';
-          input.classList.remove('invalid');
-          submitBtn.removeAttribute('disabled');
-        }
-      } else {
-        message.textContent = '';
-        input.classList.remove('invalid');
-        submitBtn.removeAttribute('disabled');
+    form.addEventListener('submit', (event) => {
+      hasAttemptedSubmit = true;
+      if (!validateEmail()) {
+        event.preventDefault();
+        input.focus();
       }
     });
   });
