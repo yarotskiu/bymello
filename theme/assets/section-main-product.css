@@ -1583,18 +1583,6 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   }
 }
 
-@media screen and (max-width: 749px) {
-  .product__media-zoom-hover,
-  .product__media-icon--hover {
-    display: flex;
-  }
-
-  .product__media-icon--lightbox,
-  .product__media-icon--hover {
-    background-color: transparent;
-    border: none;
-  }
-}
 
 .js .product__media {
   overflow: hidden !important;

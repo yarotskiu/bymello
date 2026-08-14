@@ -223,7 +223,7 @@
         "gallery_layout": "thumbnail",
         "thumbnail_position": "left",
         "media_position": "left",
-        "image_zoom": "lightbox",
+        "image_zoom": "none",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
