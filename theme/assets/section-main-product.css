@@ -347,6 +347,10 @@ a.product__text {
   font-size: inherit;
 }
 
+.product__info-container .price__container .price-item--regular {
+  margin-bottom: 0.8rem;
+}
+
 .product__info-container > *:last-child {
   margin-bottom: 0;
 }
@@ -1849,7 +1853,39 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   word-break: break-word;
   color: #101010A6;
   font-size: 1.2rem;
-  margin-top: 0.6rem;
+  margin-top: 0;
+}
+
+.product__newsletter-discount {
+  margin-bottom: 2.4rem;
+}
+
+.product__newsletter-discount-form {
+  margin-top: 1.2rem;
+}
+
+.product__newsletter-discount-form .newsletter-form {
+  max-width: none;
+  margin: 0;
+  align-items: stretch;
+}
+
+.product__newsletter-discount-text {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #101010A6;
+}
+
+.product__newsletter-discount-details,
+.product__newsletter-discount-trigger {
+  display: inline;
+}
+
+.product__newsletter-discount-trigger {
+  --bg-h: 1px;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
 }
 
 /* Product-thumbnail snippet */

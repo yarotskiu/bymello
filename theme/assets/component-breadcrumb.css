@@ -7,21 +7,41 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem 3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
+}
+
+.breadcrumbs-nav {
+  flex-shrink: 0;
 }
 
 .breadcrumbs__list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .breadcrumbs__item {
   display: flex;
   font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.breadcrumbs__item:last-child {
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.breadcrumbs__item:last-child .breadcrumbs__link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: normal;
 }
 
 .breadcrumbs__item:not(:last-child):after {
