@@ -1197,3 +1197,15 @@
 
 /* Bymello: smaller BESTSELLER/NEW badges on product cards */
 .card__badge .badge{padding:.3rem .8rem;font-size:1.1rem;}
+
+@media screen and (max-width: 749px) {
+  .grid--1-col-tablet-down .grid__item .card--product .card__inner {
+    width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .grid--1-col-tablet-down .grid__item .card--product .card__inner .card__media {
+    border-radius: 0;
+  }
+}
