@@ -1567,6 +1567,7 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   .product__media-icon--lightbox,
   .product__media-icon--hover {
     background-color: transparent;
+    border: none;
   }
 }
 
