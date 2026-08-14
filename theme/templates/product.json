@@ -30,7 +30,8 @@
             "space": "mb-0",
             "price_font_family": "font-heading",
             "text_weight": "fw-400",
-            "text_size": "small"
+            "text_size": "small",
+            "show_newsletter_discount_price": true
           }
         },
         "sku": {
@@ -193,8 +194,8 @@
       },
       "block_order": [
         "title",
-        "price",
         "sku",
+        "price",
         "variant_picker",
         "quantity_selector",
         "inventory_37kwAJ",

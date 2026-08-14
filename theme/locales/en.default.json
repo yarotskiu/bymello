@@ -216,6 +216,12 @@
         "sale_price": "Sale price",
         "unit_price": "Unit price"
       },
+      "newsletter_discount": {
+        "prefix_html": "Or {{ price }} if you",
+        "trigger": "sign up for our newsletter",
+        "suffix": ".",
+        "subscribe": "Subscribe"
+      },
       "share": "Share this product",
       "sold_out": "Sold Out",
       "unavailable": "Unavailable",
