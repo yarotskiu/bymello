@@ -22,9 +22,9 @@
         "button_style": "primary",
         "button_outline": "outline-none",
         "padding_top": 120,
-        "padding_bottom": 0,
+        "padding_bottom": 40,
         "padding_top_mb": 80,
-        "padding_bottom_mb": 0
+        "padding_bottom_mb": 40
       }
     }
   },
