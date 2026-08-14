@@ -622,6 +622,7 @@
         "heading_WDBLdx",
         "icon_TzWAkq"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "scroll_speed": "ultra-fast",
