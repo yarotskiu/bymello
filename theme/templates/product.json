@@ -21,7 +21,7 @@
             "heading_font_family": "font-heading",
             "heading_size": "h4",
             "heading_weight": "fw-500",
-            "space": "mb-2_4 mb-lg-2_4"
+            "space": "mb-0"
           }
         },
         "price": {

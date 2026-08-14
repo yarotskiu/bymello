@@ -308,6 +308,12 @@ variant-selects.has-custom-picker-bg .product-form__input--dropdown .select:afte
   margin-top: 1.2rem;
 }
 
+@media screen and (max-width: 749px) {
+  .product-form__swatch-list {
+    margin-top: 0;
+  }
+}
+
 .product-form__input--swatch .swatch-input__input + .swatch-input__label {
   --swatch-input--size: var(--product-variants-size, 4.4rem);
 	width: var(--swatch-input--size);
