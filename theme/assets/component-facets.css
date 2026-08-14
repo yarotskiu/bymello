@@ -875,6 +875,19 @@ aside .mobile-facets__inner {
   color: rgba(var(--color-foreground), 1);
 }
 
+@media screen and (max-width: 749px) {
+  .mobile-facets__open-wrapper {
+    height: 40px;
+    box-sizing: border-box;
+  }
+
+  .mobile-facets__open {
+    height: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
 .mobile-facets__open:hover line,
 .mobile-facets__open:hover circle {
   stroke: rgb(var(--color-accent));
