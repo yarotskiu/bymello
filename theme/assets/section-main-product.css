@@ -15,6 +15,15 @@
   padding-left: 0;
 }
 
+@media screen and (max-width: 749px) {
+  .product.grid .product__media-wrapper {
+    width: calc(100% + 3rem);
+    max-width: calc(100% + 3rem);
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+}
+
 .product--slideshow .swiper-button-prev,
 .product--thumbnail .swiper-button-prev {
   left: 0;
