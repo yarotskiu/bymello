@@ -1891,13 +1891,9 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   align-items: stretch;
 }
 
-.product__newsletter-discount-form .newsletter-form__field-wrapper .field__input:focus ~ .field__label,
 .product__newsletter-discount-form .newsletter-form__field-wrapper .field__input:not(:placeholder-shown) ~ .field__label,
 .product__newsletter-discount-form .newsletter-form__field-wrapper .field__input:-webkit-autofill ~ .field__label {
-  font-size: 1rem;
-  top: calc(var(--inputs-border-width) + 0.5rem);
-  left: calc(var(--inputs-border-width) + 2rem);
-  letter-spacing: 0.04rem;
+  opacity: 0;
 }
 
 .product__newsletter-discount-form form:has(.product__newsletter-discount-success) .newsletter-form__field-wrapper {
