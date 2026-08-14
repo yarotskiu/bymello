@@ -12,6 +12,15 @@
   %}
 {% endcomment %}
 {%- liquid
+  assign heading_3_display = block.settings.heading_3
+
+  if block.settings.enable_shipping_country_override
+    case localization.country.iso_code
+      when 'LT'
+        assign heading_3_display = block.settings.heading_3_lt_override
+    endcase
+  endif
+
   assign heading_empty_1 = false
   assign heading_empty_2 = false
   assign heading_empty_3 = false
@@ -25,7 +34,7 @@
     assign heading_empty_2 = true
   endif
 
-  if block.settings.heading_3 == empty
+  if heading_3_display == empty
     assign heading_empty_3 = true
   endif
 
@@ -106,7 +115,7 @@
         >
       {%- endif -%}
       <span class="inline-richtext">
-        {{- block.settings.heading_3 -}}
+        {{- heading_3_display -}}
       </span>
     </li>
   {%- endunless -%}
