@@ -107,7 +107,9 @@
             "icon_2": "none",
             "heading_2": "",
             "icon_3": "package",
-            "heading_3": "Ships within 3–5 business days"
+            "heading_3": "Ships within 3–5 business days",
+            "enable_shipping_country_override": true,
+            "heading_3_lt_override": "Ships within 2–3 business days"
           }
         },
         "complementary_n7i6qM": {
