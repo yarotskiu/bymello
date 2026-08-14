@@ -26,53 +26,9 @@
         "padding_top_mb": 80,
         "padding_bottom_mb": 0
       }
-    },
-    "scrolling_banner": {
-      "type": "scrolling-banner",
-      "blocks": {
-        "heading_bWacLg": {
-          "type": "heading",
-          "settings": {
-            "text": "Care that wears like couture",
-            "color": "--color-secondary-foreground",
-            "text_size": "h0",
-            "heading_font_family": "font-heading",
-            "text_weight": "fw-500"
-          }
-        },
-        "icon_JVb7JR": {
-          "type": "icon",
-          "settings": {
-            "image_width": 50
-          }
-        }
-      },
-      "block_order": [
-        "heading_bWacLg",
-        "icon_JVb7JR"
-      ],
-      "settings": {
-        "color_scheme": "scheme-7",
-        "scroll_speed": "ultra-fast",
-        "column_gap": 25,
-        "column_gap_mb": 20,
-        "bg_hover_1": "",
-        "text_hover_1": "",
-        "bg_hover_2": "",
-        "text_hover_2": "",
-        "bg_hover_3": "",
-        "text_hover_3": "",
-        "bg_hover_4": "",
-        "text_hover_4": "",
-        "padding_top": 120,
-        "padding_bottom": 120,
-        "padding_top_mb": 80,
-        "padding_bottom_mb": 80
-      }
     }
   },
   "order": [
-    "main",
-    "scrolling_banner"
+    "main"
   ]
 }
