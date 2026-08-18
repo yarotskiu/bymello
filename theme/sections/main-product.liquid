@@ -516,6 +516,7 @@
                 {%- if block.settings.metafield_key != blank -%}
                   {%- assign tab_metafield = product.metafields.custom[block.settings.metafield_key] -%}
                 {%- endif -%}
+                {%- unless tab_metafield.value == blank and block.settings.content == blank and block.settings.page.content == blank -%}
                 <div class="product__accordion accordion quick-add-hidden {{  block.settings.space }}" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}"{% if block.settings.open_row %} open{% endif %}>
                     <summary>
@@ -537,6 +538,7 @@
                     </div>
                   </details>
                 </div>
+                {%- endunless -%}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
