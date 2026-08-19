@@ -218,7 +218,7 @@
       },
       "newsletter_discount": {
         "prefix_html": "Or {{ price }} for",
-        "trigger": "subscribers",
+        "trigger": "new subscribers",
         "suffix": ".",
         "subscribe": "Subscribe",
         "success_heading": "Thanks for subscribing!",
@@ -381,7 +381,7 @@
     "footer": {
       "payment": "Payment methods",
       "socials": "Follow Us",
-      "newsletter": "Subscribe for 10% off every order.",
+      "newsletter": "New here? Get 10% off your first order.",
       "newsletter_success": "Thanks for subscribing",
       "newsletter_label": "Enter your email"
     },
