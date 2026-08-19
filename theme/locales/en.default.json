@@ -217,8 +217,8 @@
         "unit_price": "Unit price"
       },
       "newsletter_discount": {
-        "prefix_html": "Or {{ price }} if you",
-        "trigger": "sign up for our newsletter",
+        "prefix_html": "Or {{ price }} for",
+        "trigger": "subscribers",
         "suffix": ".",
         "subscribe": "Subscribe",
         "success_heading": "Thanks for subscribing!",
