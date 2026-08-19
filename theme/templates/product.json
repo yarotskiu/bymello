@@ -24,6 +24,13 @@
             "space": "mb-0"
           }
         },
+        "sku": {
+          "type": "sku",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4",
+            "text_style": "body"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -32,13 +39,6 @@
             "text_weight": "fw-400",
             "text_size": "small",
             "show_newsletter_discount_price": true
-          }
-        },
-        "sku": {
-          "type": "sku",
-          "settings": {
-            "space": "mb-2_4 mb-lg-2_4",
-            "text_style": "body"
           }
         },
         "variant_picker": {
@@ -220,7 +220,7 @@
         "media_size": "small",
         "constrain_to_viewport": false,
         "media_fit": "contain",
-        "gallery_layout": "thumbnail",
+        "gallery_layout": "column",
         "thumbnail_position": "left",
         "media_position": "left",
         "image_zoom": "none",
