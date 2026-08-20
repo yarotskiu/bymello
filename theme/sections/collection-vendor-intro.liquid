@@ -56,6 +56,7 @@
     max-width: 800px;
   }
   #shopify-section-{{ section.id }} .vendor-intro__text .image-with-text__heading {
+    margin-top: 0;
     margin-bottom: 8px;
   }
   @media screen and (min-width: 750px) {
@@ -65,7 +66,7 @@
   }
   #shopify-section-{{ section.id }} .vendor-logo-frame {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
     padding: 1.5rem;
@@ -100,6 +101,11 @@
   if section.settings.color_scheme == section.settings.section_color_scheme
     assign remove_color_classes = true
   endif
+
+  assign logo_top_offset = 0
+  if collection.handle == 'living-crafts'
+    assign logo_top_offset = 21
+  endif
 -%}
 
 <div class="vendor-intro-wrapper section-responsive-padding gradient color-{{ section.settings.section_color_scheme }}">
@@ -108,6 +114,7 @@
       <div class="vendor-intro__media vendor-intro__media--{{ section.settings.logo_size }}">
         <div
           class="vendor-logo-frame{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% endunless %}{% if vendor_image == blank %} image-with-text__media--placeholder placeholder{% endif %}"
+          style="padding-top: {{ logo_top_offset }}px;"
         >
           {%- if vendor_image != blank -%}
             {{
