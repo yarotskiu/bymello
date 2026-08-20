@@ -1,0 +1,112 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumbs_color_scheme": "",
+        "breadcrumbs_active_color_enable": true,
+        "breadcrumbs_active_color": "#DD7C5C",
+        "banner_text_alignment": "center",
+        "title": "All Brands",
+        "title_size": "h3",
+        "title_weight": "fw-500",
+        "description": "",
+        "text_color": "foreground",
+        "banner_padding_top": 70,
+        "banner_padding_bottom": 0,
+        "banner_padding_top_mb": 56,
+        "banner_padding_bottom_mb": 0,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_outline_2": "outline",
+        "content_color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "collection_list_brands": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_living_crafts": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "living-crafts",
+            "custom_title": "",
+            "custom_title_color": "",
+            "custom_title_size": "h3",
+            "custom_title_size_mobile": "h3",
+            "custom_title_weight": "fw-400",
+            "custom_image": "",
+            "button_color_scheme": ""
+          }
+        },
+        "featured_collection_trendsplant": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "trendsplant",
+            "custom_title": "",
+            "custom_title_color": "",
+            "custom_title_size": "h3",
+            "custom_title_size_mobile": "h3",
+            "custom_title_weight": "fw-400",
+            "custom_image": "",
+            "button_color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_living_crafts",
+        "featured_collection_trendsplant"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "",
+        "heading_font_family": "font-heading",
+        "heading_size": "h3",
+        "image_ratio": "portrait",
+        "image_ratio_mobile": "portrait",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "button_style": "primary",
+        "button_outline": "outline-hover",
+        "individual_card_style": "",
+        "custom_image_hover_text_color": "#ffffff",
+        "overlay": "",
+        "image_overlay_opacity": 0,
+        "individual_card_color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "slider_controls": "show-scrollbar",
+        "padding_top": 20,
+        "padding_bottom": 120,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 80
+      }
+    },
+    "hide_brand_arrows": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>[id$=\"__collection_list_brands\"] .slider-button { display: none; }</style>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collection_list_brands",
+    "hide_brand_arrows"
+  ]
+}
