@@ -41,8 +41,8 @@
             "collection": "living-crafts",
             "custom_title": "",
             "custom_title_color": "",
-            "custom_title_size": "h3",
-            "custom_title_size_mobile": "h3",
+            "custom_title_size": "h4",
+            "custom_title_size_mobile": "h4",
             "custom_title_weight": "fw-400",
             "custom_image": "",
             "button_color_scheme": ""
@@ -54,8 +54,8 @@
             "collection": "trendsplant",
             "custom_title": "",
             "custom_title_color": "",
-            "custom_title_size": "h3",
-            "custom_title_size_mobile": "h3",
+            "custom_title_size": "h4",
+            "custom_title_size_mobile": "h4",
             "custom_title_weight": "fw-400",
             "custom_image": "",
             "button_color_scheme": ""
@@ -95,7 +95,7 @@
     "hide_brand_arrows": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<style>[id$=\"__collection_list_brands\"] .slider-button { display: none; }</style>",
+        "custom_liquid": "<style>[id$=\"__collection_list_brands\"] .slider-button { display: none; } [id$=\"__collection_list_brands\"] .card { background: none !important; } [id$=\"__collection_list_brands\"] .card__content { padding: 0 !important; } [id$=\"__collection_list_brands\"] .card__information, [id$=\"__collection_list_brands\"] .card--collection .card__information { padding: 0.6rem 0 0 !important; }</style>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0,
