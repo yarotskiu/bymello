@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -6,8 +15,9 @@
         "show_breadcrumbs": true,
         "breadcrumbs_color_scheme": "",
         "breadcrumbs_active_color_enable": true,
-        "breadcrumbs_active_color": "#DD7C5C",
-        "banner_text_alignment": "center",
+        "breadcrumbs_active_color": "#dd7c5c",
+        "banner_text_alignment": "left",
+        "show_title": true,
         "title": "All Brands",
         "title_size": "h3",
         "title_weight": "fw-500",
@@ -44,8 +54,9 @@
             "custom_title_size": "h3",
             "custom_title_size_mobile": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "",
-            "button_color_scheme": ""
+            "custom_image": "shopify://shop_images/LC_banner_2x-100.jpg",
+            "button_color_scheme": "",
+            "custom_image_hover_text": ""
           }
         },
         "featured_collection_trendsplant": {
@@ -57,8 +68,9 @@
             "custom_title_size": "h3",
             "custom_title_size_mobile": "h3",
             "custom_title_weight": "fw-400",
-            "custom_image": "",
-            "button_color_scheme": ""
+            "custom_image": "shopify://shop_images/hero_banner_1.webp",
+            "button_color_scheme": "scheme-1",
+            "custom_image_hover_text": ""
           }
         }
       },
