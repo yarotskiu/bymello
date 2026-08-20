@@ -117,6 +117,13 @@
         </li>
 
       {%- when 'collection' -%}
+        {%- if template.suffix == 'vendors' and pages.brands -%}
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{ pages.brands.url }}">
+              All Brands
+            </a>
+          </li>
+        {%- endif -%}
         <li class="breadcrumbs__item">
           <span class="breadcrumbs__link" aria-current="page">
             {{ collection.title }}
