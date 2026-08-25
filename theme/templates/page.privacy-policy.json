@@ -20,7 +20,7 @@
         "title": "Privacy Policy",
         "title_size": "h3",
         "title_weight": "fw-500",
-        "description": "<p>Last updated: 29 July 2026</p>",
+        "description": "<p>Last updated: 25 August 2026</p>",
         "text_color": "foreground",
         "banner_padding_top": 90,
         "banner_padding_bottom": 48,
@@ -80,7 +80,7 @@
           "type": "item",
           "settings": {
             "heading": "Will Your Information Be Shared With Anyone?",
-            "text": "<p>We share data only on the following legal bases: your consent, legitimate interest, performance of a contract, legal obligation, or protection of vital interests (fraud investigation, policy violations).</p><p>Advertising and Meta (Facebook/Instagram): we may use Meta tools, including the Meta Pixel, to show you relevant ads and measure their effectiveness — only with your prior consent via the cookie settings. You can withdraw consent at any time through the Site's cookie settings. For more on how Meta processes data, see their Data Policy.</p><p>International transfers: some of our providers (e.g. Shopify, Meta) may process data outside the EEA (e.g. in the US). In such cases, we ensure appropriate safeguards under GDPR Chapter V, including Standard Contractual Clauses (SCCs).</p>",
+            "text": "<p>We share data only on the following legal bases: your consent, legitimate interest, performance of a contract, legal obligation, or protection of vital interests (fraud investigation, policy violations).</p><p>Advertising and Meta (Facebook/Instagram): we may use Meta tools, including the Meta Pixel and Meta Conversions API, to show you relevant ads and measure their effectiveness — only with your prior consent via the cookie settings. This may include sharing certain purchase and interaction data (such as page views, cart, checkout, and purchase events) together with hashed (non-readable) identifiers such as your email address, phone number, or name, sent directly from our store to Meta's servers in addition to browser-based tracking. Hashing means this data cannot be read by us or Meta in its original form — it is used only to match your activity to your Meta account for advertising measurement purposes. You can withdraw consent at any time through the Site's cookie settings. For more on how Meta processes data, see their Data Policy.</p><p>Advertising and Google (Google Ads): similarly, we may use Google tools, including Google tag and Google Enhanced Conversions, to show you relevant ads and measure their effectiveness — only with your prior consent via the cookie settings. This may include sharing purchase and interaction data together with hashed identifiers such as your email address or phone number, sent directly to Google for the same matching purpose described above. You can withdraw consent at any time through the Site's cookie settings. For more on how Google processes data, see their Privacy Policy.</p><p>International transfers: some of our providers (e.g. Shopify, Meta, Google) may process data outside the EEA (e.g. in the US). In such cases, we ensure appropriate safeguards under GDPR Chapter V, including Standard Contractual Clauses (SCCs).</p>",
             "heading_color": "secondary"
           }
         },
