@@ -15,7 +15,7 @@
         "show_breadcrumbs": true,
         "breadcrumbs_color_scheme": "scheme-8",
         "breadcrumbs_active_color_enable": true,
-        "breadcrumbs_active_color": "#B5654A",
+        "breadcrumbs_active_color": "#b5654a",
         "show_collection_title": false,
         "show_collection_description": false,
         "show_collection_image": false,
@@ -45,7 +45,7 @@
         "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-1",
         "padding_top": 74,
-        "padding_bottom": 74,
+        "padding_bottom": 44,
         "padding_top_mb": 56,
         "padding_bottom_mb": 56
       }
