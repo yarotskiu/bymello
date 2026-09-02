@@ -17,6 +17,8 @@
 {%- if certifications != blank -%}
   <ul class="product-certifications list-unstyled{% if class %} {{ class }}{% endif %}" {{ block.shopify_attributes }}>
     {%- for value in certifications -%}
+      {%- assign badge_icon = blank -%}
+      {%- assign badge_full_color = false -%}
       {%- case value -%}
         {%- when 'Made in EU' -%}
           {%- assign badge_icon = 'badge-eu.svg' -%}
@@ -26,12 +28,22 @@
           {%- assign badge_icon = 'badge-vegan.svg' -%}
         {%- when 'GOTS' -%}
           {%- assign badge_icon = 'badge-gots.svg' -%}
-        {%- else -%}
-          {%- assign badge_icon = blank -%}
+          {%- assign badge_full_color = true -%}
       {%- endcase -%}
       {%- if badge_icon != blank -%}
         <li class="product-certifications__item" data-tooltip="{{ value | escape }}" tabindex="0" aria-label="{{ value | escape }}">
-          <span class="product-certifications__icon" style="--icon-url: url('{{ badge_icon | asset_url }}');"></span>
+          {%- if badge_full_color -%}
+            <img
+              class="product-certifications__icon product-certifications__icon--full-color"
+              src="{{ badge_icon | asset_url }}"
+              alt=""
+              width="32"
+              height="32"
+              loading="lazy"
+            >
+          {%- else -%}
+            <span class="product-certifications__icon" style="--icon-url: url('{{ badge_icon | asset_url }}');"></span>
+          {%- endif -%}
         </li>
       {%- endif -%}
     {%- endfor -%}

@@ -1907,6 +1907,13 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   mask-position: center;
 }
 
+.product-certifications__icon--full-color {
+  background-color: transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
+  object-fit: contain;
+}
+
 /* SKU block */
 
 .product__sku.visibility-hidden::after {
