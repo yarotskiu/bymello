@@ -76,11 +76,20 @@
   padding: 0;
   min-width: 0;
   min-height: 0;
+  background: #333f38;
+  color: #ffffff;
+  border-color: #333f38;
   transition:
     color var(--duration-medium) ease-in-out,
     background-color var(--duration-medium) ease-in-out,
     border-color var(--duration-medium) ease-in-out,
     border-radius var(--duration-medium) ease-in-out;
+}
+
+.notification .notification__btn.button:hover {
+  background: #333f38;
+  color: #ffffff;
+  border-color: #333f38;
 }
 
 .notification .notification__btn svg {
