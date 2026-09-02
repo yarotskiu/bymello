@@ -791,7 +791,7 @@
                 %}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id,  class: picker_class, variant_picker_background_color: block.settings.variant_picker_background_color, variant_picker_background_color_enable: block.settings.variant_picker_background_color_enable, text_weight: block.settings.text_weight, variant_item_weight: block.settings.variant_item_weight, variant_picker_border_color: block.settings.variant_picker_border_color, variant_picker_border_color_fallback: block.settings.variant_picker_border_color, bm_sg: bm_sg, bm_modal_id: bm_modal_id %}
                 {%- if bm_sg != blank -%}
-                  <div id="{{ bm_modal_id }}" class="bm-modal" aria-hidden="true" role="dialog" aria-modal="true">
+                  <div id="{{ bm_modal_id }}" class="bm-modal color-{{ section.settings.color_scheme }}" aria-hidden="true" role="dialog" aria-modal="true">
                     <div class="bm-modal__overlay" onclick="this.closest('.bm-modal').setAttribute('aria-hidden','true');document.body.style.overflow='';"></div>
                     <div class="bm-modal__box">
                       <div class="bm-modal__head">

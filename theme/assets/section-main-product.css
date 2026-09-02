@@ -2503,7 +2503,7 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
 .product-form__dropdown-row{display:flex;align-items:center;gap:1.6rem;}
 .bm-size-guide-btn{display:inline-flex;align-items:center;gap:.5rem;background:none;border:none;padding:0;cursor:pointer;font-size:1.4rem;color:rgb(var(--color-foreground));text-decoration:none;}
 .bm-size-guide-btn .icon{width:1.4rem;height:1.4rem;fill:currentColor;}
-.bm-size-guide-btn:hover{color:rgb(var(--color-secondary-button));}
+.bm-size-guide-btn:hover{color:#dd7c5c;}
 .bm-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:stretch;justify-content:flex-end;}
 .bm-modal[aria-hidden="false"]{display:flex !important;}
 .bm-modal .bm-modal__overlay{display:block;position:absolute;inset:0;background:rgba(0,0,0,.45);}

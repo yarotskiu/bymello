@@ -22,15 +22,15 @@
 }
 
 #shopify-pc__banner .shopify-pc__banner__btn-accept {
-  background-color: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
-  border-color: rgb(var(--color-button));
+  background-color: #333f38;
+  color: #ffffff;
+  border-color: #333f38;
 }
 
 #shopify-pc__banner .shopify-pc__banner__btn-accept:hover {
-  background-color: rgb(var(--color-button-hover));
-  color: rgb(var(--color-button-text-hover));
-  border-color: rgb(var(--color-button-hover));
+  background-color: #333f38;
+  color: #ffffff;
+  border-color: #333f38;
 }
 
 #shopify-pc__banner .shopify-pc__banner__btn-decline {
@@ -66,16 +66,16 @@
 
 #shopify-pc__prefs__header-accept,
 #shopify-pc__prefs__header-save {
-  background-color: rgb(var(--color-button));
-  color: rgb(var(--color-button-text));
-  border-color: rgb(var(--color-button));
+  background-color: #333f38;
+  color: #ffffff;
+  border-color: #333f38;
 }
 
 #shopify-pc__prefs__header-accept:hover,
 #shopify-pc__prefs__header-save:hover {
-  background-color: rgb(var(--color-button-hover));
-  color: rgb(var(--color-button-text-hover));
-  border-color: rgb(var(--color-button-hover));
+  background-color: #333f38;
+  color: #ffffff;
+  border-color: #333f38;
 }
 
 #shopify-pc__prefs__header-decline {
