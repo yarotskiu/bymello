@@ -189,7 +189,13 @@
                   {%- endform -%}
                 </div>
 
-                {%- if block.settings.show_newsletter_discount_price -%}
+                {%- liquid
+                  assign is_sale25off = false
+                  if product.tags contains 'sale25off'
+                    assign is_sale25off = true
+                  endif
+                -%}
+                {%- if block.settings.show_newsletter_discount_price and is_sale25off == false -%}
                   {%- liquid
                     assign newsletter_discount_price = product.selected_or_first_available_variant.price | times: 0.9 | round
                     if settings.currency_code_enabled
