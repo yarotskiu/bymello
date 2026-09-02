@@ -1,0 +1,39 @@
+{% comment %}
+  Renders certification badges (Made in EU, Organic, Vegan, GOTS)
+  from product.metafields.custom.certifications. Renders nothing if the product has none set,
+  so merchants control this per product by editing that metafield in the admin.
+
+  Accepts:
+  - product: {Object}
+  - block: {Object} passes in the block information.
+  - class: {String} Add a class
+
+  Usage:
+  {% render 'product-certifications', product: product, block: block, class: class %}
+{% endcomment %}
+{%- liquid
+  assign certifications = product.metafields.custom.certifications.value
+-%}
+{%- if certifications != blank -%}
+  <ul class="product-certifications list-unstyled{% if class %} {{ class }}{% endif %}" {{ block.shopify_attributes }}>
+    {%- for value in certifications -%}
+      {%- case value -%}
+        {%- when 'Made in EU' -%}
+          {%- assign badge_icon = 'badge-eu.svg' -%}
+        {%- when 'Organic' -%}
+          {%- assign badge_icon = 'badge-organic.svg' -%}
+        {%- when 'Vegan' -%}
+          {%- assign badge_icon = 'badge-vegan.svg' -%}
+        {%- when 'GOTS' -%}
+          {%- assign badge_icon = 'badge-gots.svg' -%}
+        {%- else -%}
+          {%- assign badge_icon = blank -%}
+      {%- endcase -%}
+      {%- if badge_icon != blank -%}
+        <li class="product-certifications__item" data-tooltip="{{ value | escape }}" tabindex="0" aria-label="{{ value | escape }}">
+          <span class="product-certifications__icon" style="--icon-url: url('{{ badge_icon | asset_url }}');"></span>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

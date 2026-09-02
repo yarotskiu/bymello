@@ -113,6 +113,12 @@
             "heading_3_lt_override": "Ships within 2–3 business days"
           }
         },
+        "certifications_9kQeXm": {
+          "type": "certifications",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4"
+          }
+        },
         "complementary_n7i6qM": {
           "type": "complementary",
           "settings": {
@@ -196,6 +202,7 @@
         "title",
         "sku",
         "price",
+        "certifications_9kQeXm",
         "variant_picker",
         "quantity_selector",
         "inventory_37kwAJ",
