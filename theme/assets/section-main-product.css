@@ -2036,6 +2036,15 @@ pickup-availability.style-short :is(.caption, .caption-large) {
     /* allow media img element to scale relative to modal-opener/product-media-container */
     position: initial;
   }
+
+  /* Force a consistent slide height in the PDP swipe gallery regardless of each
+     photo's own aspect ratio (e.g. a square photo kept for ad use next to portrait
+     ones) — matches the catalog's dominant 2:3 product-photo ratio and relies on
+     the existing object-fit: cover on .media > img to crop instead of resize. */
+  .media-gallery-slider .product-media-container .media,
+  .media-gallery-slider .product-media-container.constrain-height .media {
+    padding-top: 150%;
+  }
 }
 
 @media screen and (min-width: 750px) {
