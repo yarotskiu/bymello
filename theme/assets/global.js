@@ -2965,3 +2965,18 @@ console.log('Elixira-4.1.0');
     });
   }).observe(document.body, {attributes:true, attributeFilter:['aria-hidden'], subtree:true});
 })();
+
+(function () {
+  if (new URLSearchParams(window.location.search).get('customer_posted') !== 'true') return;
+
+  const messages = Array.from(document.querySelectorAll('[data-newsletter-success]'));
+  const submittedFormId = window.location.hash.slice(1);
+  const submittedMessage = messages.find((message) => message.closest('form')?.id === submittedFormId);
+
+  // Shopify marks every customer form on the page as posted, so only the form that was actually submitted keeps its message.
+  messages.forEach((message) => {
+    if (message !== submittedMessage) message.hidden = true;
+  });
+
+  if (submittedMessage) submittedMessage.focus();
+})();

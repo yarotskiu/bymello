@@ -53,6 +53,15 @@
 		});
 	}
 
+		const submittedFromPopup = window.location.hash === '#notification-form';
+		const subscribed = new URLSearchParams(window.location.search).get('customer_posted') === 'true';
+		const hasFormError = (form?.querySelector('.form__message')?.textContent.trim() ?? '') !== '';
+		if (submittedFromPopup && (subscribed || hasFormError)) {
+			notification.classList.toggle('notification--subscribed', subscribed);
+			notification.classList.add('open');
+			return;
+		}
+
 		if (notification && notificationShowedTimes < times && checkSubscriptionStatus()) {
 			setTimeout(() => {
 				notification.classList.add('open');

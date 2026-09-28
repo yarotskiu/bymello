@@ -87,6 +87,10 @@
     },
     "button": "Button label"
   },
+  "newsletter_confirmation": {
+    "heading": "Thanks for subscribing!",
+    "text": "Check your inbox — your 20% discount code is on its way."
+  },
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
@@ -220,9 +224,7 @@
         "prefix_html": "Or {{ price }} for",
         "trigger": "new subscribers",
         "suffix": ".",
-        "subscribe": "Subscribe",
-        "success_heading": "Thanks for subscribing!",
-        "success_text": "Check your email for a confirmation message."
+        "subscribe": "Subscribe"
       },
       "share": "Share this product",
       "sold_out": "Sold Out",

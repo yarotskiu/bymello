@@ -457,10 +457,10 @@
                     class="newsletter-form__message newsletter-form__message--success form__message--success form__message"
                     id="ContactFooter-success"
                     tabindex="-1"
-                    autofocus
+                    data-newsletter-success
                   >
                     {% render 'icon-success' -%}
-										{{ 'sections.footer.newsletter_success' | t }}
+										{{ 'newsletter_confirmation.heading' | t }} {{ 'newsletter_confirmation.text' | t }}
                   </h3>
                 {%- endif -%}
               {%- endform -%}

@@ -22,6 +22,10 @@
 >
 	<div class="notification__content">
 		<div class="notification__wrapper">
+			<div class="notification__success" role="status">
+				<h2 class="notification__success-heading h5 {{ section.settings.text_weight }}">{{ 'newsletter_confirmation.heading' | t }}</h2>
+				<p class="notification__success-text">{{ 'newsletter_confirmation.text' | t }}</p>
+			</div>
 			<h2 class="notification__heading inline-richtext h5 {{ section.settings.text_weight }}"m>
 				{%- if section.settings.text != blank -%}
 					{{ section.settings.text }}
