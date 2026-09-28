@@ -302,3 +302,21 @@
     max-width: 76rem;
   }
 }
+
+.notification__success {
+  display: none;
+}
+
+.notification--subscribed .notification__success {
+  display: block;
+}
+
+.notification--subscribed .notification__heading,
+.notification--subscribed .notification-form,
+.notification--subscribed .notification__description {
+  display: none;
+}
+
+.notification__success-text {
+  margin: 0.8rem 0 0;
+}

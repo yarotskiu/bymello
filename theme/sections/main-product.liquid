@@ -203,6 +203,7 @@
                     else
                       assign newsletter_discount_price = newsletter_discount_price | money
                     endif
+                    assign newsletter_discount_form_id = 'NewsletterDiscountForm-' | append: section.id
                   -%}
                   <div class="product__newsletter-discount {{ block.settings.space }}">
                     <div class="product__newsletter-discount-text caption-large">
@@ -212,7 +213,7 @@
                           {{ 'products.product.newsletter_discount.trigger' | t }}{{ 'products.product.newsletter_discount.suffix' | t }}
                         </summary>
                         <div class="product__newsletter-discount-form">
-                          {% form 'customer', class: 'newsletter-form' %}
+                          {% form 'customer', id: newsletter_discount_form_id, class: 'newsletter-form' %}
                             <input type="hidden" name="contact[tags]" value="newsletter">
                             <div class="newsletter-form__field-wrapper">
                               <div class="field">
@@ -260,12 +261,13 @@
                               class="newsletter-form__message newsletter-form__message--success form__message--success form__message product__newsletter-discount-success"
                               id="NewsletterDiscount-success-{{ block.id }}-{{ section.id }}"
                               tabindex="-1"
+                              data-newsletter-success
                             >
                               <p class="product__newsletter-discount-success-heading">
-                                {{- 'products.product.newsletter_discount.success_heading' | t -}}
+                                {{- 'newsletter_confirmation.heading' | t -}}
                               </p>
                               <p class="product__newsletter-discount-success-text">
-                                {{- 'products.product.newsletter_discount.success_text' | t -}}
+                                {{- 'newsletter_confirmation.text' | t -}}
                               </p>
                             </div>
                           {%- endif -%}
