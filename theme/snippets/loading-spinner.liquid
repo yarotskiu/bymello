@@ -7,7 +7,7 @@
   {% render 'loading-spinner' %}
 {% endcomment %}
 
-{{ 'component-loading-spinner.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-loading-spinner.css' | asset_url }}" media="print" onload="this.media='all'">
 
 <div class="{% if class %}{{ class }}{% else %}loading__spinner hidden{% endif %}">
   <svg
