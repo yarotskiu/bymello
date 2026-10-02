@@ -31,6 +31,11 @@
     assign lazy = 'lazy'
   endunless
 
+  assign fetch_priority = 'auto'
+  if lazy_load == false and position == 1
+    assign fetch_priority = 'high'
+  endif
+
   assign desktop_columns = 1
   if desktop_layout == 'columns' and media_count > 1
     assign desktop_columns = 2
@@ -126,6 +131,7 @@
       {{ media.preview_image | image_url: width: 1946 | image_tag:
         class: image_class,
         loading: lazy,
+        fetchpriority: fetch_priority,
         sizes: sizes,
 				alt: media.preview_image.alt,
         widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
@@ -156,6 +162,7 @@
       </span>
       {{ media.preview_image | image_url: width: 1946 | image_tag:
         loading: lazy,
+        fetchpriority: fetch_priority,
         sizes: sizes,
 				alt: media.preview_image.alt,
         widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
