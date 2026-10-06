@@ -143,7 +143,7 @@
           "type": "collapsible_tab",
           "settings": {
             "space": "mb-0",
-            "heading": "At a Glance",
+            "heading": "Product Details",
             "heading_font_family": "font-body",
             "heading_weight": "fw-400",
             "icon": "none",
