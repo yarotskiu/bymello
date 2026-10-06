@@ -2533,11 +2533,13 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
 .bm-modal__body tr:nth-child(even) td{background:rgba(var(--color-foreground),.02);}
 .bm-modal__body .lc-diagram-row>h4,.bm-modal__body .lc-diagram-row>table{flex-basis:100%;}
 .bm-fit{margin:0 0 1.8rem;}
-.bm-fit__label{font-size:1.3rem;font-weight:600;margin:0 0 .8rem;}
 .bm-fit__tiles{display:flex;gap:.4rem;margin-bottom:.6rem;}
-.bm-fit__tile{display:block !important;flex:1;height:.3rem;background:rgba(var(--color-foreground),.15);border-radius:.2rem;}
-.bm-fit__tile--active{background:rgb(var(--color-foreground));}
-.bm-fit__scale{display:flex;justify-content:space-between;font-size:1.2rem;color:rgba(var(--color-foreground),.65);}
+.bm-fit__step{flex:1;min-width:0;}
+.bm-fit__tile{display:block !important;height:.3rem;background:rgba(var(--color-foreground),.15);border-radius:.2rem;}
+.bm-fit__step--active .bm-fit__tile{background:rgb(var(--color-foreground));}
+.bm-fit__name{display:block;margin-bottom:.6rem;font-size:1.2rem;text-align:center;color:rgba(var(--color-foreground),.65);}
+.bm-fit__step--active .bm-fit__name{color:rgb(var(--color-foreground));}
+.bm-fit__description{margin:1rem 0 0;font-size:1.3rem;line-height:1.5;color:rgba(var(--color-foreground),.75);}
 
 /* Bymello: PDP gallery arrows match collection-card slider style (neutral bg, no brand blue) */
 .media-gallery-slider__slider-btn{background-color:rgba(var(--color-background),0.85) !important;color:rgb(var(--color-foreground)) !important;border-color:transparent !important;box-shadow:0 1px 6px rgba(0,0,0,0.12);}
