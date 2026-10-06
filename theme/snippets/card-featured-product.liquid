@@ -356,7 +356,8 @@
 
                       {%- for value in product_option.values -%}
                         {%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-                        {%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
+                        {%- assign variants_for_value = card_product.variants | where: variant_option, value -%}
+                        {%- assign variant_for_value = variants_for_value | where: 'available' | first | default: variants_for_value.first -%}
 
                         <div
                           class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
@@ -499,7 +500,8 @@
 
 												{%- for value in product_option.values -%}
 													{%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-													{%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
+													{%- assign variants_for_value = card_product.variants | where: variant_option, value -%}
+													{%- assign variant_for_value = variants_for_value | where: 'available' | first | default: variants_for_value.first -%}
 
 												<div
 													class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
@@ -656,10 +658,8 @@
 
 													{%- for value in product_option.values -%}
 														{%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-														{%- assign variant_for_value = card_product.variants
-															| where: variant_option, value
-															| first
-														-%}
+														{%- assign variants_for_value = card_product.variants | where: variant_option, value -%}
+														{%- assign variant_for_value = variants_for_value | where: 'available' | first | default: variants_for_value.first -%}
 
 													<div
 														class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
@@ -746,7 +746,8 @@
 
 										{%- for value in product_option.values -%}
 											{%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-											{%- assign variant_for_value = card_product.variants | where: variant_option, value | first -%}
+											{%- assign variants_for_value = card_product.variants | where: variant_option, value -%}
+											{%- assign variant_for_value = variants_for_value | where: 'available' | first | default: variants_for_value.first -%}
 
 											<div class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}" data-variant-id="{{ variant_for_value.id }}" {% if variant_for_value.featured_media != blank %} data-variant-img="{{ variant_for_value.featured_media | image_url: width: 533 }}"{% endif %} data-variant-price="{% if settings.currency_code_enabled %}{{ variant_for_value.price | money_with_currency }}{% else %}{{ variant_for_value.price | money }}{% endif %}" data-variant-price-value="{{ variant_for_value.price }}" {% if variant_for_value.compare_at_price %}data-variant-compare-at-price="{% if settings.currency_code_enabled %}{{ variant_for_value.compare_at_price | money_with_currency }}{% else %}{{ variant_for_value.compare_at_price | money }}{% endif %}" data-variant-compare-at-price-value="{{ variant_for_value.compare_at_price }}"{% endif %} role="button" aria-label="Card variant" tabindex="0">
 												<input class="card-variant__radio visually-hidden" type="radio" name="{{ color_name }}" id="{{ color_id }}" value="{{ value | escape }}" {% if product_option.selected_value == value %}checked="checked"{% endif %}>

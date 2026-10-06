@@ -128,7 +128,8 @@
 
 												{%- for value in product_option.values -%}
 													{%- capture color_id -%}{{ color_name }}-{{ forloop.index }}{%- endcapture -%}
-													{%- assign variant_for_value = product.variants | where: variant_option, value | first -%}
+													{%- assign variants_for_value = product.variants | where: variant_option, value -%}
+													{%- assign variant_for_value = variants_for_value | where: 'available' | first | default: variants_for_value.first -%}
 													<div
 														class="card-variant {% if variant_for_value.available == false %} card-variant--disabled{% endif %}"
 														data-variant-id="{{ variant_for_value.id }}"
