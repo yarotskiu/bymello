@@ -18,7 +18,7 @@
           "type": "column",
           "settings": {
             "icon": "benefit_delivery",
-            "title": "Free delivery over €70",
+            "title": "Free delivery over €50",
             "heading_font_family": "font-heading",
             "heading_color": "foreground",
             "title_size": "h6",
