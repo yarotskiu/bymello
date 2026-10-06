@@ -814,18 +814,33 @@
               {%- assign bm_fit = product.metafields.custom.fit_rating.value -%}
               {%- if bm_fit != blank -%}
                 {%- assign bm_fit_int = bm_fit | plus: 0 -%}
-                <p class="bm-fit__label">Fit</p>
                 <div class="bm-fit">
                   <div class="bm-fit__tiles">
-                    {%- for i in (1..5) -%}
-                      <div class="bm-fit__tile{% if forloop.index == bm_fit_int %} bm-fit__tile--active{% endif %}"></div>
+                    {%- assign bm_fit_labels = 'Slim,Standard,Regular,Relax,Loose' | split: ',' -%}
+                    {%- for label in bm_fit_labels -%}
+                      <div class="bm-fit__step{% if forloop.index == bm_fit_int %} bm-fit__step--active{% endif %}">
+                        <span class="bm-fit__name">{{ label }}</span>
+                        <div class="bm-fit__tile"></div>
+                      </div>
                     {%- endfor -%}
                   </div>
-                  <div class="bm-fit__scale">
-                    <span>Small</span>
-                    <span>True to size</span>
-                    <span>Large</span>
-                  </div>
+                  {%- case bm_fit_int -%}
+                    {%- when 1 -%}
+                      {%- assign bm_fit_description = 'Follows the silhouette for a trim, defined shape. It has less room than Standard.' -%}
+                    {%- when 2 -%}
+                      {%- assign bm_fit_description = 'A balanced cut that is neither tight nor loose. Take your usual size for a comfortable everyday fit.' -%}
+                    {%- when 3 -%}
+                      {%- assign bm_fit_description = 'A touch roomier than Standard, yet still structured. It keeps the clean lines of a classic cut with a little extra ease for everyday movement.' -%}
+                    {%- when 4 -%}
+                      {%- assign bm_fit_description = 'A roomier cut. More freedom of movement without looking oversized. Take your usual size.' -%}
+                    {%- when 5 -%}
+                      {%- assign bm_fit_description = 'The roomiest cut, with an easy, oversized shape that falls away from the body.' -%}
+                    {%- else -%}
+                      {%- assign bm_fit_description = blank -%}
+                  {%- endcase -%}
+                  {%- if bm_fit_description != blank -%}
+                    <p class="bm-fit__description">{{ bm_fit_description }}</p>
+                  {%- endif -%}
                 </div>
               {%- endif -%}
               {%- when 'buy_buttons' -%}
