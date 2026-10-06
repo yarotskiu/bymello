@@ -48,7 +48,7 @@
           "type": "item",
           "settings": {
             "heading": "Shipping Cost",
-            "text": "<p><strong>Lithuania: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €70; </li><li>for orders under €70 — €2.99.</li></ul><p><strong>Latvia: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €80; </li><li>for orders under €80 — €5.99.</li></ul><p><strong>Estonia: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €90;</li><li>For orders under €90 — €8.99.</li></ul>",
+            "text": "<p><strong>Lithuania: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €50; </li><li>for orders under €50 — €2.99.</li></ul><p><strong>Latvia: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €50; </li><li>for orders under €50 — €4.99.</li></ul><p><strong>Estonia: </strong></p><ul><li>free delivery to an Omniva parcel locker for orders over €50;</li><li>For orders under €50 — €4.99.</li></ul>",
             "heading_color": "secondary"
           }
         },

@@ -96,7 +96,7 @@
             "heading": "How much does shipping cost?",
             "heading_size": "h5",
             "icon": "none",
-            "row_content": "<p>Lithuania: free to an Omniva parcel locker for orders over €70, under €70 — €2.99.</p><p>Latvia: free for orders over €80, under €80 — €5.99.</p><p>Estonia: free for orders over €90, under €90 — €8.99.</p>",
+            "row_content": "<p>Lithuania: free to an Omniva parcel locker for orders over €50, under €50 — €2.99.</p><p>Latvia: free for orders over €50, under €50 — €4.99.</p><p>Estonia: free for orders over €50, under €50 — €4.99.</p>",
             "page": ""
           }
         },
