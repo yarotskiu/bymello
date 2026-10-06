@@ -234,14 +234,14 @@
       "xr_button": "Peržiūrėti savo erdvėje",
       "xr_button_label": "Peržiūrėti savo erdvėje, įkelia elementą į papildytos realybės langą",
       "include_taxes": "Mokesčiai įskaičiuoti.",
-      "shipping_policy_html": "<a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">Pristatymas</a> skaičiuojamas atsiskaitant."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Pristatymas</a> skaičiuojamas atsiskaitant."
     },
     "modal": {
       "label": "Medijos galerija"
     },
     "facets": {
       "filter_and_operator_subtitle": "Atitikti visus",
-      "apply": "Pateikti paraišką",
+      "apply": "Taikyti",
       "clear": "Išvalyti",
       "clear_all": "Pašalinti viską",
       "from": "Nuo",
@@ -283,7 +283,7 @@
         "email_placeholder": "jusuardas@example.com",
         "phone": "Telefono numeris",
         "phone_placeholder": "Įveskite savo telefono numerį",
-        "comment": "Prašome įrašyti tekstą, kurį norite išversti.",
+        "comment": "Žinutė (iki 200 žodžių)",
         "comment_placeholder": "Įveskite pranešimą",
         "send": "Pateikti",
         "post_success": "Dėkojame, kad susisiekėte. Susisieksime su jumis kaip įmanoma greičiau.",
@@ -409,8 +409,8 @@
       }
     },
     "order": {
-      "title": "Užsakykite {{ name }}",
-      "date_html": "Paskelbta {{ date }}",
+      "title": "Užsakymas {{ name }}",
+      "date_html": "Užsakymas pateiktas {{ date }}",
       "cancelled_html": "Užsakymas atšauktas {{ date }}",
       "cancelled_reason": "Priežastis: {{ reason }}",
       "billing_address": "Atsiskaitymo adresas",
@@ -432,7 +432,7 @@
       "tracking_company": "Vežėjas",
       "tracking_number": "Sekimo numeris",
       "subtotal": "Tarpinė suma",
-      "total_duties": "Pareigos"
+      "total_duties": "Muito mokesčiai"
     },
     "orders": {
       "title": "Užsakymų istorija",
@@ -537,14 +537,14 @@
       "subtotal": "Tarpinė suma",
       "new_estimated_total": "Nauja apytikslė bendra suma",
       "note": "Pridėti užsakymo pastabą",
-      "checkout": "Peržiūrėti",
+      "checkout": "Apmokėti",
       "empty": "Jūsų krepšelis tuščias",
       "cart_error": "Atnaujinant krepšelį įvyko klaida. Prašome bandyti dar kartą.",
       "bundle_error": "Pasirinktos prekės šiuo metu nėra sandėlyje. Prašome pasirinkti kitą.",
       "cart_quantity_error_html": "Į krepšelį galite pridėti tik {{ quantity }} šio prekės vieneto.",
-      "taxes_and_shipping_policy_at_checkout_html": "Mokesčiai, nuolaidos ir <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\"><strong>pristatymas</strong></a> apskaičiuojami atsiskaitant.",
+      "taxes_and_shipping_policy_at_checkout_html": "Mokesčiai, nuolaidos ir <a href=\"{{ link }}\"><strong>pristatymas</strong></a> apskaičiuojami atsiskaitant.",
       "taxes_included_but_shipping_at_checkout": "Mokesčiai įskaičiuoti, o pristatymo kaina ir nuolaidos apskaičiuojami apmokėjimo metu",
-      "taxes_included_and_shipping_policy_html": "Mokesčiai įskaičiuoti. <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">Pristatymas</a> ir nuolaidos apskaičiuojami atsiskaitant.",
+      "taxes_included_and_shipping_policy_html": "Mokesčiai įskaičiuoti. <a href=\"{{ link }}\">Pristatymas</a> ir nuolaidos apskaičiuojami atsiskaitant.",
       "taxes_and_shipping_at_checkout": "Mokesčiai, nuolaidos ir pristatymo kaina skaičiuojami apmokėjimo metu",
       "discounts_at_checkout": "Nuolaidos pritaikomos atsiskaitymo metu",
       "headings": {
@@ -557,7 +557,7 @@
       "update": "Atnaujinti",
       "login": {
         "title": "Turite paskyrą?",
-        "paragraph_html": "<a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\" class=\"link underlined-link\">Prisijunkite</a>, kad atsiskaitytumėte greičiau.",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Prisijunkite</a>, kad atsiskaitytumėte greičiau.",
         "paragraph_html_btn": "Prisijunkite, kad atsiskaitytumėte greičiau"
       }
     },
@@ -584,7 +584,7 @@
     "collection_template": {
       "empty": "Produktų nerasta",
       "title": "Kolekcija",
-      "use_fewer_filters_html": "Naudokite mažiau filtrų arba <a class=\"&lt;span class='notranslate'&gt;{{ class }}&lt;/span&gt;\" href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">pašalinkite visus</a>"
+      "use_fewer_filters_html": "Naudokite mažiau filtrų arba <a class=\"{{ class }}\" href=\"{{ link }}\">pašalinkite visus</a>"
     },
     "video": {
       "load_video": "Įkelti vaizdo įrašą: {{ description }}"
