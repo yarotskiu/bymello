@@ -34,6 +34,10 @@
     height="{{ 1100 | divided_by: media.preview_image.aspect_ratio | ceil }}"
     data-media-id="{{ media.id }}"
   >
+{%- elsif media.media_type == 'video' -%}
+  <div class="media global-media-settings global-media-settings--no-shadow" style="padding-top: min(calc(100vh - 12rem), {{ 1 | divided_by: media.aspect_ratio | times: 100 }}%)" data-media-id="{{ media.id }}">
+    {{ media | media_tag: image_size: "2048x", autoplay: true, muted: true, loop: true, controls: false, preload: "auto" }}
+  </div>
 {%- else -%}
   {%- if media.media_type == 'model' -%}
     <div class="product-media-modal__model" data-media-id="{{ media.id }}">
@@ -74,8 +78,6 @@
           {{ media | external_video_url: autoplay: true, loop: loop | external_video_tag: class: video_class, loading: "lazy" }}
         {%- endif -%}
 				 <div class="iframe-overlay" data-overlay></div>
-      {%- when 'video' -%}
-        {{ media | media_tag: image_size: "2048x", autoplay: true, loop: loop, controls: true, preload: "none" }}
       {%- when 'model' -%}
         {{ media | media_tag: image_size: "2048x", toggleable: true }}
       {%- endcase -%}
