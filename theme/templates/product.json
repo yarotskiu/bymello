@@ -41,6 +41,12 @@
             "show_newsletter_discount_price": true
           }
         },
+        "certifications_9kQeXm": {
+          "type": "certifications",
+          "settings": {
+            "space": "mb-2_4 mb-lg-2_4"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -111,12 +117,6 @@
             "heading_3": "Ships within 3–5 business days",
             "enable_shipping_country_override": true,
             "heading_3_lt_override": "Ships within 2–3 business days"
-          }
-        },
-        "certifications_9kQeXm": {
-          "type": "certifications",
-          "settings": {
-            "space": "mb-2_4 mb-lg-2_4"
           }
         },
         "complementary_n7i6qM": {
@@ -224,7 +224,7 @@
         "breadcrumbs_color_scheme": "scheme-8",
         "breadcrumbs_active_color_enable": false,
         "breadcrumbs_active_color": "#0042eb",
-        "media_size": "small",
+        "media_size": "medium",
         "constrain_to_viewport": false,
         "media_fit": "contain",
         "gallery_layout": "column",
