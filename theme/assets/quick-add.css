@@ -425,3 +425,25 @@ quick-add-modal .has-custom-qty-bg .quantity__button:focus-visible {
 .product-form__quantity.has-custom-qty-border .quantity__input:focus-visible {
   outline: 0.2rem solid var(--qty-border-color);
 }
+
+@media screen and (max-width: 749px) {
+  .quick-add-modal {
+    background: rgb(var(--color-background));
+  }
+
+  .quick-add-modal .quick-add-modal__content,
+  .quick-add-modal[open] .quick-add-modal__content {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+  }
+}
