@@ -405,6 +405,42 @@
         {%- else -%}
           <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
             <div class="loading-overlay gradient"></div>
+            {%- if collection.handle == 'warm-winter' -%}
+              {%- style -%}
+                .warm-capsule-intro {
+                  margin: 0 0 2.4rem;
+                  text-align: center;
+                }
+                .warm-capsule-intro .warm-capsule__badge {
+                  display: inline-block;
+                  padding: 0.6rem 1.4rem;
+                  margin-bottom: 1.2rem;
+                  border: 1px solid currentColor;
+                  border-radius: 99px;
+                  font-size: 1.3rem;
+                  letter-spacing: 0.06em;
+                  text-transform: uppercase;
+                }
+                .warm-capsule-intro p {
+                  margin: 0;
+                  font-size: 1.3rem;
+                }
+                #product-grid .card__bundle-price {
+                  margin: 0;
+                  line-height: 1.2;
+                  color: #502f58;
+                  font-size: 1.4rem;
+                  font-weight: 300;
+                }
+              {%- endstyle -%}
+              <div class="warm-capsule-intro">
+                <span class="warm-capsule__badge">{{ 'sections.warm_capsule.badge' | t: percent: 25 }}</span>
+                <p>
+                  {{ 'sections.warm_capsule.note' | t }}<br>
+                  {{ 'sections.warm_capsule.delivery' | t }}
+                </p>
+              </div>
+            {%- endif -%}
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
@@ -425,6 +461,14 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
+                  {%- liquid
+                    assign bundle_price_text = ''
+                    if collection.handle == 'warm-winter'
+                      assign bundle_discount = product.price | times: 25 | divided_by: 100
+                      assign bundle_price = product.price | minus: bundle_discount | money
+                      assign bundle_price_text = 'sections.warm_capsule.two_price' | t: price: bundle_price
+                    endif
+                  -%}
                   {% render 'card-product',
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
@@ -434,6 +478,7 @@
                     show_vendor: section.settings.show_vendor,
                     show_rating: section.settings.show_rating,
                     lazy_load: lazy_load,
+                    bundle_price_text: bundle_price_text,
                     show_quick_add: section.settings.enable_quick_add,
 										show_type: section.settings.show_type,
 										heading_size: section.settings.product_heading_size,
