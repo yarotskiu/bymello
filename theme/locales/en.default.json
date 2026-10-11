@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "all_brands": "All Brands",
     "empty": {
       "heading": "Heading",
       "description": "Add promotional text here"

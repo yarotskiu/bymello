@@ -120,7 +120,7 @@
         {%- if template.suffix == 'vendors' and pages.brands -%}
           <li class="breadcrumbs__item">
             <a class="breadcrumbs__link" href="{{ pages.brands.url }}">
-              All Brands
+              {{ 'general.all_brands' | t }}
             </a>
           </li>
         {%- endif -%}
