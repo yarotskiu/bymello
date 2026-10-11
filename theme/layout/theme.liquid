@@ -552,5 +552,85 @@
 		{%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
-  </body>
+  
+    <!-- Bymello consent journal v1: site-wide consent management; campaign only with permission -->
+    <script>
+    window.BYMELLO_CONSENT_JOURNAL = { enabled: true, endpoint: "https://bymello-ugc-assistant.vercel.app/api/consent-collect" };
+/* Bymello consent-management journal. Not installed or activated by this source file alone. */
+(() => {
+  'use strict';
+  const config = window.BYMELLO_CONSENT_JOURNAL;
+  if (!config || config.enabled !== true || !config.endpoint || window.__bymelloConsentJournalStarted) return;
+  // Exclude preview editors and our verification traffic from live totals.
+  if (window.Shopify?.designMode) return;
+  const query = new URLSearchParams(location.search);
+  const qa = (query.get('utm_campaign') || '').startsWith('codex_');
+  window.__bymelloConsentJournalStarted = true;
+  const page = crypto.randomUUID(); // RAM only: new token on every page opening; no cookies/storage/fingerprint.
+  const day = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Vilnius', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  let seq = 0;
+  let changed = false;
+  let previous = '';
+  let latest;
+  function sample() {
+    const api = window.Shopify?.customerPrivacy;
+    let state = 'unknown';
+    let analyticsAllowed = false;
+    let marketingAllowed = false;
+    try {
+      const consent = api.currentVisitorConsent();
+      const values = [consent.analytics, consent.marketing, consent.preferences];
+      if (values.some(value => !['yes', 'no', ''].includes(value))) throw new Error('unknown');
+      const choice = values.every(value => value === '') ? 'unanswered' :
+        values.every(value => value === 'yes') ? 'accepted' :
+        values.every(value => value === 'no') ? 'declined' : 'partial';
+      state = choice === 'unanswered' ? choice : `${changed ? 'new' : 'prior'}_${choice}`;
+      analyticsAllowed = api.analyticsProcessingAllowed() === true;
+      marketingAllowed = api.marketingAllowed() === true;
+    } catch { /* Missing data is unknown, not a rejection. */ }
+    // Never transmit any campaign/source, URL, fbclid or referrer without permissions.
+    const campaign = analyticsAllowed && marketingAllowed && !['unknown', 'unanswered'].includes(state) && query.get('utm_campaign') === 'lt_reels_subscribe' ? 'lt_reels_subscribe' : null;
+    const signature = JSON.stringify([state, campaign, analyticsAllowed, marketingAllowed]);
+    if (signature === previous) return;
+    previous = signature;
+    latest = { v: 1, page, day, seq: seq++, state, campaign, analyticsAllowed, marketingAllowed };
+    send(latest);
+  }
+  function send(packet) {
+    if (qa) {
+      const result = { state: packet.state, analyticsAllowed: packet.analyticsAllowed, marketingAllowed: packet.marketingAllowed, excludedFromLiveTotals: true };
+      console.info('bymello_consent_qa', JSON.stringify(result));
+      let diagnostic = document.getElementById('bymello-consent-qa');
+      if (!diagnostic) {
+        diagnostic = document.createElement('pre');
+        diagnostic.id = 'bymello-consent-qa';
+        diagnostic.setAttribute('role', 'status');
+        diagnostic.style.cssText = 'position:fixed;top:10px;right:10px;z-index:2147483647;background:#fff7d9;color:#183e2b;border:1px solid #a7b5a9;border-radius:8px;padding:12px;font:13px/1.5 monospace;max-width:380px;white-space:pre-wrap;pointer-events:none';
+        document.body.appendChild(diagnostic);
+      }
+      diagnostic.textContent = 'Bymello consent QA — excluded from live totals\n' + JSON.stringify(result, null, 2);
+      return;
+    }
+    // No credentials or browser cookies sent to the collector; suppress referrer URL.
+    fetch(config.endpoint, { method: 'POST', mode: 'cors', credentials: 'omit', referrerPolicy: 'no-referrer',
+      headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(packet), keepalive: true,
+    }).then(response => {
+      // Same page token/sequence makes retries safe. Retry once for temporary failure only.
+      if (response.status === 503) setTimeout(() => fetch(config.endpoint, {
+        method: 'POST', mode: 'cors', credentials: 'omit', referrerPolicy: 'no-referrer',
+        headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(packet), keepalive: true,
+      }).catch(() => {}), 1500);
+    }).catch(() => {});
+  }
+  document.addEventListener('visitorConsentCollected', () => { changed = true; sample(); });
+  function loaded(error) { if (error) { sample(); return; } sample(); }
+  if (window.Shopify?.customerPrivacy) sample();
+  else if (typeof window.Shopify?.loadFeatures === 'function') window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], loaded);
+  else sample();
+  window.addEventListener('pageshow', event => { if (event.persisted) sample(); });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && latest) send(latest); });
+})();
+
+    </script>
+</body>
 </html>
