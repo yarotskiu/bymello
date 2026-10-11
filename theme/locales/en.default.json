@@ -356,6 +356,8 @@
       "two_price": "{{ price }} when buying two or more",
       "cart_title": "Add one more capsule item and get 25% off",
       "cart_applied": "25% off applied to the capsule items",
+      "cart_more": "Add one more item with the same discount",
+      "cart_offer_price": "{{ price }} with the discount, you save {{ saved }}",
       "cart_free_shipping": "Free shipping on all orders above 50€!",
       "button": "Shop the capsule"
     },

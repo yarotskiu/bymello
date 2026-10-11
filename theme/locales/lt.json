@@ -537,6 +537,8 @@
       "two_price": "{{ price }} perkant du ar daugiau vienetų",
       "cart_title": "Pridėkite dar vieną kapsulės vienetą ir gaukite 25 % nuolaidą",
       "cart_applied": "25 % nuolaida pritaikyta kapsulės prekėms",
+      "cart_more": "Pridėkite dar vieną vienetą su ta pačia nuolaida",
+      "cart_offer_price": "{{ price }} su nuolaida, sutaupote {{ saved }}",
       "cart_free_shipping": "Nemokamas pristatymas užsakymams nuo 50 €!",
       "button": "Peržiūrėti kapsulę"
     },
