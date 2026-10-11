@@ -9,7 +9,6 @@
 {%- liquid
   assign products = section.settings.products
   assign percent = section.settings.discount_percent
-  assign price_factor = 100 | minus: percent
 -%}
 
 {%- style -%}
@@ -28,6 +27,12 @@
     font-size: 1.3rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .warm-capsule .grid__item {
+      width: 100%;
+      max-width: 100%;
+    }
   }
   #shopify-section-{{ section.id }} .card__bundle-price {
     margin: 0;
@@ -63,7 +68,8 @@
       <div class="grid product-grid contains-card contains-card--product {% if settings.card_style == 'standard' %}contains-card--standard{% endif %} grid--{{ products.size | at_most: 3 }}-col-desktop grid--2-col-tablet-down">
         {%- for product in products limit: 3 -%}
           {%- liquid
-            assign bundle_price = product.price | times: price_factor | divided_by: 100.0 | round | money
+            assign bundle_discount = product.price | times: percent | divided_by: 100
+            assign bundle_price = product.price | minus: bundle_discount | money
             assign bundle_price_text = 'sections.warm_capsule.two_price' | t: price: bundle_price
           -%}
           <div class="grid__item">
