@@ -9,6 +9,19 @@
  */
 {
   "sections": {
+    "warm_capsule_Wn7Kq2": {
+      "type": "warm-capsule",
+      "settings": {
+        "products": [
+          "livingcrafts-beryl-vest",
+          "bianca-merino-wool-long-sleeve-top",
+          "bassy-merino-wool-leggings"
+        ],
+        "button_link": "shopify://collections/warm-winter",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait"
+      }
+    },
     "slideshow_ERLpGU": {
       "type": "slideshow",
       "blocks": {
@@ -1237,6 +1250,7 @@
   },
   "order": [
     "slideshow_ERLpGU",
+    "warm_capsule_Wn7Kq2",
     "collection_list_RXGMLR",
     "scrolling_banner_Fey7Qm",
     "image_with_text_FNz9dk",

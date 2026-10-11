@@ -160,6 +160,19 @@
   },
   "products": {
     "product": {
+      "size_guide": "Dydžių lentelė",
+      "fit": {
+        "slim": "Prigludęs",
+        "standard": "Standartinis",
+        "regular": "Įprastas",
+        "relax": "Laisvesnis",
+        "loose": "Laisvas",
+        "description_1": "Paryškina siluetą, suteikia lieknesnę, aiškią formą. Laisvės mažiau nei standartinio modelio.",
+        "description_2": "Subalansuotas modelis, nei per ankštas, nei per laisvas. Pasirinkus įprastą dydį, jis patogus kasdien.",
+        "description_3": "Šiek tiek laisvesnis nei standartinis, tačiau išlaiko formą. Išsaugo klasikinio modelio švarias linijas, o judėti kasdien šiek tiek lengviau.",
+        "description_4": "Laisvesnis modelis. Daugiau judėjimo laisvės neatrodant per dideliam. Pasirinkite įprastą dydį.",
+        "description_5": "Laisviausias modelis, lengva oversize forma, kuri krenta nuo kūno."
+      },
       "add_to_cart": "Įdėti į krepšelį",
       "add_to_bundle": "Pridėti į rinkinį",
       "remove_wrap": "Pašalinti dovanų pakavimą",
@@ -515,6 +528,15 @@
     }
   },
   "sections": {
+    "warm_capsule": {
+      "badge": "{{ percent }} % nuolaida perkant du ar daugiau",
+      "heading": "Šilta žiema",
+      "text": "Trijų vilnos apatinių sluoksnių kapsulė. Ekologiška vilna ir medvilnė smulkiame rantytame trikotaže reguliuoja temperatūrą ir drėgmę.",
+      "note": "Nuolaida pritaikoma automatiškai, kai krepšelyje yra du ar daugiau kapsulės vienetų.",
+      "delivery": "Nemokamas pristatymas nuo 50 €.",
+      "two_price": "{{ price }} perkant du ar daugiau vienetų",
+      "button": "Peržiūrėti kapsulę"
+    },
     "announcements": {
       "previous_announcement": "Ankstesnis pranešimas",
       "next_announcement": "Kitas pranešimas",

@@ -1,0 +1,235 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'component-price.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'product-card-variants.css' | asset_url | stylesheet_tag }}
+{{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-swatch-input.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{%- liquid
+  assign products = section.settings.products
+  assign percent = section.settings.discount_percent
+  assign price_factor = 100 | minus: percent
+-%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --padding-top-mb: {{ section.settings.padding_top_mb }}px;
+    --padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
+  }
+  #shopify-section-{{ section.id }} .warm-capsule__badge {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    margin-bottom: 1.6rem;
+    border: 1px solid currentColor;
+    border-radius: 99px;
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  #shopify-section-{{ section.id }} .card__bundle-price {
+    margin: 0;
+    line-height: 1.2;
+    color: #502f58;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+  #shopify-section-{{ section.id }} .warm-capsule__note {
+    max-width: 62rem;
+    margin: 2.4rem auto 0;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} .warm-capsule__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.4rem;
+  }
+{%- endstyle -%}
+
+{%- if products.size > 0 -%}
+  <div class="warm-capsule color-{{ section.settings.color_scheme }} isolate gradient">
+    <div class="section-responsive-padding page-width">
+      <div class="title-wrapper title-wrapper--no-top-margin center">
+        <span class="warm-capsule__badge">{{ 'sections.warm_capsule.badge' | t: percent: percent }}</span>
+        <h2 class="title {{ section.settings.heading_size }} {{ section.settings.heading_weight }} {{ section.settings.heading_font_family }}">
+          {{ 'sections.warm_capsule.heading' | t }}
+        </h2>
+        <p class="description rte">{{ 'sections.warm_capsule.text' | t }}</p>
+      </div>
+
+      <div class="grid product-grid contains-card contains-card--product {% if settings.card_style == 'standard' %}contains-card--standard{% endif %} grid--{{ products.size | at_most: 3 }}-col-desktop grid--2-col-tablet-down">
+        {%- for product in products limit: 3 -%}
+          {%- liquid
+            assign bundle_price = product.price | times: price_factor | divided_by: 100.0 | round | money
+            assign bundle_price_text = 'sections.warm_capsule.two_price' | t: price: bundle_price
+          -%}
+          <div class="grid__item">
+            {% render 'card-product',
+              card_product: product,
+              media_aspect_ratio: section.settings.image_ratio,
+              show_secondary_image: true,
+              show_vendor: true,
+              show_quick_add: false,
+              show_compare: false,
+              show_color_variants: true,
+              columns: 3,
+              bundle_price_text: bundle_price_text,
+              section_id: section.id
+            %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <p class="warm-capsule__note">
+        {{ 'sections.warm_capsule.note' | t }}<br>
+        {{ 'sections.warm_capsule.delivery' | t }}
+      </p>
+
+      {%- if section.settings.button_link != blank -%}
+        <div class="warm-capsule__button">
+          <a href="{{ section.settings.button_link }}" class="button button--primary button--animate-{{ settings.animations_hover_elements }}">
+            {{ 'sections.warm_capsule.button' | t }}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Warm capsule",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["password"]
+  },
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Capsule products",
+      "limit": 3
+    },
+    {
+      "type": "range",
+      "id": "discount_percent",
+      "min": 5,
+      "max": 70,
+      "step": 5,
+      "unit": "%",
+      "label": "Discount for two or more items",
+      "info": "Must match the automatic discount in Shopify.",
+      "default": 25
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_family",
+      "label": "Heading font family",
+      "options": [
+        { "value": "font-heading", "label": "Heading" },
+        { "value": "font-body", "label": "Body" }
+      ],
+      "default": "font-heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "options": [
+        { "value": "fw-400", "label": "Regular" },
+        { "value": "fw-500", "label": "Medium" },
+        { "value": "fw-600", "label": "Semi bold" }
+      ],
+      "default": "fw-500"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "portrait"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 74
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top_mb",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom_mb",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Warm capsule"
+    }
+  ]
+}
+{% endschema %}

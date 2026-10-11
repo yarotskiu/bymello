@@ -882,6 +882,9 @@
                 {%- endfor -%}
               {% endif %}
             </div>
+            {%- if bundle_price_text != blank -%}
+              <p class="card__bundle-price">{{ bundle_price_text }}</p>
+            {%- endif -%}
             {%- if card_product.quantity_price_breaks_configured? -%}
               <div class="card__information-volume-pricing-note">
                 <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
