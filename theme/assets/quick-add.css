@@ -446,4 +446,19 @@ quick-add-modal .has-custom-qty-bg .quantity__button:focus-visible {
     box-shadow: none;
     transform: none;
   }
+
+  .quick-add-modal[open] {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .quick-add-modal .quick-add-modal__content-info {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .quick-add-modal .drawer__close {
+    top: 2rem;
+    right: 2rem;
+  }
 }
