@@ -112,7 +112,7 @@
               <button type="button" class="bm-size-guide-btn"
                 onclick="(function(id){var m=document.getElementById(id);if(m){document.body.appendChild(m);m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}}('{{ bm_modal_id }}'))">
                 {% render 'icon-accordion', icon: 'ruler' %}
-                Size guide
+                {{ 'products.product.size_guide' | t }}
               </button>
             {%- endif -%}
           </div>

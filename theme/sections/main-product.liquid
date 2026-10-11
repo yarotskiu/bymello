@@ -816,25 +816,25 @@
                 {%- assign bm_fit_int = bm_fit | plus: 0 -%}
                 <div class="bm-fit">
                   <div class="bm-fit__tiles">
-                    {%- assign bm_fit_labels = 'Slim,Standard,Regular,Relax,Loose' | split: ',' -%}
+                    {%- assign bm_fit_labels = 'slim,standard,regular,relax,loose' | split: ',' -%}
                     {%- for label in bm_fit_labels -%}
                       <div class="bm-fit__step{% if forloop.index == bm_fit_int %} bm-fit__step--active{% endif %}">
-                        <span class="bm-fit__name">{{ label }}</span>
+                        <span class="bm-fit__name">{{ 'products.product.fit.' | append: label | t }}</span>
                         <div class="bm-fit__tile"></div>
                       </div>
                     {%- endfor -%}
                   </div>
                   {%- case bm_fit_int -%}
                     {%- when 1 -%}
-                      {%- assign bm_fit_description = 'Follows the silhouette for a trim, defined shape. It has less room than Standard.' -%}
+                      {%- assign bm_fit_description = 'products.product.fit.description_1' | t -%}
                     {%- when 2 -%}
-                      {%- assign bm_fit_description = 'A balanced cut that is neither tight nor loose. Take your usual size for a comfortable everyday fit.' -%}
+                      {%- assign bm_fit_description = 'products.product.fit.description_2' | t -%}
                     {%- when 3 -%}
-                      {%- assign bm_fit_description = 'A touch roomier than Standard, yet still structured. It keeps the clean lines of a classic cut with a little extra ease for everyday movement.' -%}
+                      {%- assign bm_fit_description = 'products.product.fit.description_3' | t -%}
                     {%- when 4 -%}
-                      {%- assign bm_fit_description = 'A roomier cut. More freedom of movement without looking oversized. Take your usual size.' -%}
+                      {%- assign bm_fit_description = 'products.product.fit.description_4' | t -%}
                     {%- when 5 -%}
-                      {%- assign bm_fit_description = 'The roomiest cut, with an easy, oversized shape that falls away from the body.' -%}
+                      {%- assign bm_fit_description = 'products.product.fit.description_5' | t -%}
                     {%- else -%}
                       {%- assign bm_fit_description = blank -%}
                   {%- endcase -%}

@@ -66,6 +66,7 @@
     "card_text_alignment": "left",
     "card_heading_font_family": "font-heading",
     "product_variants_size": 22,
+    "product_variants_name": "Color, Spalva",
     "card_color_scheme": "scheme-2",
     "quick_add_button_style": "secondary",
     "quick_add_button_outline": "outline",

@@ -160,6 +160,19 @@
   },
   "products": {
     "product": {
+      "size_guide": "Size guide",
+      "fit": {
+        "slim": "Slim",
+        "standard": "Standard",
+        "regular": "Regular",
+        "relax": "Relax",
+        "loose": "Loose",
+        "description_1": "Follows the silhouette for a trim, defined shape. It has less room than Standard.",
+        "description_2": "A balanced cut that is neither tight nor loose. Take your usual size for a comfortable everyday fit.",
+        "description_3": "A touch roomier than Standard, yet still structured. It keeps the clean lines of a classic cut with a little extra ease for everyday movement.",
+        "description_4": "A roomier cut. More freedom of movement without looking oversized. Take your usual size.",
+        "description_5": "The roomiest cut, with an easy, oversized shape that falls away from the body."
+      },
       "add_to_cart": "Add To Cart",
       "add_to_bundle": "Add To Bundle",
       "remove_wrap": "Remove Gift Wrapping",
@@ -333,6 +346,15 @@
     }
   },
   "sections": {
+    "warm_capsule": {
+      "badge": "{{ percent }}% off when buying two or more",
+      "heading": "Warm Winter",
+      "text": "A capsule of three wool base layers. Organic wool and organic cotton in a fine rib knit, regulates temperature and moisture.",
+      "note": "The discount applies automatically when two or more capsule items are in the cart.",
+      "delivery": "Free delivery from €50.",
+      "two_price": "{{ price }} when buying two or more",
+      "button": "Shop the capsule"
+    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",
