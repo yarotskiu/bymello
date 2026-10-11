@@ -143,6 +143,10 @@
             "space": "mb-2_4 mb-lg-2_4"
           }
         },
+        "judgeme_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "collapsible_tab_MyqbpV": {
           "type": "collapsible_tab",
           "settings": {
@@ -215,6 +219,7 @@
         "icon_with_text_A3mVxF",
         "complementary_n7i6qM",
         "description",
+        "judgeme_widget",
         "collapsible_tab_MyqbpV",
         "collapsible_tab_k3D93y",
         "collapsible_tab_qPNwdp",
