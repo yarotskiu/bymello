@@ -531,7 +531,7 @@
     "warm_capsule": {
       "badge": "{{ percent }} % nuolaida perkant du ar daugiau",
       "heading": "Šilta žiema",
-      "text": "Trijų vilnos apatinių sluoksnių kapsulė. Ekologiška vilna ir medvilnė smulkiame rantytame trikotaže reguliuoja temperatūrą ir drėgmę.",
+      "text": "Trijų vilnos apatinių drabužių kapsulė. Ekologiška vilna ir medvilnė smulkiame rantytame trikotaže reguliuoja temperatūrą ir drėgmę.",
       "note": "Nuolaida pritaikoma automatiškai, kai krepšelyje yra du ar daugiau kapsulės vienetų.",
       "delivery": "Nemokamas pristatymas nuo 50 €.",
       "two_price": "{{ price }} perkant du ar daugiau vienetų",
