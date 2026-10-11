@@ -636,22 +636,54 @@
               endif
             endfor
           endfor
+          assign capsule_offers = 0
+          for capsule_product in capsule.products
+            unless capsule_in_cart contains capsule_product.handle
+              assign capsule_offers = capsule_offers | plus: 1
+            endunless
+          endfor
         -%}
         {%- if capsule_qty > 0 -%}
+          {%- style -%}
+            .drawer__capsule .list-unstyled {
+              flex-direction: column;
+              row-gap: 1.2rem;
+              overflow: visible;
+            }
+            .drawer__capsule .list-unstyled > li {
+              flex: 0 0 auto;
+              width: 100%;
+            }
+            .drawer__capsule-offer {
+              margin: 0.6rem 0 0;
+              color: #502f58;
+              font-size: 1.4rem;
+              font-weight: 300;
+            }
+          {%- endstyle -%}
           <div class="drawer__recommendations drawer__capsule">
             <div class="title-wrapper title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
               {%- if capsule_qty == 1 -%}
                 <h2 class="title inline-richtext h6">{{ 'sections.warm_capsule.cart_title' | t }}</h2>
               {%- else -%}
                 <h2 class="title inline-richtext h6">{{ 'sections.warm_capsule.cart_applied' | t }}</h2>
+                {%- if capsule_offers > 0 -%}
+                  <p class="caption">{{ 'sections.warm_capsule.cart_more' | t }}</p>
+                {%- endif -%}
               {%- endif -%}
             </div>
-            {%- if capsule_qty == 1 -%}
+            {%- if capsule_offers > 0 -%}
               <ul class="list-unstyled">
                 {%- for product in capsule.products -%}
                   {%- unless capsule_in_cart contains product.handle -%}
+                    {%- liquid
+                      assign offer_discount = product.price | times: 25 | divided_by: 100
+                      assign offer_price = product.price | minus: offer_discount | money
+                      assign offer_saved = offer_discount | money
+                    -%}
                     <li>
                       {% render 'complementary-product', section: section, product: product, color_scheme: settings.cart_drawer_product_color_scheme, button_style: settings.promoted_collection_button_style, button_outline: settings.promoted_collection_button_outline %}
+                      <p class="drawer__capsule-offer">{{ 'sections.warm_capsule.cart_offer_price' | t: price: offer_price, saved: offer_saved }}</p>
                     </li>
                   {%- endunless -%}
                 {%- endfor -%}
