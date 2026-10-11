@@ -65,8 +65,8 @@
     "card_image_padding": 0,
     "card_text_alignment": "left",
     "card_heading_font_family": "font-heading",
-    "product_variants_size": 22,
     "product_variants_name": "Color, Spalva",
+    "product_variants_size": 22,
     "card_color_scheme": "scheme-2",
     "quick_add_button_style": "secondary",
     "quick_add_button_outline": "outline",
@@ -139,12 +139,12 @@
     "cart_custom_color_sale_price": "#101010",
     "cart_custom_color_old_price": "#666666",
     "gift_wrapp": "",
-    "cart_color_scheme": "scheme-2",
     "cart_drawer_description": "Free shipping on all orders above $50!",
     "cart_drawer_heading": "Buy This With",
     "cart_drawer_promoted_collection": "",
     "cart_drawer_collection": "",
     "cart_drawer_image": "",
+    "cart_color_scheme": "scheme-2",
     "cart_drawer_view_button_style": "secondary",
     "cart_drawer_view_button_outline": "outline-none",
     "cart_drawer_checkout_button_style": "primary",
@@ -172,6 +172,13 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -237,11 +244,11 @@
           "secondary_button_outline_hover": "#2a2521",
           "secondary_button_transparent": "#2a2521",
           "input_border_color": "#dcdcdc",
-          "social_button": "#2A2521",
-          "social_button_label": "#FFFFFF",
+          "social_button": "#2a2521",
+          "social_button_label": "#ffffff",
           "social_button_outline": "#2a2521",
-          "social_button_hover": "#2A2521",
-          "social_button_label_hover": "#FFFFFF",
+          "social_button_hover": "#2a2521",
+          "social_button_label_hover": "#ffffff",
           "social_button_outline_hover": "#2a2521",
           "slider_button": "#f1eae0",
           "slider_button_label": "#101010",
