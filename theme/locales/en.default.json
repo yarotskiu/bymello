@@ -354,6 +354,9 @@
       "note": "The discount applies automatically when two or more capsule items are in the cart.",
       "delivery": "Free delivery from €50.",
       "two_price": "{{ price }} when buying two or more",
+      "cart_title": "Add one more capsule item and get 25% off",
+      "cart_applied": "25% off applied to the capsule items",
+      "cart_free_shipping": "Free shipping on all orders above 50€!",
       "button": "Shop the capsule"
     },
     "announcements": {

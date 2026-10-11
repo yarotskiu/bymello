@@ -535,6 +535,9 @@
       "note": "Nuolaida pritaikoma automatiškai, kai krepšelyje yra du ar daugiau kapsulės vienetų.",
       "delivery": "Nemokamas pristatymas nuo 50 €.",
       "two_price": "{{ price }} perkant du ar daugiau vienetų",
+      "cart_title": "Pridėkite dar vieną kapsulės vienetą ir gaukite 25 % nuolaidą",
+      "cart_applied": "25 % nuolaida pritaikyta kapsulės prekėms",
+      "cart_free_shipping": "Nemokamas pristatymas užsakymams nuo 50 €!",
       "button": "Peržiūrėti kapsulę"
     },
     "announcements": {

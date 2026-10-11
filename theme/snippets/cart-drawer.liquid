@@ -212,15 +212,15 @@
         {%- case localization.country.iso_code -%}
           {%- when 'EE' -%}
             <div class="drawer__description inline-richtext clr-text-foreground-secondary">
-              Free shipping on all orders above 50€!
+              {{ 'sections.warm_capsule.cart_free_shipping' | t }}
             </div>
           {%- when 'LV' -%}
             <div class="drawer__description inline-richtext clr-text-foreground-secondary">
-              Free shipping on all orders above 50€!
+              {{ 'sections.warm_capsule.cart_free_shipping' | t }}
             </div>
           {%- when 'LT' -%}
             <div class="drawer__description inline-richtext clr-text-foreground-secondary">
-              Free shipping on all orders above 50€!
+              {{ 'sections.warm_capsule.cart_free_shipping' | t }}
             </div>
         {%- endcase -%}
         <button
@@ -624,6 +624,41 @@
 						secs_label: settings.cart_drawer_countdown_secs_label,
           -%}
         {% endif %}
+        {%- liquid
+          assign capsule = collections['warm-winter']
+          assign capsule_qty = 0
+          assign capsule_in_cart = ''
+          for item in cart.items
+            for capsule_product in capsule.products
+              if item.product.handle == capsule_product.handle
+                assign capsule_qty = capsule_qty | plus: item.quantity
+                assign capsule_in_cart = capsule_in_cart | append: capsule_product.handle | append: ','
+              endif
+            endfor
+          endfor
+        -%}
+        {%- if capsule_qty > 0 -%}
+          <div class="drawer__recommendations drawer__capsule">
+            <div class="title-wrapper title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+              {%- if capsule_qty == 1 -%}
+                <h2 class="title inline-richtext h6">{{ 'sections.warm_capsule.cart_title' | t }}</h2>
+              {%- else -%}
+                <h2 class="title inline-richtext h6">{{ 'sections.warm_capsule.cart_applied' | t }}</h2>
+              {%- endif -%}
+            </div>
+            {%- if capsule_qty == 1 -%}
+              <ul class="list-unstyled">
+                {%- for product in capsule.products -%}
+                  {%- unless capsule_in_cart contains product.handle -%}
+                    <li>
+                      {% render 'complementary-product', section: section, product: product, color_scheme: settings.cart_drawer_product_color_scheme, button_style: settings.promoted_collection_button_style, button_outline: settings.promoted_collection_button_outline %}
+                    </li>
+                  {%- endunless -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
         {%- if settings.cart_drawer_promoted_collection != blank and settings.cart_drawer_promoted_collection.products.size != 0 -%}
           <div class="drawer__recommendations">
             {%- if settings.cart_drawer_heading != blank -%}
