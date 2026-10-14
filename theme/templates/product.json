@@ -426,6 +426,7 @@
         "product_heading_size": "text-body--large",
         "product_heading_weight": "fw-500",
         "show_secondary_image": true,
+        "sale_badge_percent": true,
         "show_vendor": false,
         "show_rating": false,
         "enable_quick_add": true,
