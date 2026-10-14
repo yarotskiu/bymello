@@ -2540,3 +2540,8 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
 }
 
 .product__info-container .quantity__input{font-size:1.6rem;}
+
+.shopify-app-block:has(#judgeme_product_reviews[data-empty-state="empty_widget"]),
+#judgeme_product_reviews[data-empty-state="empty_widget"] {
+  display: none;
+}
