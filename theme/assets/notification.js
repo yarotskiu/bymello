@@ -2,6 +2,21 @@
 	
 	const DAYS_TO_HIDE_AFTER_SUBSCRIBE = 5;
 	
+	const isConsentVisible = () => {
+		return ['shopify-pc__banner', 'shopify-pc__prefs__dialog'].some((id) => {
+			const el = document.getElementById(id);
+			return el && el.getClientRects().length > 0;
+		});
+	};
+
+	const openWhenConsentClosed = (open) => {
+		if (!isConsentVisible()) {
+			open();
+			return;
+		}
+		setTimeout(() => openWhenConsentClosed(open), 500);
+	};
+
 	const addNotification = () => {
 		const notification = document.querySelector('.notification');
 		const notificationOverlay = document.querySelector('.notification-overlay');
@@ -64,7 +79,7 @@
 
 		if (notification && notificationShowedTimes < times && checkSubscriptionStatus()) {
 			setTimeout(() => {
-				notification.classList.add('open');
+				openWhenConsentClosed(() => notification.classList.add('open'));
 			}, timeout);
 			++notificationShowedTimes;
 			localStorage.setItem('notificationCounter', notificationShowedTimes);

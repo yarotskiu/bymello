@@ -320,3 +320,27 @@
 .notification__success-text {
   margin: 0.8rem 0 0;
 }
+
+@media screen and (max-width: 749px) {
+  .notification {
+    max-width: calc(100% - 3rem);
+    overflow: visible;
+  }
+
+  .notification .notification__wrapper {
+    padding: 2rem;
+  }
+
+  .notification .notification__heading {
+    margin-bottom: 1.6rem;
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+
+  .notification .notification__btn.button {
+    top: -1.2rem;
+    right: -0.8rem;
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
