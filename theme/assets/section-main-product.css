@@ -2545,34 +2545,3 @@ media-gallery-slider.swiper-initialized .swiper-slide-active {
 #judgeme_product_reviews[data-empty-state="empty_widget"] {
   display: none;
 }
-
-[id$="__recommended_collection"] .card__content,
-[id$="__recommended_collection"] .card-title-row {
-  position: static !important;
-}
-
-[id$="__recommended_collection"] .card-title-row__wishlist {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 2;
-  width: 3.2rem;
-  height: 3.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 50%;
-}
-
-[id$="__recommended_collection"] .card-title-block .card__heading > a.full-unstyled-link {
-  -webkit-line-clamp: 3;
-}
-
-@media screen and (max-width: 749px) {
-  [id$="__recommended_collection"] .card__heading,
-  [id$="__recommended_collection"] .card__heading a {
-    font-size: 1.4rem;
-    line-height: 1.3;
-  }
-}
