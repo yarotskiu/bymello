@@ -93,37 +93,16 @@
         "padding_bottom_mb": 80
       }
     },
-    "warm_winter_offer": {
-      "type": "featured-collection",
+    "warm_capsule_sale": {
+      "type": "warm-capsule",
       "settings": {
-        "title": "Warm winter",
-        "heading_font_family": "font-heading",
-        "heading_size": "h3",
-        "description": "<p>25% off when you buy two or more capsule pieces. Applied automatically in the cart.</p>",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "warm-winter",
-        "products_to_show": 2,
-        "columns_desktop": 3,
-        "show_view_all": true,
-        "enable_slider": false,
+        "products": [
+          "livingcrafts-beryl-vest",
+          "bianca-merino-wool-long-sleeve-top"
+        ],
+        "button_link": "shopify://collections/warm-winter",
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "product_heading_size": "text-body--large",
-        "product_heading_weight": "fw-500",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": true,
-        "show_type": false,
-        "enable_product_variants": false,
-        "compact_cards": true,
-        "columns_mobile": "2",
-        "padding_top": 0,
-        "padding_bottom": 120,
-        "padding_top_mb": 0,
-        "padding_bottom_mb": 80
+        "image_ratio": "portrait"
       }
     },
     "recently_viewed": {
@@ -147,7 +126,7 @@
   "order": [
     "banner",
     "product-grid",
-    "warm_winter_offer",
+    "warm_capsule_sale",
     "recently_viewed"
   ]
 }
