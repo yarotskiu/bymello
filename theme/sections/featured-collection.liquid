@@ -53,6 +53,13 @@
     assign more_in_collection = true
   endif
 
+  assign show_bottom_view_all = false
+  if section.settings.show_view_all and more_in_collection and using_product_list == false
+    assign show_bottom_view_all = true
+  elsif section.settings.show_view_all and section.settings.mobile_two_cards and section.settings.collection != blank
+    assign show_bottom_view_all = true
+  endif
+
   assign custom_image_height = section.settings.custom_image_height
 -%}
 
@@ -76,7 +83,7 @@
 -%}
 
 <featured-collection
-  class="featured-collection color-{{ section.settings.color_scheme }} isolate gradient"
+  class="featured-collection color-{{ section.settings.color_scheme }} isolate gradient{% if section.settings.compact_cards %} featured-collection--compact{% endif %}{% if section.settings.mobile_two_cards %} featured-collection--mobile-two{% endif %}"
   data-slides-per-view="{{ slides_per_view_value }}"
   data-all-slides="{{ products_to_display }}"
 	data-space-between-pc="{{ settings.spacing_grid_horizontal }}" 
@@ -248,7 +255,7 @@
 			</div>
 		{%- endif -%}
 
-    {%- if section.settings.show_view_all and more_in_collection and using_product_list == false -%}
+    {%- if show_bottom_view_all -%}
       {% assign view_all_class = '' %}
       {% if section.settings.enable_slider == false %}
         {% assign view_all_class = 'large-up-hide' %}
@@ -622,6 +629,18 @@
       "id": "show_secondary_image",
       "default": false,
       "label": "t:sections.featured-collection.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "compact_cards",
+      "default": false,
+      "label": "Compact cards (full titles, heart on image, no quick add on mobile)"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_two_cards",
+      "default": false,
+      "label": "Show only two cards on mobile"
     },
     {
       "type": "checkbox",
