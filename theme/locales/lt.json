@@ -602,7 +602,7 @@
       "onboarding_content": "Pateikite savo klientams tinklaraščio įrašo santrauką"
     },
     "featured_collection": {
-      "view_all": "Apsipirkite visus produktus",
+      "view_all": "Peržiūrėti visus",
       "view_all_label": "Peržiūrėti visus produktus, esančius {{ collection_name }} kolekcijoje"
     },
     "collection_list": {
