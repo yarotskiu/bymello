@@ -132,9 +132,28 @@ html body #shopify-pc__prefs__header-save:focus-visible {
     border-radius: var(--product-card-corner-radius) var(--product-card-corner-radius) 0 0;
   }
 
+  #shopify-pc__banner .shopify-pc__banner__body {
+    margin-bottom: 12px;
+  }
+
+  #shopify-pc__banner .shopify-pc__banner__btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   #shopify-pc__banner .shopify-pc__banner__btn-accept,
   #shopify-pc__banner .shopify-pc__banner__btn-decline {
+    flex: 1 1 0;
+    min-width: 0;
     min-height: 4.8rem;
-    width: 100%;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #shopify-pc__banner .shopify-pc__banner__btn-manage-prefs {
+    flex: 1 1 100%;
+    margin: 0;
   }
 }
