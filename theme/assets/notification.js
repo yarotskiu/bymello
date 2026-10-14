@@ -1,7 +1,5 @@
 (function () {
 	
-	const DAYS_TO_HIDE_AFTER_SUBSCRIBE = 5;
-	
 	const isConsentVisible = () => {
 		return ['shopify-pc__banner', 'shopify-pc__prefs__dialog'].some((id) => {
 			const el = document.getElementById(id);
@@ -32,18 +30,7 @@
 
 		
 		const checkSubscriptionStatus = () => {
-			const subscriptionTimestamp = localStorage.getItem('notificationSubscriptionDate');
-			
-			if (subscriptionTimestamp) {
-				const subscriptionDate = new Date(parseInt(subscriptionTimestamp));
-				const currentDate = new Date();
-				const daysPassed = (currentDate - subscriptionDate) / (1000 * 60 * 60 * 24);
-				
-				if (daysPassed < DAYS_TO_HIDE_AFTER_SUBSCRIBE) {
-					return false;
-				}
-			}
-			return true;
+			return !localStorage.getItem('notificationSubscriptionDate');
 		};
 
 		const hideNotification = () => {
@@ -77,12 +64,14 @@
 			return;
 		}
 
-		if (notification && notificationShowedTimes < times && checkSubscriptionStatus()) {
+		if (notification && notificationShowedTimes < times && checkSubscriptionStatus() && !sessionStorage.getItem('notificationShownThisVisit')) {
 			setTimeout(() => {
-				openWhenConsentClosed(() => notification.classList.add('open'));
+				openWhenConsentClosed(() => {
+					notification.classList.add('open');
+					sessionStorage.setItem('notificationShownThisVisit', '1');
+					localStorage.setItem('notificationCounter', notificationShowedTimes + 1);
+				});
 			}, timeout);
-			++notificationShowedTimes;
-			localStorage.setItem('notificationCounter', notificationShowedTimes);
 		}
 	};
 	
