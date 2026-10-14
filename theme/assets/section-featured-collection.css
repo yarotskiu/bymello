@@ -125,6 +125,35 @@ featured-collection {
   position: static !important;
 }
 
+.featured-collection--compact .grid__item {
+  display: flex;
+}
+
+.featured-collection--compact .card-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.featured-collection--compact .card-wrapper > .card {
+  flex: 1 1 auto;
+}
+
+.featured-collection--compact .card__content {
+  flex: 1 1 auto;
+  grid-template-rows: 1fr;
+}
+
+.featured-collection--compact .card__information {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featured-collection--compact .card__information .card-information {
+  margin-top: auto;
+}
+
 .featured-collection--compact .card-title-row__wishlist {
   position: absolute;
   top: 1rem;
