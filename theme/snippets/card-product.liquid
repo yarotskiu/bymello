@@ -217,7 +217,9 @@
                 class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
               >
                 {% comment %} Badge start {% endcomment %}
-                {% if settings.sale_badge_style == 'sale' %}
+                {% if sale_badge_percent %}
+                  -{{ card_product.compare_at_price | minus: card_product.price | times: 100.0 | divided_by: card_product.compare_at_price | round }}%
+                {% elsif settings.sale_badge_style == 'sale' %}
                   {% if settings.sale_badge_text != blank %}
                     {{- settings.sale_badge_text -}}
                   {% else %}
@@ -922,7 +924,11 @@
               id="Badge-{{ section_id }}-{{ card_product.id }}"
               class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
             >
-              {{- 'products.product.on_sale' | t -}}
+              {%- if sale_badge_percent -%}
+                -{{ card_product.compare_at_price | minus: card_product.price | times: 100.0 | divided_by: card_product.compare_at_price | round }}%
+              {%- else -%}
+                {{- 'products.product.on_sale' | t -}}
+              {%- endif -%}
             </span>
           {%- endif -%}
         </div>
