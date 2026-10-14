@@ -128,12 +128,12 @@ html body #shopify-pc__prefs__header-save:focus-visible {
     left: 0;
     right: 0;
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 16px;
     border-radius: var(--product-card-corner-radius) var(--product-card-corner-radius) 0 0;
   }
 
   #shopify-pc__banner .shopify-pc__banner__body {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   #shopify-pc__banner .shopify-pc__banner__btns {
