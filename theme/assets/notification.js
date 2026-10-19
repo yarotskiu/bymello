@@ -37,10 +37,6 @@
 			btn.closest('.notification').classList.add('close');
 		};
 
-	const handleSubscription = () => {
-		localStorage.setItem('notificationSubscriptionDate', Date.now().toString());
-	};
-
 		if (btn) {
 			btn.addEventListener('click', hideNotification);
 		}
@@ -48,12 +44,6 @@
 		if (notificationOverlay) {
 			notificationOverlay.addEventListener('click', hideNotification);
 		}
-
-	if (form) {
-		form.addEventListener('submit', () => {
-			handleSubscription();
-		});
-	}
 
 		const submittedFromPopup = window.location.hash === '#notification-form';
 		const subscribed = new URLSearchParams(window.location.search).get('customer_posted') === 'true';
