@@ -57,6 +57,9 @@
 						{{ form.errors.messages.email -}}
 					{%- endif -%}
 				</small>
+				{%- if form.posted_successfully? -%}
+					<span data-newsletter-success hidden></span>
+				{%- endif -%}
 			{% endform %}
 			{%- if section.settings.description != blank -%}
 				<p class="notification__description description text--small inline-richtext">
