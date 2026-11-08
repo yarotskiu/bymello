@@ -178,7 +178,7 @@
 .bf-hero__stage--mobile .bf-hero__up { top: calc(72 * var(--u)); font-size: calc(32 * var(--u)); }
 .bf-hero__stage--mobile .bf-hero__percent { top: calc(104 * var(--u)); font-size: calc(120 * var(--u)); }
 .bf-hero__stage--mobile .bf-hero__off { top: calc(226 * var(--u)); font-size: calc(32 * var(--u)); }
-.bf-hero__stage--mobile .bf-hero__caption { right: calc(60 * var(--u)); top: calc(var(--g0) + 420 * var(--u)); font-size: calc(36 * var(--u)); text-align: right; }
+.bf-hero__stage--mobile .bf-hero__caption { right: calc(60 * var(--u)); top: calc(var(--g0) + 420 * var(--u)); font-size: calc(32 * var(--u)); text-align: right; }
 .bf-hero__stage--mobile .bf-hero__button { left: calc(60 * var(--u)); bottom: var(--g0); width: calc(630 * var(--u)); height: calc(88 * var(--u)); font-size: calc(30 * var(--u)); min-height: 44px; }
 
 @media (prefers-reduced-motion: no-preference) {
