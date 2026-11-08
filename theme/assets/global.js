@@ -2580,7 +2580,10 @@ console.log('Elixira-4.1.0');
     function activeSwatchAltImage(){
       if (card.querySelectorAll('.card-variant').length < 2) return null;
       var activeSwatch = card.querySelector('.card-variant.active');
-      return activeSwatch ? activeSwatch.dataset.variantImgAlt : null;
+      if (!activeSwatch || !firstSlideImg) return null;
+      var shownSrc = firstSlideImg.dataset.defaultSrc || firstSlideImg.src;
+      var swatchImg = activeSwatch.dataset.variantImg;
+      return swatchImg && shownSrc.includes(swatchImg) ? activeSwatch.dataset.variantImgAlt : null;
     }
 
     slider.addEventListener('mouseenter', function(){
