@@ -45,20 +45,19 @@
 
 .js .header-dropdown-menu details > .header__submenu {
   opacity: 0;
-  transform: translateY(-0.8rem);
+  transform: none;
 }
 
 .header-dropdown-menu details[open] > .header__submenu {
+  transform: none;
   animation: dropdownMenuFadeIn 0.35s ease forwards;
 }
 
 @keyframes dropdownMenuFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-0.8rem);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
