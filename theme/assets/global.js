@@ -2143,10 +2143,11 @@ class CardVariants extends HTMLElement {
 
       productImages.forEach((image) => {
         if (typeof variantImage === 'undefined') return;
-        image.src = variantImage;
-        image.srcset = variantImage;
-        image.dataset.defaultSrc = variantImage;
-        image.dataset.defaultSrcset = variantImage;
+        const sharpImage = variantImage.replace(/width=\d+/, 'width=1066');
+        image.src = sharpImage;
+        image.srcset = sharpImage;
+        image.dataset.defaultSrc = sharpImage;
+        image.dataset.defaultSrcset = sharpImage;
       });
     }
   }
@@ -2583,7 +2584,7 @@ console.log('Elixira-4.1.0');
       if (!activeSwatch || !firstSlideImg) return null;
       var shownSrc = firstSlideImg.dataset.defaultSrc || firstSlideImg.src;
       var swatchImg = activeSwatch.dataset.variantImg;
-      return swatchImg && shownSrc.includes(swatchImg) ? activeSwatch.dataset.variantImgAlt : null;
+      return swatchImg && shownSrc.split('?')[0] === swatchImg.split('?')[0] ? activeSwatch.dataset.variantImgAlt : null;
     }
 
     slider.addEventListener('mouseenter', function(){
@@ -2593,8 +2594,9 @@ console.log('Elixira-4.1.0');
           firstSlideImg.dataset.defaultSrc = firstSlideImg.src;
           firstSlideImg.dataset.defaultSrcset = firstSlideImg.srcset;
         }
-        firstSlideImg.src = altImage;
-        firstSlideImg.srcset = altImage;
+        var sharpAltImage = altImage.replace(/width=\d+/, 'width=1066');
+        firstSlideImg.src = sharpAltImage;
+        firstSlideImg.srcset = sharpAltImage;
         return;
       }
       track.scrollTo({left:w(),behavior:'smooth'});
