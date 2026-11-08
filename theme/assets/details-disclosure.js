@@ -40,6 +40,24 @@ class HeaderMenu extends DetailsDisclosure {
     this.headerMain = this.closest('.header');
     this.mainDetailsToggle.addEventListener('toggle', this.onToggle.bind(this));
     this.mainDetailsToggle.addEventListener('toggle', this.toggleClass.bind(this));
+    if (this.classList.contains('header-dropdown-menu')) this.openOnHover();
+  }
+
+  openOnHover() {
+    const canHover = window.matchMedia('(hover: hover) and (min-width: 990px)');
+    let closeTimer;
+    this.addEventListener('mouseenter', () => {
+      if (!canHover.matches) return;
+      clearTimeout(closeTimer);
+      document.querySelectorAll('header-menu.header-dropdown-menu').forEach((menu) => {
+        if (menu !== this) menu.close();
+      });
+      this.mainDetailsToggle.open = true;
+    });
+    this.addEventListener('mouseleave', () => {
+      if (!canHover.matches) return;
+      closeTimer = setTimeout(() => this.close(), 200);
+    });
   }
 
 	toggleClass() {

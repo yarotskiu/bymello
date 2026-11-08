@@ -28,3 +28,37 @@
   width: 10rem;
   padding: 0.5rem;
 }
+
+.header-dropdown-menu .header__submenu.list-menu--disclosure.global-settings-popup {
+  border: 0;
+  outline: 0;
+  border-radius: 0 0 1.6rem 1.6rem;
+  box-shadow: 0 16px 1.2rem rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: max-content;
+  min-width: 18rem;
+}
+
+.header-dropdown-menu .header__submenu .header__menu-item {
+  padding: 0.6rem 0;
+}
+
+.js .header-dropdown-menu details > .header__submenu {
+  opacity: 0;
+  transform: translateY(-0.8rem);
+}
+
+.header-dropdown-menu details[open] > .header__submenu {
+  animation: dropdownMenuFadeIn 0.35s ease forwards;
+}
+
+@keyframes dropdownMenuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-0.8rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
