@@ -852,10 +852,16 @@
   display: none;
 }
 
-.card-featured-product__link {
+.card-featured-product__link,
+.card-featured-product__link:empty {
+  display: block;
   position: absolute;
   inset: 0;
   z-index: 1;
+}
+
+.p-style-2 .swiper-slide {
+  position: relative;
 }
 
 .p-style-2 swiper-slider {
