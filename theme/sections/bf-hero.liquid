@@ -1,0 +1,120 @@
+{%- liquid
+  assign font_extra = settings.type_header_font | font_modify: 'weight', '800'
+  assign font_semi = settings.type_header_font | font_modify: 'weight', '600'
+  assign font_light = settings.type_header_font | font_modify: 'weight', '300'
+  assign link = section.settings.button_link
+  assign lines = section.settings.heading | split: '|'
+  assign devices = 'desktop,mobile' | split: ','
+-%}
+
+<style>
+  {{ font_extra | font_face: font_display: 'swap' }}
+  {{ font_semi | font_face: font_display: 'swap' }}
+  {{ font_light | font_face: font_display: 'swap' }}
+</style>
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --bf-spruce: {{ section.settings.color_text }};
+    --bf-clay: {{ section.settings.color_block }};
+    --bf-extra: {{ font_extra.family }}, {{ font_extra.fallback_families }};
+    --bf-semi: {{ font_semi.family }}, {{ font_semi.fallback_families }};
+    --bf-light: {{ font_light.family }}, {{ font_light.fallback_families }};
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --padding-top-mb: {{ section.settings.padding_top_mb }}px;
+    --bf-pb: {{ section.settings.padding_bottom_mb }}px;
+    --padding-bottom-mb: calc(var(--bf-pb) + 12px);
+  }
+{%- endstyle -%}
+
+{{ 'bf-hero.css' | asset_url | stylesheet_tag }}
+
+<div class="bf-hero-section color-{{ section.settings.color_scheme }} gradient">
+<div class="bf-hero-wrapper section-responsive-padding page-width {{ section.settings.container_width }}">
+  <div class="bf-hero" data-bf-hero>
+    {%- for device in devices -%}
+      <div class="bf-hero__stage bf-hero__stage--{{ device }}" role="img" aria-label="{{ lines | join: ' ' | strip | escape }}">
+        <div class="bf-hero__canvas">
+        <img class="bf-hero__bg" src="{{ 'bf-hero-' | append: device | append: '-bg.jpg' | asset_url }}" alt="" width="{% if device == 'desktop' %}2681{% else %}2300{% endif %}" height="{% if device == 'desktop' %}1136{% else %}3440{% endif %}" loading="eager" fetchpriority="high">
+        <div class="bf-hero__headline" aria-hidden="true">
+          {%- for line in lines -%}
+            <span class="bf-hero__line" style="--i: {{ forloop.index0 }}"><span>{{ line | strip }}</span></span>
+          {%- endfor -%}
+        </div>
+        <img class="bf-hero__chair" src="{{ 'bf-hero-' | append: device | append: '-chair.webp' | asset_url }}" alt="" width="{% if device == 'desktop' %}2681{% else %}2300{% endif %}" height="{% if device == 'desktop' %}1136{% else %}3440{% endif %}" loading="eager">
+        <div class="bf-hero__block">
+          <span class="bf-hero__up">{{ section.settings.up_to }}</span>
+          <span class="bf-hero__percent">{{ section.settings.percent }}</span>
+          <span class="bf-hero__off">{{ section.settings.off }}</span>
+        </div>
+        <p class="bf-hero__caption"><span>{{ section.settings.caption_light }}</span> <strong>{{ section.settings.caption_bold }}</strong></p>
+        {%- if link != blank and section.settings.button_label != blank -%}
+          <a class="bf-hero__button" href="{{ link }}">{{ section.settings.button_label | escape }}</a>
+        {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+</div>
+
+<script>
+  (function () {
+    var root = document.currentScript.previousElementSibling.querySelector('[data-bf-hero]');
+    if (!root) return;
+    if (!('IntersectionObserver' in window)) {
+      root.classList.add('bf-hero--play');
+      return;
+    }
+    new IntersectionObserver(function (entries, observer) {
+      if (entries[0].isIntersecting) {
+        root.classList.add('bf-hero--play');
+        observer.disconnect();
+      }
+    }, { threshold: 0.35 }).observe(root);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Black Friday hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading lines (separate with |)",
+      "default": "BLACK|FRIDAY|SALE"
+    },
+    { "type": "text", "id": "up_to", "label": "Block: top text", "default": "UP TO" },
+    { "type": "text", "id": "percent", "label": "Block: percent", "default": "55%" },
+    { "type": "text", "id": "off", "label": "Block: bottom text", "default": "OFF" },
+    { "type": "text", "id": "caption_light", "label": "Caption (light part)", "default": "Discounts on" },
+    { "type": "text", "id": "caption_bold", "label": "Caption (bold part)", "default": "organic cotton" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Now" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Section background", "default": "scheme-2" },
+    { "type": "color", "id": "color_text", "label": "Text color", "default": "#333F38" },
+    { "type": "color", "id": "color_block", "label": "Discount block color", "default": "#DD7C5C" },
+    {
+      "type": "select",
+      "id": "container_width",
+      "label": "Container width",
+      "default": "container_wide",
+      "options": [
+        { "value": "", "label": "Standard" },
+        { "value": "container_wide", "label": "Wide" }
+      ]
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 60 },
+    { "type": "range", "id": "padding_top_mb", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Top padding (mobile)", "default": 0 },
+    { "type": "range", "id": "padding_bottom_mb", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Bottom padding (mobile)", "default": 24 }
+  ],
+  "presets": [
+    { "name": "Black Friday hero" }
+  ]
+}
+{% endschema %}

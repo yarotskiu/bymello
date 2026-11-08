@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "bf_hero_Ab3Xk9": {
+      "type": "bf-hero",
+      "settings": {
+        "button_link": "shopify://collections/black-friday"
+      }
+    },
     "warm_capsule_Wn7Kq2": {
       "type": "warm-capsule",
       "settings": {
@@ -24,6 +30,7 @@
     },
     "slideshow_ERLpGU": {
       "type": "slideshow",
+      "disabled": true,
       "blocks": {
         "slide_ny48D9": {
           "type": "slide",
@@ -1252,6 +1259,7 @@
     }
   },
   "order": [
+    "bf_hero_Ab3Xk9",
     "slideshow_ERLpGU",
     "warm_capsule_Wn7Kq2",
     "collection_list_RXGMLR",
