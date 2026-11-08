@@ -22,6 +22,7 @@
   - show_compare: {Boolean} Show compare button
   - show_color_variants: {Boolean} Show color variants. Visible if the feature is enabled in the theme settings.
   - columns: {Number} Number of columns in the grid. Default: 4
+  - mobile_columns: {Number} Number of columns in the grid on phones. Default: 2
 
    Usage:
    {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -139,7 +140,7 @@
                         <img
                           srcset="{%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}{%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}{%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}{%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}{{ media | image_url }} {{ media.width }}w"
                           src="{{ media | image_url: width: 533 }}"
-                          sizes="(min-width: 990px) calc((100vw - 130px) / {{ columns }}), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                          sizes="(min-width: 990px) calc((100vw - 130px) / {{ columns }}), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / {{ mobile_columns | default: 2 }})"
                           alt="{{ media.alt | escape }}"
                           class="motion-reduce"
                           loading="lazy"
