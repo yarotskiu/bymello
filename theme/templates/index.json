@@ -12,6 +12,11 @@
     "bf_hero_Ab3Xk9": {
       "type": "bf-hero",
       "settings": {
+        "up_to": "UP TO",
+        "off": "OFF",
+        "caption_light": "Discounts on",
+        "caption_bold": "organic cotton",
+        "button_label": "Shop Now",
         "button_link": "shopify://collections/black-friday"
       }
     },
