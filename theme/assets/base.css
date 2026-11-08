@@ -3139,7 +3139,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
   line-height: 0;
 }
 
-.header > .header__heading-link {
+.header > .header__heading-link,
+.header__heading > .header__heading-link {
   line-height: 0;
 }
 
