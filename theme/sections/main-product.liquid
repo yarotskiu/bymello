@@ -191,7 +191,7 @@
 
                 {%- liquid
                   assign is_sale25off = false
-                  if product.tags contains 'sale25off'
+                  if product.tags contains 'sale25off' or product.tags contains 'black-friday'
                     assign is_sale25off = true
                   endif
                 -%}
