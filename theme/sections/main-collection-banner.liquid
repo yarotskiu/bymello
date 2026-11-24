@@ -1,5 +1,7 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
-{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'component-collection-hero-css' %}
+{%- endstyle -%}
 
 {%- if section.settings.show_breadcrumbs -%}
 	{{ 'component-breadcrumb.css' | asset_url | stylesheet_tag }}

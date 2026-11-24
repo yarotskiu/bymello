@@ -1,23 +1,29 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'component-price.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'section-featured-collection.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag: preload: true }}
+{%- assign defer_styles = false -%}
+{%- if section.location == 'template' and section.index > 1 and request.design_mode == false -%}
+  {%- if request.page_type == 'index' or template.name == 'product' and template.suffix == blank -%}
+    {%- assign defer_styles = true -%}
+  {%- endif -%}
+{%- endif -%}
+{% render 'below-fold-stylesheet', stylesheet: 'component-card.css', defer_styles: defer_styles, preload_styles: true %}
+{% render 'below-fold-stylesheet', stylesheet: 'component-price.css', defer_styles: defer_styles, preload_styles: true %}
+{% render 'below-fold-stylesheet', stylesheet: 'section-featured-collection.css', defer_styles: defer_styles, preload_styles: true %}
+{% render 'below-fold-stylesheet', stylesheet: 'component-slider.css', defer_styles: defer_styles, preload_styles: true %}
 <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
-{{ 'swiper.css' | asset_url | stylesheet_tag: preload: true }}
+{% render 'below-fold-stylesheet', stylesheet: 'swiper.css', defer_styles: defer_styles, preload_styles: true %}
 
 {% if section.settings.enable_product_variants %}
-  {{ 'product-card-variants.css' | asset_url | stylesheet_tag }}
-  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+  {% render 'below-fold-stylesheet', stylesheet: 'product-card-variants.css', defer_styles: defer_styles %}
+  {% render 'below-fold-stylesheet', stylesheet: 'component-product-variant-picker.css', defer_styles: defer_styles %}
 	<link rel="stylesheet" href="{{ 'component-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
 	<link rel="stylesheet" href="{{ 'component-swatch-input.css' | asset_url }}" media="print" onload="this.media='all'">
 {% endif %}
 
 {% if section.settings.image_shape == 'blob' %}
-  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+  {% render 'below-fold-stylesheet', stylesheet: 'mask-blobs.css', defer_styles: defer_styles %}
 {%- endif -%}
 
 {%- if section.settings.enable_quick_add -%}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {% render 'below-fold-stylesheet', stylesheet: 'quick-add.css', defer_styles: defer_styles %}
   <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}

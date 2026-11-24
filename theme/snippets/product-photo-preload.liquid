@@ -1,0 +1,18 @@
+{%- comment -%}
+  Read the responsive candidates from the primary gallery image so the
+  preloader and the gallery select the same URL for the current viewport.
+{%- endcomment -%}
+{%- if product_markup contains ' data-bm-primary-photo="true"' -%}
+  {%- liquid
+    assign tag_prefix = product_markup | split: ' data-bm-primary-photo="true"' | first
+    assign tag_suffix = product_markup | split: ' data-bm-primary-photo="true"' | last
+    assign before_marker = tag_prefix | split: '<img ' | last
+    assign after_marker = tag_suffix | split: '>' | first
+    assign image_attributes = before_marker | append: after_marker
+    assign srcset = image_attributes | split: ' srcset="' | last | split: '"' | first
+    assign sizes = image_attributes | split: ' sizes="' | last | split: '"' | first
+  -%}
+  {%- if image_attributes contains ' srcset="' and image_attributes contains ' sizes="' -%}
+    <link rel="preload" as="image" media="(max-width: 749px)" imagesrcset="{{ srcset }}" imagesizes="{{ sizes }}" fetchpriority="high">
+  {%- endif -%}
+{%- endif -%}

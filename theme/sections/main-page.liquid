@@ -1,4 +1,6 @@
-{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'section-main-page-css' %}
+{%- endstyle -%}
 
 {%- if section.settings.show_breadcrumbs -%}
 	{{ 'component-breadcrumb.css' | asset_url | stylesheet_tag }}
@@ -101,7 +103,20 @@
   <div class="main-page-content section-responsive-padding color-{{ section.settings.content_color_scheme }} gradient">
     <div class="page-width page-width--narrow">
       <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ page.content }}
+        {%- assign guide_diagram_src = 'src="https://cdn.shopify.com/s/files/1/1071/0528/8517/files/trendsplant-size-guide-diagram.svg"' -%}
+        {%- if page.handle == 'trendsplant-size-guide-for-men-bottoms' or page.handle == 'trendsplant-size-guide-for-men-tops' or page.handle == 'trendsplant-size-guide-for-women-tops' -%}
+          {%- if page.content contains guide_diagram_src -%}
+            {%- capture guide_diagram -%}
+              {%- render 'trendsplant-size-guide-diagram' -%}
+            {%- endcapture -%}
+            {%- assign local_diagram_src = guide_diagram | strip | prepend: 'src="' | append: '"' -%}
+            {{ page.content | replace_first: guide_diagram_src, local_diagram_src }}
+          {%- else -%}
+            {{ page.content }}
+          {%- endif -%}
+        {%- else -%}
+          {{ page.content }}
+        {%- endif -%}
       </div>
     </div>
   </div>

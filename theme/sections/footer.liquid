@@ -1,9 +1,18 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
-{{ 'section-footer.css' | asset_url | stylesheet_tag }}
-{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign defer_footer_styles = false
+  if request.design_mode == false
+    case request.page_type
+      when 'index', 'product', 'collection', 'search'
+        assign defer_footer_styles = true
+    endcase
+  endif
+  render 'below-fold-stylesheet', stylesheet: 'section-footer.css', defer_styles: defer_footer_styles
+  render 'below-fold-stylesheet', stylesheet: 'component-newsletter.css', defer_styles: defer_footer_styles
+  render 'below-fold-stylesheet', stylesheet: 'component-list-menu.css', defer_styles: defer_footer_styles
+  render 'below-fold-stylesheet', stylesheet: 'component-list-payment.css', defer_styles: defer_footer_styles
+  render 'below-fold-stylesheet', stylesheet: 'component-list-social.css', defer_styles: defer_footer_styles
+-%}
 
 {%- style -%}
   .footer {
@@ -316,7 +325,7 @@
                         {%- for link in block.settings.menu.links -%}
                           <div class="footer__menu-link">
                             <a
-                              href="{{ link.url }}"
+                              href="{% render 'menu-link-url', href: link.url %}"
                               class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                             >
 															<span class="link-underline">

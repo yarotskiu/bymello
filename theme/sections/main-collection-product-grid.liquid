@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{%- comment -%}Keep this grid stylesheet in sync with component-price.css.{%- endcomment -%}
+{%- style -%}
+  {%- render 'collection-price-css' %}
+{%- endstyle -%}
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
 {% if section.settings.enable_product_variants %}
@@ -214,7 +217,15 @@
 
 <div class="section-responsive-padding gradient color-{{ section.settings.color_scheme }}">
 
-  {%- paginate collection.products by section.settings.products_per_page -%}
+  {%- liquid
+    assign products_per_page = section.settings.products_per_page
+    if collection.handle == 'living-crafts'
+      assign products_per_page = products_per_page | at_most: 18
+    elsif collection.handle == 'trendsplant'
+      assign products_per_page = products_per_page | at_most: 20
+    endif
+  -%}
+  {%- paginate collection.products by products_per_page -%}
 		{%- if section.settings.filter_type == 'vertical' -%}
 			<div class="facets-top page-width small-hide">
 				<div class="facets-top__wrapper {{ section.settings.heading_font_family }}">
@@ -358,7 +369,9 @@
 			</div>
 		{%- endif -%}
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% elsif section.settings.filter_type == 'horizontal' -%} facets-horizontal{% else %}facets-drawer{% endif %}">
-      {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+      {%- style -%}
+        {%- render 'component-facets-css' %}
+      {%- endstyle -%}
       <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
@@ -450,6 +463,12 @@
               "
             >
               {%- for product in collection.products -%}
+                {%- liquid
+                  assign prioritize_first_image = false
+                  if forloop.first
+                    assign prioritize_first_image = true
+                  endif
+                -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
@@ -478,6 +497,7 @@
                     show_vendor: section.settings.show_vendor,
                     show_rating: section.settings.show_rating,
                     lazy_load: lazy_load,
+                    prioritize_first_image: prioritize_first_image,
                     bundle_price_text: bundle_price_text,
                     show_quick_add: section.settings.enable_quick_add,
 										show_type: section.settings.show_type,

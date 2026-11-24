@@ -11,7 +11,11 @@
 				this.slider = this.querySelector('.swiper');
       }
 
-      connectedCallback() {
+      async connectedCallback() {
+        if (this.slider && window.loadCollectionSwiper) {
+          const ready = await window.loadCollectionSwiper().then(() => true, () => false);
+          if (!ready || !this.isConnected) return;
+        }
         this.initSwiper();
         this.setupExternalNavigation();
       }

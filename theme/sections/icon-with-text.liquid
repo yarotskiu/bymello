@@ -1,6 +1,14 @@
 {{ 'section-icon-with-text.css' | asset_url | stylesheet_tag }}
 {{ 'swiper.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign mobile_columns = section.settings.slides_per_view | at_most: section.blocks.size | at_least: 1
+  assign tablet_columns = mobile_columns | plus: section.settings.columns_desktop | divided_by: 2.0
+  if tablet_columns > section.blocks.size
+    assign tablet_columns = mobile_columns
+  endif
+-%}
+
 {%- style -%}
   #shopify-section-{{ section.id }} {
 		--padding-top: {{ section.settings.padding_top }}px;
@@ -9,6 +17,9 @@
 		--padding-bottom-mb: {{ section.settings.padding_bottom_mb }}px;
 
 		--swiper-autoplay-delay: {{ section.settings.change_slides_speed }}s;
+    --icon-text-mobile-slides: {{ mobile_columns }};
+    --icon-text-tablet-slides: {{ tablet_columns }};
+    --icon-text-slide-gap: {{ settings.spacing_grid_horizontal_mb }}px;
 	}
 {%- endstyle -%}
 
@@ -131,7 +142,11 @@
 			</div>
 		</div>
 		<div class="icon-with-text__swiper-controls swiper-controls large-up-hide">
-			<div class="swiper-pagination icon-with-text__swiper-pagination"></div>
+			<div class="swiper-pagination icon-with-text__swiper-pagination">
+        {%- if section.blocks.size > mobile_columns -%}
+          <span class="icon-with-text__pagination-placeholder{% if section.blocks.size <= tablet_columns %} icon-with-text__pagination-placeholder--phone{% endif %}" aria-hidden="true"></span>
+        {%- endif -%}
+      </div>
 		</div>
   </div>
 </icon-with-text>

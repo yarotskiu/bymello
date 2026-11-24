@@ -18,7 +18,7 @@
 			class="header__menu-item list-menu__item link focus-inset"
 		>
 			<a
-				href="{{ link.url }}"
+				href="{% render 'menu-link-url', href: link.url %}"
 				class="mega-menu__summary-link{% if link.child_active %} header__active-menu-item{% endif %}"
 			>
 				{{- link.title | escape -}}
@@ -51,7 +51,7 @@
 								<li>
 									<a
 										id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-										href="{{ childlink.url }}"
+										href="{% render 'menu-link-url', href: childlink.url %}"
 										class="h5 mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
 										{% if childlink.current %}
 											aria-current="page"
@@ -79,7 +79,7 @@
 												<li>
 													<a
 														id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-														href="{{ grandchildlink.url }}"
+														href="{% render 'menu-link-url', href: grandchildlink.url %}"
 														class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %} mega-menu__link--level-3"
 														{% if grandchildlink.current %}
 															aria-current="page"

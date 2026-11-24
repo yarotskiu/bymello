@@ -162,3 +162,18 @@ html body #shopify-pc__prefs__header-save:focus-visible {
     margin: 0;
   }
 }
+
+/* Mobile: Decline left, Accept right (under the right thumb); same size and style */
+@media screen and (max-width: 749px) {
+  #shopify-pc__banner .shopify-pc__banner__btn-decline {
+    order: 1;
+  }
+
+  #shopify-pc__banner .shopify-pc__banner__btn-accept {
+    order: 2;
+  }
+
+  #shopify-pc__banner .shopify-pc__banner__btn-manage-prefs {
+    order: 3;
+  }
+}

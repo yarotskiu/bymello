@@ -1,0 +1,22 @@
+<script>
+  (() => {
+    let pending;
+    window.loadCollectionSwiper = () => {
+      if (pending) return pending;
+
+      const script = document.createElement('script');
+      script.src = {{ 'swiper-bundle.min.js' | asset_url | json }};
+
+      pending = new Promise((resolve, reject) => {
+        script.addEventListener('load', resolve, {once: true});
+        script.addEventListener('error', error => {
+          script.remove();
+          pending = undefined;
+          reject(error);
+        }, {once: true});
+        document.head.append(script);
+      });
+      return pending;
+    };
+  })();
+</script>

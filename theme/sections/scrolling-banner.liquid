@@ -1,4 +1,8 @@
-{{ 'section-scrolling-banner.css' | asset_url | stylesheet_tag: preload: true }}
+{%- assign defer_styles = false -%}
+{%- if request.page_type == 'index' and section.location == 'template' and section.index > 1 and request.design_mode == false -%}
+  {%- assign defer_styles = true -%}
+{%- endif -%}
+{% render 'below-fold-stylesheet', stylesheet: 'section-scrolling-banner.css', defer_styles: defer_styles, preload_styles: true %}
 
 {%- style -%}
   #shopify-section-{{ section.id }} {
@@ -15,6 +19,7 @@
 
 <div class="section-responsive-padding scroller-wrapper color-{{ section.settings.color_scheme }} gradient">
 	<marquee-text
+    data-gsap-url="{{ 'gsap.min.js' | asset_url }}"
 		class=" scroller rolling-text"
 		data-speed="{{ section.settings.scroll_speed }}"
 		data-direction="left"
@@ -319,7 +324,6 @@
 	</marquee-text>
 </div>
 
-<script src="{{ 'gsap.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'scrolling-banner.js' | asset_url }}" type="module" defer="defer"></script>
 
 {% schema %}

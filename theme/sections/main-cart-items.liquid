@@ -74,7 +74,7 @@
 
     <div class="cart__warnings">
       <h1 class="cart__empty-text {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">{{ 'sections.cart.empty' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="button button--{{ section.settings.button_style }} button--{{ section.settings.button_outline }} button--animate-{{ settings.animations_hover_elements }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <a href="{{ routes.all_products_collection_url }}?sort_by=best-selling" class="button button--{{ section.settings.button_style }} button--{{ section.settings.button_outline }} button--animate-{{ settings.animations_hover_elements }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
 				{{ 'general.continue_shopping' | t }}
       </a>
 

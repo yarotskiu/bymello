@@ -30,8 +30,12 @@
    {% render 'card-featured-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-<link rel="stylesheet" href="{{ 'component-rating.css' | asset_url }}" media="print" onload="this.media='all'">
-{{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+{%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+  {%- render 'below-fold-stylesheet', stylesheet: 'component-rating.css', defer_styles: true -%}
+{%- endif -%}
+{%- if card_product.quantity_price_breaks_configured? -%}
+  {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- liquid
   assign ratio = 1

@@ -1,4 +1,6 @@
-{{ 'section-contact-form.css' | asset_url | stylesheet_tag: preload: true }}
+{%- style -%}
+  {%- render 'section-contact-form-css' %}
+{%- endstyle -%}
 
 {%- style -%}
   #shopify-section-{{ section.id }} {

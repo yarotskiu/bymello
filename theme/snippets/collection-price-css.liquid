@@ -1,0 +1,129 @@
+.price {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-family: var(--font-body-family);
+}
+
+.price > * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.price.price--unavailable {
+  visibility: hidden;
+}
+
+.price--end {
+  text-align: right;
+}
+
+.price .price-item {
+  display: inline-block;
+  margin: 0 .8rem 0 0;
+}
+
+.card--product .price-item {
+	line-height: 1.5;
+}
+
+.price__regular .price-item--regular,
+.price .price-item--last {
+	color: rgba(var(--color-foreground), 1);
+}
+
+.price__sale .price-item--regular {
+	color: rgba(var(--color-secondary-foreground), 1);
+}
+
+
+/* Hide empty regular price strike-through wrapper */
+.price__regular span:has(.price-item--regular:empty) {
+	display: none;
+}
+
+.price__regular .price-item--regular {
+  margin-right: 0;
+	word-break: break-word;
+}
+
+.price__sale span.is-empty {
+	display: none;
+}
+
+.price:not(.price--show-badge) .price-item--last:last-of-type {
+  margin: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .price {
+    margin-bottom: 0;
+  }
+}
+
+.price--small {
+	font-size: 1.4rem;
+}
+
+.price--large {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  letter-spacing: 0.13rem;
+}
+
+@media screen and (min-width: 750px) {
+  .price--large {
+    font-size: 1.8rem;
+  }
+}
+
+.price--sold-out .price__availability,
+.price__regular {
+  display: block;
+}
+
+.price__sale,
+.price__availability,
+.price--on-sale .price__regular,
+.price--on-sale .price__availability {
+  display: none;
+}
+
+.volume-pricing--sale-badge .price__badge-sale {
+  margin-left: 0.5rem;
+}
+
+.price--on-sale .price__sale {
+  display: initial;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.price--center {
+  display: initial;
+  justify-content: center;
+}
+
+.price--on-sale .price-item--regular {
+  text-decoration: line-through;
+}
+
+.price--on-sale.h4 .price-item--regular {
+  text-decoration: line-through;
+}
+
+@media screen  and (min-width: 750px) {
+	.price--on-sale.h4 .price-item--regular {
+		text-decoration: line-through;
+	}
+}
+
+.unit-price {
+  display: block;
+  font-size: 1.1rem;
+  letter-spacing: 0.04rem;
+  line-height: 1.2;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.7);
+}

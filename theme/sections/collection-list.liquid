@@ -1,6 +1,30 @@
-{{ 'section-collection-list.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'component-card.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag: preload: true }}
+{%- assign defer_styles = false -%}
+{%- if request.page_type == 'index' and section.location == 'template' and section.index > 1 and request.design_mode == false -%}
+  {%- assign defer_styles = true -%}
+{%- endif -%}
+{%- if template.name == 'page' and template.suffix == 'brands' -%}
+  {%- comment -%}Keep this embedded grid stylesheet in sync with section-collection-list.css.{%- endcomment -%}
+  {%- style -%}
+    {%- render 'brands-collection-list-css' %}
+  {%- endstyle -%}
+{%- else -%}
+  {% render 'below-fold-stylesheet', stylesheet: 'section-collection-list.css', defer_styles: defer_styles, preload_styles: true %}
+{%- endif -%}
+{% render 'below-fold-stylesheet', stylesheet: 'component-card.css', defer_styles: defer_styles, preload_styles: true %}
+{%- if template.name == 'page' and template.suffix == 'brands' and section.settings.swipe_on_mobile == false -%}
+  {%- style -%}
+    slider-component {
+      --desktop-margin-left-first-item: max(
+        5rem,
+        calc((100vw - var(--page-width) + 10rem - var(--grid-desktop-horizontal-spacing)) / 2)
+      );
+      position: relative;
+      display: block;
+    }
+  {%- endstyle -%}
+{%- else -%}
+  {% render 'below-fold-stylesheet', stylesheet: 'component-slider.css', defer_styles: defer_styles, preload_styles: true %}
+{%- endif -%}
 
 
 {%- style -%}
@@ -23,6 +47,9 @@
   assign show_mobile_slider = false
   if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
     assign show_mobile_slider = true
+  endif
+  if section.settings.swipe_on_mobile == false
+    assign mobile_image_columns = columns_mobile_int
   endif
 -%}
 
@@ -74,6 +101,12 @@
           >
             {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
             {%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
+            {%- liquid
+              assign prioritize_image = false
+              if forloop.first and template.name == 'page' and template.suffix == 'brands' and section.index == 2
+                assign prioritize_image = true
+              endif
+            -%}
             
             {% if section.settings.individual_card_style == 'rounded' %}
               {% render 'card-collection-rounded',
@@ -96,6 +129,8 @@
               media_aspect_ratio_mobile: section.settings.image_ratio_mobile,
               show_description: false,
               columns: columns,
+              mobile_columns: mobile_image_columns,
+              prioritize_image: prioritize_image,
 							heading_size: block.settings.custom_title_size,
                 heading_size_mobile: block.settings.custom_title_size_mobile,
                 custom_title_weight: block.settings.custom_title_weight,
@@ -113,6 +148,8 @@
               media_aspect_ratio: section.settings.image_ratio,
 							show_description: false,
               columns: columns,
+              mobile_columns: mobile_image_columns,
+              prioritize_image: prioritize_image,
               placeholder_image: placeholder_image,
               heading_size: block.settings.custom_title_size,
                 custom_title_weight: block.settings.custom_title_weight,

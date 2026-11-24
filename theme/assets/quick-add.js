@@ -28,9 +28,14 @@ if (!customElements.get('quick-add-modal')) {
 
 				const productUrl = this.validateProductUrl(opener);
 
-        fetch(productUrl)
-          .then((response) => response.text())
-          .then((responseText) => {
+        const productPage = fetch(productUrl).then(response => response.text());
+        const galleryReady = window.loadCollectionSwiper?.().then(() => true, () => false) ?? true;
+        Promise.all([productPage, galleryReady])
+          .then(([responseText, ready]) => {
+            if (!ready) {
+              window.location.assign(productUrl);
+              return;
+            }
             const responseHTML = new DOMParser().parseFromString(responseText, 'text/html');
             this.productElement = responseHTML.querySelector('section[id^="MainProduct-"]');
             this.productElement.classList.forEach((classApplied) => {

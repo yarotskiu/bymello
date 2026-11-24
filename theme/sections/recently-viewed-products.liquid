@@ -1,11 +1,15 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
-{{ 'swiper.css' | asset_url | stylesheet_tag }}
-{{ 'section-recently-viewed-products.css' | asset_url | stylesheet_tag }}
+{%- assign defer_styles = false -%}
+{%- if template.name == 'product' and template.suffix == blank and section.location == 'template' and section.index > 1 and request.design_mode == false -%}
+  {%- assign defer_styles = true -%}
+{%- endif -%}
+{% render 'below-fold-stylesheet', stylesheet: 'component-card.css', defer_styles: defer_styles %}
+{% render 'below-fold-stylesheet', stylesheet: 'component-price.css', defer_styles: defer_styles %}
+{% render 'below-fold-stylesheet', stylesheet: 'swiper.css', defer_styles: defer_styles %}
+{% render 'below-fold-stylesheet', stylesheet: 'section-recently-viewed-products.css', defer_styles: defer_styles %}
 
 {% if section.settings.enable_product_variants %}
-  {{ 'product-card-variants.css' | asset_url | stylesheet_tag }}
-  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+  {% render 'below-fold-stylesheet', stylesheet: 'product-card-variants.css', defer_styles: defer_styles %}
+  {% render 'below-fold-stylesheet', stylesheet: 'component-product-variant-picker.css', defer_styles: defer_styles %}
   <link rel="stylesheet" href="{{ 'component-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="{{ 'component-swatch-input.css' | asset_url }}" media="print" onload="this.media='all'">
 {% endif %}
@@ -27,7 +31,7 @@
 {%- endstyle -%}
 
 
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {% render 'below-fold-stylesheet', stylesheet: 'quick-add.css', defer_styles: defer_styles %}
   <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 

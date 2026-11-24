@@ -1,4 +1,10 @@
-{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{%- assign defer_styles = false -%}
+{%- if section.location == 'template' and section.index > 1 and request.design_mode == false -%}
+  {%- if request.page_type == 'index' or template.name == 'product' and template.suffix == blank -%}
+    {%- assign defer_styles = true -%}
+  {%- endif -%}
+{%- endif -%}
+{% render 'below-fold-stylesheet', stylesheet: 'component-image-with-text.css', defer_styles: defer_styles %}
 
 {%- style -%}
   #shopify-section-{{ section.id }} .image-with-text-wrapper {

@@ -183,10 +183,21 @@
       role="list"
       data-show-variants="{{ section.settings.enable_product_variants }}"
     ></ul>
-    <div class="bm-wishlist-empty" hidden>
+    <div class="bm-wishlist-empty">
       <p>{{ 'wishlist.empty' | t }}</p>
       <a href="{{ routes.root_url }}" class="button button--primary">{{ 'general.continue_shopping' | t }}</a>
     </div>
+    <script>
+      (() => {
+        const emptyMessage = document.currentScript.previousElementSibling;
+        try {
+          const saved = JSON.parse(localStorage.getItem('bm_wishlist') || '[]');
+          emptyMessage.hidden = Array.isArray(saved) && saved.some(item => item?.id);
+        } catch {
+          // Use the server-rendered empty state when storage is unavailable.
+        }
+      })();
+    </script>
   </div>
 </div>
 

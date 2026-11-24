@@ -1,7 +1,10 @@
-{{ 'section-main-search.css' | asset_url | stylesheet_tag }}
-{{ 'component-search.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'main-search-css' %}
+{%- endstyle -%}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'component-article-card-css' %}
+{%- endstyle -%}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-search.css' | asset_url | stylesheet_tag }}
 
@@ -29,7 +32,9 @@
 {% endif %}
 
 {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-  {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+  {%- style -%}
+    {%- render 'component-facets-css' %}
+  {%- endstyle -%}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
@@ -355,6 +360,10 @@
                   role="list"
 									id="search-list-id"
                 >
+                  {%- assign first_product_priority = true -%}
+                  {%- if show_inline_variant_picker_for_cards -%}
+                    {%- assign first_product_priority = false -%}
+                  {%- endif -%}
                   {%- for item in search.results -%}
                     {% assign lazy_load = false %}
                     {%- if forloop.index > 2 -%}
@@ -385,9 +394,12 @@
 														show_color_variants: show_color_variants_for_cards,
                             show_inline_variant_picker: show_inline_variant_picker_for_cards,
                             columns: section.settings.columns_desktop,
-                            lazy_load: lazy_load
-                           
+                            lazy_load: lazy_load,
+                            prioritize_first_image: first_product_priority
                           %}
+                          {%- if item.featured_media != blank -%}
+                            {%- assign first_product_priority = false -%}
+                          {%- endif -%}
                         {%- when 'article' -%}
                           {% render 'article-card',
                             article: item,

@@ -1,0 +1,7 @@
+{%- liquid
+  if href == routes.all_products_collection_url or href == '/collections/all'
+    echo routes.all_products_collection_url | append: '?sort_by=best-selling' | escape
+  else
+    echo href | escape
+  endif
+-%}

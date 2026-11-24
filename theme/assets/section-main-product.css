@@ -940,6 +940,10 @@ pickup-availability.style-short :is(.caption, .caption-large) {
   z-index: -1;
 }
 
+.product-media-modal:not([open]) {
+  display: none;
+}
+
 .product-media-modal[open] {
   visibility: visible;
   opacity: 1;

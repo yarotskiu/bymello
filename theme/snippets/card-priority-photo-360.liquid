@@ -1,0 +1,25 @@
+{%- liquid
+  if request.page_type == 'collection'
+    assign filename = image_url | split: '?' | first | split: '/' | last
+    assign revision = image_url | split: 'v=' | last | split: '&' | first
+    assign uses_betty_cover = false
+    if collection.handle == 'frontpage' or collection.handle == 'living-crafts'
+      assign uses_betty_cover = true
+    endif
+    assign uses_johanna_cover = false
+    if collection.handle == 'essentials' or collection.handle == 'all'
+      assign uses_johanna_cover = true
+    endif
+    if uses_betty_cover and filename == '1_2c85affe-ef6c-4b3d-a3e9-73b1e43f23f7.png' and revision == '1783444499'
+      render 'card-mobile-photo-betty'
+    elsif collection.handle == 'trendsplant' and filename == 'essential-sweatshirt-0-square.jpg' and revision == '1791278375'
+      render 'card-mobile-photo-trendsplant'
+    elsif uses_johanna_cover and filename == '2_ee02769a-414f-4685-93b1-10e6aff2f467.png' and revision == '1783930447'
+      render 'card-mobile-photo-johanna'
+    else
+      echo image_url
+    endif
+  else
+    echo image_url
+  endif
+-%}

@@ -1,0 +1,11 @@
+{%- liquid
+  assign filename = image_url | split: '?' | first | split: '/' | last
+  assign revision = image_url | split: 'v=' | last | split: '&' | first
+  if filename == 'LC_banner_2x-100.jpg' and revision == '1785830173'
+    render 'brands-photo-living-crafts'
+  elsif filename == 'hero_banner_1.webp' and revision == '1787205313'
+    render 'brands-photo-trendsplant'
+  else
+    echo image_url
+  endif
+-%}

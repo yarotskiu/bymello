@@ -31,7 +31,7 @@
         this.destroySwiper();
       }
 
-      initSwiper() {
+      async initSwiper() {
         if (!this.slider || window.innerWidth >= 990 || this.swiper) return;
 
         let {
@@ -46,6 +46,11 @@
         } = this.dataset;
 
         if (enableSwiperMb === 'false') return;
+
+        if (window.loadCollectionSwiper) {
+          const ready = await window.loadCollectionSwiper().then(() => true, () => false);
+          if (!ready || !this.isConnected || window.innerWidth >= 990 || this.swiper) return;
+        }
 
         slidesPerView = slidesLength < +slidesPerView ? slidesLength : +slidesPerView;
         let slidesPerViewMd = (slidesPerView + +slidesPerViewLg) / 2;

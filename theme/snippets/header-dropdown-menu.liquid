@@ -31,7 +31,7 @@
 					{%- if childlink.links == blank -%}
 						<a
 							id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-							href="{{ childlink.url }}"
+							href="{% render 'menu-link-url', href: childlink.url %}"
 							class="header__menu-item list-menu__item link link--text focus-inset caption-large fw-500 {% if childlink.current %} list-menu__item--active{% endif %}"
 							{% if childlink.current %}
 								aria-current="page"
@@ -58,7 +58,7 @@
 									<li>
 										<a
 											id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-											href="{{ grandchildlink.url }}"
+											href="{% render 'menu-link-url', href: grandchildlink.url %}"
 											class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
 											{% if grandchildlink.current %}
 												aria-current="page"

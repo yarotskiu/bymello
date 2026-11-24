@@ -1,4 +1,6 @@
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'section-image-banner-css' %}
+{%- endstyle -%}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'slideshow-banner-product-slider.css' | asset_url | stylesheet_tag }}

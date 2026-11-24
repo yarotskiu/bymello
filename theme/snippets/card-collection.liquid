@@ -7,6 +7,8 @@
    - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
    - heading_size: {String} Heading size
    - columns: {Number}
+   - mobile_columns: {Number} Grid columns below 750 px for a non-swipe collection list (optional)
+   - prioritize_image: {Boolean} Load the main above-the-fold image eagerly (optional)
    - extend_height: {Boolean} Card height extends to available container space. Default: false (optional)
    - wrapper_class: {String} Wrapper class for card (optional)
    - placeholder_image: {String} Placeholder image when collection is empty (optional)
@@ -107,6 +109,10 @@
       style="--ratio-percent: {{ ratio_percent }}%; --ratio-percent-mobile: {{ ratio_percent_mobile }}%;"
     >
       {%- if display_image -%}
+        {%- assign mobile_columns = mobile_columns | default: 1 -%}
+        {%- if mobile_columns > 1 -%}
+          {%- assign mobile_grid_spacing = mobile_columns | minus: 1 | times: settings.spacing_grid_horizontal_mb -%}
+        {%- endif -%}
         <a class="card__media"
 					{% if card_collection == blank %}
 						role="link" aria-disabled="true"
@@ -119,7 +125,14 @@
             <img
               srcset="
                 {%- if display_image.width >= 165 -%}{{ display_image | image_url: width: 165 }} 165w,{%- endif -%}
-                {%- if display_image.width >= 330 -%}{{ display_image | image_url: width: 330 }} 330w,{%- endif -%}
+                {%- if display_image.width >= 330 -%}
+                  {%- assign image_330 = display_image | image_url: width: 330 -%}
+                  {%- if template.name == 'page' and template.suffix == 'brands' -%}
+                    {%- render 'brands-photo-330', image_url: image_330 -%}
+                  {%- else -%}
+                    {{- image_330 -}}
+                  {%- endif %} 330w,
+                {%- endif -%}
                 {%- if display_image.width >= 535 -%}{{ display_image | image_url: width: 535 }} 535w,{%- endif -%}
                 {%- if display_image.width >= 750 -%}{{ display_image | image_url: width: 750 }} 750w,{%- endif -%}
                 {%- if display_image.width >= 1000 -%}{{ display_image | image_url: width: 1000 }} 1000w,{%- endif -%}
@@ -131,12 +144,16 @@
               sizes="
                 (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
                 (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
-                calc(100vw - 3rem)
+                {%- if mobile_columns > 1 -%}
+                  calc((100vw - 3rem - {{ mobile_grid_spacing }}px) / {{ mobile_columns }})
+                {%- else -%}
+                  calc(100vw - 3rem)
+                {%- endif -%}
               "
               alt="{{ display_image.alt | escape }}"
               height="{{ display_image.height }}"
               width="{{ display_image.width }}"
-              loading="lazy"
+              {% if prioritize_image %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
               class="motion-reduce"
             >
           </div>
