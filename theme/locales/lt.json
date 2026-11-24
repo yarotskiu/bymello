@@ -19,7 +19,8 @@
       "previous": "Ankstesnis puslapis",
       "home": "Pradžia",
       "next_product": "Kitas",
-      "previous_product": "Ankstesnis"
+      "previous_product": "Ankstesnis",
+      "404": "404"
     },
     "search": {
       "search": "Ieškoti",
@@ -214,7 +215,8 @@
         "title": "Kainodara pagal kiekį",
         "note": "Taikomos didmeninės kainos",
         "minimum": "{{ quantity }}+",
-        "price_at_each": "už {{ price }} vnt."
+        "price_at_each": "už {{ price }} vnt.",
+        "price_range": "{{ minimum }}–{{ maximum }}"
       },
       "pickup_availability": {
         "view_store_info": "Peržiūrėti parduotuvės informaciją",
@@ -235,7 +237,8 @@
       "newsletter_discount": {
         "prefix_html": "Arba {{ price }} už",
         "trigger": "nauji prenumeratoriai",
-        "subscribe": "Prenumeruoti"
+        "subscribe": "Prenumeruoti",
+        "suffix": "."
       },
       "share": "Bendrinti šį produktą",
       "sold_out": "Išparduota",
@@ -306,7 +309,8 @@
       }
     },
     "404": {
-      "title": "Šio puslapio neradome"
+      "title": "Šio puslapio neradome",
+      "subtext": "404"
     },
     "search": {
       "no_results": "Nerasta jokių rezultatų pagal „{{ terms }}“. Patikrinkite rašybą arba naudokite kitą žodį ar frazę.",
@@ -525,6 +529,9 @@
     "shop_policies": {
       "privacy_policy": "Privatumo politika",
       "refund_policy": "Pinigų grąžinimo politika"
+    },
+    "privacy_banner": {
+      "cookie_preferences_link": "Slapukų nustatymai"
     }
   },
   "sections": {
@@ -650,6 +657,39 @@
       "remove_all_items_confirmation": "Pašalinti visas {{ quantity }} prekes iš krepšelio?",
       "remove_all": "Pašalinti viską",
       "cancel": "Atšaukti"
+    }
+  },
+  "shopify": {
+    "filters": {
+      "availability": {
+        "value": {
+          "in_stock": "Sandėlyje",
+          "out_of_stock": "Išparduota"
+        }
+      }
+    },
+    "checkout": {
+      "shop_policies": {
+        "refund_policy": "Grąžinimo politika",
+        "privacy_policy": "Privatumo politika",
+        "terms_of_service": "Paslaugų teikimo sąlygos",
+        "shipping_policy": "Pristatymo politika",
+        "contact_information": "Kontaktinė informacija"
+      },
+      "marketing": {
+        "disclaimer": {
+          "privacy_policy": "Privatumo politika"
+        }
+      }
+    }
+  },
+  "navigation": {
+    "product_types": {
+      "underwear": "Apatiniai drabužiai",
+      "sweatshirts-hoodies": "Džemperiai ir džemperiai su gobtuvu",
+      "pants": "Kelnės",
+      "t-shirts-tops": "Marškinėliai ir palaidinės",
+      "pyjamas": "Pižama"
     }
   }
 }
