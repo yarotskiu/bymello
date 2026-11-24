@@ -88,7 +88,7 @@
           "type": "item",
           "settings": {
             "heading": "If your item arrived faulty or isn't what you ordered",
-            "text": "<p>In this case, there's no need to file a standard return — just email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> with your order number and a photo of the item. We'll prioritize your case and offer a replacement or refund.</p><p>Faulty items are covered by a <strong>2-year statutory warranty</strong> under EU law (Directive 1999/44/EC).</p>",
+            "text": "<p>In this case, there's no need to file a standard return — just email us at <a href=\"mailto:hello@bymello.eu\">hello@bymello.eu</a> with your order number and a photo of the item. We'll prioritize your case and offer a replacement or refund.</p><p>Faulty items are covered by a <strong>2-year statutory warranty</strong> under EU law (Directive (EU) 2019/771).</p>",
             "heading_color": "secondary"
           }
         },
