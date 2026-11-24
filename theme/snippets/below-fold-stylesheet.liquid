@@ -1,0 +1,8 @@
+{%- if defer_styles -%}
+  <link rel="stylesheet" href="{{ stylesheet | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ stylesheet | asset_url | stylesheet_tag }}</noscript>
+{%- elsif preload_styles -%}
+  {{ stylesheet | asset_url | stylesheet_tag: preload: true }}
+{%- else -%}
+  {{ stylesheet | asset_url | stylesheet_tag }}
+{%- endif -%}

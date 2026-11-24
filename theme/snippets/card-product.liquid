@@ -13,6 +13,7 @@
    - show_rating: {Boolean} Show the product rating. Default: false
    - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
    - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+   - prioritize_first_image: {Boolean} Load only the first slide eagerly at high priority (optional)
    - show_quick_add: {Boolean} Show the quick add button.
    - section_id: {String} The ID of the section that contains this card.
    - horizontal_class: {Boolean} Add a card--horizontal class if set to true. Default: false (optional)
@@ -28,8 +29,12 @@
    {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-<link rel="stylesheet" href="{{ 'component-rating.css' | asset_url }}" media="print" onload="this.media='all'">
-{{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+{%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+  {%- render 'below-fold-stylesheet', stylesheet: 'component-rating.css', defer_styles: true -%}
+{%- endif -%}
+{%- if card_product.quantity_price_breaks_configured? -%}
+  {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- liquid
   assign ratio = 1
@@ -134,23 +139,36 @@
               </div>
               <bm-card-slider class="bm-card-slider">
                 <div class="bm-card-slider__track">
-                  {%- for media in card_product.media -%}
-                    {%- if media.media_type == 'image' -%}
-                      <a class="bm-card-slider__slide" href="{{ card_product.url }}" tabindex="-1" aria-hidden="true">
-                        <img
-                          srcset="{%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}{%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}{%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}{%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}{{ media | image_url }} {{ media.width }}w"
-                          src="{{ media | image_url: width: 533 }}"
-                          sizes="(min-width: 990px) calc((100vw - 130px) / {{ columns }}), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / {{ mobile_columns | default: 2 }})"
-                          alt="{{ media.alt | escape }}"
-                          class="motion-reduce"
-                          loading="lazy"
-                          width="{{ media.width }}"
-                          height="{{ media.height }}"
-                          {%- if media.presentation.focal_point %}
-                          style="object-position: {{ media.presentation.focal_point.x }}% {{ media.presentation.focal_point.y }}%;"
-                          {%- endif %}>
-                      </a>
-                    {%- endif -%}
+                  {%- assign card_images = card_product.media | where: 'media_type', 'image' -%}
+                  {%- for media in card_images -%}
+                    <a class="bm-card-slider__slide" href="{{ card_product.url }}" tabindex="-1" aria-hidden="true">
+                      {%- capture card_slide_image -%}
+                      <img
+                        srcset="{%- if media.width >= 360 -%}
+                          {%- assign card_image_360 = media | image_url: width: 360 -%}
+                          {%- if prioritize_first_image and forloop.first -%}
+                            {%- render 'card-priority-photo-360', image_url: card_image_360 -%}
+                          {%- else -%}
+                            {{- card_image_360 -}}
+                          {%- endif %} 360w,
+                        {%- endif -%}{%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}{%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}{%- if media.width >= 940 -%}{{ media | image_url: width: 940 }} 940w,{%- endif -%}{{ media | image_url }} {{ media.width }}w"
+                        src="{{ media | image_url: width: 533 }}"
+                        sizes="(min-width: 990px) calc((100vw - 130px) / {{ columns }}), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / {{ mobile_columns | default: 2 }})"
+                        alt="{{ media.alt | escape }}"
+                        class="motion-reduce"
+                        {% if prioritize_first_image and forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                        width="{{ media.width }}"
+                        height="{{ media.height }}"
+                        {%- if media.presentation.focal_point %}
+                        style="object-position: {{ media.presentation.focal_point.x }}% {{ media.presentation.focal_point.y }}%;"
+                        {%- endif %}>
+                      {%- endcapture -%}
+                      {%- if forloop.first -%}
+                        {{- card_slide_image -}}
+                      {%- else -%}
+                        <noscript data-card-slide-image>{{ card_slide_image }}</noscript>
+                      {%- endif -%}
+                    </a>
                   {%- endfor -%}
                 </div>
               </bm-card-slider>

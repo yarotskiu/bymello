@@ -1,4 +1,6 @@
-{{ 'section-policy.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'section-policy-css' %}
+{%- endstyle -%}
 
 {%- style -%}
   #shopify-section-{{ section.id }} {

@@ -8,18 +8,34 @@
         this.swiper = null;
         this.slider = this.querySelector('.swiper:not(.card-product__slider)');
         this.items = this.querySelectorAll('.sticky-products__right .grid-main__item');
-        this._onResize = () => this.initSwiper();
+        this._onResize = () => this._initWhenReady();
       }
 
       connectedCallback() {
         if (!this.slider) return;
 
+        if ('IntersectionObserver' in window) {
+          this._visibilityObserver = new IntersectionObserver((entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+            this._visibilityObserver?.disconnect();
+            this._visibilityObserver = null;
+            if (this.isConnected) this._activate();
+          }, { rootMargin: '240px' });
+          this._visibilityObserver.observe(this);
+        } else {
+          this._activate();
+        }
+      }
+
+      _activate() {
         this._initWhenReady();
         window.addEventListener('resize', this._onResize);
         window.addEventListener('orientationchange', this._onResize);
       }
 
       disconnectedCallback() {
+        this._visibilityObserver?.disconnect();
+        this._visibilityObserver = null;
         window.removeEventListener('resize', this._onResize);
         window.removeEventListener('orientationchange', this._onResize);
 
@@ -30,6 +46,7 @@
       }
 
       _initWhenReady() {
+        if (!this.isConnected) return;
         if (typeof Swiper === 'undefined') {
           requestAnimationFrame(() => this._initWhenReady());
           return;

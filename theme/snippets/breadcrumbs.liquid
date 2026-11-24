@@ -61,7 +61,7 @@
           </li>
         {%- else -%}
           <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="{{ routes.root_url }}collections/all">
+            <a class="breadcrumbs__link" href="{{ routes.all_products_collection_url }}?sort_by=best-selling">
               {{- 'templates.search.products' | t -}}
             </a>
           </li>
@@ -144,24 +144,18 @@
         assign next_product = collection.next_product
 
         unless previous_product or next_product
-          assign collection_list = product.collections[0].handle
-          assign previous_product = null
-          assign next_product = null
-          assign last = collections[collection_list].products_count
-          for prod in collections[collection_list].products
-            if prod.handle == product.handle
-              assign prev = forloop.index | minus: 2
-              if prev >= 0
-                assign previous_product = collections[collection_list].products[prev].handle
-              endif
+          assign first_collection_products = product.collections.first.products
+          assign product_index = first_collection_products | find_index: 'id', product.id
 
-              assign next = forloop.index
-              if last >= next
-                assign next_product = collections[collection_list].products[next].handle
-              endif
-              break
+          if product_index != nil
+            if product_index > 0
+              assign previous_index = product_index | minus: 1
+              assign previous_product = first_collection_products[previous_index].handle
             endif
-          endfor
+
+            assign next_index = product_index | plus: 1
+            assign next_product = first_collection_products[next_index].handle
+          endif
         endunless
       -%}
 

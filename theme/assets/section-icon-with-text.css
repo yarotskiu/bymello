@@ -66,6 +66,44 @@ icon-with-text .icon-with-text__item {
 	}
 }
 
+.icon-with-text__pagination-placeholder {
+  display: none;
+}
+
+.icon-with-text__swiper-pagination:has(> .icon-with-text__pagination-placeholder) {
+  height: 1.5em;
+}
+
+.no-js .icon-with-text__swiper-pagination:has(> .icon-with-text__pagination-placeholder) {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .icon-with-text__swiper-pagination:has(> .icon-with-text__pagination-placeholder--phone) {
+    display: none;
+  }
+}
+
+/* Reserve the same row and slide widths before the mobile carousel starts. */
+@media screen and (max-width: 989px) {
+  .js .icon-with-text__swiper:not(.swiper-initialized) .icon-with-text__content {
+    --icon-text-slides: var(--icon-text-mobile-slides);
+    flex-wrap: nowrap;
+    gap: var(--icon-text-slide-gap);
+  }
+
+  .js .icon-with-text__swiper:not(.swiper-initialized) .icon-with-text__item.swiper-slide {
+    flex: 0 0 calc((100% - (var(--icon-text-slides) - 1) * var(--icon-text-slide-gap)) / var(--icon-text-slides));
+    max-width: none;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .js .icon-with-text__swiper:not(.swiper-initialized) .icon-with-text__content {
+    --icon-text-slides: var(--icon-text-tablet-slides);
+  }
+}
+
 @media screen and (min-width: 750px) {
 	.icon-with-text__title:not(:last-child) {
 		margin-bottom: var(--title-space-bottom-sm);

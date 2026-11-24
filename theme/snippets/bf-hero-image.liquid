@@ -1,0 +1,52 @@
+{%- liquid
+  if device == 'mobile'
+    assign media = '(max-width: 749px)'
+    assign sizes = '(max-width: 519px) calc((100vw - 48px) * 1.83), 760px'
+    assign widths = '720,1080,1440,1920,2300' | split: ','
+    assign image_width = 2300
+    assign image_height = 3440
+  else
+    assign media = '(width > 749px)'
+    assign sizes = '(max-width: 1047px) calc(100vw * 1.44), (max-width: 1476px) 1330px, 1872px'
+    assign widths = '800,1280,1920,2681' | split: ','
+    assign image_width = 2681
+    assign image_height = 1136
+  endif
+
+  assign asset_name = 'bf-hero-' | append: device
+  assign extension = '-chair.webp'
+  if layer == 'bg'
+    assign extension = '-bg.jpg'
+  endif
+  assign asset_url = asset_name | append: extension | asset_url
+  assign width_param = '?width='
+  if asset_url contains '?'
+    assign width_param = '&width='
+  endif
+-%}
+{%- capture candidates -%}
+  {%- for width in widths -%}
+    {%- if device == 'mobile' and layer == 'bg' and width == '1440' -%}
+      {%- capture inline_background -%}{%- render 'bf-hero-mobile-bg-inline' -%}{%- endcapture -%}
+      {{- inline_background | strip -}}
+    {%- else -%}
+      {{- asset_url | append: width_param | append: width | escape -}}
+    {%- endif %} {{ width }}w{% unless forloop.last %}, {% endunless %}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if preload -%}
+  <link rel="preload" as="image" media="{{ media }}" imagesrcset="{{ candidates }}" imagesizes="{{ sizes }}" fetchpriority="high">
+{%- else -%}
+<picture>
+  <source media="{{ media }}" srcset="{{ candidates }}" sizes="{{ sizes }}">
+  <img
+    class="bf-hero__{{ layer }}"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    alt=""
+    width="{{ image_width }}"
+    height="{{ image_height }}"
+    loading="eager"
+    {% if layer == 'bg' %}fetchpriority="high"{% endif %}
+  >
+</picture>
+{%- endif -%}

@@ -1,4 +1,6 @@
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag: preload: true }}
+{%- style -%}
+  {%- render 'section-image-banner-css' %}
+{%- endstyle -%}
 
 {% liquid
 	assign img = section.settings.image 
@@ -92,18 +94,30 @@
 							assign sizes = full_width
 						endif
 					-%}
-					{{
-						section.settings.image
-						| image_url: width: 3840
-						| image_tag:
-							width: section.settings.image.width,
-							height: image_height,
-							class: image_class,
-							sizes: sizes,
-							widths: widths,
-							fetchpriority: fetch_priority,
-							alt: section.settings.image.alt
-					}}
+					{%- capture banner_image -%}
+						{{
+							section.settings.image
+							| image_url: width: 3840
+							| image_tag:
+								width: section.settings.image.width,
+								height: image_height,
+								class: image_class,
+								sizes: sizes,
+								widths: widths,
+								fetchpriority: fetch_priority,
+								alt: section.settings.image.alt
+						}}
+					{%- endcapture -%}
+					{%- if template.name == 'page' and template.suffix == 'organic-cotton' and section.index == 1 -%}
+						{%- assign original_750 = section.settings.image | image_url: width: 750 -%}
+						{%- if original_750 contains '/organic-cotton-field-optimized.jpg?v=1786172021&' -%}
+							{%- assign original_750 = original_750 | escape -%}
+							{%- capture prepared_750 -%}{%- render 'organic-cotton-750-inline' -%}{%- endcapture -%}
+							{%- assign prepared_750 = prepared_750 | strip -%}
+							{%- assign banner_image = banner_image | replace: original_750, prepared_750 -%}
+						{%- endif -%}
+					{%- endif -%}
+					{{- banner_image -}}
 
 					{%- if section.settings.image_mobile != blank -%}
 						{%- liquid

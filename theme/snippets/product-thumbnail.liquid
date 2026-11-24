@@ -128,6 +128,7 @@
     </span>
     {%- render 'loading-spinner' -%}
     <div class="product__media media media--transparent">
+      {%- capture product_thumbnail -%}
       {{ media.preview_image | image_url: width: 1946 | image_tag:
         class: image_class,
         loading: lazy,
@@ -136,6 +137,12 @@
 				alt: media.preview_image.alt,
         widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
       }}
+      {%- endcapture -%}
+      {%- if fetch_priority == 'high' and template.name == 'product' and template.suffix == blank -%}
+        {%- render 'product-prepared-image', markup: product_thumbnail, image: media.preview_image -%}
+      {%- else -%}
+        {{ product_thumbnail }}
+      {%- endif -%}
     </div>
     <button class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
       <span class="visually-hidden">

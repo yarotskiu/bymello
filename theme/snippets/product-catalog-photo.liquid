@@ -1,0 +1,8 @@
+{%- liquid
+  assign revision_last_digit = photo_revision | slice: -1, 1 | plus: 0
+  if revision_last_digit < 5
+    render 'product-catalog-lookup-first', photo_revision: photo_revision, mode: mode
+  else
+    render 'product-catalog-lookup-second', photo_revision: photo_revision, mode: mode
+  endif
+-%}

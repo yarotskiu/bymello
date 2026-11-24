@@ -1,7 +1,11 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'component-article-card-css' %}
+{%- endstyle -%}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'section-image-banner-css' %}
+{%- endstyle -%}
 
 {%- if section.settings.show_breadcrumbs -%}
 	{{ 'component-breadcrumb.css' | asset_url | stylesheet_tag }}

@@ -46,14 +46,27 @@
   class="main-product section-responsive-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
 >
+  {%- assign uses_product_first_view = false -%}
+  {%- if template.name == 'product' and template.suffix == blank -%}
+    {%- assign uses_product_first_view = true -%}
+    {%- if product.handle == 'livingcrafts-beryl-vest' -%}
+      {%- comment -%}Keep this inline copy in sync with product-first-view.css.{%- endcomment -%}
+      {%- style -%}
+        {%- render 'beryl-product-styles' -%}
+      {%- endstyle -%}
+    {%- else -%}
+      {{ 'product-first-view.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+  {%- else -%}
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
 	<link rel="stylesheet" href="{{ 'component-accordion.css' | asset_url }}" media="print" onload="this.media='all'">
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  {% unless uses_product_first_view %}{{ 'component-price.css' | asset_url | stylesheet_tag }}{% endunless %}
+  {% unless uses_product_first_view %}{{ 'component-slider.css' | asset_url | stylesheet_tag }}{% endunless %}
 	<link rel="stylesheet" href="{{ 'component-rating.css' | asset_url }}" media="print" onload="this.media='all'">
-  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {% unless uses_product_first_view %}{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}{% endunless %}
   {% unless product.has_only_default_variant %}
-    {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+    {% unless uses_product_first_view %}{{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}{% endunless %}
 		<link rel="stylesheet" href="{{ 'component-swatch.css' | asset_url }}" media="print" onload="this.media='all'">
 		<link rel="stylesheet" href="{{ 'component-swatch-input.css' | asset_url }}" media="print" onload="this.media='all'">
   {% endunless %}

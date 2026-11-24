@@ -2568,6 +2568,22 @@ if (!customElements.get('media-gallery-slider')) {
 console.log('Elixira-4.1.0');
 
 
+// Process newly inserted cards after filtering, section rendering, or editor reloads.
+function observeAddedCardElements(selector, onAdded) {
+  const observer = new MutationObserver((records) => {
+    const elements = new Set();
+    for (const record of records) {
+      for (const node of record.addedNodes) {
+        if (node.nodeType !== Node.ELEMENT_NODE || !node.isConnected) continue;
+        if (node.matches(selector)) elements.add(node);
+        for (const element of node.querySelectorAll(selector)) elements.add(element);
+      }
+    }
+    if (elements.size > 0) onAdded(elements);
+  });
+  observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
+}
+
 /* Bymello: product-card image carousel */
 (function(){
   function wire(slider){
@@ -2577,6 +2593,24 @@ console.log('Elixira-4.1.0');
     function w(){ var s = track.querySelector('.bm-card-slider__slide'); return s ? s.getBoundingClientRect().width : track.clientWidth; }
     var card = slider.closest('.card-wrapper') || slider;
     var firstSlideImg = track.querySelector('.bm-card-slider__slide img');
+
+    function loadOtherPhotos() {
+      for (const image of track.querySelectorAll('noscript[data-card-slide-image]')) {
+        // A card parsed by a section update can already contain image nodes.
+        if (image.firstElementChild) {
+          image.replaceWith(...image.childNodes);
+          continue;
+        }
+        const photo = document.createElement('template');
+        photo.innerHTML = image.textContent;
+        image.replaceWith(photo.content);
+      }
+    }
+
+    slider.addEventListener('pointerdown', (event) => {
+      if (event.pointerType !== 'mouse') loadOtherPhotos();
+    }, { passive: true });
+    track.addEventListener('scroll', loadOtherPhotos, { once: true, passive: true });
 
     function activeSwatchAltImage(){
       if (card.querySelectorAll('.card-variant').length < 2) return null;
@@ -2588,6 +2622,7 @@ console.log('Elixira-4.1.0');
     }
 
     slider.addEventListener('mouseenter', function(){
+      loadOtherPhotos();
       var altImage = activeSwatchAltImage();
       if (altImage && firstSlideImg) {
         if (firstSlideImg.dataset.defaultSrc === undefined) {
@@ -2613,9 +2648,7 @@ console.log('Elixira-4.1.0');
   }
   function init(){ document.querySelectorAll('.bm-card-slider').forEach(wire); }
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
-  document.addEventListener('shopify:section:load', init);
-  var mo = new MutationObserver(function(){ init(); });
-  mo.observe(document.body || document.documentElement, {subtree:true, childList:true});
+  observeAddedCardElements('.bm-card-slider', (sliders) => sliders.forEach(wire));
 })();
 
 /* Bymello: featured-product card (card-featured-product.liquid) image swap on hover —
@@ -2632,9 +2665,7 @@ console.log('Elixira-4.1.0');
   }
   function init(){ document.querySelectorAll('.card-product__slider').forEach(wire); }
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
-  document.addEventListener('shopify:section:load', init);
-  var mo = new MutationObserver(function(){ init(); });
-  mo.observe(document.body || document.documentElement, {subtree:true, childList:true});
+  observeAddedCardElements('.card-product__slider', (sliders) => sliders.forEach(wire));
 })();
 
 /* Bymello: wishlist. Cards on the wishlist page are the real card-product
@@ -2645,12 +2676,12 @@ console.log('Elixira-4.1.0');
   var KEY='bm_wishlist';
   function read(){
     var a; try{ a=JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; }
-    var clean=a.filter(function(x){ return x.id; });
+    if (!Array.isArray(a)) return [];
+    var clean=a.filter(function(x){ return x?.id; });
     if(clean.length!==a.length) write(clean);
     return clean;
   }
   function write(a){ localStorage.setItem(KEY, JSON.stringify(a)); }
-  function has(id){ return read().some(function(x){return String(x.id)===String(id);}); }
   function toggle(item){
     var a=read(); var i=-1;
     a.forEach(function(x,idx){ if(String(x.id)===String(item.id)) i=idx; });
@@ -2659,12 +2690,15 @@ console.log('Elixira-4.1.0');
     return i<0;
   }
   function updateHeader(){ var n=read().length; document.querySelectorAll('[data-wishlist-count]').forEach(function(e){ e.textContent = n>9 ? '9+' : (n>0 ? n : ''); }); }
-  function markButtons(){ document.querySelectorAll('.bm-wishlist-btn').forEach(function(b){ b.classList.toggle('is-active', has(b.getAttribute('data-wl-id'))); }); }
-  function wireButtons(){ document.querySelectorAll('.bm-wishlist-btn').forEach(function(b){
+  function markButtons(buttons = document.querySelectorAll('.bm-wishlist-btn')) {
+    const ids = new Set(read().map((item) => String(item.id)));
+    buttons.forEach((button) => button.classList.toggle('is-active', ids.has(button.dataset.wlId)));
+  }
+  function wireButtons(buttons = document.querySelectorAll('.bm-wishlist-btn')) { buttons.forEach(function(b){
       if(b.__bmwl) return; b.__bmwl=true;
       b.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation();
         var item={id:b.getAttribute('data-wl-id'),handle:b.getAttribute('data-wl-handle'),url:b.getAttribute('data-wl-url'),title:b.getAttribute('data-wl-title'),price:b.getAttribute('data-wl-price'),image:b.getAttribute('data-wl-image')};
-        var added=toggle(item); b.classList.toggle('is-active', added); updateHeader(); renderPage();
+        toggle(item); markButtons(); updateHeader(); renderPage();
       });
     });
   }
@@ -2679,6 +2713,7 @@ console.log('Elixira-4.1.0');
     btn.addEventListener('click', function(e){
       e.preventDefault(); e.stopPropagation();
       toggle({id:it.id});
+      markButtons();
       updateHeader();
       renderPage();
     });
@@ -2721,15 +2756,16 @@ console.log('Elixira-4.1.0');
           relocateSizePicker(el);
           grid.appendChild(el);
         });
-        wireButtons();
-        markButtons();
       })
       .catch(function(e){ console.error('Wishlist render failed', e); });
   }
   function init(){ wireButtons(); markButtons(); updateHeader(); renderPage(); }
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
   document.addEventListener('shopify:section:load', init);
-  var mo=new MutationObserver(function(){ wireButtons(); markButtons(); }); mo.observe(document.body||document.documentElement,{subtree:true,childList:true});
+  observeAddedCardElements('.bm-wishlist-btn', (buttons) => {
+    wireButtons(buttons);
+    markButtons(buttons);
+  });
 })();
 
 /* Bymello: inline size picker on wishlist cards. Purpose-built rather than reusing the
@@ -2760,8 +2796,8 @@ console.log('Elixira-4.1.0');
     select.style.width = Math.ceil(textWidth + safetyBuffer) + 'px';
   }
   function wire(select){
-    sizePicker(select);
     if(select.__bmSize) return; select.__bmSize = true;
+    sizePicker(select);
     var wrapEl = select.parentElement;
     if(wrapEl){
       wrapEl.addEventListener('click', function(e){
@@ -2802,8 +2838,7 @@ console.log('Elixira-4.1.0');
   }
   function init(){ document.querySelectorAll('.bm-inline-size-select').forEach(wire); }
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
-  document.addEventListener('shopify:section:load', init);
-  var mo=new MutationObserver(function(){ init(); }); mo.observe(document.body||document.documentElement,{subtree:true,childList:true});
+  observeAddedCardElements('.bm-inline-size-select', (pickers) => pickers.forEach(wire));
   if(document.fonts && document.fonts.ready){
     document.fonts.ready.then(function(){
       document.querySelectorAll('.bm-inline-size-select').forEach(sizePicker);

@@ -28,21 +28,23 @@
   }
 {%- endstyle -%}
 
-{{ 'bf-hero.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  {%- render 'bf-hero-css' %}
+{%- endstyle -%}
 
 <div class="bf-hero-section color-{{ section.settings.color_scheme }} gradient">
 <div class="bf-hero-wrapper section-responsive-padding page-width {{ section.settings.container_width }}">
-  <div class="bf-hero" data-bf-hero>
+  <div class="bf-hero" data-bf-hero{% if section.index == 1 and section.location == 'template' %} data-bf-hero-first{% endif %}>
     {%- for device in devices -%}
       <div class="bf-hero__stage bf-hero__stage--{{ device }}" role="img" aria-label="{{ lines | join: ' ' | strip | escape }}">
         <div class="bf-hero__canvas">
-        <img class="bf-hero__bg" src="{{ 'bf-hero-' | append: device | append: '-bg.jpg' | asset_url }}" alt="" width="{% if device == 'desktop' %}2681{% else %}2300{% endif %}" height="{% if device == 'desktop' %}1136{% else %}3440{% endif %}" loading="eager" fetchpriority="high">
+        {% render 'bf-hero-image', device: device, layer: 'bg' %}
         <div class="bf-hero__headline" aria-hidden="true">
           {%- for line in lines -%}
             <span class="bf-hero__line" style="--i: {{ forloop.index0 }}"><span>{{ line | strip }}</span></span>
           {%- endfor -%}
         </div>
-        <img class="bf-hero__chair" src="{{ 'bf-hero-' | append: device | append: '-chair.webp' | asset_url }}" alt="" width="{% if device == 'desktop' %}2681{% else %}2300{% endif %}" height="{% if device == 'desktop' %}1136{% else %}3440{% endif %}" loading="eager">
+        {% render 'bf-hero-image', device: device, layer: 'chair' %}
         <div class="bf-hero__block">
           <span class="bf-hero__up">{{ section.settings.up_to }}</span>
           <span class="bf-hero__percent">{{ section.settings.percent }}</span>

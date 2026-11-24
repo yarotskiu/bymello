@@ -4,6 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    {%- if request.page_type == 'index' -%}
+      {%- if content_for_layout contains 'data-bf-hero-first' -%}
+        {%- render 'bf-hero-image', device: 'desktop', layer: 'bg', preload: true -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if template.name == 'product' and template.suffix == blank -%}
+      {%- comment -%}
+        Preload the primary image before content_for_header without rendering the product sections.
+        This default product template uses a single-column mobile gallery.
+      {%- endcomment -%}
+      {%- assign primary_media = product.selected_or_first_available_variant.featured_media | default: product.media.first -%}
+      {%- if primary_media.media_type == 'image' -%}
+        {%- assign primary_photo_widths = '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946' -%}
+        {%- assign primary_photo_tag = primary_media.preview_image | image_url: width: 1946 | image_tag: widths: primary_photo_widths -%}
+        {%- capture prepared_photo_name -%}
+          {%- render 'product-prepared-image', mode: 'name', image: primary_media.preview_image -%}
+        {%- endcapture -%}
+        {%- if prepared_photo_name == blank and primary_photo_tag contains ' srcset="' -%}
+          {%- assign primary_photo_srcset = primary_photo_tag | split: ' srcset="' | last | split: '"' | first -%}
+          {%- capture preload_photo_srcset -%}
+            {%- render 'product-prepared-image', markup: primary_photo_srcset, image: primary_media.preview_image -%}
+          {%- endcapture -%}
+          <link rel="preload" as="image" media="(max-width: 749px)" imagesrcset="{{ preload_photo_srcset }}" imagesizes="calc(100vw / 1 - 4rem)" fetchpriority="high">
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
 
@@ -34,19 +60,37 @@
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    {%- liquid
+      assign load_swiper_on_demand = false
+      if request.page_type == 'collection' and template.suffix == 'vendors' and request.design_mode == false
+        if collection.handle == 'trendsplant' or collection.handle == 'living-crafts'
+          unless content_for_layout contains 'swiper-wrapper'
+            assign load_swiper_on_demand = true
+          endunless
+        endif
+      endif
+    -%}
     <link
       rel="preload"
       href="{{ 'swiper-bundle.min.css' | asset_url }}"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     >
-    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'gsap.min.js' | asset_url }}" defer="defer"></script>
+    {%- if load_swiper_on_demand -%}
+      {% render 'load-collection-swiper' %}
+    {%- else -%}
+      <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
     <script src="{{ 'swiper-slider.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'newsletter-subscription.js' | asset_url }}" defer="defer"></script>
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {{ 'base.css' | asset_url | preload_tag: as: 'style' }}
+    {%- if template.name == 'product' and template.suffix == blank and product.handle != 'livingcrafts-beryl-vest' -%}
+      {{ 'product-first-view.css' | asset_url | preload_tag: as: 'style' }}
     {%- endif -%}
 
     {{ content_for_header }}

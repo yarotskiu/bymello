@@ -1,5 +1,27 @@
 'use strict';
 (function () {
+  let animationLibrary;
+
+  function loadAnimationLibrary(url) {
+    if (window.gsap && window.ScrollTrigger) return Promise.resolve();
+    if (!animationLibrary) {
+      animationLibrary = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = url;
+        script.onload = resolve;
+        script.onerror = () => {
+          script.remove();
+          reject(new Error('Marquee animation library did not load.'));
+        };
+        document.head.append(script);
+      }).catch((error) => {
+        animationLibrary = undefined;
+        throw error;
+      });
+    }
+    return animationLibrary;
+  }
+
   if (!customElements.get('marquee-text')) {
     class MarqueeText extends HTMLElement {
       constructor() {
@@ -89,13 +111,16 @@
         }
       }
 
-      init() {
-        if (!gsap) {
-          console.error('GSAP must be loaded to use this component.');
+      async init() {
+        try {
+          await loadAnimationLibrary(this.dataset.gsapUrl);
+        } catch {
           return;
         }
 
-        gsap.registerPlugin(ScrollTrigger);
+        if (!this.isConnected || !window.gsap || !window.ScrollTrigger) return;
+        const gsap = window.gsap;
+        gsap.registerPlugin(window.ScrollTrigger);
 
         // Ensure we have a valid container
         let container = this.querySelector('.rolling-text-container');

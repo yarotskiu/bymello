@@ -64,7 +64,7 @@
               >
 								{% render 'icon-close' %}
               </button>
-              <a href="{{ routes.all_products_collection_url }}" class="button button--{{ settings.cart_drawer_view_button_style | default: 'secondary' }} button--{{ settings.cart_drawer_view_button_outline | default: 'outline' }} button--animate-{{ settings.animations_hover_elements }}">
+              <a href="{{ routes.all_products_collection_url }}?sort_by=best-selling" class="button button--{{ settings.cart_drawer_view_button_style | default: 'secondary' }} button--{{ settings.cart_drawer_view_button_outline | default: 'outline' }} button--animate-{{ settings.animations_hover_elements }}">
 								{{ 'general.continue_shopping' | t }}
               </a>
 
@@ -784,7 +784,7 @@
           >
 						{{ 'sections.cart.checkout' | t }}
           </button>
-					<a href="{{ routes.all_products_collection_url }}" class="link cart-drawer__continue-link link link-with-underline">
+					<a href="{{ routes.all_products_collection_url }}?sort_by=best-selling" class="link cart-drawer__continue-link link link-with-underline">
 							{{ 'general.continue_shopping' | t }}
 					</a>
         </div>

@@ -1,0 +1,59 @@
+{%- comment -%}
+  Prepared WebP copies match the Shopify-responsive dimensions. Catalog entries
+  include the file revision, so updated store photos use fresh Shopify URLs.
+{%- endcomment -%}
+{%- liquid
+  assign base_url = image | image_url: width: 713
+  assign basename = base_url | split: '?' | first | split: '/' | last
+  assign version = base_url | split: 'v=' | last | split: '&' | first
+  assign photo_revision = basename | append: '@' | append: version
+
+  case photo_revision
+    when '2_899f0ea0-7a1c-44da-949b-ba7f0eedc6f7.png@1783494925'
+      assign prepared_name = 'mobile-product-bassy-'
+      assign inline_snippet = 'product-inline-photo-bassy'
+    when '1_0fc1ccc9-ead5-4a83-a1e2-e146dadbf7fe.png@1783494760'
+      assign prepared_name = 'mobile-product-bianca-'
+      assign inline_snippet = 'product-inline-photo-bianca'
+  endcase
+  if prepared_name == blank
+    capture catalog_photo
+      render 'product-catalog-photo', photo_revision: photo_revision, mode: mode
+    endcapture
+    assign catalog_photo = catalog_photo | strip
+    if mode == 'name'
+      echo catalog_photo
+    else
+      if catalog_photo == blank
+        capture catalog_photo
+          render 'product-prepared-asset-url', photo_revision: photo_revision
+        endcapture
+        assign catalog_photo = catalog_photo | strip | escape
+      endif
+      if catalog_photo != blank
+        assign original_url = base_url | escape
+        assign markup = markup | replace: original_url, catalog_photo
+      endif
+      echo markup
+    endif
+  elsif mode == 'name'
+    echo prepared_name
+  else
+    if prepared_name != blank
+      assign original_url = base_url | escape
+      capture inline_photo
+        if inline_snippet == 'product-inline-photo-bassy'
+          render 'product-inline-photo-bassy'
+        else
+          render 'product-inline-photo-bianca'
+        endif
+      endcapture
+      assign inline_photo = inline_photo | strip
+      assign markup = markup | replace: original_url, inline_photo
+      assign original_large = image | image_url: width: 990 | escape
+      assign prepared_large = prepared_name | append: '990.webp' | asset_url | escape
+      assign markup = markup | replace: original_large, prepared_large
+    endif
+    echo markup
+  endif
+-%}
