@@ -682,5 +682,14 @@
     "privacy_banner": {
       "cookie_preferences_link": "Cookie Preferences"
     }
+  },
+  "navigation": {
+    "product_types": {
+      "underwear": "Underwear",
+      "sweatshirts-hoodies": "Sweatshirts & Hoodies",
+      "pants": "Pants",
+      "t-shirts-tops": "T-Shirts & Tops",
+      "pyjamas": "Pyjamas"
+    }
   }
 }

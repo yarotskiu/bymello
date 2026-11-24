@@ -1,7 +1,19 @@
 {%- liquid
+  assign type_marker = 'filter.p.product_type='
+  assign menu_url = href
   if href == routes.all_products_collection_url or href == '/collections/all'
-    echo routes.all_products_collection_url | append: '?sort_by=best-selling' | escape
-  else
-    echo href | escape
+    assign menu_url = routes.all_products_collection_url | append: '?sort_by=best-selling'
+  elsif href contains type_marker
+    assign url_parts = href | split: type_marker
+    assign type_tail = url_parts.last
+    assign type_value = type_tail | split: '&' | first
+    assign type_remainder = type_tail | remove_first: type_value
+    assign type_key = type_value | replace: '+', ' ' | replace: '%26', '&' | handleize
+    assign localized_type = 'navigation.product_types.' | append: type_key | t
+    unless localized_type contains 'translation missing'
+      assign encoded_type = localized_type | replace: '&amp;', '&' | url_encode
+      assign menu_url = url_parts.first | append: type_marker | append: encoded_type | append: type_remainder
+    endunless
   endif
+  echo menu_url | escape
 -%}
