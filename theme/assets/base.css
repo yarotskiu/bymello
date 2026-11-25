@@ -5324,16 +5324,16 @@ search-form.search-modal__form {
 
 /* Bymello: fonts (Manrope everywhere) */
 :root {
-  --font-body-family: 'Manrope', sans-serif;
+  --font-body-family: 'Manrope', 'Manrope Cyrillic', sans-serif;
   --font-body-style: normal;
   --font-body-weight: 400;
   --font-body-weight-bold: 600;
-  --font-heading-family: 'Manrope', sans-serif;
+  --font-heading-family: 'Manrope', 'Manrope Cyrillic', sans-serif;
   --font-heading-style: normal;
   --font-heading-weight: 600;
 }
-body { font-family: 'Manrope', sans-serif; }
-h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 { font-family: 'Manrope', sans-serif; }
+body { font-family: 'Manrope', 'Manrope Cyrillic', sans-serif; }
+h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 { font-family: 'Manrope', 'Manrope Cyrillic', sans-serif; }
 /* even, non-shifting digits for prices and the header counters */
 .price, .price *, .cart-count-bubble { font-variant-numeric: tabular-nums; }
 

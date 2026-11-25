@@ -128,9 +128,9 @@
     %}
 
     {% style %}
-      {%- comment -%}Shopify's Manrope has no Cyrillic glyphs, so Russian text fell back to a system font with a fixed weight{%- endcomment -%}
+      {%- comment -%}Shopify's Manrope has no Cyrillic glyphs, so Russian text fell back to a system font with a fixed weight; a separate family is needed because the Latin-only Manrope faces claim the whole unicode range and would shadow a same-named Cyrillic face{%- endcomment -%}
       @font-face {
-        font-family: Manrope;
+        font-family: 'Manrope Cyrillic';
         font-style: normal;
         font-weight: 200 800;
         font-display: swap;
