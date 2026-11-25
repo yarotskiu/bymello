@@ -158,7 +158,8 @@
     "view_product": "Skatīt preci"
   },
   "wishlist": {
-    "empty": "Jūsu vēlmju saraksts ir tukšs."
+    "empty": "Jūsu vēlmju saraksts ir tukšs.",
+    "link_label": "Vēlmju saraksts"
   },
   "products": {
     "product": {

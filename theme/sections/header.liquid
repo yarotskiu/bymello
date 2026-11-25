@@ -595,7 +595,7 @@
         </a>
       {%- endif -%}
 
-      <a href="/pages/wishlist" class="header__icon header__icon--wishlist link focus-inset small-hide medium-hide" aria-label="Wishlist">
+      <a href="{{ routes.root_url | append: '/pages/wishlist' | replace: '//', '/' }}" class="header__icon header__icon--wishlist link focus-inset small-hide medium-hide" aria-label="{{ 'wishlist.link_label' | t }}">
         {% render 'icon-heart' %}
         <div class="cart-count-bubble" data-wishlist-count></div>
       </a>
