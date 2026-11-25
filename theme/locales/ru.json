@@ -668,7 +668,8 @@
     "view_product": "Просмотр товара"
   },
   "wishlist": {
-    "empty": "Ваш список избранного пуст."
+    "empty": "Ваш список избранного пуст.",
+    "link_label": "Избранное"
   },
   "customer_accounts": {
     "shop_policies": {

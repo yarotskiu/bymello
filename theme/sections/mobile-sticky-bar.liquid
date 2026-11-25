@@ -221,7 +221,7 @@
 
             {%- when 'wishlist' -%}
               <li class="grid__item" {{ block.shopify_attributes }}>
-                <a href="/pages/wishlist" class="link header__icon--wishlist" aria-label="Wishlist">
+                <a href="{{ routes.root_url | append: '/pages/wishlist' | replace: '//', '/' }}" class="link header__icon--wishlist" aria-label="{{ 'wishlist.link_label' | t }}">
                   <span class="bm-sticky-icon">
                     {% render 'icon-nav-heart' %}
                     <div class="cart-count-bubble" data-wishlist-count></div>

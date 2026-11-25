@@ -157,7 +157,8 @@
     "view_product": "Peržiūrėti prekę"
   },
   "wishlist": {
-    "empty": "Jūsų pageidavimų sąrašas tuščias."
+    "empty": "Jūsų pageidavimų sąrašas tuščias.",
+    "link_label": "Pageidavimų sąrašas"
   },
   "products": {
     "product": {

@@ -157,7 +157,8 @@
     "view_product": "View Product"
   },
   "wishlist": {
-    "empty": "Your wishlist is empty."
+    "empty": "Your wishlist is empty.",
+    "link_label": "Wishlist"
   },
   "products": {
     "product": {
