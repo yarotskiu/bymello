@@ -220,8 +220,8 @@
       "remove_wrap": "Убрать подарочную упаковку",
       "compare": "Сравнить",
       "newsletter_discount": {
-        "prefix_html": "Или {{ price }} за",
-        "trigger": "новые подписчики",
+        "prefix_html": "Или {{ price }} для",
+        "trigger": "новых подписчиков",
         "subscribe": "Подписаться",
         "suffix": "."
       },
